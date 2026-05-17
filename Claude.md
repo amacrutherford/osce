@@ -2,7 +2,27 @@
 
 ## OSCE Exam questions
 
-For all OSCE exams, this is for UK medical students prepare. For each step in the exam, give questions that the examiner could ask them, with particular focus on the medical reason behind each step in the exam, common pathologies (with their anatomical locations/causes), and commons scars and their pathologies if applicable. Ignore common steps, like asking for name and level of privacy. Ensure questions are medically correct. 
+For all OSCE exams, this is for UK medical students prepare. For each step in the exam, give questions that the examiner could ask them, with particular focus on the medical reason behind each step in the exam, common pathologies (with their anatomical locations/causes), and commons scars and their pathologies if applicable. Ignore common steps, like asking for name and level of privacy. Ensure questions are medically correct.
+
+### Sourcing
+
+Every `rationale` and `pathology` question object **must** include a `source` field citing the authoritative reference for that content. Acceptable sources (in order of preference):
+
+- NICE Clinical Guidelines — cite guideline ID and year, e.g. `"NICE CG144 (2012)"`
+- British Orthopaedic Association Standards for Trauma (BOAST) — cite guideline number and year
+- Royal College guidelines — cite the college, guideline title, and year
+- Oxford Handbook of Clinical Medicine / specialty handbooks — cite edition and chapter, e.g. `"OHCM 10th ed., Ch. 6"`
+- Major peer-reviewed consensus where no guideline exists — cite journal, author, year, e.g. `"Rockwood & Green's Fractures, 9th ed."`
+
+Format: plain-text string on the `source` field of the question object.
+
+Example:
+```ts
+{ id: 'ex-r1', type: 'rationale', text: '...', source: 'NICE CG144 (2012)' }
+{ id: 'ex-p1', type: 'pathology', text: '...', source: 'OHCM 10th ed., Ch. 6' }
+```
+
+`examiner` questions do not require a `source` field.
 
 ## 1. Think Before Coding
 

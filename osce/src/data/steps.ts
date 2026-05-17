@@ -4,6 +4,7 @@ export interface Question {
   id: string;
   type: QuestionType;
   text: string;
+  source?: string;
 }
 
 export interface ExamStep {

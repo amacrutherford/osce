@@ -92,6 +92,7 @@ export function StepView({
           <QuestionCard
             key={group.examiner.id}
             stepId={step.id}
+            stepTitle={step.title}
             groupIndex={groupIndex}
             cardNumber={idx + 1}
             group={group}

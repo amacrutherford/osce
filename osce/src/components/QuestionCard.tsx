@@ -1,9 +1,11 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { AppMode, MarkStatus } from '../hooks/useOsceStore';
 import type { QuestionGroup } from '../utils/osce';
+import { SourceModal } from './SourceModal';
 
 interface QuestionCardProps {
   stepId: string;
+  stepTitle: string;
   groupIndex: number;
   cardNumber: number;
   group: QuestionGroup;
@@ -45,6 +47,7 @@ function highlightText(text: string, searchTerm: string): ReactNode {
 
 export function QuestionCard({
   stepId,
+  stepTitle,
   groupIndex,
   cardNumber,
   group,
@@ -57,12 +60,29 @@ export function QuestionCard({
   onMark,
   searchTerm,
 }: QuestionCardProps) {
+  const [modalFor, setModalFor] = useState<'rationale' | 'pathology' | null>(null);
+
   const hasRationale = Boolean(group.rationale);
   const hasPathology = Boolean(group.pathology);
   const answerVisible = rationaleVisible || pathologyVisible;
 
+  const activeSource =
+    modalFor === 'rationale'
+      ? group.rationale?.source
+      : modalFor === 'pathology'
+        ? group.pathology?.source
+        : undefined;
+
   return (
     <article className="rounded-2xl border border-[#e5e5e4] bg-white p-5 shadow-sm">
+      {modalFor && activeSource && (
+        <SourceModal
+          source={activeSource}
+          context={`${stepTitle} — Q${cardNumber} (${modalFor})`}
+          onClose={() => setModalFor(null)}
+        />
+      )}
+
       <div className="mb-3 flex items-center justify-between">
         <p className="text-sm font-semibold uppercase tracking-wide text-[#534AB7]">Q{cardNumber}</p>
         {answerVisible && (
@@ -127,14 +147,38 @@ export function QuestionCard({
 
       {hasRationale && rationaleVisible && (
         <section className="mt-4 rounded-xl border border-[#d6efe6] border-l-4 border-l-[#5DCAA5] bg-[#f5fffb] p-4">
-          <h3 className="text-sm font-semibold text-[#1a1a1a]">Rationale</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-[#1a1a1a]">Rationale</h3>
+            {group.rationale?.source && (
+              <button
+                type="button"
+                onClick={() => setModalFor('rationale')}
+                aria-label="View source"
+                className="flex h-5 w-5 items-center justify-center rounded-full border border-[#5DCAA5] bg-white text-xs font-bold text-[#1a7a5e] hover:bg-[#d6efe6]"
+              >
+                ?
+              </button>
+            )}
+          </div>
           <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.rationale!.text, searchTerm)}</p>
         </section>
       )}
 
       {hasPathology && pathologyVisible && (
         <section className="mt-4 rounded-xl border border-[#f8d9ce] border-l-4 border-l-[#F0997B] bg-[#fff8f5] p-4">
-          <h3 className="text-sm font-semibold text-[#1a1a1a]">Pathology</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-[#1a1a1a]">Pathology</h3>
+            {group.pathology?.source && (
+              <button
+                type="button"
+                onClick={() => setModalFor('pathology')}
+                aria-label="View source"
+                className="flex h-5 w-5 items-center justify-center rounded-full border border-[#F0997B] bg-white text-xs font-bold text-[#a04a1e] hover:bg-[#f8d9ce]"
+              >
+                ?
+              </button>
+            )}
+          </div>
           <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.pathology!.text, searchTerm)}</p>
         </section>
       )}
