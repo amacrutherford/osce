@@ -11,7 +11,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
         type="text"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        placeholder="Find questions, anatomy, or pathology"
+        placeholder="Questions, anatomy, or pathology"
         className="w-full border-none bg-transparent text-sm text-[#1a1a1a] outline-none placeholder:text-[#6b6b6b]"
         aria-label="Search all questions by keyword"
       />

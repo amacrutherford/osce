@@ -6,6 +6,15 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Inspection',
     subtitle: 'Patient standing, arms exposed and hanging by sides',
+    description: 'Inspect both elbows from the front, back, and sides with the arms hanging naturally, assessing carrying angle, swelling, skin changes, deformity, and scars.',
+    checklist: [
+      'Expose both arms and compare sides throughout',
+      'Assess the carrying angle with elbows extended and forearms supinated (normal 5–15° valgus in males, 10–25° in females)',
+      'Look for cubitus valgus (lateral condyle fracture sequela) or cubitus varus (gunstock deformity from supracondylar fracture)',
+      'Inspect for swelling: olecranon bursa posteriorly; joint effusion in the triangle between radial head, lateral epicondyle, and olecranon',
+      'Look for skin changes: rheumatoid nodules, psoriatic plaques, gouty tophi',
+      'Identify scars: lateral (radial head excision), medial (ulnar nerve transposition), posterior (olecranon ORIF)',
+    ],
     questions: [
       {
         id: 'el-ins-q1',
@@ -15,7 +24,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-ins-r1',
         type: 'rationale',
-        text: 'Inspect from front, back, and sides. Look for: skin changes (rheumatoid nodules, psoriatic plaques, gouty tophi), swelling (olecranon bursa posteriorly, joint effusion in the triangle between radial head–lateral epicondyle–olecranon), muscle wasting (forearm or biceps), deformity, and scars. Compare both elbows.',
+        text: '',
+        bullets: [
+          'Inspect from front, back, and sides; compare both elbows throughout',
+          'Skin changes: rheumatoid nodules, psoriatic plaques, gouty tophi',
+          'Swelling: olecranon bursa posteriorly; joint effusion in the triangle between radial head–lateral epicondyle–olecranon',
+          'Muscle wasting (forearm or biceps), deformity, and scars',
+        ],
       },
       {
         id: 'el-ins-q2',
@@ -25,7 +40,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-ins-p2',
         type: 'pathology',
-        text: 'The carrying angle is the valgus angle between the humerus and forearm when the elbow is fully extended and supinated. Normal: 5–15° in males, 10–25° in females. Cubitus valgus (>normal) is associated with lateral condyle fractures and can cause a tardy ulnar nerve palsy decades later. Cubitus varus (reduced or reversed angle — "gunstock deformity") typically results from a malunited supracondylar fracture in childhood.',
+        text: '',
+        bullets: [
+          'The carrying angle is the valgus angle between the humerus and forearm with the elbow fully extended and supinated',
+          'Normal: 5–15° in males, 10–25° in females',
+          'Cubitus valgus (>normal): associated with lateral condyle fractures; can cause tardy ulnar nerve palsy decades later',
+          'Cubitus varus (gunstock deformity): reduced or reversed angle, typically from a malunited supracondylar fracture in childhood',
+        ],
       },
     ],
   },
@@ -34,6 +55,16 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Palpation',
     subtitle: 'Systematic palpation of bony landmarks and soft tissues',
+    description: 'Systematically palpate the elbow at 90° flexion, working around the joint to localise tenderness and assess the epicondyle–olecranon triangle for disruption.',
+    checklist: [
+      'Palpate the lateral epicondyle and common extensor origin for tenderness (tennis elbow)',
+      'Palpate the radial head with passive pronation and supination to feel it rotate',
+      'Palpate the annular ligament around the radial head',
+      'Palpate the olecranon and olecranon bursa for swelling or tenderness',
+      'Palpate the medial epicondyle and common flexor–pronator origin (golfer\'s elbow)',
+      'Palpate the ulnar nerve in the cubital tunnel (posterior to medial epicondyle) for tenderness or Tinel\'s sign',
+      'Check that the two epicondyles and olecranon form an equilateral triangle at 90° flexion (disrupted in dislocation or fracture)',
+    ],
     questions: [
       {
         id: 'el-pal-q1',
@@ -43,7 +74,12 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-pal-r1',
         type: 'rationale',
-        text: 'With the elbow at 90° flexion, palpate: lateral epicondyle → common extensor origin → radial head (rotates on pronation/supination) → annular ligament → olecranon → olecranon bursa → medial epicondyle → common flexor origin → cubital tunnel (ulnar nerve). The triangle formed by the two epicondyles and olecranon should be equilateral in 90° flexion — disrupted in dislocation or fracture.',
+        text: '',
+        bullets: [
+          'With the elbow at 90° flexion, palpate: lateral epicondyle → common extensor origin → radial head (rotates on pronation/supination) → annular ligament → olecranon → olecranon bursa → medial epicondyle → common flexor origin → cubital tunnel (ulnar nerve)',
+          'The triangle formed by the two epicondyles and olecranon should be equilateral at 90° flexion',
+          'A disrupted triangle indicates dislocation or fracture',
+        ],
       },
       {
         id: 'el-pal-q2',
@@ -53,7 +89,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-pal-p2',
         type: 'pathology',
-        text: 'The ulnar nerve runs in the cubital tunnel posterior to the medial epicondyle, between the two heads of flexor carpi ulnaris. It is palpable — and often reproducibly tender — in cubital tunnel syndrome. Symptoms: paraesthesia in the little and ring fingers, weak intrinsic hand muscles (interossei, hypothenar, medial two lumbricals), positive Froment\'s paper sign, and a positive Tinel\'s sign at the cubital tunnel on percussion.',
+        text: '',
+        bullets: [
+          'The ulnar nerve runs in the cubital tunnel posterior to the medial epicondyle, between the two heads of flexor carpi ulnaris',
+          'It is palpable and often reproducibly tender in cubital tunnel syndrome',
+          'Symptoms: paraesthesia in the little and ring fingers, weak intrinsic hand muscles (interossei, hypothenar, medial two lumbricals)',
+          'Positive Froment\'s paper sign and positive Tinel\'s sign at the cubital tunnel on percussion',
+        ],
       },
     ],
   },
@@ -62,6 +104,14 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Movement',
     subtitle: 'Active and passive flexion/extension, pronation/supination',
+    description: 'Assess active then passive range of motion at the elbow, specifically checking for fixed flexion deformity and loss of full extension, which is the most sensitive sign of intra-articular pathology.',
+    checklist: [
+      'Test active elbow flexion (0–150°) and note any fixed flexion deformity',
+      'Test active elbow extension (normal 0°) and check for loss of terminal extension',
+      'Test active pronation (0–90°) and supination (0–90°) with the elbow flexed to 90°',
+      'Repeat passively, noting end-feel and crepitus',
+      'Look for the posterior fat pad sign and sail sign on X-ray if acute loss of extension after trauma',
+    ],
     questions: [
       {
         id: 'el-mov-q1',
@@ -71,7 +121,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-mov-r1',
         type: 'rationale',
-        text: 'Flexion: 0–150° (biceps/brachialis, musculocutaneous C5/6). Extension: 0° (triceps, radial nerve C7). Hyperextension to −10° in hypermobile individuals. Pronation: 0–90° (pronator teres/quadratus, median nerve C6–8). Supination: 0–90° (biceps/supinator, musculocutaneous/radial C5–6). A fixed flexion deformity is a classic early sign of elbow OA. Loss of full extension is also the most sensitive sign of an intra-articular fracture after trauma.',
+        text: '',
+        bullets: [
+          'Flexion: 0–150° (biceps/brachialis, musculocutaneous C5/6); extension: 0° (triceps, radial nerve C7); hyperextension to −10° in hypermobile individuals',
+          'Pronation: 0–90° (pronator teres/quadratus, median nerve C6–8); supination: 0–90° (biceps/supinator, musculocutaneous/radial C5–6)',
+          'A fixed flexion deformity is a classic early sign of elbow OA',
+          'Loss of full extension is the most sensitive sign of an intra-articular fracture after trauma',
+        ],
       },
       {
         id: 'el-mov-q2',
@@ -81,7 +137,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-mov-p2',
         type: 'pathology',
-        text: 'Loss of full extension after elbow trauma is highly sensitive for an occult intra-articular fracture — most commonly a radial head fracture or a non-displaced lateral condyle fracture. This is caused by a haemarthrosis filling the joint. On X-ray, look for the posterior fat pad sign (fat pad displaced posteriorly by joint fluid) — if visible, treat as fracture even if the fracture line is not directly seen. The anterior fat pad (sail sign) is also significant if elevated.',
+        text: '',
+        bullets: [
+          'Loss of full extension after elbow trauma is highly sensitive for an occult intra-articular fracture — most commonly a radial head or non-displaced lateral condyle fracture',
+          'A haemarthrosis fills the joint, displacing the fat pads',
+          'Look for the posterior fat pad sign on X-ray (posterior displacement by fluid) — if visible, treat as fracture even without a visible fracture line',
+          'An elevated anterior fat pad (sail sign) is also significant',
+        ],
       },
     ],
   },
@@ -90,6 +152,13 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Epicondylitis tests',
     subtitle: 'Tennis elbow (lateral) and golfer\'s elbow (medial)',
+    description: 'Perform resisted and passive provocation tests to confirm lateral or medial epicondylitis by reproducing pain at the respective tendon origin.',
+    checklist: [
+      'Perform Cozen\'s test for lateral epicondylitis: resist wrist extension with elbow extended and forearm pronated; pain over the lateral epicondyle = positive',
+      'Perform Mill\'s test for lateral epicondylitis: passively flex the wrist with elbow extended; pain over the lateral epicondyle = positive',
+      'Test for medial epicondylitis: resist wrist flexion and forearm pronation; pain over the medial epicondyle = positive',
+      'Assess the ulnar nerve (cubital tunnel) in all patients with medial epicondylitis: Tinel\'s sign, sensation in little and ring fingers, intrinsic hand muscle power',
+    ],
     questions: [
       {
         id: 'el-epi-q1',
@@ -99,7 +168,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-epi-p1',
         type: 'pathology',
-        text: 'Cozen\'s test: patient resists wrist extension with the elbow extended and forearm pronated — pain over the lateral epicondyle is positive. Mill\'s test: passive wrist flexion with elbow extended reproduces lateral epicondyle pain. The underlying pathology is not truly inflammatory — it is angiofibroblastic degeneration at the origin of extensor carpi radialis brevis (ECRB) from repetitive microtrauma. Affects 40–50 year olds, especially with repetitive forearm activities.',
+        text: '',
+        bullets: [
+          'Cozen\'s test: patient resists wrist extension with elbow extended and forearm pronated — pain over the lateral epicondyle is positive',
+          'Mill\'s test: passive wrist flexion with elbow extended reproduces lateral epicondyle pain',
+          'Underlying pathology is angiofibroblastic degeneration at the extensor carpi radialis brevis (ECRB) origin — not truly inflammatory',
+          'Affects 40–50 year olds, especially with repetitive forearm activities',
+        ],
       },
       {
         id: 'el-epi-q2',
@@ -109,7 +184,14 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-epi-p2',
         type: 'pathology',
-        text: 'Medial epicondylitis affects the common flexor–pronator origin (pronator teres and flexor carpi radialis most commonly). Pain is reproduced by resisted wrist flexion and forearm pronation. It is much less common than lateral epicondylitis (ratio approximately 1:7). The ulnar nerve is adjacent to the medial epicondyle — always assess for cubital tunnel syndrome concurrently (paraesthesia in little and ring fingers, intrinsic weakness). Both conditions are managed conservatively (physio, eccentric loading, NSAIDs); surgery is rarely required.',
+        text: '',
+        bullets: [
+          'Medial epicondylitis affects the common flexor–pronator origin (pronator teres and flexor carpi radialis most commonly)',
+          'Pain reproduced by resisted wrist flexion and forearm pronation',
+          'Much less common than lateral epicondylitis (ratio approximately 1:7)',
+          'The ulnar nerve is adjacent — always assess for concurrent cubital tunnel syndrome (paraesthesia in little and ring fingers, intrinsic weakness)',
+          'Both conditions are managed conservatively (physio, eccentric loading, NSAIDs); surgery is rarely required',
+        ],
       },
     ],
   },
@@ -118,6 +200,14 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'Stability and special tests',
     subtitle: 'Ligament integrity, nerve percussion, valgus stress',
+    description: 'Test the medial and lateral collateral ligaments with stress tests, and assess the ulnar nerve at the cubital tunnel to detect neuropathy from instability or entrapment.',
+    checklist: [
+      'Apply valgus stress at 30° elbow flexion to test the medial collateral ligament (unlock the olecranon); compare to the contralateral side',
+      'Apply varus stress at 30° flexion to test the lateral collateral ligament complex',
+      'Perform the milking manoeuvre (thumb-over-thumb valgus stress with forearm supinated) to stress the MCL in throwing athletes',
+      'Percuss over the cubital tunnel for Tinel\'s sign (tingling in the ulnar distribution = cubital tunnel syndrome)',
+      'Test Froment\'s sign: ask patient to grip a piece of paper between thumb and index finger; thumb IP flexion = positive (weak adductor pollicis, ulnar nerve)',
+    ],
     questions: [
       {
         id: 'el-spe-q1',
@@ -127,7 +217,13 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-spe-r1',
         type: 'rationale',
-        text: 'Apply a valgus stress with the elbow at 30° flexion (unlocks the olecranon). Pain or laxity compared to the contralateral side suggests medial collateral ligament (MCL) injury — specifically the anterior bundle. The MCL is the primary stabiliser against valgus stress. This is clinically critical in throwing athletes (e.g. cricketers, baseball pitchers) who subject the medial elbow to extreme valgus load at ball release.',
+        text: '',
+        bullets: [
+          'Apply a valgus stress with the elbow at 30° flexion (unlocks the olecranon) and compare to the contralateral side',
+          'Pain or laxity indicates medial collateral ligament (MCL) injury — specifically the anterior bundle',
+          'The MCL is the primary stabiliser against valgus stress',
+          'Clinically critical in throwing athletes (cricketers, baseball pitchers) who subject the medial elbow to extreme valgus load at ball release',
+        ],
       },
       {
         id: 'el-spe-q2',
@@ -137,7 +233,14 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-spe-p2',
         type: 'pathology',
-        text: 'Posterior dislocation is the commonest elbow dislocation, typically from a FOOSH (fall on outstretched hand) with the elbow extended. The olecranon and radial head displace posteriorly relative to the humerus. Loss of the normal equilateral epicondyle–olecranon triangle distinguishes this from a supracondylar fracture (where the triangle is preserved). Confirm with AP and lateral X-rays. Always assess for concurrent radial head fracture, coronoid fracture, and MCL injury ("terrible triad") and neurovascular status (anterior interosseous nerve, brachial artery).',
+        text: '',
+        bullets: [
+          'Posterior dislocation is the commonest elbow dislocation, typically from a FOOSH with the elbow extended',
+          'The olecranon and radial head displace posteriorly relative to the humerus',
+          'Loss of the normal equilateral epicondyle–olecranon triangle distinguishes this from a supracondylar fracture (where the triangle is preserved)',
+          'Confirm with AP and lateral X-rays; always assess for concurrent radial head fracture, coronoid fracture, and MCL injury ("terrible triad")',
+          'Assess neurovascular status: anterior interosseous nerve and brachial artery are at risk',
+        ],
       },
     ],
   },
@@ -146,6 +249,15 @@ export const elbowSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Completion',
     subtitle: 'Further examination and investigations',
+    description: 'Complete the examination by assessing adjacent joints and the cervical spine, then formulate a targeted investigation plan based on the clinical findings.',
+    checklist: [
+      'Examine the shoulder for referred glenohumeral or AC joint pathology',
+      'Examine the wrist and hand for distal radial or ulnar pathology',
+      'Perform a full neurological examination of the upper limb, including ulnar and radial nerve distributions',
+      'Assess the cervical spine for C6/C7 radiculopathy that may mimic elbow pain',
+      'State investigations: X-ray (AP + lateral), MRI for soft tissue, NCS/EMG for cubital tunnel syndrome',
+      'Summarise findings and offer a differential diagnosis',
+    ],
     questions: [
       {
         id: 'el-com-q1',
@@ -155,7 +267,12 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-com-r1',
         type: 'rationale',
-        text: '"I would examine the shoulder (referred pain from the acromioclavicular or glenohumeral joint), the wrist (distal radial or ulnar pathology), and perform a full neurological examination of the upper limb — specifically the ulnar nerve distribution (cubital tunnel) and the radial nerve (posterior interosseous neuropathy, which can mimic lateral epicondylitis). I would also check the cervical spine for C6/C7 radiculopathy."',
+        text: '',
+        bullets: [
+          'Examine the shoulder (referred pain from the acromioclavicular or glenohumeral joint) and the wrist (distal radial or ulnar pathology)',
+          'Perform a full neurological examination: ulnar nerve distribution (cubital tunnel) and radial nerve (posterior interosseous neuropathy, which can mimic lateral epicondylitis)',
+          'Check the cervical spine for C6/C7 radiculopathy',
+        ],
       },
       {
         id: 'el-com-q2',
@@ -165,7 +282,14 @@ export const elbowSteps: ExamStep[] = [
       {
         id: 'el-com-p2',
         type: 'pathology',
-        text: 'X-ray (AP + lateral): fracture, OA (joint space loss, osteophytes, loose bodies), fat pad sign. MRI: soft tissue — MCL integrity, common extensor/flexor origin, intra-articular loose bodies. USS: guided injection for epicondylitis, effusion, tendon tears. NCS/EMG: cubital tunnel syndrome (ulnar neuropathy). Urgent referral: neurovascular compromise after dislocation, open fracture, compartment syndrome (6 Ps), or signs of nerve injury not improving after reduction.',
+        text: '',
+        bullets: [
+          'X-ray (AP + lateral): fracture, OA (joint space loss, osteophytes, loose bodies), fat pad sign',
+          'MRI: MCL integrity, common extensor/flexor origin, intra-articular loose bodies',
+          'USS: guided injection for epicondylitis, effusion, tendon tears',
+          'NCS/EMG: cubital tunnel syndrome (ulnar neuropathy)',
+          'Urgent referral: neurovascular compromise after dislocation, open fracture, compartment syndrome (6 Ps), or nerve injury not improving after reduction',
+        ],
       },
     ],
   },

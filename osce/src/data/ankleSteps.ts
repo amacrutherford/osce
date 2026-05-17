@@ -6,6 +6,15 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Inspection',
     subtitle: 'Standing, walking, then non-weight-bearing',
+    description: 'Inspect the ankle and foot first weight-bearing, then non-weight-bearing and from behind, to assess arch, hindfoot alignment, forefoot deformity, swelling pattern, and skin changes.',
+    checklist: [
+      'Observe the patient walking and note any antalgic gait or offloading',
+      'Inspect weight-bearing from the front: arch height (pes planus or cavus), forefoot deformities (hallux valgus, claw or hammer toes)',
+      'Inspect from behind: hindfoot alignment (valgus or varus) and the "too many toes" sign (>2 toes visible lateral to the heel = tibialis posterior tendon dysfunction)',
+      'Inspect non-weight-bearing: swelling pattern (lateral = ATFL; medial = deltoid; diffuse = effusion or fracture), bruising, skin changes',
+      'Look for callosities, ulceration (diabetic neuropathy), or pitting oedema',
+      'Identify scars: lateral (ATFL reconstruction, peroneal tendon surgery), medial (deltoid repair, tibialis posterior surgery), posterior (Achilles repair)',
+    ],
     questions: [
       {
         id: 'an-ins-q1',
@@ -15,7 +24,12 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-ins-r1',
         type: 'rationale',
-        text: 'Inspect weight-bearing first — observe arch (pes planus/cavus), hindfoot alignment (valgus/varus), forefoot deformities (hallux valgus, claw/hammer toes). Non-weight-bearing: swelling pattern (lateral = ATFL; medial = deltoid; diffuse = effusion/fracture), bruising, skin (callosities, ulceration in diabetic neuropathy, pitting oedema), scars. From behind: check subtalar alignment; "too many toes" sign (>2 toes visible from behind) in tibialis posterior tendon dysfunction (PTTD).',
+        text: '',
+        bullets: [
+          'Weight-bearing first: arch (pes planus/cavus), hindfoot alignment (valgus/varus), forefoot deformities (hallux valgus, claw/hammer toes)',
+          'Non-weight-bearing: swelling pattern (lateral = ATFL; medial = deltoid; diffuse = effusion/fracture), bruising, skin changes (callosities, ulceration in diabetic neuropathy, pitting oedema)',
+          'From behind: subtalar alignment; "too many toes" sign (>2 toes visible lateral to the heel) suggests tibialis posterior tendon dysfunction (PTTD)',
+        ],
       },
       {
         id: 'an-ins-q2',
@@ -25,7 +39,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-ins-p2',
         type: 'pathology',
-        text: '"Too many toes" sign: standing behind the patient, normally only the little toe or the little and ring toe should be visible lateral to the heel. If more toes are visible, the forefoot has abducted, indicating tibialis posterior tendon dysfunction (PTTD) — the primary dynamic stabiliser of the medial arch. PTTD causes a progressive painful flatfoot deformity (pes planus). Associated with a positive single-heel-rise test (patient cannot rise onto tiptoe on the affected foot). Stages: I (tenosynovitis), II (flexible flatfoot), III (rigid flatfoot), IV (ankle involvement). Early stages treated conservatively; stages III/IV may require reconstruction or fusion.',
+        text: '',
+        bullets: [
+          'Normally only the little toe (or little and ring toe) should be visible lateral to the heel when standing behind the patient',
+          'More toes visible indicates forefoot abduction — caused by tibialis posterior tendon dysfunction (PTTD), the primary dynamic stabiliser of the medial arch',
+          'PTTD causes a progressive painful flatfoot deformity (pes planus); associated with a positive single-heel-rise test (cannot rise onto tiptoe on the affected foot)',
+          'Stages: I (tenosynovitis) | II (flexible flatfoot) | III (rigid flatfoot) | IV (ankle involvement); early stages: conservative; stages III/IV: reconstruction or fusion',
+        ],
       },
     ],
   },
@@ -34,6 +54,17 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Palpation',
     subtitle: 'Systematic palpation of malleoli, ligaments, tendons, base of 5th MT',
+    description: 'Systematically palpate the ankle and foot after injury, covering all fracture-prone bony points and ligament attachment sites, and apply the Ottawa rules to determine the need for X-ray.',
+    checklist: [
+      'Palpate the posterior edge and tip of the lateral malleolus for bony tenderness (Ottawa rule point)',
+      'Palpate the ATFL (anterior to the lateral malleolus) and CFL (beneath the lateral malleolus)',
+      'Palpate the base of the 5th metatarsal for peroneus brevis avulsion tenderness (Ottawa foot rule point)',
+      'Palpate the peroneal tendons along their course behind the lateral malleolus',
+      'Palpate the posterior edge and tip of the medial malleolus (Ottawa rule point)',
+      'Palpate the deltoid ligament and navicular (Ottawa foot rule point)',
+      'Palpate the Achilles tendon along its length, at the insertion, and feel for a palpable gap 2–6 cm above the insertion',
+      'Palpate the mid-shaft fibula for tenderness (Maisonneuve fracture if positive)',
+    ],
     questions: [
       {
         id: 'an-pal-q1',
@@ -43,7 +74,12 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-pal-r1',
         type: 'rationale',
-        text: 'Palpate in a logical sequence: lateral malleolus → ATFL (anterior to lateral malleolus) → CFL (beneath the lateral malleolus) → PTFL (posterior to lateral malleolus) → base of 5th metatarsal (peroneus brevis avulsion) → peroneal tendons → anterior talofibular joint → medial malleolus → deltoid ligament → navicular → sustentaculum tali → Achilles tendon (along its length and at insertion) → posterior heel. Midshaft fibula tenderness = Maisonneuve fracture (apply Ottawa rules then squeeze test).',
+        text: '',
+        bullets: [
+          'Palpate in sequence: lateral malleolus → ATFL (anterior to lateral malleolus) → CFL (beneath lateral malleolus) → PTFL (posterior) → base of 5th metatarsal (peroneus brevis avulsion) → peroneal tendons',
+          'Continue: anterior talofibular joint → medial malleolus → deltoid ligament → navicular → sustentaculum tali → Achilles tendon (along its length and at insertion) → posterior heel',
+          'Midshaft fibula tenderness = possible Maisonneuve fracture — apply Ottawa rules and perform a squeeze test',
+        ],
       },
       {
         id: 'an-pal-q2',
@@ -53,7 +89,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-pal-p2',
         type: 'pathology',
-        text: 'Ottawa rules indicate the need for X-ray in ankle injury. Ankle series: bony tenderness at the posterior edge or tip of the lateral malleolus OR medial malleolus, OR inability to weight-bear (4 steps) at time of injury or in ED. Foot series: bony tenderness over the base of the 5th metatarsal OR navicular, OR inability to weight-bear. Sensitivity ~96–99% for fracture. If negative Ottawa, X-ray can be safely omitted. If a Maisonneuve fracture is suspected (medial ankle pain + proximal fibula tenderness), X-ray the full fibula.',
+        text: '',
+        bullets: [
+          'Ottawa ankle rules: X-ray indicated if bony tenderness at the posterior edge or tip of the lateral or medial malleolus, OR inability to weight-bear (4 steps) at time of injury or in ED',
+          'Ottawa foot rules: X-ray indicated if bony tenderness over the base of the 5th metatarsal or navicular, OR inability to weight-bear',
+          'Sensitivity ~96–99% for fracture; if Ottawa rules negative, X-ray can be safely omitted',
+          'If Maisonneuve fracture suspected (medial ankle pain + proximal fibula tenderness), X-ray the full fibula',
+        ],
       },
     ],
   },
@@ -62,6 +104,15 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Movement',
     subtitle: 'Dorsiflexion, plantarflexion, inversion, eversion, subtalar',
+    description: 'Assess active and passive ankle and subtalar movement, with particular attention to dorsiflexion restriction, which may indicate Achilles tightness, anterior ankle impingement, or posterior ankle pathology.',
+    checklist: [
+      'Test active dorsiflexion (0–20°) and plantarflexion (0–50°) at the talocrural joint',
+      'Test active inversion (0–35°) and eversion (0–15°)',
+      'Assess subtalar inversion and eversion separately with the calcaneum held in neutral',
+      'Perform the Silfverskiold test: dorsiflexion with knee extended then flexed — restriction only with knee extended = isolated gastrocnemius tightness',
+      'Repeat key movements passively and note end-feel and any crepitus',
+      'Assess single heel-rise on the affected side (inability = tibialis posterior dysfunction or Achilles weakness)',
+    ],
     questions: [
       {
         id: 'an-mov-q1',
@@ -71,7 +122,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-mov-r1',
         type: 'rationale',
-        text: 'Dorsiflexion: 0–20° (talocrural joint, predominantly). Plantarflexion: 0–50°. Inversion: 0–35°. Eversion: 0–15°. Subtalar inversion/eversion assessed separately — flatten the subtalar joint by placing it in neutral (calcaneum vertical). Restricted dorsiflexion: Achilles tendon tightness (equinus deformity), anterior ankle OA (osteophyte impingement), or posterior ankle impingement. Silfverskiöld test: restricted dorsiflexion with knee extended but not flexed = gastrocnemius tightness alone (soleus contribution unaffected).',
+        text: '',
+        bullets: [
+          'Dorsiflexion: 0–20° (talocrural joint); plantarflexion: 0–50°; inversion: 0–35°; eversion: 0–15°',
+          'Subtalar inversion/eversion assessed separately with the calcaneum in neutral (vertical)',
+          'Restricted dorsiflexion: Achilles tendon tightness (equinus), anterior ankle OA (osteophyte impingement), or posterior ankle impingement',
+          'Silfverskiöld test: restricted dorsiflexion with knee extended but not flexed = isolated gastrocnemius tightness (soleus unaffected)',
+        ],
       },
     ],
   },
@@ -80,6 +137,14 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Ligament stability tests',
     subtitle: 'Anterior drawer (ATFL), talar tilt (CFL), squeeze test (syndesmosis)',
+    description: 'Stress-test the lateral ankle ligaments and the syndesmosis to grade ligament injury and identify the less common but more serious syndesmotic (high ankle) sprain.',
+    checklist: [
+      'Perform the anterior drawer test: stabilise the distal tibia, grasp the heel and draw the foot anteriorly in slight plantarflexion; positive = >5 mm translation or a clunk (ATFL rupture)',
+      'Perform the talar tilt test: invert the heel with the ankle in neutral; excessive inversion compared to the other side = CFL involvement',
+      'Perform the squeeze test: compress the fibula and tibia together at the mid-calf; pain at the ankle = syndesmotic (high ankle) sprain',
+      'Perform the external rotation stress test for the syndesmosis: externally rotate the foot with the knee at 90°; pain at the syndesmosis = positive',
+      'Compare all tests to the contralateral side and grade the injury (I = sprain, II = partial, III = complete)',
+    ],
     questions: [
       {
         id: 'an-lig-q1',
@@ -89,7 +154,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-lig-r1',
         type: 'rationale',
-        text: 'Anterior drawer: stabilise the distal tibia with one hand, grasp the heel and draw the foot anteriorly in slight plantarflexion (puts ATFL under tension). Positive: >5 mm anterior talar translation or a "clunk" compared to the contralateral side. Assesses the anterior talofibular ligament (ATFL) — the most commonly injured ankle ligament (injured in inversion plantarflexion). Grade I: sprain (intact). Grade II: partial tear. Grade III: complete rupture (positive drawer + talar tilt).',
+        text: '',
+        bullets: [
+          'Stabilise the distal tibia; grasp the heel and draw the foot anteriorly in slight plantarflexion to put the ATFL under tension',
+          'Positive: >5 mm anterior talar translation or a palpable clunk compared to the contralateral side',
+          'Assesses the ATFL — the most commonly injured ankle ligament (inversion + plantarflexion mechanism)',
+          'Grade I: sprain (intact) | Grade II: partial tear | Grade III: complete rupture (positive drawer + talar tilt)',
+        ],
       },
       {
         id: 'an-lig-q2',
@@ -99,7 +170,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-lig-p2',
         type: 'pathology',
-        text: 'Squeeze test: compress the fibula and tibia together at the mid-calf. Positive: pain at the ankle syndesmosis (distal tibiofibular joint) = syndesmotic ("high ankle") sprain. The ankle syndesmosis is stabilised by the anterior inferior tibiofibular ligament (AITFL), posterior inferior tibiofibular ligament, and interosseous membrane. Syndesmotic sprains are less common than lateral sprains but far more debilitating (longer recovery 6–12 weeks vs. 4–6 weeks). Diastasis (widening >5 mm) on the mortise X-ray view requires operative fixation (syndesmotic screw or tight-rope).',
+        text: '',
+        bullets: [
+          'Squeeze test: compress the fibula and tibia together at the mid-calf; positive = pain at the ankle syndesmosis (distal tibiofibular joint)',
+          'Indicates syndesmotic ("high ankle") sprain, stabilised by the AITFL, PITFL, and interosseous membrane',
+          'Syndesmotic sprains are less common than lateral sprains but far more debilitating (recovery 6–12 weeks vs. 4–6 weeks)',
+          'Mortise X-ray diastasis >5 mm requires operative fixation (syndesmotic screw or tight-rope)',
+        ],
       },
     ],
   },
@@ -108,6 +185,15 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'Achilles tendon assessment',
     subtitle: 'Thompson\'s test, tendinopathy, insertion check',
+    description: 'Assess the Achilles tendon for rupture using Thompson\'s test, and palpate along its length to differentiate insertional from non-insertional tendinopathy.',
+    checklist: [
+      'Position the patient prone with knee flexed to 90°',
+      'Perform Thompson\'s (Simmonds\') test: squeeze the calf bulk; normal = foot plantarflexes; positive (no plantarflexion) = complete Achilles rupture',
+      'Palpate the Achilles tendon along its length for a gap, swelling, or nodularity',
+      'Identify tenderness location: 2–6 cm above insertion (non-insertional, watershed zone) vs. at the calcaneal insertion (insertional, often with Haglund deformity)',
+      'Palpate the retrocalcaneal bursa for swelling between the Achilles insertion and the calcaneus',
+      'Assess single heel-rise (inability = functionally significant weakness or rupture)',
+    ],
     questions: [
       {
         id: 'an-ach-q1',
@@ -117,7 +203,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-ach-r1',
         type: 'rationale',
-        text: 'Thompson\'s (Simmonds\') test: patient prone, knee flexed to 90°. Squeeze the calf muscle bulk (gastrocnemius-soleus complex). Normal: foot plantarflexes. Positive (no plantarflexion) = complete Achilles tendon rupture. Look also for a palpable gap in the tendon (often 2–6 cm above the insertion where the blood supply is poorest) and the patient being unable to single heel-rise. This test is highly sensitive and specific (>95%). Acute rupture: typically felt as a "kick" or "snapping" sensation at the back of the ankle during explosive activity.',
+        text: '',
+        bullets: [
+          'Thompson\'s (Simmonds\') test: patient prone with knee flexed to 90°; squeeze the calf bulk (gastrocnemius-soleus complex)',
+          'Normal: foot plantarflexes; positive (no plantarflexion) = complete Achilles tendon rupture',
+          'Look also for a palpable gap 2–6 cm above the insertion (where blood supply is poorest) and inability to single heel-rise',
+          'Sensitivity and specificity >95%; acute rupture is typically felt as a "kick" or "snap" during explosive activity',
+        ],
       },
       {
         id: 'an-ach-q2',
@@ -127,7 +219,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-ach-p2',
         type: 'pathology',
-        text: 'Non-insertional Achilles tendinopathy (2–6 cm above the insertion — the "watershed zone" with poor vascularity): most common in runners aged 30–50; tenderness and swelling in the tendon mid-substance; treat with eccentric loading exercises (Alfredson protocol), heel raise, shockwave therapy. Insertional tendinopathy (at the calcaneal insertion, often with a Haglund deformity — prominent posterosuperior calcaneal prominence): eccentric exercises can worsen this type; treat with heel raise, reduced stretching, and surgical decompression if severe.',
+        text: '',
+        bullets: [
+          'Non-insertional tendinopathy (2–6 cm above insertion — "watershed zone" with poor vascularity): most common in runners aged 30–50; mid-substance tenderness and swelling',
+          'Treat with eccentric loading (Alfredson protocol), heel raise, and shockwave therapy',
+          'Insertional tendinopathy (at the calcaneal insertion, often with a Haglund deformity — prominent posterosuperior calcaneal prominence)',
+          'Eccentric exercises can worsen insertional type; treat with heel raise, reduced stretching, and surgical decompression if severe',
+        ],
       },
     ],
   },
@@ -136,6 +234,15 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Neurovascular assessment',
     subtitle: 'Pulses, sensation, tarsal tunnel',
+    description: 'Assess the vascular supply and peripheral nerve function of the foot, including testing for tarsal tunnel syndrome — tibial nerve compression at the medial ankle analogous to carpal tunnel syndrome.',
+    checklist: [
+      'Palpate the dorsalis pedis pulse (between EHL and EDL tendons on the dorsum of the foot)',
+      'Palpate the posterior tibial pulse (posterior to the medial malleolus)',
+      'Assess capillary refill at the toes (normal <2 seconds)',
+      'Test sensation over the dorsal first web space (deep peroneal nerve), lateral foot (sural nerve), and medial sole (medial plantar nerve)',
+      'Perform Tinel\'s over the tarsal tunnel (posterior to the medial malleolus) for tibial nerve compression',
+      'In diabetic patients, test with a 10g monofilament at standard foot sites and assess vibration sense',
+    ],
     questions: [
       {
         id: 'an-nv-q1',
@@ -145,7 +252,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-nv-r1',
         type: 'rationale',
-        text: 'Palpate the dorsalis pedis (between extensor hallucis longus and extensor digitorum longus tendons on the dorsum) and posterior tibial (posterior to the medial malleolus). Capillary refill (<2 seconds). Neurological: sensation in the dorsal web space (deep peroneal nerve — first dorsal web space), lateral foot (sural nerve), medial sole (medial plantar nerve). Tinel\'s over the tarsal tunnel (posterior to the medial malleolus) for tarsal tunnel syndrome — analogous to carpal tunnel in the foot (tibial nerve compression).',
+        text: '',
+        bullets: [
+          'Palpate: dorsalis pedis (between extensor hallucis longus and extensor digitorum longus tendons on the dorsum) and posterior tibial (posterior to the medial malleolus)',
+          'Capillary refill should be <2 seconds',
+          'Neurological: dorsal first web space (deep peroneal nerve), lateral foot (sural nerve), medial sole (medial plantar nerve)',
+          'Tinel\'s over the tarsal tunnel (posterior to the medial malleolus) tests for tarsal tunnel syndrome — tibial nerve compression analogous to carpal tunnel',
+        ],
       },
     ],
   },
@@ -154,6 +267,15 @@ export const ankleSteps: ExamStep[] = [
     stepNumber: 7,
     title: 'Completion',
     subtitle: 'Further examination and investigations',
+    description: 'Complete the ankle and foot examination by assessing proximal joints, footwear, and gait, then select investigations guided by the Ottawa rules and clinical suspicion.',
+    checklist: [
+      'Examine the knee and hip for proximal malalignment contributing to ankle and foot symptoms',
+      'Inspect footwear for uneven wear patterns indicating abnormal load distribution',
+      'Assess gait at different speeds and observe single heel-rise on each foot',
+      'Examine the contralateral ankle for comparison',
+      'State investigations: X-ray if Ottawa rules are positive; USS for Achilles and peroneal tendons; MRI for osteochondral lesions, complex ligament injury, or tarsal coalition',
+      'Summarise findings and offer a differential diagnosis to the examiner',
+    ],
     questions: [
       {
         id: 'an-com-q1',
@@ -163,7 +285,13 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-com-r1',
         type: 'rationale',
-        text: '"I would examine the knee and hip, as proximal malalignment (e.g. hip weakness causing foot hyperpronation, or tibial torsion) frequently contributes to foot and ankle symptoms. I would examine footwear for uneven wear patterns. I would assess gait at different speeds and on single-heel-rise. I would examine the contralateral ankle for comparison. In a diabetic patient, I would assess for peripheral neuropathy with a 10g monofilament and vibratory sensation."',
+        text: '',
+        bullets: [
+          'Examine the knee and hip — proximal malalignment (hip weakness causing foot hyperpronation, tibial torsion) frequently contributes to foot and ankle symptoms',
+          'Examine footwear for uneven wear patterns',
+          'Assess gait at different speeds and on single-heel-rise; examine the contralateral ankle for comparison',
+          'In a diabetic patient: assess peripheral neuropathy with a 10g monofilament and vibratory sensation',
+        ],
       },
       {
         id: 'an-com-q2',
@@ -173,7 +301,14 @@ export const ankleSteps: ExamStep[] = [
       {
         id: 'an-com-p2',
         type: 'pathology',
-        text: 'X-ray: fracture, Haglund deformity, calcification (calcific tendinopathy), OA. USS: Achilles rupture extent, partial vs. complete, tendinopathy thickness; also for peroneal tendon tears and plantar fascia thickness (>4 mm = plantar fasciitis). MRI: complex tears, osteochondral lesions of the talus (common with recurrent ankle sprains), tarsal coalition, ligament assessment. Achilles rupture management debate: functional rehabilitation in a boot (non-surgical) has equivalent re-rupture rates to open repair (~3–5%) in most patients; surgical repair preferred in young athletes due to faster return to sport and lower re-rupture risk in high-demand patients.',
+        text: '',
+        bullets: [
+          'X-ray: fracture, Haglund deformity, calcification, OA',
+          'USS: Achilles rupture extent (partial vs. complete), tendinopathy, peroneal tendon tears, plantar fascia thickness (>4 mm = plantar fasciitis)',
+          'MRI: complex tears, osteochondral lesions of the talus (common with recurrent ankle sprains), tarsal coalition, and ligament assessment',
+          'Achilles rupture: functional rehabilitation in a boot (non-surgical) has equivalent re-rupture rates to open repair (~3–5%) in most patients',
+          'Surgical repair preferred in young athletes for faster return to sport and lower re-rupture risk in high-demand patients',
+        ],
       },
     ],
   },

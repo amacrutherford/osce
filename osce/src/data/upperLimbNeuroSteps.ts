@@ -6,6 +6,16 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Inspection',
     subtitle: 'Patient seated, both arms exposed and resting in lap',
+    description: 'Inspect both upper limbs simultaneously at rest, looking for muscle wasting, fasciculations, abnormal posture, and involuntary movements that indicate the level and nature of the neurological lesion.',
+    checklist: [
+      'Inspect both arms simultaneously for asymmetry in muscle bulk',
+      'Look for focal wasting: thenar (median/T1), hypothenar (ulnar), first dorsal interosseous (ulnar/T1), deltoid (axillary/C5)',
+      'Look for fasciculations (spontaneous muscle twitching = LMN sign)',
+      'Observe resting posture: wrist drop (radial nerve), claw hand (ulnar or median nerve), or flexion contracture',
+      'Test for pronator drift: arms outstretched, palms up, eyes closed for 10 seconds; pronation and downward drift = UMN weakness',
+      'Note any tremor at rest (Parkinsonism) or postural tremor (essential tremor)',
+      'Inspect for scars, medical devices, or skin changes relevant to the neurological diagnosis',
+    ],
     questions: [
       {
         id: 'uln-ins-q1',
@@ -15,7 +25,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ins-r1',
         type: 'rationale',
-        text: 'Inspect both limbs simultaneously. Look for: muscle wasting (focal vs diffuse), fasciculations (LMN sign), abnormal posture (pronator drift, flexion contracture), involuntary movements (tremor, chorea), scars (surgery, trauma), and any medical devices.',
+        text: '',
+        bullets: [
+          'Inspect both limbs simultaneously',
+          'Look for: muscle wasting (focal vs. diffuse), fasciculations (LMN sign), abnormal posture (pronator drift, flexion contracture)',
+          'Involuntary movements (tremor, chorea), scars (surgery, trauma), and any medical devices',
+        ],
       },
       {
         id: 'uln-ins-q2',
@@ -25,7 +40,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ins-p2',
         type: 'pathology',
-        text: 'Isolated wasting of intrinsic hand muscles (first dorsal interosseous + hypothenar) with sparing of forearm muscles localises to T1 — the ulnar nerve or C8/T1 root. Consider: ulnar neuropathy at elbow or wrist, Pancoast tumour (apex lung, also causes ipsilateral Horner\'s), or cervical rib compressing the lower brachial plexus (Klumpke\'s pattern).',
+        text: '',
+        bullets: [
+          'Isolated wasting of intrinsic hand muscles (first dorsal interosseous + hypothenar) with sparing of forearm muscles localises to T1',
+          'Consider: ulnar neuropathy at the elbow or wrist, Pancoast tumour (apex lung, also causes ipsilateral Horner\'s syndrome)',
+          'Or cervical rib compressing the lower brachial plexus (Klumpke\'s pattern — C8/T1)',
+        ],
       },
       {
         id: 'uln-ins-q3',
@@ -35,7 +55,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ins-r3',
         type: 'rationale',
-        text: 'Ask the patient to hold both arms outstretched, palms up, eyes closed for 10 seconds. A positive result is pronation and downward drift of one arm. This reflects UMN weakness: the flexors and pronators are relatively spared compared to extensors and supinators in a pyramidal pattern, so the arm drifts and pronates.',
+        text: '',
+        bullets: [
+          'Ask the patient to hold both arms outstretched, palms up, eyes closed for 10 seconds',
+          'Positive: pronation and downward drift of one arm',
+          'Reflects UMN weakness — flexors and pronators are relatively spared compared to extensors and supinators in a pyramidal pattern, causing the arm to drift and pronate',
+        ],
       },
     ],
   },
@@ -44,6 +69,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Tone',
     subtitle: 'Passively move each joint at varying speeds',
+    description: 'Assess upper limb tone by passively moving each joint at varying speeds, distinguishing spasticity (velocity-dependent, UMN) from rigidity (velocity-independent, Parkinson\'s) and hypotonia (LMN or cerebellar).',
+    checklist: [
+      'Ask the patient to relax completely and distract them by asking them to move the other limb',
+      'Passively flex and extend the wrist at slow then fast speeds, feeling for resistance',
+      'Passively pronate and supinate the forearm, feeling for lead-pipe rigidity or cogwheeling',
+      'Passively flex and extend the elbow at varying speeds',
+      'Distinguish spasticity (velocity-dependent, clasp-knife release) from rigidity (uniform throughout range, velocity-independent)',
+      'Test for clonus: sharply dorsiflex the wrist and maintain pressure; sustained clonus (>5 beats) = UMN lesion',
+    ],
     questions: [
       {
         id: 'uln-tone-q1',
@@ -53,12 +87,22 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-tone-r1',
         type: 'rationale',
-        text: 'Passively flex and extend the wrist, then supinate and pronate the forearm. Vary speed. Also assess at the elbow. Ask the patient to relax and distract them (e.g. ask them to move the other limb). Tone is velocity-dependent in spasticity but not in rigidity.',
+        text: '',
+        bullets: [
+          'Passively flex and extend the wrist, then supinate and pronate the forearm; vary speed; also assess at the elbow',
+          'Ask the patient to relax and distract them (e.g. ask them to move the other limb)',
+          'Tone is velocity-dependent in spasticity but not in rigidity',
+        ],
       },
       {
         id: 'uln-tone-p1',
         type: 'pathology',
-        text: 'Spasticity (clasp-knife): velocity-dependent increase in tone — resistance suddenly gives way at a threshold. UMN lesion (stroke, MS, cord compression). Rigidity (lead-pipe): uniform resistance throughout range, velocity-independent. Cogwheeling (tremor superimposed on rigidity) = Parkinson\'s disease. Hypotonia: LMN lesion, cerebellar disease, or acute spinal shock.',
+        text: '',
+        bullets: [
+          'Spasticity (clasp-knife): velocity-dependent increase in tone — resistance suddenly gives way at a threshold; indicates UMN lesion (stroke, MS, cord compression)',
+          'Rigidity (lead-pipe): uniform resistance throughout range, velocity-independent; cogwheeling (tremor superimposed on rigidity) = Parkinson\'s disease',
+          'Hypotonia: LMN lesion, cerebellar disease, or acute spinal shock',
+        ],
       },
       {
         id: 'uln-tone-q2',
@@ -68,7 +112,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-tone-p2',
         type: 'pathology',
-        text: 'Clonus is rhythmic, involuntary muscular contractions induced by a sudden maintained stretch. In the upper limb, sharply dorsiflex the wrist and maintain pressure. Sustained clonus (>5 beats) indicates an UMN lesion. It reflects loss of supraspinal inhibition of the stretch reflex arc. Also elicit at the finger flexors (finger clonus).',
+        text: '',
+        bullets: [
+          'Clonus is rhythmic involuntary muscular contractions induced by a sudden maintained stretch',
+          'In the upper limb: sharply dorsiflex the wrist and maintain pressure',
+          'Sustained clonus (>5 beats) indicates an UMN lesion, reflecting loss of supraspinal inhibition of the stretch reflex arc',
+          'Also elicit at the finger flexors (finger clonus)',
+        ],
       },
     ],
   },
@@ -77,6 +127,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Power — proximal',
     subtitle: 'Shoulder and elbow movements, MRC grading',
+    description: 'Test proximal upper limb myotomes against resistance using the MRC grading scale, comparing both sides to identify the level and pattern of weakness.',
+    checklist: [
+      'Grade all power using the MRC scale (0–5) and always compare to the contralateral side',
+      'Test shoulder abduction (C5, axillary nerve — deltoid): resist abduction from 0°',
+      'Test elbow flexion (C5/6, musculocutaneous nerve — biceps): resist with forearm supinated',
+      'Test wrist extension (C6, radial nerve — ECRL/ECRB): resist extension with fist clenched',
+      'Test elbow extension (C7, radial nerve — triceps): arm at 90° flexion, resist extension',
+      'Test wrist flexion (C7, median/ulnar nerve): resist flexion',
+    ],
     questions: [
       {
         id: 'uln-pp-q1',
@@ -86,7 +145,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pp-r1',
         type: 'rationale',
-        text: 'MRC: 0=no contraction, 1=flicker only, 2=movement with gravity eliminated, 3=movement against gravity but not resistance, 4=against partial resistance, 5=full strength. Always compare sides. C5: shoulder abduction (deltoid, axillary nerve) and elbow flexion. C6: elbow flexion (biceps, musculocutaneous), wrist extension.',
+        text: '',
+        bullets: [
+          'MRC scale: 0 = no contraction | 1 = flicker only | 2 = movement with gravity eliminated | 3 = against gravity but not resistance | 4 = against partial resistance | 5 = full strength',
+          'Always compare sides',
+          'C5: shoulder abduction (deltoid, axillary nerve) and elbow flexion',
+          'C6: elbow flexion (biceps, musculocutaneous nerve) and wrist extension',
+        ],
       },
       {
         id: 'uln-pp-q2',
@@ -96,7 +161,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pp-p2',
         type: 'pathology',
-        text: 'Erb\'s palsy: injury to the upper brachial plexus (C5, C6 roots or upper trunk), typically from excessive lateral neck traction at birth. Loss of shoulder abductors, external rotators, elbow flexors, and supinators produces the classic posture. C7 involvement extends the wrist deficit. Recovery is often partial; MRI/NCS/EMG guides prognosis.',
+        text: '',
+        bullets: [
+          'Erb\'s palsy: injury to the upper brachial plexus (C5, C6 roots or upper trunk), typically from excessive lateral neck traction at birth',
+          'Loss of shoulder abductors, external rotators, elbow flexors, and supinators produces the classic "waiter\'s tip" posture',
+          'C7 involvement extends the deficit to wrist drop',
+          'Recovery is often partial; MRI/NCS/EMG guides prognosis',
+        ],
       },
       {
         id: 'uln-pp-q3',
@@ -106,7 +177,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pp-p3',
         type: 'pathology',
-        text: 'Elbow extension: C7, radial nerve, triceps. Test with the patient\'s arm at 90° flexion against gravity, or with arm fully extended overhead (gravity assists testing weaker patients). Weakness at C7 also affects wrist flexion and finger extension. Isolated radial nerve palsy (e.g. "Saturday night palsy" — compression in the radial groove) causes wrist drop + weakness of finger extension, with sensory loss over dorsal first web space.',
+        text: '',
+          bullets: [
+          'Elbow extension: C7, radial nerve, triceps',
+          'Test with the arm at 90° flexion against gravity, or overhead (gravity assists weaker patients)',
+          'Weakness at C7 also affects wrist flexion and finger extension',
+          'Isolated radial nerve palsy (e.g. "Saturday night palsy" — compression in the radial groove): wrist drop + weakness of finger extension, sensory loss over dorsal first web space',
+        ],
       },
     ],
   },
@@ -115,6 +192,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Power — distal',
     subtitle: 'Wrist and hand movements, T1 screening',
+    description: 'Test distal upper limb and hand myotomes, with particular focus on T1 intrinsic hand muscles which produce profound functional loss when affected.',
+    checklist: [
+      'Test finger extension (C7, posterior interosseous nerve): resist extension of the fingers at the MCP joints',
+      'Test finger flexion/grip (C8, median and ulnar nerves): patient squeezes two of your fingers',
+      'Test finger abduction (T1, ulnar nerve — dorsal interossei): spread fingers apart against resistance',
+      'Test abductor pollicis brevis (T1, median nerve): lift thumb perpendicular to the palm against resistance',
+      'Test thumb abduction and opposition separately to distinguish median from ulnar T1 deficit',
+      'Grade all power using the MRC scale and compare sides',
+    ],
     questions: [
       {
         id: 'uln-pd-q1',
@@ -124,7 +210,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pd-r1',
         type: 'rationale',
-        text: 'T1 supplies the intrinsic hand muscles (interossei and most lumbricals). Test finger abduction (dorsal interossei; "spread your fingers apart, stop me pushing them together") and thumb abduction — abductor pollicis brevis (APB), purely median nerve/T1. T1 is critical because dysfunction causes profound loss of fine motor hand function.',
+        text: '',
+        bullets: [
+          'T1 supplies the intrinsic hand muscles (interossei and most lumbricals)',
+          'Test finger abduction (dorsal interossei: "spread your fingers apart, stop me pushing them together") and thumb abduction — abductor pollicis brevis (APB), purely median nerve/T1',
+          'T1 dysfunction causes profound loss of fine motor hand function',
+        ],
       },
       {
         id: 'uln-pd-q2',
@@ -134,7 +225,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pd-p2',
         type: 'pathology',
-        text: 'Carpal tunnel syndrome: median nerve compression at the wrist. APB (abductor pollicis brevis) is a pure median nerve T1 muscle and often the first to weaken. Grip (C8, ulnar) is spared. Sensory loss is in the median distribution (thumb, index, middle, radial half of ring) — the little finger is ulnar territory. Confirm with Phalen\'s test, Tinel\'s sign, and NCS.',
+        text: '',
+        bullets: [
+          'Carpal tunnel syndrome: median nerve compression at the wrist',
+          'APB (abductor pollicis brevis) is a pure median nerve T1 muscle and is often the first to weaken',
+          'Grip (C8, ulnar) is spared; sensory loss is in the median distribution (thumb, index, middle, radial half of ring) — little finger is ulnar territory',
+          'Confirm with Phalen\'s test, Tinel\'s sign, and nerve conduction studies',
+        ],
       },
       {
         id: 'uln-pd-q3',
@@ -144,7 +241,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-pd-p3',
         type: 'pathology',
-        text: 'Claw hand: hyperextension of MCP joints + flexion of IP joints, caused by loss of intrinsic hand muscles (lumbricals/interossei). Ulnar nerve lesion: clawing worse in ring and little fingers (ulnar paradox — a more proximal lesion is less clawed as FDP is also weak). Median nerve lesion at wrist: clawing of index and middle fingers. Combined claw = both nerves or T1 root/cord.',
+        text: '',
+        bullets: [
+          'Claw hand: hyperextension of MCP joints + flexion of IP joints, caused by loss of intrinsic hand muscles (lumbricals/interossei)',
+          'Ulnar nerve lesion: clawing worse in ring and little fingers; ulnar paradox — a more proximal lesion is less clawed because FDP is also weak',
+          'Median nerve lesion at wrist: clawing of index and middle fingers',
+          'Combined claw = both nerves affected, or T1 root/cord lesion',
+        ],
       },
     ],
   },
@@ -153,6 +256,14 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'Coordination',
     subtitle: 'Finger-nose, dysdiadochokinesia, heel-shin',
+    description: 'Test cerebellar function with the finger-nose test and dysdiadochokinesia, looking for intention tremor and past-pointing that indicate ipsilateral cerebellar hemisphere disease.',
+    checklist: [
+      'Perform the finger-nose test: ask the patient to touch their nose then your moving fingertip alternately with the arm fully extended; look for intention tremor and past-pointing (dysmetria)',
+      'Test dysdiadochokinesia: ask the patient to rapidly alternate palm-up and palm-down on their thigh; irregular, slow, and uncoordinated movements = positive',
+      'Distinguish intention tremor (cerebellar — worsens on approach to target) from postural tremor (essential) and resting tremor (Parkinsonism)',
+      'Remember cerebellar signs are ipsilateral to the lesion',
+      'If coordination is impaired, ensure power is adequate — proximal weakness alone can mimic incoordination',
+    ],
     questions: [
       {
         id: 'uln-coord-q1',
@@ -162,7 +273,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-coord-r1',
         type: 'rationale',
-        text: 'Ask the patient to touch the tip of their nose then your moving fingertip alternately, with the arm fully extended. Cerebellar signs: intention tremor (worsens as target is approached), past-pointing (dysmetria). The cerebellar hemisphere coordinates ipsilateral limb movement via the corticospinal tract which crosses twice — lesions are therefore ipsilateral to signs.',
+        text: '',
+        bullets: [
+          'Ask the patient to touch the tip of their nose then your moving fingertip alternately, with the arm fully extended',
+          'Cerebellar signs: intention tremor (worsens as target is approached) and past-pointing (dysmetria)',
+          'The cerebellar hemisphere coordinates ipsilateral limb movement — cerebellar lesions cause ipsilateral signs',
+        ],
       },
       {
         id: 'uln-coord-q2',
@@ -172,7 +288,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-coord-p2',
         type: 'pathology',
-        text: 'Ask the patient to rapidly alternate palm-up and palm-down on their thigh (or clap alternating surfaces against their other palm). Dysdiadochokinesia: irregular, slow, uncoordinated alternating movements. This indicates ipsilateral cerebellar hemisphere lesion — causes include MS, stroke (PICA territory = lateral medullary syndrome), alcohol cerebellar degeneration, or a mass lesion.',
+        text: '',
+        bullets: [
+          'Ask the patient to rapidly alternate palm-up and palm-down on their thigh',
+          'Dysdiadochokinesia: irregular, slow, uncoordinated alternating movements',
+          'Indicates ipsilateral cerebellar hemisphere lesion — causes include MS, stroke (PICA territory = lateral medullary syndrome), alcohol cerebellar degeneration, or a mass lesion',
+        ],
       },
       {
         id: 'uln-coord-q3',
@@ -182,7 +303,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-coord-p3',
         type: 'pathology',
-        text: 'Intention tremor (cerebellar): absent at rest, emerges and worsens as the limb approaches a target. Postural tremor (essential tremor): present when the limb is held outstretched, absent at rest, fine and regular. Resting tremor (Parkinsonism): "pill-rolling", present at rest, reduced by voluntary movement. Essential tremor is the commonest tremor; it responds to propranolol or primidone.',
+        text: '',
+        bullets: [
+          'Intention tremor (cerebellar): absent at rest, emerges and worsens as the limb approaches a target',
+          'Postural tremor (essential tremor): present when the limb is held outstretched, absent at rest, fine and regular',
+          'Resting tremor (Parkinsonism): "pill-rolling", present at rest, reduced by voluntary movement',
+          'Essential tremor is the commonest tremor; responds to propranolol or primidone',
+        ],
       },
     ],
   },
@@ -191,6 +318,16 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Reflexes',
     subtitle: 'Biceps, brachioradialis, triceps, Hoffman\'s sign',
+    description: 'Elicit the upper limb deep tendon reflexes and Hoffman\'s sign, grading each and using reinforcement if absent, to distinguish UMN (hyperreflexia) from LMN (hyporeflexia) pathology.',
+    checklist: [
+      'Elicit the biceps reflex (C5/6): thumb on the biceps tendon, strike with the tendon hammer',
+      'Elicit the brachioradialis reflex (C5/6): tap the radial border of the forearm 5 cm above the wrist',
+      'Elicit the triceps reflex (C7): arm at 90° flexion, strike the triceps tendon above the olecranon',
+      'Use Jendrassik reinforcement (clench teeth or pull interlocked hands apart) if reflexes are absent',
+      'Grade reflexes: 0 = absent, 1 = reduced, 2 = normal, 3 = brisk, 4 = clonus',
+      'Test Hoffman\'s sign: flick the middle finger distally; flexion of thumb or index finger = positive (UMN)',
+      'Look for the inverted supinator jerk (absent brachioradialis + finger flexion) = cord lesion at C5/6',
+    ],
     questions: [
       {
         id: 'uln-ref-q1',
@@ -200,7 +337,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ref-r1',
         type: 'rationale',
-        text: 'Biceps: C5/6, musculocutaneous nerve — thumb on biceps tendon, reinforcing with the finger beneath it. Brachioradialis (supinator): C5/6, radial nerve — tap the radial border of forearm 5cm above wrist. Triceps: C7, radial nerve — arm at 90° elbow flexion, strike triceps tendon above olecranon. Reinforcement (Jendrassik): ask patient to clench teeth or pull interlocked hands apart.',
+        text: '',
+        bullets: [
+          'Biceps: C5/6, musculocutaneous nerve — thumb on biceps tendon, finger beneath it',
+          'Brachioradialis (supinator): C5/6, radial nerve — tap the radial border of the forearm 5 cm above the wrist',
+          'Triceps: C7, radial nerve — arm at 90° elbow flexion, strike triceps tendon above the olecranon',
+          'Reinforcement (Jendrassik): ask the patient to clench teeth or pull interlocked hands apart',
+        ],
       },
       {
         id: 'uln-ref-q2',
@@ -210,7 +353,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ref-p2',
         type: 'pathology',
-        text: 'When tapping the brachioradialis tendon (C5/6), the expected wrist extension and elbow flexion is absent, but instead the fingers flex. This occurs when there is a cord lesion at the C5/6 level: the local reflex arc (brachioradialis) is interrupted (absent/reduced), while the segment below (C7/8 finger flexors) is hyperreflexic due to UMN release. It is pathognomonic of a cord lesion at C5/6.',
+        text: '',
+        bullets: [
+          'When tapping the brachioradialis tendon (C5/6), the expected wrist extension and elbow flexion is absent, but the fingers flex instead',
+          'The local C5/6 reflex arc is interrupted (absent/reduced brachioradialis), while C7/8 finger flexors are hyperreflexic due to UMN release below the lesion',
+          'Pathognomonic of a cord lesion at C5/6',
+        ],
       },
       {
         id: 'uln-ref-q3',
@@ -220,7 +368,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-ref-p3',
         type: 'pathology',
-        text: 'Hold the patient\'s middle finger loosely and flick the distal phalanx downward (or flick the nail). A positive Hoffman\'s sign is reflex flexion of the thumb and/or index finger. It indicates UMN pathology — hyperreflexia from loss of supraspinal inhibition. Bilateral Hoffman\'s is more significant; unilateral may be normal in up to 3% of people.',
+        text: '',
+        bullets: [
+          'Hold the patient\'s middle finger loosely and flick the distal phalanx downward',
+          'Positive: reflex flexion of the thumb and/or index finger',
+          'Indicates UMN pathology — hyperreflexia from loss of supraspinal inhibition',
+          'Bilateral Hoffman\'s is more significant; unilateral may be normal in up to 3% of people',
+        ],
       },
     ],
   },
@@ -229,6 +383,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 7,
     title: 'Sensation',
     subtitle: 'Light touch, pin prick, vibration, proprioception',
+    description: 'Test multiple sensory modalities in each upper limb dermatome to localise the lesion: dorsal column modalities (light touch, vibration, proprioception) versus spinothalamic modalities (pin prick, temperature).',
+    checklist: [
+      'Test light touch in each dermatome C5–T1 with a wisp of cotton wool, asking the patient to say "yes" when they feel it',
+      'Test pin prick in each dermatome C5–T1 with a neurotip, distinguishing sharp from blunt',
+      'Test vibration sense with a 128 Hz tuning fork at the DIP joint of the index finger, then the wrist',
+      'Test proprioception at the distal IP joint of the index finger: hold the sides of the digit and move up or down, asking the patient (eyes closed) to identify direction',
+      'Map any sensory loss to distinguish dermatomal (root), peripheral nerve, cord (dissociated), or glove-and-stocking (length-dependent neuropathy) patterns',
+      'Remember: dorsal columns (light touch, vibration, proprioception) are ipsilateral; spinothalamic (pin prick, temperature) are contralateral',
+    ],
     questions: [
       {
         id: 'uln-sens-q1',
@@ -238,7 +401,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-sens-r1',
         type: 'rationale',
-        text: 'Light touch and vibration (128 Hz tuning fork) and joint position sense (proprioception) → dorsal columns (ipsilateral, ascend uncrossed to medulla). Pin prick and temperature → spinothalamic tract (contralateral, fibres cross within 1–2 segments of entry). Testing both allows localisation of cord vs. peripheral lesions.',
+        text: '',
+        bullets: [
+          'Light touch, vibration (128 Hz tuning fork), and proprioception → dorsal columns (ipsilateral, ascend uncrossed to the medulla)',
+          'Pin prick and temperature → spinothalamic tract (contralateral, fibres cross within 1–2 segments of entry)',
+          'Testing both modalities allows localisation of cord lesions vs. peripheral nerve lesions',
+        ],
       },
       {
         id: 'uln-sens-q2',
@@ -248,7 +416,14 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-sens-r2',
         type: 'rationale',
-        text: 'C5: lateral upper arm (deltoid "badge" area). C6: lateral forearm, thumb and index finger. C7: middle finger. C8: ring and little finger, medial forearm. T1: medial forearm, medial elbow. A practical mnemonic: "5 on the shoulder, 6 is the thumb, 7 is the middle, 8 is the little one, T1 is inside."',
+        text: '',
+        bullets: [
+          'C5: lateral upper arm (deltoid "badge" area)',
+          'C6: lateral forearm, thumb and index finger',
+          'C7: middle finger',
+          'C8: ring and little finger, medial forearm',
+          'T1: medial forearm, medial elbow',
+        ],
       },
       {
         id: 'uln-sens-q3',
@@ -258,7 +433,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-sens-p3',
         type: 'pathology',
-        text: 'Dissociated sensory loss: spinothalamic fibres cross in the anterior cord (and are vulnerable centrally), while dorsal columns ascend ipsilaterally in the posterior cord. This pattern = syringomyelia (a fluid-filled cavity expanding in the central cord). Classically affects C5-T1 producing "cape distribution" sensory loss and hand wasting. Also seen in anterior cord syndrome (flexion injury) and Brown-Séquard syndrome.',
+        text: '',
+        bullets: [
+          'Dissociated sensory loss: spinothalamic fibres cross in the anterior cord (vulnerable centrally) while dorsal columns ascend posteriorly unaffected',
+          'This pattern = syringomyelia (fluid-filled cavity expanding in the central cord)',
+          'Classically affects C5–T1 producing "cape distribution" sensory loss and hand wasting',
+          'Also seen in anterior cord syndrome (flexion injury) and Brown-Séquard syndrome',
+        ],
       },
     ],
   },
@@ -267,6 +448,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 8,
     title: 'Functional Assessment',
     subtitle: 'Demonstrate real-world hand function',
+    description: 'Assess real-world hand function to quantify the impact of neurological deficits on daily activities, as formal MRC grading alone does not reflect functional impairment.',
+    checklist: [
+      'Ask the patient to pick up a small coin from a flat surface (key pinch — tests C8/T1 and median nerve)',
+      'Ask the patient to button and unbutton a shirt button (fine motor — T1 intrinsic muscles)',
+      'Ask the patient to write their name (pen grip — tests intrinsic coordination)',
+      'Ask the patient to open a jar or hold a cup (grip strength — C8, ulnar and radial nerves)',
+      'Test the OK sign: form a circle with the index finger and thumb tips; pad-to-pad pinch instead = AIN palsy (FPL + lateral FDP weakness)',
+      'Document any tasks the patient finds difficult in their daily life',
+    ],
     questions: [
       {
         id: 'uln-func-q1',
@@ -276,7 +466,12 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-func-r1',
         type: 'rationale',
-        text: 'Power graded 4/5 may still cause significant functional impairment, particularly in fine motor tasks. Functional tests reveal this gap. Ask the patient to: pick up a small coin (key pinch — tests C8/T1 and median nerve), button a shirt (fine motor — T1), write their name (pen grip), and open a jar or hold a cup (grip strength — C8, ulnar/radial).',
+        text: '',
+        bullets: [
+          'Power graded 4/5 may still cause significant functional impairment, particularly in fine motor tasks',
+          'Ask the patient to: pick up a small coin (key pinch — tests C8/T1 and median nerve), button a shirt (fine motor — T1), write their name (pen grip)',
+          'Also test opening a jar or holding a cup (grip strength — C8, ulnar/radial)',
+        ],
       },
       {
         id: 'uln-func-q2',
@@ -286,7 +481,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-func-p2',
         type: 'pathology',
-        text: 'Ask the patient to form an "OK" circle by opposing the tips of the index finger and thumb. Failure — the patient instead pinches the pads (not tips) — indicates anterior interosseous nerve (AIN) palsy, a branch of the median nerve in the forearm. AIN supplies flexor pollicis longus and the lateral half of FDP. There is no sensory loss. Causes: compression, entrapment, Parsonage-Turner syndrome.',
+        text: '',
+        bullets: [
+          'Ask the patient to form an "OK" circle by opposing the tips of the index finger and thumb',
+          'Failure — the patient pinches the pads rather than the tips — indicates anterior interosseous nerve (AIN) palsy',
+          'AIN is a branch of the median nerve in the forearm supplying flexor pollicis longus and the lateral half of FDP',
+          'No sensory loss; causes include compression, entrapment, or Parsonage-Turner syndrome',
+        ],
       },
     ],
   },
@@ -295,6 +496,15 @@ export const upperLimbNeuroSteps: ExamStep[] = [
     stepNumber: 9,
     title: 'Completion',
     subtitle: 'Further examination and investigation plan',
+    description: 'Complete the upper limb neurological examination by assessing the lower limbs for UMN signs, cranial nerves, and gait, then request targeted investigations to localise and characterise the lesion.',
+    checklist: [
+      'Examine the lower limbs for UMN signs: hyperreflexia, upgoing plantars, spasticity (confirms cord or brain pathology)',
+      'Assess gait: spastic scissor gait (bilateral UMN), ataxic gait (cerebellar), foot drop (peroneal/L5)',
+      'Examine the cranial nerves, particularly bulbar function (tongue fasciculations, dysarthria, dysphagia — MND)',
+      'Examine the cervical spine for radiculopathy (Spurling\'s test) or myelopathy',
+      'State investigations: NCS/EMG (localise and characterise neuropathy), MRI cervical spine (cord compression, syrinx, disc), MRI brain (stroke, MS, tumour)',
+      'Summarise findings, localise the lesion (UMN/LMN/root/peripheral nerve), and offer a differential diagnosis',
+    ],
     questions: [
       {
         id: 'uln-comp-q1',
@@ -304,7 +514,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-comp-r1',
         type: 'rationale',
-        text: '"I would also examine the lower limbs (UMN signs — upgoing plantars, hyperreflexia, spasticity — confirm cord involvement), assess gait (ataxia, spastic scissor gait), examine the cranial nerves (bulbar involvement in MND), and assess the cervical spine (radiculopathy). I would examine the contralateral limb for comparison."',
+        text: '',
+        bullets: [
+          'Examine the lower limbs for UMN signs (upgoing plantars, hyperreflexia, spasticity) to confirm cord involvement',
+          'Assess gait (ataxia, spastic scissor gait)',
+          'Examine the cranial nerves (bulbar involvement in MND) and cervical spine (radiculopathy)',
+          'Examine the contralateral limb for comparison',
+        ],
       },
       {
         id: 'uln-comp-q2',
@@ -314,7 +530,13 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-comp-p2',
         type: 'pathology',
-        text: 'NCS/EMG: distinguishes neuropathy (demyelinating vs axonal), radiculopathy, and myopathy — essential for localisation. MRI cervical spine: cord compression, disc herniation, syrinx, demyelinating plaques, or tumour. MRI brain: stroke, tumour, MS plaques. Bloods: B12/folate (subacute combined degeneration), TFTs, fasting glucose (diabetic neuropathy), ANA/ANCA (vasculitic neuropathy), serum protein electrophoresis (paraproteinaemic neuropathy).',
+        text: '',
+        bullets: [
+          'NCS/EMG: distinguishes demyelinating vs. axonal neuropathy, radiculopathy, and myopathy — essential for localisation',
+          'MRI cervical spine: cord compression, disc herniation, syrinx, demyelinating plaques, or tumour',
+          'MRI brain: stroke, tumour, MS plaques',
+          'Bloods: B12/folate (subacute combined degeneration), TFTs, fasting glucose (diabetic neuropathy), ANA/ANCA (vasculitic neuropathy), serum protein electrophoresis (paraproteinaemic neuropathy)',
+        ],
       },
       {
         id: 'uln-comp-q3',
@@ -324,7 +546,14 @@ export const upperLimbNeuroSteps: ExamStep[] = [
       {
         id: 'uln-comp-p3',
         type: 'pathology',
-        text: 'Motor neurone disease (MND/ALS): combined UMN (hyperreflexia, spasticity, Hoffman\'s positive, upgoing plantars) and LMN signs (wasting, fasciculations, hypotonia) in the same limb — this co-occurrence is virtually pathognomonic of MND. No sensory involvement. Check for bulbar signs (dysarthria, dysphagia, tongue fasciculations). Confirm with EMG (widespread denervation across multiple myotomes). Fatal; riluzole and multidisciplinary care are mainstays of management.',
+        text: '',
+        bullets: [
+          'Motor neurone disease (MND/ALS): combined UMN (hyperreflexia, spasticity, positive Hoffman\'s, upgoing plantars) and LMN signs (wasting, fasciculations, hypotonia) in the same limb',
+          'Co-occurrence of UMN and LMN signs is virtually pathognomonic of MND',
+          'No sensory involvement; check for bulbar signs (dysarthria, dysphagia, tongue fasciculations)',
+          'Confirm with EMG (widespread denervation across multiple myotomes)',
+          'Fatal; riluzole and multidisciplinary care are the mainstays of management',
+        ],
       },
     ],
   },

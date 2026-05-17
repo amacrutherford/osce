@@ -51,6 +51,7 @@ export function useOsceStore(steps: ExamStep[]) {
   const [mode, setMode] = useState<AppMode>(readInitialMode);
   const [revealed, setRevealed] = useState<RevealState>(() => createDefaultRevealState(steps));
   const [marks, setMarks] = useState<MarkState>({});
+  const [checklistChecks, setChecklistChecks] = useState<Record<string, boolean[]>>({});
 
   useEffect(() => {
     localStorage.setItem(MODE_STORAGE_KEY, mode);
@@ -145,6 +146,19 @@ export function useOsceStore(steps: ExamStep[]) {
     return marks[stepId]?.[String(groupIndex)];
   }
 
+  function toggleChecklistItem(stepId: string, itemIndex: number, itemCount: number) {
+    setChecklistChecks((prev) => {
+      const current = prev[stepId] ?? Array(itemCount).fill(false);
+      const updated = [...current];
+      updated[itemIndex] = !updated[itemIndex];
+      return { ...prev, [stepId]: updated };
+    });
+  }
+
+  function getChecklistState(stepId: string, itemCount: number): boolean[] {
+    return checklistChecks[stepId] ?? Array(itemCount).fill(false);
+  }
+
   const { totalCorrect, totalIncorrect } = useMemo(() => {
     let correct = 0;
     let incorrect = 0;
@@ -175,5 +189,7 @@ export function useOsceStore(steps: ExamStep[]) {
     getQuestionMark,
     totalCorrect,
     totalIncorrect,
+    toggleChecklistItem,
+    getChecklistState,
   };
 }

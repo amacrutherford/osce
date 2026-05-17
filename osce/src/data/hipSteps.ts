@@ -6,6 +6,14 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Gait assessment',
     subtitle: 'Observe the patient walking before they lie on the couch',
+    description: 'Observe the patient walking before they lie down, as gait assessment reveals key information about hip function and pain that cannot be obtained once supine.',
+    checklist: [
+      'Observe the patient walking toward you and away, noting any use of walking aids',
+      'Identify an antalgic gait: shortened stance phase on the affected side',
+      'Identify a Trendelenburg (compensated) gait: trunk lurches over the affected hip during stance phase',
+      'Perform the Trendelenburg test: stand behind the patient, ask them to stand on one leg; positive if contralateral pelvis drops',
+      'Note the positive side of the Trendelenburg test is the standing leg (not the side that drops)',
+    ],
     questions: [
       {
         id: 'hip-gait-q1',
@@ -15,7 +23,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-gait-r1',
         type: 'rationale',
-        text: 'Always assess gait before the patient lies down — it reveals information lost on the couch. Antalgic gait: shortened stance phase on the affected side (patient offloads rapidly to avoid pain). Trendelenburg gait (compensated): trunk lurches over the affected hip during stance to keep the centre of gravity over the stance limb — caused by hip abductor weakness or pain. Note use of walking aids and leg length discrepancy on approach.',
+        text: '',
+        bullets: [
+          'Always assess gait before the patient lies down — it reveals information lost on the couch',
+          'Antalgic gait: shortened stance phase on the affected side (patient offloads rapidly to avoid pain)',
+          'Trendelenburg (compensated) gait: trunk lurches over the affected hip during stance, caused by hip abductor weakness or pain',
+          'Note use of walking aids and any leg length discrepancy on approach',
+        ],
       },
       {
         id: 'hip-gait-q2',
@@ -25,7 +39,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-gait-p2',
         type: 'pathology',
-        text: 'Patient stands on one leg. Positive: the contralateral pelvis drops (the unsupported side drops — the examiner stands behind and watches the PSIS). The test is positive on the STANDING leg side. Causes: hip abductor weakness (gluteus medius/minimus — superior gluteal nerve, L4/5), painful hip (patient cannot load the hip abductors), CDH, coxa vara, greater trochanteric bursitis, and post-operative gluteal denervation. A bilateral positive Trendelenburg produces a "waddling gait."',
+        text: '',
+        bullets: [
+          'Patient stands on one leg; the examiner stands behind and watches the PSIS level',
+          'Positive: the contralateral (unsupported) pelvis drops — the test is positive on the standing leg side',
+          'Causes: hip abductor weakness (gluteus medius/minimus — superior gluteal nerve L4/5), painful hip, CDH, coxa vara, greater trochanteric bursitis, or post-operative gluteal denervation',
+          'Bilateral positive Trendelenburg produces a waddling gait',
+        ],
       },
     ],
   },
@@ -34,6 +54,14 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Inspection (supine)',
     subtitle: 'Symmetry, leg position, scars',
+    description: 'Inspect the supine patient for leg position, symmetry, fixed deformity, and scars to identify the likely diagnosis before palpation and movement assessment.',
+    checklist: [
+      'Check the pelvis is square by ensuring both ASIS are at the same level',
+      'Inspect resting leg position: external rotation and shortening after a fall = intracapsular neck of femur fracture',
+      'Look for fixed flexion deformity masked by compensatory lumbar hyperlordosis (loss of lumbar lordosis when hip is passively flexed)',
+      'Identify scars: anterior (THA anterior approach), lateral (DHS or posterior THA approach, lateral/Gibson), groin (arthroscopy portals)',
+      'Assess for muscle wasting of the quadriceps and gluteal muscles',
+    ],
     questions: [
       {
         id: 'hip-ins-q1',
@@ -43,7 +71,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-ins-r1',
         type: 'rationale',
-        text: 'Check that the pelvis is square (ASIS at the same level — tilt suggests a fixed deformity or leg length discrepancy). Note the resting position of the legs: external rotation of a shortened lower limb after a fall = intracapsular neck of femur fracture. Fixed flexion deformity (patient cannot fully extend the hip — masked by lumbar hyperlordosis). Scars: anterior (THA approach), lateral (DHS for #NOF), posterior (posterior approach THA — piriformis fossa).',
+        text: '',
+        bullets: [
+          'Check the pelvis is square (ASIS at the same level) — tilt suggests a fixed deformity or leg length discrepancy',
+          'Note resting leg position: external rotation and shortening after a fall = intracapsular neck of femur fracture',
+          'Assess for fixed flexion deformity (masked by compensatory lumbar hyperlordosis)',
+          'Scars: anterior (THA approach), lateral (DHS for NOF fracture), posterior (posterior approach THA — piriformis fossa)',
+        ],
       },
       {
         id: 'hip-ins-q2',
@@ -53,7 +87,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-ins-p2',
         type: 'pathology',
-        text: 'Neck of femur fracture — intracapsular (subcapital/transcervical) fracture causes shortening and external rotation from iliopsoas pulling on the lesser trochanter. Assess: neurovascular status (femoral pulse, capillary refill, sciatic nerve function), skin integrity, associated injuries. Risk of avascular necrosis of the femoral head (blood supply via medial and lateral circumflex femoral arteries, vulnerable in intracapsular fractures — treat with hemiarthroplasty or THA in active patients). Extracapsular (intertrochanteric, subtrochanteric) fractures: less AVN risk — treat with DHS or IM nail.',
+        text: '',
+        bullets: [
+          'Neck of femur fracture — intracapsular (subcapital/transcervical) fracture causes shortening and external rotation from iliopsoas pull on the lesser trochanter',
+          'Immediately assess: neurovascular status (femoral pulse, capillary refill, sciatic nerve function), skin integrity, and associated injuries',
+          'Intracapsular fractures risk avascular necrosis of the femoral head (blood supply via medial and lateral circumflex femoral arteries) — treated with hemiarthroplasty or THA in active patients',
+          'Extracapsular (intertrochanteric, subtrochanteric) fractures: lower AVN risk — treat with DHS or IM nail',
+        ],
       },
     ],
   },
@@ -62,6 +102,15 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Palpation and leg length',
     subtitle: 'True and apparent leg length, bony landmarks',
+    description: 'Measure true and apparent leg lengths to distinguish structural shortening from pelvic tilt, and palpate bony landmarks for tenderness to localise pathology.',
+    checklist: [
+      'Measure true leg length from ASIS to medial malleolus on both sides with the pelvis squared',
+      'Measure apparent leg length from umbilicus to medial malleolus',
+      'Interpret discrepancy: true shortening = structural bone loss; apparent shortening without true shortening = pelvic tilt or fixed deformity',
+      'Palpate the greater trochanter for tenderness (greater trochanteric pain syndrome)',
+      'Palpate the groin (anterior hip joint) for tenderness',
+      'Palpate the ischial tuberosity and sciatic nerve course if posterior pain is present',
+    ],
     questions: [
       {
         id: 'hip-pal-q1',
@@ -71,7 +120,14 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-pal-r1',
         type: 'rationale',
-        text: 'True leg length: from ASIS to medial malleolus (same bony landmarks bilaterally). Apparent leg length: from the umbilicus (or xiphisternum) to the medial malleolus. True shortening = structural shortening within the limb (bone loss, fracture, AVN). Apparent shortening without true shortening = pelvic tilt or fixed adduction/flexion deformity. Place the pelvis square before measuring true length.',
+        text: '',
+        bullets: [
+          'True leg length: from ASIS to medial malleolus (same bony landmarks bilaterally)',
+          'Apparent leg length: from the umbilicus (or xiphisternum) to the medial malleolus',
+          'True shortening = structural shortening within the limb (bone loss, fracture, AVN)',
+          'Apparent shortening without true shortening = pelvic tilt or fixed adduction/flexion deformity',
+          'Place the pelvis square before measuring true length',
+        ],
       },
       {
         id: 'hip-pal-q2',
@@ -81,7 +137,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-pal-p2',
         type: 'pathology',
-        text: 'The greater trochanter lies at the level of the pubic symphysis on the lateral aspect of the hip. Greater trochanteric pain syndrome (GTPS, formerly "trochanteric bursitis") causes lateral hip pain, tenderness on direct palpation over the greater trochanter, and pain on resisted hip abduction. It is now understood to be primarily tendinopathy of the gluteus medius and minimus tendons (with or without bursitis) rather than isolated bursitis. Common in middle-aged women. Treat with activity modification, physiotherapy (abductor strengthening), and USS-guided steroid injection.',
+        text: '',
+        bullets: [
+          'The greater trochanter lies at the level of the pubic symphysis on the lateral aspect of the hip',
+          'Greater trochanteric pain syndrome (GTPS) causes lateral hip pain, direct tenderness over the greater trochanter, and pain on resisted hip abduction',
+          'Now understood to be primarily tendinopathy of the gluteus medius and minimus tendons (with or without bursitis), not isolated bursitis',
+          'Common in middle-aged women; treat with activity modification, physiotherapy (abductor strengthening), and USS-guided steroid injection',
+        ],
       },
     ],
   },
@@ -90,6 +152,15 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Movement',
     subtitle: 'Flexion, abduction, adduction, internal and external rotation',
+    description: 'Assess hip movement through all planes, with particular attention to internal rotation (earliest and most sensitive sign of hip OA), and perform Thomas\'s test to detect a fixed flexion deformity.',
+    checklist: [
+      'Test active then passive hip flexion (0–120°) with the knee flexed',
+      'Test passive internal rotation at 90° hip flexion (0–45°) — groin pain or restriction is the most sensitive sign of hip OA',
+      'Test passive external rotation at 90° hip flexion (0–45°)',
+      'Test abduction (0–45°) and adduction (0–30°)',
+      'Perform Thomas\'s test: fully flex the contralateral hip onto the abdomen to flatten the lumbar spine; if the test hip rises off the couch, the angle equals the fixed flexion deformity',
+      'Test extension (0–30°) with the patient prone',
+    ],
     questions: [
       {
         id: 'hip-mov-q1',
@@ -99,7 +170,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-mov-r1',
         type: 'rationale',
-        text: 'Flexion (0–120°), extension (0–30° prone), abduction (0–45°), adduction (0–30°), internal rotation (0–45°), external rotation (0–45°). Capsular pattern of hip OA: internal rotation and flexion restricted first, followed by abduction. Internal rotation is often the most sensitive and earliest sign of hip OA — test with the hip at 90° flexion and assess pain and restriction. Pain in the groin on passive internal rotation is a strong positive.',
+        text: '',
+        bullets: [
+          'Flexion (0–120°), extension (0–30° prone), abduction (0–45°), adduction (0–30°), internal rotation (0–45°), external rotation (0–45°)',
+          'Capsular pattern of hip OA: internal rotation and flexion restricted first, followed by abduction',
+          'Internal rotation is the most sensitive and earliest sign of hip OA',
+          'Test internal rotation with the hip at 90° flexion; groin pain on passive internal rotation is a strong positive',
+        ],
       },
       {
         id: 'hip-mov-q2',
@@ -109,7 +186,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-mov-p2',
         type: 'pathology',
-        text: 'Thomas\'s test detects a fixed flexion deformity (FFD) masked by compensatory lumbar hyperlordosis. Place one hand under the lumbar spine. Fully flex the contralateral hip onto the abdomen — this flattens the lumbar spine (removes the lordosis). If there is a FFD, the test hip rises off the couch. The angle of rise = the degree of fixed flexion deformity. A FFD >10–15° significantly impairs gait and is a sign of advanced hip OA or post-infection/inflammatory contracture.',
+        text: '',
+        bullets: [
+          'Thomas\'s test detects a fixed flexion deformity (FFD) masked by compensatory lumbar hyperlordosis',
+          'Fully flex the contralateral hip onto the abdomen — this flattens the lumbar spine',
+          'If there is a FFD, the test hip rises off the couch; the angle of rise equals the degree of fixed flexion',
+          'An FFD >10–15° significantly impairs gait and indicates advanced hip OA or post-infection/inflammatory contracture',
+        ],
       },
     ],
   },
@@ -118,6 +201,13 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'Special tests',
     subtitle: 'FABER, FADIR, impingement',
+    description: 'Perform FABER and FADIR provocation tests to differentiate hip joint pathology from sacroiliac joint pathology and to detect femoroacetabular impingement.',
+    checklist: [
+      'Perform FABER (Patrick\'s) test: flex hip to 90°, abduct and externally rotate, place heel on contralateral knee (figure-of-4), press the knee toward the couch; groin pain = hip joint, posterior pain = sacroiliac joint',
+      'Perform FADIR test: flex hip to 90°, adduct and internally rotate; groin pain = positive for femoroacetabular impingement or labral tear',
+      'Note which impingement provocation reproduces the patient\'s familiar pain',
+      'Test abductor power with resisted abduction in the lateral decubitus position (Trendelenburg equivalent)',
+    ],
     questions: [
       {
         id: 'hip-spe-q1',
@@ -127,7 +217,12 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-spe-r1',
         type: 'rationale',
-        text: 'FABER (Patrick\'s test): Flexion, Abduction, External Rotation — place the heel on the contralateral knee (figure-of-4 position) and gently press the knee toward the couch. Groin pain = hip joint pathology (OA, labral tear). Posterior pain = sacroiliac joint pathology. FADIR: Flexion, Adduction, Internal Rotation — hip flexed to 90°, then adducted and internally rotated. Groin pain = femoroacetabular impingement (FAI) or labral tear. Most sensitive test for FAI.',
+        text: '',
+        bullets: [
+          'FABER (Patrick\'s test): Flexion, Abduction, External Rotation — heel on the contralateral knee (figure-of-4), press the knee toward the couch; groin pain = hip joint pathology; posterior pain = sacroiliac joint pathology',
+          'FADIR: Flexion, Adduction, Internal Rotation — hip flexed to 90°, then adducted and internally rotated; groin pain = femoroacetabular impingement (FAI) or labral tear',
+          'FADIR is the most sensitive test for FAI',
+        ],
       },
       {
         id: 'hip-spe-q2',
@@ -137,7 +232,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-spe-p2',
         type: 'pathology',
-        text: 'FAI is abnormal contact between the femoral head-neck junction and the acetabular rim during range of motion, causing labral tears and early OA. Cam impingement: aspherical femoral head (bony bump at the head-neck junction) — more common in young athletic males; damages the labrum from inside out. Pincer impingement: overcoverage of the acetabulum (coxa profunda or retroversion) — more common in middle-aged women; damage to the labrum peripherally. Mixed type is most common. Positive FADIR, normal X-ray or alpha angle >55° on Dunn view. MRI arthrogram is gold standard.',
+        text: '',
+        bullets: [
+          'FAI is abnormal contact between the femoral head-neck junction and the acetabular rim during range of motion, causing labral tears and early OA',
+          'Cam impingement: aspherical femoral head (bony bump at the head-neck junction) — common in young athletic males; damages the labrum from inside out',
+          'Pincer impingement: acetabular overcoverage (coxa profunda or retroversion) — more common in middle-aged women; peripheral labral damage',
+          'Mixed type is most common; confirm with alpha angle >55° on Dunn view; MRI arthrogram is gold standard',
+        ],
       },
     ],
   },
@@ -146,6 +247,16 @@ export const hipSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Completion',
     subtitle: 'Neurovascular assessment and investigations',
+    description: 'Complete the hip examination by assessing adjacent joints, performing a neurovascular assessment, and formulating an investigation plan appropriate to the clinical findings.',
+    checklist: [
+      'Examine the lumbar spine (L3/L4 radiculopathy commonly refers to the groin or anterior thigh)',
+      'Examine the knee (hip OA frequently refers to the medial knee — always examine the hip in knee pain)',
+      'Palpate the femoral and popliteal pulses',
+      'Perform a lower limb neurological screen (sciatic nerve, femoral nerve, obturator nerve distributions)',
+      'Examine the contralateral hip',
+      'State investigations: AP pelvis + lateral hip X-ray as first line; MRI if AVN or labral pathology suspected',
+      'Summarise findings and offer a differential diagnosis to the examiner',
+    ],
     questions: [
       {
         id: 'hip-com-q1',
@@ -155,7 +266,13 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-com-r1',
         type: 'rationale',
-        text: '"I would examine the lumbar spine (referred L3/L4 radiculopathy can mimic hip pain), the knee (hip OA commonly refers to the knee — "hip disease, hip to knee pain"), and perform a full lower limb neurological examination. I would palpate the femoral and popliteal pulses. I would check the contralateral hip. I would also assess the abdomen — psoas abscess can cause a painful flexed hip."',
+        text: '',
+        bullets: [
+          'Examine the lumbar spine (referred L3/L4 radiculopathy can mimic hip pain) and the knee (hip OA commonly refers to the knee)',
+          'Perform a full lower limb neurological examination and palpate the femoral and popliteal pulses',
+          'Examine the contralateral hip',
+          'Assess the abdomen — a psoas abscess can cause a painful flexed hip',
+        ],
       },
       {
         id: 'hip-com-q2',
@@ -165,7 +282,14 @@ export const hipSteps: ExamStep[] = [
       {
         id: 'hip-com-p2',
         type: 'pathology',
-        text: 'Hip OA: X-ray (AP pelvis + lateral hip) shows joint space narrowing (superolateral most common), subchondral sclerosis, osteophytes (at the acetabular margin and femoral head-neck junction), and subchondral cysts. MRI if X-ray equivocal or AVN suspected. Indications for total hip arthroplasty: severe pain with failed conservative management, functional impairment, radiographic OA. Outcomes: excellent pain relief, 15–20 year implant survival >90%. Complications: dislocation (posterior approach risk), DVT/PE, leg length discrepancy, nerve injury (sciatic), periprosthetic fracture.',
+        text: '',
+        bullets: [
+          'Hip OA: X-ray (AP pelvis + lateral hip) shows superolateral joint space narrowing (most common), subchondral sclerosis, osteophytes at the acetabular margin and femoral head-neck junction, and subchondral cysts',
+          'MRI if X-ray equivocal or AVN suspected',
+          'Indications for total hip arthroplasty: severe pain with failed conservative management, functional impairment, and radiographic OA',
+          'Outcomes: excellent pain relief, implant survival >90% at 15–20 years',
+          'Complications: dislocation (posterior approach risk), DVT/PE, leg length discrepancy, sciatic nerve injury, periprosthetic fracture',
+        ],
       },
     ],
   },

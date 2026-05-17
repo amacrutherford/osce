@@ -1,14 +1,16 @@
 import type { ExamStep } from '../data/steps';
-import type { MarkStatus } from '../hooks/useOsceStore';
+import type { AppMode, MarkStatus } from '../hooks/useOsceStore';
 import { countExaminerQuestions, groupQuestions } from '../utils/osce';
 
 interface ResultsViewProps {
   examTitle: string;
   steps: ExamStep[];
+  mode: AppMode;
   totalExaminerQuestions: number;
   totalCorrect: number;
   totalIncorrect: number;
   getQuestionMark: (stepId: string, groupIndex: number) => MarkStatus | undefined;
+  getChecklistState: (stepId: string, count: number) => boolean[];
   onGoToStep: (stepId: string) => void;
 }
 
@@ -37,31 +39,41 @@ function ScoreBadge({ status }: { status: MarkStatus | undefined }) {
 export function ResultsView({
   examTitle,
   steps,
+  mode,
   totalExaminerQuestions,
   totalCorrect,
   totalIncorrect,
   getQuestionMark,
+  getChecklistState,
   onGoToStep,
 }: ResultsViewProps) {
   const totalMarked = totalCorrect + totalIncorrect;
   const notMarked = totalExaminerQuestions - totalMarked;
   const scorePercent = totalMarked === 0 ? null : Math.round((totalCorrect / totalMarked) * 100);
 
+  const checklistSteps = steps.filter((s) => s.checklist && s.checklist.length > 0);
+  const totalChecklistItems = checklistSteps.reduce((acc, s) => acc + s.checklist!.length, 0);
+  const totalChecklistChecked = checklistSteps.reduce((acc, s) => {
+    return acc + getChecklistState(s.id, s.checklist!.length).filter(Boolean).length;
+  }, 0);
+  const checklistPercent =
+    totalChecklistItems === 0 ? null : Math.round((totalChecklistChecked / totalChecklistItems) * 100);
+  const hasChecklistActivity = totalChecklistChecked > 0;
+
   return (
     <section className="space-y-5">
-      {/* Score card */}
-      <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6">
-        <h2 className="text-2xl font-bold text-[#1a1a1a]">
-          {examTitle} — Results
-        </h2>
+      <h2 className="text-2xl font-bold text-[#1a1a1a]">{examTitle} — Results</h2>
 
+      {/* Knowledge score */}
+      <div className="rounded-2xl border border-[#e5e5e4] bg-white p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Knowledge Q&A</p>
         {totalMarked === 0 ? (
-          <p className="mt-3 text-sm text-[#6b6b6b]">
+          <p className="mt-2 text-sm text-[#6b6b6b]">
             No questions marked yet. Use the ✓ / ✗ buttons in the Step Guide after revealing answers.
           </p>
         ) : (
           <>
-            <p className="mt-3 text-4xl font-black text-[#3C3489]">
+            <p className="mt-2 text-4xl font-black text-[#3C3489]">
               {totalCorrect} / {totalMarked}
               {scorePercent !== null && (
                 <span className="ml-3 text-2xl font-bold text-[#534AB7]">({scorePercent}%)</span>
@@ -70,12 +82,8 @@ export function ResultsView({
             <div className="mt-3 flex flex-wrap gap-4 text-sm">
               <span className="font-semibold text-emerald-600">✓ {totalCorrect} correct</span>
               <span className="font-semibold text-red-600">✗ {totalIncorrect} incorrect</span>
-              {notMarked > 0 && (
-                <span className="text-[#6b6b6b]">— {notMarked} not marked</span>
-              )}
+              {notMarked > 0 && <span className="text-[#6b6b6b]">— {notMarked} not marked</span>}
             </div>
-
-            {/* Progress bar */}
             <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-[#e5e5e4]">
               <div
                 className="h-full rounded-full bg-emerald-500 transition-all"
@@ -86,55 +94,117 @@ export function ResultsView({
         )}
       </div>
 
-      {/* Per-step breakdown */}
-      <div className="space-y-3">
-        {steps.map((step) => {
-          const groups = groupQuestions(step.questions);
-          const stepTotal = countExaminerQuestions(step);
-          const stepCorrect = groups.filter((_, i) => getQuestionMark(step.id, i) === 'correct').length;
-          const stepIncorrect = groups.filter((_, i) => getQuestionMark(step.id, i) === 'incorrect').length;
-          const stepMarked = stepCorrect + stepIncorrect;
+      {/* Per-step Q&A breakdown */}
+      {totalMarked > 0 && (
+        <div className="space-y-3">
+          {steps.map((step) => {
+            const groups = groupQuestions(step.questions);
+            const stepTotal = countExaminerQuestions(step);
+            const stepCorrect = groups.filter((_, i) => getQuestionMark(step.id, i) === 'correct').length;
+            const stepIncorrect = groups.filter((_, i) => getQuestionMark(step.id, i) === 'incorrect').length;
+            const stepMarked = stepCorrect + stepIncorrect;
+            if (stepMarked === 0) return null;
 
-          return (
-            <div key={step.id} className="rounded-2xl border border-[#e5e5e4] bg-white p-4 shadow-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-[#534AB7]">Step {step.stepNumber}</p>
-                  <h3 className="font-bold text-[#1a1a1a]">{step.title}</h3>
-                  {stepMarked > 0 && (
-                    <p className="mt-0.5 text-xs text-[#6b6b6b]">
-                      {stepCorrect}/{stepTotal} correct
-                    </p>
-                  )}
+            return (
+              <div key={step.id} className="rounded-2xl border border-[#e5e5e4] bg-white p-4 shadow-sm">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-[#534AB7]">Step {step.stepNumber}</p>
+                    <h3 className="font-bold text-[#1a1a1a]">{step.title}</h3>
+                    <p className="mt-0.5 text-xs text-[#6b6b6b]">{stepCorrect}/{stepTotal} correct</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onGoToStep(step.id)}
+                    className="shrink-0 rounded-lg border border-[#AFA9EC] px-3 py-1.5 text-xs font-semibold text-[#3C3489] transition hover:bg-[#EEEDFE]"
+                  >
+                    Review
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => onGoToStep(step.id)}
-                  className="shrink-0 rounded-lg border border-[#AFA9EC] px-3 py-1.5 text-xs font-semibold text-[#3C3489] transition hover:bg-[#EEEDFE]"
-                >
-                  Review
-                </button>
+                <ul className="mt-3 space-y-2">
+                  {groups.map((group, groupIndex) => {
+                    const mark = getQuestionMark(step.id, groupIndex);
+                    return (
+                      <li key={group.examiner.id} className="flex items-start gap-2 text-sm">
+                        <span className="mt-0.5 shrink-0 font-semibold text-[#534AB7]">Q{groupIndex + 1}</span>
+                        <span className="flex-1 text-[#4a4a4a]">{group.examiner.text}</span>
+                        <ScoreBadge status={mark} />
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
+            );
+          })}
+        </div>
+      )}
 
-              <ul className="mt-3 space-y-2">
-                {groups.map((group, groupIndex) => {
-                  const mark = getQuestionMark(step.id, groupIndex);
-                  return (
-                    <li
-                      key={group.examiner.id}
-                      className="flex items-start gap-2 text-sm"
-                    >
-                      <span className="mt-0.5 shrink-0 font-semibold text-[#534AB7]">Q{groupIndex + 1}</span>
-                      <span className="flex-1 text-[#4a4a4a]">{group.examiner.text}</span>
-                      <ScoreBadge status={mark} />
-                    </li>
-                  );
-                })}
-              </ul>
+      {/* Checklist score */}
+      {checklistSteps.length > 0 && (
+        mode === 'study' ? (
+          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#3C3489]">Exam checklist</p>
+            <p className="mt-2 text-sm text-[#534AB7]">
+              No checklist items ticked yet. Use Exam mode and tick off each step as you practise.
+            </p>
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Exam checklist</p>
+            {!hasChecklistActivity ? (
+              <p className="mt-2 text-sm text-[#6b6b6b]">
+                No checklist items ticked yet. Switch to Exam mode and tick off each step as you practise.
+              </p>
+            ) : (
+              <>
+                <p className="mt-2 text-4xl font-black text-[#3C3489]">
+                  {totalChecklistChecked} / {totalChecklistItems}
+                  {checklistPercent !== null && (
+                    <span className="ml-3 text-2xl font-bold text-[#534AB7]">({checklistPercent}%)</span>
+                  )}
+                </p>
+                <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-[#e5e5e4]">
+                  <div
+                    className="h-full rounded-full bg-[#534AB7] transition-all"
+                    style={{ width: `${checklistPercent ?? 0}%` }}
+                  />
+                </div>
+              </>
+            )}
+            <div className="mt-4 space-y-2">
+              {checklistSteps.map((step) => {
+                const state = getChecklistState(step.id, step.checklist!.length);
+                const checked = state.filter(Boolean).length;
+                const pct = Math.round((checked / step.checklist!.length) * 100);
+                return (
+                  <div key={step.id} className="rounded-xl border border-[#e5e5e4] bg-white p-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-semibold text-[#534AB7]">Step {step.stepNumber}</p>
+                        <p className="font-semibold text-[#1a1a1a]">{step.title}</p>
+                      </div>
+                      <span className="shrink-0 text-sm font-bold text-[#3C3489]">
+                        {checked}/{step.checklist!.length}
+                        {hasChecklistActivity && <span className="ml-1 text-xs text-[#6b6b6b]">({pct}%)</span>}
+                      </span>
+                    </div>
+                    <ul className="mt-3 space-y-1">
+                      {step.checklist!.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <span className={`mt-0.5 shrink-0 font-bold ${state[i] ? 'text-emerald-500' : 'text-[#d0d0d0]'}`}>
+                            {state[i] ? '✓' : '○'}
+                          </span>
+                          <span className={state[i] ? 'text-[#4a4a4a]' : 'text-[#9b9b9b]'}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        )
+      )}
     </section>
   );
 }

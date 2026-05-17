@@ -6,6 +6,16 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Inspection',
     subtitle: 'Standing (alignment + gait) then supine',
+    description: 'Inspect the knee first with the patient standing to assess alignment and gait, then supine to identify swelling pattern, skin changes, muscle wasting, and deformity.',
+    checklist: [
+      'Observe gait and coronal alignment while the patient is standing: valgus (genu valgum) or varus (genu varum)',
+      'Inspect for a fixed flexion deformity from the side',
+      'With the patient supine, inspect the skin for erythema (septic arthritis/gout), bruising, and scars',
+      'Identify swelling pattern: diffuse (effusion), prepatellar (prepatellar bursitis), infrapatellar (infrapatellar bursitis), or tibial tuberosity prominence (Osgood-Schlatter)',
+      'Assess quadriceps bulk bilaterally for wasting (indicating chronic knee pathology)',
+      'Check patellar position for alta or baja',
+      'Identify scars: midline anterior (TKR), medial/lateral paramedian (arthrotomy), small puncture scars (arthroscopy portals)',
+    ],
     questions: [
       {
         id: 'kn-ins-q1',
@@ -15,7 +25,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-ins-r1',
         type: 'rationale',
-        text: 'Standing: coronal alignment — valgus (knock knees, genu valgum), varus (bow legs, genu varum), flexion deformity. Supine: skin (erythema = septic arthritis/gout, scars), swelling pattern (diffuse = effusion; localised: prepatellar bursitis, tibial tuberosity prominence), quadriceps bulk (wasting = chronic pathology, particularly in OA or post-operative), patella position (alta or baja). Note any fixed flexion deformity.',
+        text: '',
+        bullets: [
+          'Standing: coronal alignment — valgus (genu valgum), varus (genu varum), flexion deformity',
+          'Supine: skin (erythema = septic arthritis/gout; scars), swelling pattern (diffuse = effusion; localised: prepatellar bursitis, tibial tuberosity prominence)',
+          'Quadriceps bulk — wasting indicates chronic pathology (OA, post-operative)',
+          'Patella position (alta or baja) and any fixed flexion deformity',
+        ],
       },
       {
         id: 'kn-ins-q2',
@@ -25,7 +41,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-ins-p2',
         type: 'pathology',
-        text: 'Osgood-Schlatter disease: traction apophysitis of the patellar tendon insertion at the tibial tuberosity during rapid adolescent growth, particularly in active boys aged 10–15. Painful bony prominence at the tibial tuberosity, worse with running, kneeling, and stairs. X-ray may show fragmentation of the tuberosity apophysis. Management: conservative — activity modification, physiotherapy (quadriceps stretching), analgesia. Self-limiting (resolves when growth plates fuse). A persistent bony prominence may remain into adulthood.',
+        text: '',
+        bullets: [
+          'Osgood-Schlatter disease: traction apophysitis of the patellar tendon insertion at the tibial tuberosity during rapid adolescent growth',
+          'Particularly affects active boys aged 10–15; painful bony prominence worse with running, kneeling, and stairs',
+          'X-ray may show fragmentation of the tuberosity apophysis',
+          'Management: conservative — activity modification, physiotherapy (quadriceps stretching), analgesia; self-limiting when growth plates fuse',
+        ],
       },
     ],
   },
@@ -34,6 +56,16 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Palpation',
     subtitle: 'Temperature, effusion tests, joint lines, patella',
+    description: 'Palpate the knee to detect effusion, localise joint line tenderness, and assess patellar position, using the appropriate effusion test matched to the expected size of fluid.',
+    checklist: [
+      'Assess temperature using the dorsum of the hand, comparing both knees',
+      'Perform the patellar tap (ballottement) for a large effusion: empty the suprapatellar pouch, then tap the patella sharply',
+      'Perform the bulge sign (stroke test) for a small effusion: stroke up the medial gutter, then stroke the lateral joint and watch for medial fluid bulge',
+      'Palpate the medial joint line for tenderness with the knee at 90° flexion (meniscal tear or medial compartment OA)',
+      'Palpate the lateral joint line for tenderness (lateral meniscal tear or ITB syndrome)',
+      'Palpate the patellar facets and patellar tendon for tenderness',
+      'Palpate the tibial tuberosity for prominence or tenderness (Osgood-Schlatter disease)',
+    ],
     questions: [
       {
         id: 'kn-pal-q1',
@@ -43,7 +75,12 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-pal-r1',
         type: 'rationale',
-        text: 'Patellar tap (ballottement): empty the suprapatellar pouch by pushing fluid distally with the flat of one hand, then tap the patella sharply — a palpable tap against the femur = large effusion. Bulge sign (stroke test): more sensitive for small effusions — empty the medial gutter by stroking upward, then stroke the lateral aspect of the joint; watch for a fluid bulge filling the medial gutter. Always assess temperature with the dorsum of the hand (compare with the contralateral knee).',
+        text: '',
+        bullets: [
+          'Patellar tap (ballottement): empty the suprapatellar pouch by pushing fluid distally, then tap the patella sharply — a palpable tap against the femur indicates a large effusion',
+          'Bulge sign (stroke test): more sensitive for small effusions — empty the medial gutter by stroking upward, then stroke the lateral joint; watch for fluid bulging into the medial gutter',
+          'Always assess temperature with the dorsum of the hand and compare with the contralateral knee',
+        ],
       },
       {
         id: 'kn-pal-q2',
@@ -53,7 +90,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-pal-p2',
         type: 'pathology',
-        text: 'The joint line lies between the femoral condyles and tibial plateau, palpable medially and laterally with the knee at 90° flexion. Medial joint line tenderness = medial meniscal tear (or medial compartment OA). Lateral joint line tenderness = lateral meniscal tear or iliotibial band syndrome (ITBS — where the ITB crosses the lateral epicondyle at 30° flexion; Ober\'s test). Isolated medial joint line tenderness in a young person after a twisting injury strongly suggests a meniscal tear.',
+        text: '',
+        bullets: [
+          'The joint line lies between the femoral condyles and tibial plateau, palpable medially and laterally with the knee at 90° flexion',
+          'Medial joint line tenderness = medial meniscal tear or medial compartment OA',
+          'Lateral joint line tenderness = lateral meniscal tear or iliotibial band syndrome (ITB crosses the lateral epicondyle at 30° flexion; confirmed with Ober\'s test)',
+          'Isolated medial joint line tenderness in a young person after a twisting injury strongly suggests a meniscal tear',
+        ],
       },
     ],
   },
@@ -62,6 +105,14 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Movement',
     subtitle: 'Active and passive range, fixed flexion deformity',
+    description: 'Assess active and passive knee range of motion, specifically checking for fixed flexion deformity and quadriceps lag, which indicate posterior capsular contracture or extensor mechanism failure.',
+    checklist: [
+      'Test active knee flexion (0–135°) and extension (0°)',
+      'Check for a fixed flexion deformity: with the patient supine, press the popliteal fossa to the couch — a gap indicates FFD',
+      'Test for quadriceps lag: difference between passive and active full extension (>10° lag = quadriceps weakness or patellar tendon rupture)',
+      'Passively flex and extend the knee, noting crepitus and end-feel',
+      'Compare range of motion with the contralateral side',
+    ],
     questions: [
       {
         id: 'kn-mov-q1',
@@ -71,7 +122,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-mov-r1',
         type: 'rationale',
-        text: 'Flexion: 0–135°. Extension: 0° (neutral). Hyperextension: −10° in hypermobile individuals. Fixed flexion deformity: with the patient supine, check if the popliteal fossa can be pressed flat to the couch — a gap indicates FFD. Also assess quadriceps lag: the difference between passive and active full extension (a >10° lag suggests quadriceps weakness or patella tendon rupture). FFD is a sign of chronic OA, posterior capsular contracture, or Baker\'s cyst rupture.',
+        text: '',
+        bullets: [
+          'Flexion: 0–135°; extension: 0° (neutral); hyperextension: −10° in hypermobile individuals',
+          'Fixed flexion deformity: with the patient supine, check if the popliteal fossa can be pressed flat to the couch — a gap indicates FFD',
+          'Quadriceps lag: the difference between passive and active full extension (>10° lag suggests quadriceps weakness or patella tendon rupture)',
+          'FFD is a sign of chronic OA, posterior capsular contracture, or Baker\'s cyst rupture',
+        ],
       },
     ],
   },
@@ -80,6 +137,15 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Ligament tests',
     subtitle: 'ACL (Lachman\'s, anterior drawer), PCL, MCL, LCL',
+    description: 'Test each major knee ligament with the appropriate stress test, comparing to the contralateral side, to identify which structures are injured and grade the severity.',
+    checklist: [
+      'Perform Lachman\'s test for ACL: knee at 20–30° flexion, stabilise the femur and pull the tibia anteriorly; positive = >5 mm translation with a soft end-feel',
+      'Perform the anterior drawer test at 90° flexion as a supplementary ACL check',
+      'Test the PCL with the posterior drawer: push the tibia posteriorly at 90° flexion; positive = posterior sag or excessive posterior translation',
+      'Apply valgus stress at 0° and 30° flexion to test the MCL; laxity at 30° only = isolated MCL; at 0° also = posterior capsule involved',
+      'Apply varus stress at 0° and 30° flexion to test the LCL and posterolateral corner',
+      'Grade any laxity and compare to the unaffected side',
+    ],
     questions: [
       {
         id: 'kn-lig-q1',
@@ -89,7 +155,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-lig-r1',
         type: 'rationale',
-        text: 'Lachman\'s: knee at 20–30° flexion, stabilise the femur with one hand and pull the tibia anteriorly with the other. Positive: >5 mm anterior translation with a soft end-feel (compare with contralateral side). Sensitivity ~85% vs. anterior drawer ~60%. At 90° flexion (drawer position), hamstrings are on tension and can mask ACL insufficiency. Lachman\'s is performed closer to the functional range and is more sensitive, especially acutely when muscle guarding limits 90° positioning.',
+        text: '',
+        bullets: [
+          'Lachman\'s: knee at 20–30° flexion; stabilise the femur and pull the tibia anteriorly; positive = >5 mm translation with a soft end-feel',
+          'Sensitivity ~85% vs. anterior drawer ~60%',
+          'At 90° flexion (drawer position), hamstrings are under tension and can mask ACL insufficiency',
+          'Lachman\'s is performed closer to the functional range and is more sensitive, especially acutely when guarding limits 90° positioning',
+        ],
       },
       {
         id: 'kn-lig-q2',
@@ -99,7 +171,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-lig-p2',
         type: 'pathology',
-        text: 'MCL (valgus stress test): apply a valgus force at the knee at 0° and 30° flexion. At 30°, only the MCL is stressed (if positive at 0°, posterior capsule is also involved). MCL is injured by a valgus force (lateral blow to the knee) — most common in skiing and contact sports. LCL (varus stress test): apply a varus force at 0° and 30°. LCL injuries are less common; a lateral knee injury may also affect the posterolateral corner (arcuate complex + biceps femoris). Grade I/II: conservative. Grade III + combined instability: surgical reconstruction.',
+        text: '',
+        bullets: [
+          'MCL (valgus stress test): apply a valgus force at 0° and 30° flexion; positive at 30° implicates the MCL alone; positive at 0° also involves the posterior capsule',
+          'MCL is injured by a valgus force (lateral blow to the knee) — most common in skiing and contact sports',
+          'LCL (varus stress test): apply a varus force at 0° and 30°; LCL injuries are less common and may involve the posterolateral corner (arcuate complex + biceps femoris)',
+          'Grade I/II: conservative management; Grade III with combined instability: surgical reconstruction',
+        ],
       },
     ],
   },
@@ -108,6 +186,14 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'Meniscus tests',
     subtitle: 'McMurray\'s, Thessaly\'s, Apley\'s',
+    description: 'Perform McMurray\'s and Thessaly\'s tests to reproduce mechanical symptoms from meniscal tears, using rotation and compression to stress the specific meniscus.',
+    checklist: [
+      'Perform McMurray\'s test for the medial meniscus: fully flex the knee, externally rotate the tibia with valgus stress, then slowly extend; positive = pain and/or click at the medial joint line',
+      'Perform McMurray\'s test for the lateral meniscus: internally rotate the tibia with varus stress, then extend',
+      'Perform Thessaly\'s test: patient stands on the affected leg with knee at 20° flexion, rotates the body; positive = joint line pain or sense of locking',
+      'Note whether pain is medial or lateral and at which degree of flexion the click or pain occurs',
+      'Distinguish a pathological click (pain + click together) from a benign asymptomatic click',
+    ],
     questions: [
       {
         id: 'kn-men-q1',
@@ -117,7 +203,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-men-r1',
         type: 'rationale',
-        text: 'Patient supine, knee fully flexed. For medial meniscus: externally rotate the tibia and apply a valgus force, then slowly extend the knee. For lateral meniscus: internally rotate the tibia + varus force then extend. A positive result is a palpable or audible click at the joint line — combined with pain. A click without pain may be normal (as in physiological clicking). McMurray\'s is most sensitive for posterior horn tears (as the posterior horn is loaded in full flexion).',
+        text: '',
+        bullets: [
+          'Patient supine, knee fully flexed; for medial meniscus: externally rotate the tibia + valgus force, then slowly extend',
+          'For lateral meniscus: internally rotate the tibia + varus force, then extend',
+          'Positive result: a palpable or audible click at the joint line combined with pain',
+          'A click without pain may be normal; McMurray\'s is most sensitive for posterior horn tears (loaded in full flexion)',
+        ],
       },
       {
         id: 'kn-men-q2',
@@ -127,7 +219,14 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-men-p2',
         type: 'pathology',
-        text: 'The menisci are fibrocartilaginous shock absorbers that increase joint congruity and distribute load across the tibial plateau — they bear 40–70% of the compressive load. Acute tear (young person, twisting injury, often with ACL): pain, swelling, mechanical symptoms (locking if displaced bucket-handle tear, giving way). Degenerative tear (>40 years, no clear mechanism): treated conservatively initially. MRI is the investigation of choice (sensitivity >90%). Untreated large tears → articular cartilage loss → premature OA. Meniscal repair preferred over meniscectomy in young patients to preserve the meniscus.',
+        text: '',
+        bullets: [
+          'The menisci bear 40–70% of the compressive load, increasing joint congruity and distributing force across the tibial plateau',
+          'Acute tear (young person, twisting injury, often with ACL): pain, swelling, mechanical symptoms (locking in bucket-handle tear, giving way)',
+          'Degenerative tear (>40 years, no clear mechanism): treated conservatively initially',
+          'MRI is the investigation of choice (sensitivity >90%); untreated large tears lead to articular cartilage loss and premature OA',
+          'Meniscal repair is preferred over meniscectomy in young patients to preserve meniscal function',
+        ],
       },
     ],
   },
@@ -136,6 +235,13 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Patellofemoral tests',
     subtitle: 'Patellar grind, apprehension, Clarke\'s test',
+    description: 'Assess the patellofemoral joint with Clarke\'s test and the patellar apprehension test to diagnose patellofemoral pain syndrome and identify a history of patellar dislocation.',
+    checklist: [
+      'Perform Clarke\'s test (patellar grind): press the patella distally with knee extended, ask the patient to contract the quadriceps; pain = positive for patellofemoral pain syndrome',
+      'Perform the patellar apprehension test: knee at 20–30° flexion, push the patella laterally; positive = apprehension (patient grimaces or grabs your hand)',
+      'Assess patellar tracking during active knee extension from 90° to full extension (look for a J-sign — lateral patellar jump at terminal extension)',
+      'Palpate the medial patellofemoral ligament (MPFL) insertion on the medial patella for tenderness (MPFL tear after dislocation)',
+    ],
     questions: [
       {
         id: 'kn-pat-q1',
@@ -145,7 +251,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-pat-p1',
         type: 'pathology',
-        text: 'Clarke\'s test (patellar grind/compression): patient supine, knee extended, examiner presses the patella distally into the trochlear groove and asks the patient to contract the quadriceps. Pain = positive for patellofemoral pain syndrome (PFPS) — previously called chondromalacia patellae. PFPS is the commonest cause of anterior knee pain in young active people (especially runners — "runner\'s knee"). The underlying cause is abnormal patellar tracking (often due to quadriceps dysbalance, hip abductor weakness, or foot overpronation). Treat with VMO strengthening, hip strengthening, and gait retraining.',
+        text: '',
+        bullets: [
+          'Clarke\'s test (patellar grind): patient supine, knee extended; examiner presses the patella distally and asks the patient to contract the quadriceps; pain = positive',
+          'Indicates patellofemoral pain syndrome (PFPS) — the commonest cause of anterior knee pain in young active people ("runner\'s knee")',
+          'Underlying cause is abnormal patellar tracking from quadriceps dysbalance, hip abductor weakness, or foot overpronation',
+          'Treat with VMO strengthening, hip strengthening, and gait retraining',
+        ],
       },
       {
         id: 'kn-pat-q2',
@@ -155,7 +267,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-pat-p2',
         type: 'pathology',
-        text: 'Patella apprehension test: knee at 20–30° flexion, push the patella laterally. A positive result is patient apprehension (grimacing, resisting, or grabbing the examiner\'s hand) — indicating a history of patellar dislocation or subluxation. Patella dislocation is most commonly lateral — the patella displaces over the lateral femoral condyle. Associated with: medial patellofemoral ligament (MPFL) tear, trochlear dysplasia, high patella (alta), increased Q-angle. First dislocation: conservative. Recurrent dislocation: MPFL reconstruction or tibial tubercle osteotomy (Fulkerson procedure) if trochlear malalignment.',
+        text: '',
+        bullets: [
+          'Knee at 20–30° flexion; push the patella laterally; positive = patient apprehension (grimacing, resisting, or grabbing the examiner\'s hand)',
+          'Indicates a history of patellar dislocation or subluxation — most commonly lateral over the lateral femoral condyle',
+          'Associated with: MPFL tear, trochlear dysplasia, patella alta, and increased Q-angle',
+          'First dislocation: conservative management; recurrent dislocation: MPFL reconstruction or tibial tubercle osteotomy (Fulkerson procedure) if trochlear malalignment',
+        ],
       },
     ],
   },
@@ -164,6 +282,16 @@ export const kneeSteps: ExamStep[] = [
     stepNumber: 7,
     title: 'Completion',
     subtitle: 'Neurovascular check and investigations',
+    description: 'Complete the knee examination by assessing the hip, popliteal fossa, and neurovascular status, then formulate an investigation plan tailored to the clinical findings.',
+    checklist: [
+      'Examine the hip (hip OA commonly refers to the medial knee — mandatory in all knee pain presentations)',
+      'Palpate the popliteal fossa for a Baker\'s cyst (fluctuant swelling between medial gastrocnemius and semimembranosus)',
+      'Examine the ankle and foot for alignment issues contributing to knee symptoms',
+      'Palpate the popliteal pulse and assess capillary refill',
+      'Perform a lower limb neurological screen',
+      'State investigations: X-ray (AP weight-bearing, lateral, skyline view for patellofemoral OA); MRI for soft tissue structures',
+      'Summarise findings and offer a differential diagnosis to the examiner',
+    ],
     questions: [
       {
         id: 'kn-com-q1',
@@ -173,7 +301,13 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-com-r1',
         type: 'rationale',
-        text: '"I would assess the hip (hip OA classically refers to the medial knee — always examine the hip in any patient with knee pain), the ankle and foot (foot pronation can contribute to knee malalignment and PFPS), and perform a neurological examination of the lower limb. I would palpate the popliteal fossa for a Baker\'s cyst (popliteal cyst — a herniation of the joint capsule through the posterior capsule between medial head of gastrocnemius and semimembranosus, associated with intra-articular pathology)."',
+        text: '',
+        bullets: [
+          'Assess the hip (hip OA classically refers to the medial knee — always examine the hip in any patient with knee pain)',
+          'Examine the ankle and foot (foot pronation contributes to knee malalignment and PFPS)',
+          'Perform a neurological examination of the lower limb',
+          'Palpate the popliteal fossa for a Baker\'s cyst (herniation of the joint capsule between medial gastrocnemius and semimembranosus, associated with intra-articular pathology)',
+        ],
       },
       {
         id: 'kn-com-q2',
@@ -183,7 +317,14 @@ export const kneeSteps: ExamStep[] = [
       {
         id: 'kn-com-p2',
         type: 'pathology',
-        text: 'Acute haemarthrosis (blood in the joint) after a sporting twisting injury in a young person: ACL rupture in ~70%, peripheral meniscal tear in ~20%, osteochondral fracture in ~10%. X-ray (AP + lateral): exclude fracture (Segond fracture — avulsion of the lateral tibial plateau = pathognomonic of ACL rupture). MRI knee: gold standard — visualises ACL, PCL, menisci, articular cartilage, bone marrow oedema. Aspirate the joint if tense effusion causing pain (confirm haemarthrosis vs. lipohemarthrosis — fat globules indicate osteochondral fracture). Refer for orthopaedic review and physiotherapy; ACL reconstruction if functionally unstable.',
+        text: '',
+        bullets: [
+          'Acute haemarthrosis after a sporting twisting injury in a young person: ACL rupture ~70%, peripheral meniscal tear ~20%, osteochondral fracture ~10%',
+          'X-ray (AP + lateral): exclude fracture; Segond fracture (avulsion of the lateral tibial plateau) is pathognomonic of ACL rupture',
+          'MRI knee: gold standard — visualises ACL, PCL, menisci, articular cartilage, and bone marrow oedema',
+          'Aspirate the joint if tense and painful (fat globules = lipohemarthrosis = osteochondral fracture)',
+          'Refer for orthopaedic review; ACL reconstruction if functionally unstable',
+        ],
       },
     ],
   },

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NTFY_TOPIC } from '../config';
 
 interface SourceModalProps {
-  source: string;
+  source: string | undefined;
   context: string;
   onClose: () => void;
 }
@@ -49,7 +49,11 @@ export function SourceModal({ source, context, onClose }: SourceModalProps) {
           </button>
         </div>
 
-        <p className="text-sm text-[#1a1a1a]">{source}</p>
+        {source ? (
+          <p className="text-sm text-[#1a1a1a]">{source}</p>
+        ) : (
+          <p className="text-sm italic text-[#9b9b9b]">No source added yet for this content.</p>
+        )}
 
         <div className="mt-6 border-t border-[#e5e5e4] pt-4">
           {status === 'sent' ? (

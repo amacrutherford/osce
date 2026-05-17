@@ -75,7 +75,7 @@ export function QuestionCard({
 
   return (
     <article className="rounded-2xl border border-[#e5e5e4] bg-white p-5 shadow-sm">
-      {modalFor && activeSource && (
+      {modalFor && (
         <SourceModal
           source={activeSource}
           context={`${stepTitle} — Q${cardNumber} (${modalFor})`}
@@ -149,18 +149,30 @@ export function QuestionCard({
         <section className="mt-4 rounded-xl border border-[#d6efe6] border-l-4 border-l-[#5DCAA5] bg-[#f5fffb] p-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-[#1a1a1a]">Rationale</h3>
-            {group.rationale?.source && (
-              <button
-                type="button"
-                onClick={() => setModalFor('rationale')}
-                aria-label="View source"
-                className="flex h-5 w-5 items-center justify-center rounded-full border border-[#5DCAA5] bg-white text-xs font-bold text-[#1a7a5e] hover:bg-[#d6efe6]"
-              >
-                ?
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => setModalFor('rationale')}
+              aria-label="View source"
+              className="flex h-5 w-5 items-center justify-center rounded-full border border-[#5DCAA5] bg-white text-xs font-bold text-[#1a7a5e] hover:bg-[#d6efe6]"
+            >
+              ?
+            </button>
           </div>
-          <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.rationale!.text, searchTerm)}</p>
+          {group.rationale?.imageUrl && (
+            <img src={group.rationale.imageUrl} alt="" className="mt-3 max-h-64 w-full rounded-lg object-contain" />
+          )}
+          {group.rationale?.bullets ? (
+            <ul className="mt-2 space-y-1.5">
+              {group.rationale.bullets.map((bullet, i) => (
+                <li key={i} className="flex gap-2 text-sm text-[#1a1a1a]">
+                  <span className="mt-0.5 shrink-0 font-bold text-[#5DCAA5]">•</span>
+                  <span>{highlightText(bullet, searchTerm)}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.rationale!.text, searchTerm)}</p>
+          )}
         </section>
       )}
 
@@ -168,18 +180,30 @@ export function QuestionCard({
         <section className="mt-4 rounded-xl border border-[#f8d9ce] border-l-4 border-l-[#F0997B] bg-[#fff8f5] p-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-[#1a1a1a]">Pathology</h3>
-            {group.pathology?.source && (
-              <button
-                type="button"
-                onClick={() => setModalFor('pathology')}
-                aria-label="View source"
-                className="flex h-5 w-5 items-center justify-center rounded-full border border-[#F0997B] bg-white text-xs font-bold text-[#a04a1e] hover:bg-[#f8d9ce]"
-              >
-                ?
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => setModalFor('pathology')}
+              aria-label="View source"
+              className="flex h-5 w-5 items-center justify-center rounded-full border border-[#F0997B] bg-white text-xs font-bold text-[#a04a1e] hover:bg-[#f8d9ce]"
+            >
+              ?
+            </button>
           </div>
-          <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.pathology!.text, searchTerm)}</p>
+          {group.pathology?.imageUrl && (
+            <img src={group.pathology.imageUrl} alt="" className="mt-3 max-h-64 w-full rounded-lg object-contain" />
+          )}
+          {group.pathology?.bullets ? (
+            <ul className="mt-2 space-y-1.5">
+              {group.pathology.bullets.map((bullet, i) => (
+                <li key={i} className="flex gap-2 text-sm text-[#1a1a1a]">
+                  <span className="mt-0.5 shrink-0 font-bold text-[#F0997B]">•</span>
+                  <span>{highlightText(bullet, searchTerm)}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-1 text-sm text-[#1a1a1a]">{highlightText(group.pathology!.text, searchTerm)}</p>
+          )}
         </section>
       )}
     </article>

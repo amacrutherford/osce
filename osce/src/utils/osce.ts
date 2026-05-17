@@ -45,6 +45,11 @@ export function textMatches(text: string, normalizedTerm: string): boolean {
   return text.toLowerCase().includes(normalizedTerm);
 }
 
+function questionMatches(q: { text: string; bullets?: string[] }, normalizedTerm: string): boolean {
+  if (textMatches(q.text, normalizedTerm)) return true;
+  return q.bullets?.some((b) => textMatches(b, normalizedTerm)) ?? false;
+}
+
 export function stepMatches(step: ExamStep, normalizedTerm: string): boolean {
   if (!normalizedTerm) {
     return true;
@@ -54,7 +59,7 @@ export function stepMatches(step: ExamStep, normalizedTerm: string): boolean {
     return true;
   }
 
-  return step.questions.some((question) => textMatches(question.text, normalizedTerm));
+  return step.questions.some((question) => questionMatches(question, normalizedTerm));
 }
 
 export function groupMatches(group: QuestionGroup, normalizedTerm: string): boolean {
@@ -63,9 +68,9 @@ export function groupMatches(group: QuestionGroup, normalizedTerm: string): bool
   }
 
   return (
-    textMatches(group.examiner.text, normalizedTerm) ||
-    (group.rationale ? textMatches(group.rationale.text, normalizedTerm) : false) ||
-    (group.pathology ? textMatches(group.pathology.text, normalizedTerm) : false)
+    questionMatches(group.examiner, normalizedTerm) ||
+    (group.rationale ? questionMatches(group.rationale, normalizedTerm) : false) ||
+    (group.pathology ? questionMatches(group.pathology, normalizedTerm) : false)
   );
 }
 

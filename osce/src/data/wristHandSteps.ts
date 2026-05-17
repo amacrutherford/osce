@@ -6,6 +6,16 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 1,
     title: 'Inspection',
     subtitle: 'Both hands resting palm-down then palm-up on a pillow',
+    description: 'Inspect both hands on a pillow, dorsal then palmar surfaces, assessing skin changes, deformity, swelling, and muscle wasting to narrow the differential between inflammatory and degenerative arthropathy.',
+    checklist: [
+      'Inspect the dorsum for joint swelling at MCP, PIP, DIP, and wrist levels',
+      'Look for deformities: ulnar deviation at MCPs, swan-neck, boutonnière, Z-thumb (suggesting RA)',
+      'Look for Heberden\'s nodes (DIP) and Bouchard\'s nodes (PIP) (suggesting OA)',
+      'Inspect for gouty tophi, psoriatic plaques, or Dupuytren\'s cords on the dorsum and palm',
+      'Assess thenar, hypothenar, and first dorsal interosseous muscle bulk for wasting',
+      'Turn hands palmar-up to inspect for Dupuytren\'s contracture, palmar erythema, and thenar/hypothenar wasting',
+      'Inspect for scars: carpal tunnel release (palmar), tendon repair, or previous fracture surgery',
+    ],
     questions: [
       {
         id: 'wh-ins-q1',
@@ -15,7 +25,12 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-ins-r1',
         type: 'rationale',
-        text: 'Inspect dorsal then palmar surfaces. Dorsal: skin (rheumatoid nodules, Heberden\'s/Bouchard\'s nodes, Dupuytren\'s cord, gouty tophi), joint swelling (MCP/PIP/DIP/wrist), deformity (ulnar deviation, boutonnière, swan neck, mallet finger), muscle wasting (first dorsal interosseous, thenar, hypothenar). Palmar: Dupuytren\'s contracture (thickened palmar fascia), thenar/hypothenar wasting, skin creases.',
+        text: '',
+        bullets: [
+          'Inspect dorsal then palmar surfaces',
+          'Dorsal: skin changes (rheumatoid nodules, Heberden\'s/Bouchard\'s nodes, Dupuytren\'s cord, gouty tophi), joint swelling (MCP/PIP/DIP/wrist), deformity, muscle wasting (first dorsal interosseous, thenar, hypothenar)',
+          'Palmar: Dupuytren\'s contracture (thickened palmar fascia), thenar/hypothenar wasting, skin creases',
+        ],
       },
       {
         id: 'wh-ins-q2',
@@ -25,7 +40,14 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-ins-p2',
         type: 'pathology',
-        text: 'Rheumatoid arthritis — a symmetrical, seronegative erosive arthropathy. Classic deformities: ulnar deviation at MCPs, swan-neck (PIP hyperextension + DIP flexion), boutonnière (PIP flexion + DIP hyperextension), Z-deformity of the thumb. Thenar wasting suggests median nerve compression (carpal tunnel) — which is itself a complication of RA synovitis at the wrist. Posterior interosseous nerve entrapment causes finger drop. MCP involvement distinguishes RA from OA (which favours PIPs and DIPs).',
+        text: '',
+        bullets: [
+          'Rheumatoid arthritis — a symmetrical, seronegative erosive arthropathy',
+          'Classic deformities: ulnar deviation at MCPs, swan-neck (PIP hyperextension + DIP flexion), boutonnière (PIP flexion + DIP hyperextension), Z-deformity of the thumb',
+          'Thenar wasting suggests median nerve compression (carpal tunnel syndrome) — itself a complication of RA synovitis at the wrist',
+          'MCP involvement distinguishes RA from OA (which favours PIPs and DIPs)',
+          'Posterior interosseous nerve entrapment from synovitis can cause finger drop',
+        ],
       },
     ],
   },
@@ -34,6 +56,16 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 2,
     title: 'Palpation',
     subtitle: 'Bones, joints, tendons, and the anatomical snuffbox',
+    description: 'Systematically palpate the wrist and hand to localise tenderness, particularly the anatomical snuffbox where tenderness mandates exclusion of a scaphoid fracture.',
+    checklist: [
+      'Palpate the anatomical snuffbox for scaphoid tenderness (between EPL medially and APL/EPB laterally)',
+      'Palpate the scaphoid tubercle on the palmar aspect at the radial wrist crease',
+      'Apply axial compression along the thumb ray to reproduce scaphoid fracture pain',
+      'Palpate the distal radius and ulna for tenderness or deformity',
+      'Palpate each MCP, PIP, and DIP joint for tenderness, swelling, or boggy synovitis',
+      'Palpate the flexor and extensor tendons along their lengths for nodularity or crepitus',
+      'Assess skin temperature with the dorsum of the hand and compare sides',
+    ],
     questions: [
       {
         id: 'wh-pal-q1',
@@ -43,7 +75,12 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-pal-r1',
         type: 'rationale',
-        text: 'The anatomical snuffbox is bounded by the extensor pollicis longus (medially), abductor pollicis longus and extensor pollicis brevis (laterally), and the radial styloid (proximally). It overlies the scaphoid, radial artery, and trapezium. Tenderness in the snuffbox after a FOOSH — especially in a young patient — is scaphoid fracture until proven otherwise, regardless of normal X-rays.',
+        text: '',
+        bullets: [
+          'Bounded by extensor pollicis longus (medially), abductor pollicis longus and extensor pollicis brevis (laterally), and the radial styloid (proximally)',
+          'Overlies the scaphoid, radial artery, and trapezium',
+          'Tenderness in the snuffbox after a FOOSH — especially in a young patient — is scaphoid fracture until proven otherwise, regardless of normal X-rays',
+        ],
       },
       {
         id: 'wh-pal-q2',
@@ -53,7 +90,13 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-pal-p2',
         type: 'pathology',
-        text: 'The scaphoid has a retrograde blood supply entering the distal pole — a waist fracture risks avascular necrosis of the proximal pole (incidence ~30% if untreated). Avascular necrosis leads to scaphoid non-union advanced collapse (SNAC) and progressive wrist OA. Management: if clinical suspicion is present (snuffbox tenderness ± pain on axial loading of thumb), immobilise in a scaphoid cast and arrange MRI (most sensitive) or CT. X-ray misses up to 30% of scaphoid fractures initially.',
+        text: '',
+        bullets: [
+          'The scaphoid has a retrograde blood supply entering the distal pole — a waist fracture risks avascular necrosis of the proximal pole (incidence ~30% if untreated)',
+          'Avascular necrosis leads to scaphoid non-union advanced collapse (SNAC) and progressive wrist OA',
+          'X-ray misses up to 30% of scaphoid fractures initially',
+          'If clinical suspicion is present (snuffbox tenderness ± axial thumb pain), immobilise in a scaphoid cast and arrange MRI (most sensitive) or CT',
+        ],
       },
     ],
   },
@@ -62,6 +105,15 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 3,
     title: 'Movement',
     subtitle: 'Wrist and finger range of motion, active and passive',
+    description: 'Assess active and passive range of motion at the wrist and fingers, specifically detecting active–passive discrepancy that indicates tendon rupture rather than joint restriction.',
+    checklist: [
+      'Test active wrist flexion (0–80°), extension (0–70°), radial deviation (0–20°), and ulnar deviation (0–30°)',
+      'Test active forearm pronation and supination (0–90° each)',
+      'Test active MCP, PIP, and DIP flexion and extension for each finger',
+      'Test thumb palmar abduction, opposition, and retropulsion',
+      'Repeat key movements passively to identify any active–passive discrepancy (suggests tendon rupture)',
+      'Look for a mallet finger deformity (DIP resting in flexion — terminal slip rupture)',
+    ],
     questions: [
       {
         id: 'wh-mov-q1',
@@ -71,7 +123,13 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-mov-r1',
         type: 'rationale',
-        text: 'Wrist flexion (0–80°), extension (0–70°), radial deviation (0–20°), ulnar deviation (0–30°). Forearm pronation/supination (0–90° each) — partly driven at the distal radioulnar joint. Grip strength (compare sides). Finger movements: MCP, PIP, DIP flexion/extension; thumb palmar abduction, opposition, retropulsion. Test each joint systematically and note any active–passive discrepancy (suggests tendon rupture vs. joint restriction).',
+        text: '',
+        bullets: [
+          'Wrist flexion (0–80°), extension (0–70°), radial deviation (0–20°), ulnar deviation (0–30°)',
+          'Forearm pronation/supination (0–90° each) — partly driven at the distal radioulnar joint',
+          'Finger movements: MCP, PIP, DIP flexion/extension; thumb palmar abduction, opposition, retropulsion',
+          'Note any active–passive discrepancy, which suggests tendon rupture rather than joint restriction',
+        ],
       },
       {
         id: 'wh-mov-q2',
@@ -81,7 +139,13 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-mov-p2',
         type: 'pathology',
-        text: 'Extensor tendon rupture — most commonly at the wrist (Vaughan-Jackson syndrome in RA: attrition rupture over dorsally prominent distal ulna, starting with little finger, progressing radially). If at the DIP joint, this is a mallet finger (extensor digitorum communis terminal slip rupture — from direct blow or forced flexion). Mallet finger: DIP rests in flexion, cannot extend actively; treat with continuous DIP splinting in extension for 6–8 weeks. Active–passive discrepancy is the cardinal finding distinguishing tendon rupture from joint restriction.',
+        text: '',
+        bullets: [
+          'Extensor tendon rupture — at the wrist, most commonly Vaughan-Jackson syndrome in RA (attrition rupture over the dorsally prominent distal ulna, starting with the little finger, progressing radially)',
+          'At the DIP joint, this is a mallet finger (terminal slip rupture from direct blow or forced flexion) — DIP rests in flexion, cannot actively extend',
+          'Mallet finger treatment: continuous DIP splinting in extension for 6–8 weeks',
+          'Active–passive discrepancy is the cardinal finding distinguishing tendon rupture from joint restriction',
+        ],
       },
     ],
   },
@@ -90,6 +154,15 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 4,
     title: 'Carpal tunnel tests',
     subtitle: 'Phalen\'s, Tinel\'s, and median nerve assessment',
+    description: 'Perform provocative tests for carpal tunnel syndrome and assess median nerve motor and sensory function to determine whether surgical decompression is indicated.',
+    checklist: [
+      'Perform Phalen\'s test: hold both wrists in maximal flexion for 60 seconds; positive if paraesthesia reproduced in the median distribution',
+      'Perform Tinel\'s test: percuss over the carpal tunnel at the wrist crease; positive if tingling radiates distally in the median distribution',
+      'Test abductor pollicis brevis (APB) power: ask patient to lift the thumb perpendicular to the palm against resistance',
+      'Assess thenar eminence bulk for wasting',
+      'Test sensation over the lateral 3½ fingers (median distribution) with light touch and two-point discrimination',
+      'Note that motor involvement (APB weakness/wasting) is a surgical urgency',
+    ],
     questions: [
       {
         id: 'wh-ct-q1',
@@ -99,7 +172,13 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-ct-r1',
         type: 'rationale',
-        text: 'Phalen\'s test: hold both wrists in maximal flexion for 60 seconds — positive if paraesthesia in the median distribution (thumb, index, middle, radial ring) is reproduced. Tinel\'s test: percuss over the carpal tunnel at the wrist crease — positive if tingling radiates distally into the median distribution. Phalen\'s is more sensitive (~75%); Tinel\'s is more specific (~77%). Gold standard for diagnosis is nerve conduction studies.',
+        text: '',
+        bullets: [
+          'Phalen\'s test: hold both wrists in maximal flexion for 60 seconds — positive if paraesthesia in the median distribution (thumb, index, middle, radial ring) is reproduced',
+          'Tinel\'s test: percuss over the carpal tunnel at the wrist crease — positive if tingling radiates distally in the median distribution',
+          'Phalen\'s is more sensitive (~75%); Tinel\'s is more specific (~77%)',
+          'Gold standard for diagnosis is nerve conduction studies',
+        ],
       },
       {
         id: 'wh-ct-q2',
@@ -109,7 +188,13 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-ct-p2',
         type: 'pathology',
-        text: 'Abductor pollicis brevis (APB) — a pure median nerve/T1 muscle, tested by asking the patient to lift the thumb perpendicular to the palm against resistance. Weakness or wasting of the thenar eminence indicates advanced carpal tunnel with motor involvement. This is a surgical urgency — persistent motor involvement risks irreversible axonal degeneration. CTS is associated with pregnancy, hypothyroidism, diabetes, RA, acromegaly, and amyloidosis.',
+        text: '',
+        bullets: [
+          'Abductor pollicis brevis (APB) — a pure median nerve/T1 muscle tested by asking the patient to lift the thumb perpendicular to the palm against resistance',
+          'Weakness or wasting of the thenar eminence indicates advanced carpal tunnel with motor involvement',
+          'Persistent motor involvement is a surgical urgency — risks irreversible axonal degeneration',
+          'CTS is associated with pregnancy, hypothyroidism, diabetes, RA, acromegaly, and amyloidosis',
+        ],
       },
     ],
   },
@@ -118,6 +203,15 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 5,
     title: 'De Quervain\'s and other tendon tests',
     subtitle: 'Finkelstein\'s test, trigger finger, Dupuytren\'s',
+    description: 'Test the first dorsal compartment tendons for de Quervain\'s tenosynovitis, assess for trigger finger, and evaluate the extent of Dupuytren\'s contracture.',
+    checklist: [
+      'Perform Finkelstein\'s test: patient tucks thumb into palm, examiner passively ulnar-deviates the wrist; severe radial pain = positive for de Quervain\'s',
+      'Palpate the first dorsal compartment (APL and EPB) over the radial styloid for crepitus or swelling',
+      'Assess for trigger finger: ask patient to open and close the fist and note any triggering or locking at a flexor tendon pulley',
+      'Palpate palmar flexor tendons for tender nodules at the A1 pulley (distal palmar crease level)',
+      'Perform the tabletop test for Dupuytren\'s: can the patient lay the hand completely flat on a surface?',
+      'Measure the degree of MCP and PIP flexion contracture caused by Dupuytren\'s cords',
+    ],
     questions: [
       {
         id: 'wh-dq-q1',
@@ -127,7 +221,14 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-dq-p1',
         type: 'pathology',
-        text: 'Patient tucks the thumb into the palm, then the examiner passively ulnar-deviates the wrist. Severe pain at the radial styloid reproduced = positive for de Quervain\'s tenosynovitis — stenosing tenosynovitis of abductor pollicis longus and extensor pollicis brevis in the first dorsal compartment. Common in new mothers (picking up infants). Treat with splint, steroid injection, or surgical first compartment release.',
+        text: '',
+        bullets: [
+          'Patient tucks the thumb into the palm; examiner passively ulnar-deviates the wrist',
+          'Severe pain at the radial styloid = positive for de Quervain\'s tenosynovitis',
+          'Stenosing tenosynovitis of abductor pollicis longus and extensor pollicis brevis in the first dorsal compartment',
+          'Common in new mothers (repetitive picking up of infants)',
+          'Treat with splint, steroid injection, or surgical first compartment release',
+        ],
       },
       {
         id: 'wh-dq-q2',
@@ -137,7 +238,14 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-dq-p2',
         type: 'pathology',
-        text: 'Fibroproliferative disease of the palmar fascia causing progressive flexion contracture — most commonly the ring finger, then little finger. Nodules → cords → contracture. Risk factors: age, male sex, Northern European ancestry, diabetes, alcohol excess, phenytoin, smoking, epilepsy, and manual labour. The tabletop test (inability to lay the hand flat) indicates surgical threshold. Surgery (fasciectomy) or collagenase injection (Xiapex) when MCP contracture >30° or PIP >20°.',
+        text: '',
+        bullets: [
+          'Fibroproliferative disease of the palmar fascia causing progressive flexion contracture — most commonly the ring finger, then little finger',
+          'Progresses from nodules → cords → contracture',
+          'Risk factors: age, male sex, Northern European ancestry, diabetes, alcohol excess, phenytoin, smoking, and epilepsy',
+          'The tabletop test (inability to lay the hand flat) indicates surgical threshold',
+          'Surgery (fasciectomy) or collagenase injection (Xiapex) when MCP contracture >30° or PIP >20°',
+        ],
       },
     ],
   },
@@ -146,6 +254,16 @@ export const wristHandSteps: ExamStep[] = [
     stepNumber: 6,
     title: 'Completion',
     subtitle: 'Neurovascular assessment and investigations',
+    description: 'Complete the examination with a formal neurovascular assessment of the hand and wrist, examine adjacent joints, and communicate a targeted investigation plan.',
+    checklist: [
+      'Test median nerve: APB power and sensation over lateral 3½ fingers',
+      'Test ulnar nerve: finger abduction (first dorsal interosseous), Froment\'s sign, sensation over medial 1½ fingers',
+      'Test radial nerve: wrist extension (ECRL/ECRB), sensation over dorsal first web space',
+      'Palpate the radial and ulnar pulses',
+      'Examine the elbow and cervical spine to exclude referred pathology',
+      'State investigations: X-ray for fracture/arthropathy, NCS/EMG for CTS, MRI for scaphoid if suspected',
+      'Summarise findings and offer a differential diagnosis',
+    ],
     questions: [
       {
         id: 'wh-com-q1',
@@ -155,7 +273,12 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-com-r1',
         type: 'rationale',
-        text: '"I would perform a full neurological examination of the hand assessing median (APB, sensation over lateral 3½ fingers), ulnar (intrinsic muscles, sensation over medial 1½ fingers, Froment\'s sign), and radial (ECRL/ECRB, sensation dorsal first web space) nerve territories. I would palpate the radial and ulnar pulses, and examine the elbow and cervical spine to exclude referred pathology."',
+        text: '',
+        bullets: [
+          'Perform a full neurological examination: median nerve (APB, sensation over lateral 3½ fingers), ulnar nerve (intrinsic muscles, sensation over medial 1½ fingers, Froment\'s sign), radial nerve (ECRL/ECRB, sensation dorsal first web space)',
+          'Palpate the radial and ulnar pulses',
+          'Examine the elbow and cervical spine to exclude referred pathology',
+        ],
       },
       {
         id: 'wh-com-q2',
@@ -165,7 +288,14 @@ export const wristHandSteps: ExamStep[] = [
       {
         id: 'wh-com-p2',
         type: 'pathology',
-        text: 'X-ray (PA + lateral wrist, PA hand): fracture, OA (joint space, osteophytes, erosions in RA vs. OA), calcification. For RA: add inflammatory markers (CRP, ESR), RF, anti-CCP (most specific). Scaphoid: MRI preferred over CT (also shows bone marrow oedema). NCS/EMG: carpal tunnel, cubital tunnel. USS: tendon tears, cysts, guided injections. CT: complex fractures, suspected coalition.',
+        text: '',
+        bullets: [
+          'X-ray (PA + lateral wrist, PA hand): fracture, OA (joint space, osteophytes), erosions in RA vs. OA, calcification',
+          'For RA: inflammatory markers (CRP, ESR), RF, anti-CCP (most specific)',
+          'Scaphoid fracture: MRI preferred (also shows bone marrow oedema); CT for surgical planning',
+          'NCS/EMG: carpal tunnel syndrome, cubital tunnel syndrome',
+          'USS: tendon tears, cysts, guided injections; CT: complex fractures, suspected coalition',
+        ],
       },
     ],
   },
