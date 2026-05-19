@@ -1,0 +1,311 @@
+import type { ExamStep } from './steps';
+
+export const riskAssessmentSteps: ExamStep[] = [
+  {
+    id: 'risk-approach',
+    stepNumber: 1,
+    title: 'Approach and Rapport',
+    subtitle: 'Empathic, non-judgmental opening',
+    description: 'Establish rapport and a safe interview environment before exploring sensitive risk topics, using direct but empathic language that does not minimise or dismiss the patient\'s experience.',
+    checklist: [
+      'Acknowledge the patient\'s distress: "I can see this has been very difficult for you"',
+      'Explain confidentiality and its limits: "What you tell me is confidential, unless I think you or someone else is at serious risk"',
+      'Use open questions first, then funnel to specific closed questions on risk',
+      'Do NOT ask leading or protective questions: never say "You\'re not going to hurt yourself, are you?"',
+      'Ask directly and clearly: "Are you having any thoughts of harming yourself or ending your life?"',
+    ],
+    questions: [
+      {
+        id: 'risk-app-q1',
+        type: 'examiner',
+        text: 'Why is it important to ask directly about suicidal ideation rather than using indirect language?',
+      },
+      {
+        id: 'risk-app-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Research consistently shows that asking directly about suicidal ideation does NOT increase suicide risk or plant the idea — this is a common myth',
+          'Direct questions are more likely to elicit truthful disclosure than euphemistic alternatives',
+          'Indirect questions ("you\'re not going to do anything silly, are you?") introduce bias and may shame the patient into denial',
+          'NICE NG225 (2022) emphasises the therapeutic value of direct, compassionate enquiry into suicidal thoughts as part of the care relationship',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-ideation',
+    stepNumber: 2,
+    title: 'Suicidal Ideation',
+    subtitle: 'Passive versus active ideation; frequency, intensity, duration',
+    description: 'Assess the nature and severity of suicidal ideation, distinguishing passive from active thoughts and establishing chronology and intensity.',
+    checklist: [
+      'Ask about passive ideation: "Have you had thoughts that you\'d be better off dead, or wishes to be dead?"',
+      'Ask about active ideation: "Have you had thoughts of actually ending your life?"',
+      'Establish frequency (constant vs intermittent), duration (fleeting vs sustained), and intensity (can you resist the thoughts?)',
+      'Assess hopelessness: "Do you feel that things can get better?" — hopelessness is the single strongest predictor of suicide',
+      'Ask about intrusive vs planned ideation: are thoughts unwanted/ego-dystonic, or is the patient actively entertaining them?',
+    ],
+    questions: [
+      {
+        id: 'risk-idea-q1',
+        type: 'examiner',
+        text: 'Which psychological factor is the strongest independent predictor of suicide beyond diagnosis?',
+      },
+      {
+        id: 'risk-idea-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Hopelessness (Beck Hopelessness Scale score >9): stronger predictor of suicide than depression severity, diagnosis, or current ideation alone',
+          'Hopelessness reflects the patient\'s negative expectations about the future and inability to imagine change — a cognitive distortion central to suicidality',
+          'Assess using direct questions: "Do you see any way out of your current situation?" "Do you believe things can improve?"',
+          'High hopelessness + access to means + specific plan = very high imminent risk — requires urgent inpatient management',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-plan',
+    stepNumber: 3,
+    title: 'Intent and Plan',
+    subtitle: 'Specificity of plan, access to means, and preparatory behaviour',
+    description: 'Explore whether the patient has a specific plan for suicide, access to the means described, and has taken any preparatory actions — these are markers of imminent high risk.',
+    checklist: [
+      'Ask: "Have you thought about how you might do it?"',
+      'If yes: ask about the specific method, timing, and location',
+      'Assess access to means: do they have medications at home? Access to weapons? Proximity to heights?',
+      'Ask about preparatory behaviour: writing a suicide note, giving away possessions, researching methods online, saying goodbye',
+      'Assess intent: "Do you intend to act on these thoughts?" "What has stopped you so far?"',
+    ],
+    questions: [
+      {
+        id: 'risk-plan-q1',
+        type: 'examiner',
+        text: 'How does the specificity and lethality of a suicide plan affect your risk assessment?',
+      },
+      {
+        id: 'risk-plan-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Specific plan (method + time + location) + access to means = higher imminent risk than vague ideation without a plan',
+          'Lethality of method: hanging/firearms have high case fatality rates; overdose/cutting have lower rates but high attempt frequency',
+          'Preparatory behaviour (note writing, giving away possessions) indicates high level of intent and close temporal proximity to attempt',
+          'Absence of deterrents (no children, no religious beliefs, social isolation) removes protective factors and increases risk',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-history',
+    stepNumber: 4,
+    title: 'Previous Attempts and Self-Harm',
+    subtitle: 'Past attempts, methods, and non-suicidal self-injury',
+    description: 'Take a detailed history of previous suicide attempts and self-harm, as past behaviour is the most reliable predictor of future behaviour.',
+    checklist: [
+      'Ask: "Have you ever acted on thoughts like this in the past?"',
+      'If yes: establish number of attempts, methods used, medical severity, and whether the patient believed they would die',
+      'Ask about the circumstances: was the act planned or impulsive? Was it discovered by chance?',
+      'Distinguish non-suicidal self-injury (NSSI — cutting, burning, scratching for emotional regulation) from suicidal behaviour',
+      'Ask about current self-harm: frequency, methods, triggers, and whether it provides relief or escalates distress',
+    ],
+    questions: [
+      {
+        id: 'risk-hist-q1',
+        type: 'examiner',
+        text: 'How does a previous suicide attempt affect future suicide risk?',
+      },
+      {
+        id: 'risk-hist-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Previous suicide attempt is the single strongest predictor of future completed suicide — approximately 100-fold increased risk versus the general population',
+          'The first year after an attempt carries the highest risk — up to 1–2% die by suicide within 12 months',
+          'Medically serious attempts (requiring ICU, indicating high intent/low rescue) carry higher subsequent risk than low-lethality attempts',
+          'However, NICE NG225 emphasises that previous low-lethality attempts should not be trivialised — the distress is equally valid',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+      {
+        id: 'risk-hist-q2',
+        type: 'examiner',
+        text: 'How do you distinguish non-suicidal self-injury from a suicide attempt?',
+      },
+      {
+        id: 'risk-hist-p2',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'NSSI: deliberate self-harm WITHOUT the intent to die — typically serves an emotional regulation function (reducing emotional pain, feeling something when numb, self-punishment)',
+          'Common in emotionally unstable personality disorder (EUPD/BPD), adolescents, and those with trauma histories',
+          'A suicide attempt: the patient acts with the intention to die, or is indifferent to whether they survive',
+          'Conflating NSSI with suicidality is a common clinical error — it may lead to inappropriate management; always ask about intent directly',
+          'NSSI is still a significant risk marker — it is associated with eventual suicide attempts in a proportion of patients',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-factors',
+    stepNumber: 5,
+    title: 'Risk and Protective Factors',
+    subtitle: 'Static and dynamic risk factors; protective factors',
+    description: 'Systematically identify static and modifiable risk factors alongside protective factors to construct a balanced risk formulation.',
+    checklist: [
+      'Document static risk factors: male sex, age (peaks 20–25 and 60+), psychiatric diagnosis, chronic physical illness, previous attempts, family history of suicide',
+      'Document dynamic (modifiable) risk factors: current active ideation, hopelessness, access to means, substance intoxication, insomnia, recent adverse life event, social isolation',
+      'Document protective factors: reasons for living (children, pets, relationships), religious or cultural beliefs against suicide, engagement with services, future plans',
+      'Ask specifically: "Is there anything that has been stopping you from acting on these thoughts?"',
+      'Ask about recent stressors: bereavement, relationship breakdown, financial problems, legal issues, anniversary reactions',
+    ],
+    questions: [
+      {
+        id: 'risk-fact-q1',
+        type: 'examiner',
+        text: 'Why is it important to document protective factors as well as risk factors in a risk assessment?',
+      },
+      {
+        id: 'risk-fact-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'A risk formulation is not complete without protective factors — they are what can be enhanced therapeutically to reduce imminent risk',
+          'Protective factors: children, strong family support, religious beliefs, therapeutic relationship, employment, future orientation, reasons for living',
+          'Safety planning should explicitly build on protective factors rather than solely listing risk factors',
+          'NICE NG225: collaborative safety planning should include identifying valued activities, support contacts, and coping strategies derived from the patient\'s own strengths',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-formulation',
+    stepNumber: 6,
+    title: 'Risk Formulation',
+    subtitle: 'Formulation-based approach — not risk stratification tools',
+    description: 'Construct a clinical risk formulation describing the individual\'s unique risk profile, explicitly avoiding numerical risk categories in favour of a narrative description.',
+    checklist: [
+      'Summarise the key risk factors, protective factors, and the context in a narrative formulation',
+      'State the key clinical concerns driving the risk (e.g. hopelessness + specific plan + access to means)',
+      'State the key protective factors that modulate risk (e.g. strong family support, engagement with services)',
+      'Explicitly avoid labelling risk as "high/medium/low" alone — NICE NG225 recommends against risk classification tools',
+      'Communicate the formulation clearly to the patient, the team, and document it accurately in the notes',
+    ],
+    questions: [
+      {
+        id: 'risk-form-q1',
+        type: 'examiner',
+        text: 'Why does NICE NG225 recommend against risk stratification tools such as SAD PERSONS?',
+      },
+      {
+        id: 'risk-form-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Risk stratification tools (SAD PERSONS, Manchester Triage Risk Tool) have poor predictive validity — they cannot reliably identify who will or will not die by suicide',
+          'Using categorical labels ("high risk", "low risk") can create false reassurance or lead to inappropriate resource allocation based on category rather than clinical need',
+          'They discourage therapeutic engagement and may cause harm by making patients feel reduced to a number',
+          'A formulation-based approach — describing the individual\'s unique circumstances, triggers, protective factors, and planned interventions — is more clinically meaningful and person-centred',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-management',
+    stepNumber: 7,
+    title: 'Management and Safety Planning',
+    subtitle: 'Immediate safety, safety planning, referral, and MHA if needed',
+    description: 'Determine the appropriate level of care and co-create a safety plan with the patient that addresses immediate risk, coping strategies, and crisis contacts.',
+    checklist: [
+      'Determine appropriate level of care: community (GP + CMHT), crisis team (intensive home support), or inpatient admission (voluntary or compulsory)',
+      'Reduce means: prescribe limited quantities of medication; advise family to remove or secure other means',
+      'Co-create a written safety plan: warning signs, coping strategies, support contacts, crisis team/emergency numbers, reasons to stay safe',
+      'Consider urgent referral to Crisis Resolution and Home Treatment Team (CRHTT) if high risk in the community',
+      'Consider Mental Health Act assessment (Section 2) if patient lacks capacity or refuses admission despite imminent risk',
+      'Document all findings, the formulation, the management plan, and who was informed',
+    ],
+    questions: [
+      {
+        id: 'risk-mgmt-q1',
+        type: 'examiner',
+        text: 'Under what circumstances would you consider a Mental Health Act Section 2 assessment?',
+      },
+      {
+        id: 'risk-mgmt-p1',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Section 2 (MHA 1983): admission for assessment up to 28 days; requires two medical recommendations (one approved under S12) + AMHP (approved mental health professional)',
+          'Grounds: the patient has a mental disorder of a nature or degree warranting detention for assessment; and they ought to be detained for the health and safety of themselves or others; and informal admission is not appropriate',
+          'Consider when: patient refuses voluntary admission but is at imminent high risk; lacks capacity to consent to admission; or behaviour poses serious risk to self or others',
+          'Section 136: police power — takes a person from a public place to a place of safety (up to 24 hours) for MHA assessment',
+        ],
+        source: 'Mental Health Act 1983 (amended 2007)',
+      },
+      {
+        id: 'risk-mgmt-q2',
+        type: 'examiner',
+        text: 'What are the components of a collaborative safety plan?',
+      },
+      {
+        id: 'risk-mgmt-r2',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Warning signs: early indicators the patient is entering crisis (specific thoughts, feelings, or behaviours)',
+          'Internal coping strategies: things the patient can do alone to reduce distress (exercise, distraction, mindfulness)',
+          'Social distractions: people and activities that provide distraction without discussing the crisis',
+          'People to ask for help: specific named individuals + contact numbers',
+          'Professional contacts: CRHTT number, GP, mental health team, emergency services (999) — patient should carry the plan',
+          'Means restriction: agreement to remove/secure access to lethal means (medication, weapons)',
+        ],
+        source: 'NICE NG225 (2022)',
+      },
+    ],
+  },
+  {
+    id: 'risk-documentation',
+    stepNumber: 8,
+    title: 'Documentation',
+    subtitle: 'Contemporaneous, accurate, and complete documentation',
+    description: 'Document the risk assessment contemporaneously and comprehensively — accurate documentation protects both the patient and the clinician and ensures continuity of care.',
+    checklist: [
+      'Document all findings from the risk assessment clearly and contemporaneously',
+      'Record what the patient said (use their own words where relevant), what you assessed, and what you concluded',
+      'Record the formulation: key risk factors, protective factors, and your clinical reasoning',
+      'Record the management plan: what was agreed, what referrals were made, what follow-up is planned',
+      'Document who was informed: relatives (with patient consent), GP, crisis team, ward staff',
+      'If capacity is a concern: document a capacity assessment',
+    ],
+    questions: [
+      {
+        id: 'risk-doc-q1',
+        type: 'examiner',
+        text: 'What are the principles of good documentation after a risk assessment?',
+      },
+      {
+        id: 'risk-doc-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Contemporaneous: written at the time or immediately after — not reconstructed later',
+          'Accurate: record what was actually said and done, not what should have been done',
+          'Complete: include the clinical reasoning behind decisions, not just the outcome',
+          'Non-judgemental: avoid stigmatising language (e.g. "manipulative", "attention-seeking" for self-harm)',
+          'Safe: if a patient is discharged, document why they were assessed as suitable for discharge and what safety-net is in place',
+        ],
+        source: 'GMC Good Medical Practice (2024)',
+      },
+    ],
+  },
+];
+
+// EXAM_ENTRY_DATA
+// {"id":"risk-assessment","title":"Risk Assessment (Self-harm / Suicidality)","description":"Structured psychiatric risk assessment covering suicidal ideation (passive vs active), intent and plan, previous attempts and self-harm, risk and protective factors, risk formulation, safety planning, and documentation — guided by NICE NG225.","specialtyId":"psychiatry","highYieldSummary":["Ask directly about suicidal ideation — direct questioning does NOT increase risk; indirect questions introduce bias and may shame patients into denial.","Hopelessness (Beck Hopelessness Scale) is the single strongest independent predictor of suicide, beyond diagnosis or severity of depression.","Previous suicide attempt: ~100-fold increase in future completed suicide risk; first year after attempt carries the highest risk. Always take previous attempts seriously regardless of lethality.","NICE NG225: do NOT use risk stratification tools (SAD PERSONS) — poor predictive validity. Use a clinical formulation: narrative description of individual risk and protective factors + collaborative safety planning.","NSSI (non-suicidal self-injury) ≠ suicide attempt — NSSI serves an emotional regulation function without intent to die; conflating the two leads to inappropriate management.","MHA Section 2: up to 28 days for assessment; requires two medical recommendations + AMHP. Grounds: mental disorder of nature/degree warranting detention for health/safety of self or others."]}

@@ -1,9 +1,38 @@
+import { alcoholSubstanceSteps } from './alcoholSubstanceSteps';
 import { ankleSteps } from './ankleSteps';
+import { antenatalSteps } from './antenatalSteps';
+import { breastSteps } from './breastSteps';
+import { cerebellumSteps } from './cerebellumSteps';
+import { cognitiveSteps } from './cognitiveSteps';
+import { cranialNerveSteps } from './cranialNerveSteps';
+import { diabeticFootSteps } from './diabeticFootSteps';
+import { earSteps } from './earSteps';
 import { elbowSteps } from './elbowSteps';
+import { eyeSteps } from './eyeSteps';
+import { gynaeHistorySteps } from './gynaeHistorySteps';
 import { hipSteps } from './hipSteps';
 import { kneeSteps } from './kneeSteps';
+import { lowerLimbNeuroSteps } from './lowerLimbNeuroSteps';
+import { maleGenitaliaSteps } from './maleGenitaliaSteps';
+import { mseSteps } from './mseSteps';
+import { neckLumpSteps } from './neckLumpSteps';
+import { noseThroatSteps } from './noseThroatSteps';
+import { paedAbdominalSteps } from './paedAbdominalSteps';
+import { paedCardioSteps } from './paedCardioSteps';
+import { paedDevelopmentalSteps } from './paedDevelopmentalSteps';
+import { paedRespiratorySteps } from './paedRespiratorySteps';
+import { parkinsonsSteps } from './parkinsonsSteps';
+import { prostateSteps } from './prostateSteps';
+import { rectalSteps } from './rectalSteps';
+import { redEyeSteps } from './redEyeSteps';
+import { riskAssessmentSteps } from './riskAssessmentSteps';
+import { scrotalSteps } from './scrotalSteps';
+import { speculumSteps } from './speculumSteps';
 import { steps as shoulderSteps } from './steps';
 import { spineSteps } from './spineSteps';
+import { stomaSteps } from './stomaSteps';
+import { thyroidSteps } from './thyroidSteps';
+import { ulcerSteps } from './ulcerSteps';
 import { upperLimbNeuroSteps } from './upperLimbNeuroSteps';
 import { wristHandSteps } from './wristHandSteps';
 
@@ -25,6 +54,14 @@ export interface Specialty {
 export const SPECIALTIES: Specialty[] = [
   { id: 'orthopaedics', name: 'Orthopaedics' },
   { id: 'neurology', name: 'Neurology' },
+  { id: 'endocrine', name: 'Endocrine' },
+  { id: 'surgery', name: 'Surgery' },
+  { id: 'obstetrics-gynaecology', name: 'Obstetrics & Gynaecology' },
+  { id: 'urology', name: 'Urology' },
+  { id: 'ent', name: 'ENT' },
+  { id: 'ophthalmology', name: 'Ophthalmology' },
+  { id: 'psychiatry', name: 'Psychiatry' },
+  { id: 'paediatrics', name: 'Paediatrics' },
 ];
 
 export const EXAMS: OsceExam[] = [

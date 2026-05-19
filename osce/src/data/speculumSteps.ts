@@ -1,0 +1,358 @@
+import type { ExamStep } from './steps';
+
+export const speculumSteps: ExamStep[] = [
+  {
+    id: 'spec-preparation',
+    stepNumber: 1,
+    title: 'Preparation and Consent',
+    subtitle: 'Position, equipment, and patient explanation',
+    description: 'Prepare the patient and equipment before inserting the speculum, ensuring informed verbal consent and a chaperone are in place before proceeding.',
+    checklist: [
+      'Confirm verbal consent and ensure a chaperone is present throughout',
+      'Position patient supine with knees flexed and feet together, then let knees fall apart',
+      'Select appropriate speculum size; warm under warm water (do not use lubricant gel if taking swabs)',
+      'Explain each step to the patient before proceeding',
+      'Gather equipment: speculum, light source, swabs (HVS and endocervical NAAT), specimen bottles',
+    ],
+    questions: [
+      {
+        id: 'spec-prep-q1',
+        type: 'examiner',
+        text: 'Why must you avoid using lubricant gel before taking cervical or vaginal swabs?',
+      },
+      {
+        id: 'spec-prep-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Lubricant gel interferes with the growth media used in bacterial culture, giving false-negative results',
+          'For NAAT swabs (chlamydia/gonorrhoea), gel may inhibit PCR amplification',
+          'Warm water alone is sufficient lubrication for a Cusco\'s speculum without affecting sample quality',
+        ],
+        source: 'geekymedics.com',
+      },
+      {
+        id: 'spec-prep-q2',
+        type: 'examiner',
+        text: 'A patient declines a chaperone. How do you proceed?',
+      },
+      {
+        id: 'spec-prep-r2',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Document that the patient declined a chaperone and the examination was performed at their request',
+          'The examination can proceed if the patient provides informed consent for examination without a chaperone',
+          'If the clinician is not comfortable proceeding without a chaperone, they may defer or refer — this is professionally acceptable',
+          'GMC guidance: a chaperone should always be offered but the decision rests with the patient',
+        ],
+        source: 'GMC Good Medical Practice (2024)',
+      },
+    ],
+  },
+  {
+    id: 'spec-vulva',
+    stepNumber: 2,
+    title: 'Vulval Inspection',
+    subtitle: 'Inspect vulva and labia before speculum insertion',
+    description: 'Inspect the vulva and perineum systematically before inserting the speculum to identify any skin pathology, lesions, or discharge that would alter management.',
+    checklist: [
+      'Inspect the labia majora and minora for skin changes, ulcers, or lesions',
+      'Look for Bartholin\'s gland cyst or abscess (posterolateral at 4 and 8 o\'clock)',
+      'Identify urethral meatus and any urethral caruncle or prolapse',
+      'Note any vaginal discharge visible at the introitus (colour, consistency, odour)',
+      'Look for condylomata acuminata (HPV warts), erosions, or areas of pallor/thickening',
+    ],
+    questions: [
+      {
+        id: 'spec-vulva-q1',
+        type: 'examiner',
+        text: 'What skin conditions affect the vulva and how do you recognise them?',
+      },
+      {
+        id: 'spec-vulva-p1',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Lichen sclerosus: white atrophic plaques, figure-of-8 distribution around vulva and perineum, intense pruritus, risk of VIN and SCC (3–5%); treat with potent topical corticosteroids',
+          'Lichen planus: erosive form — shiny erythematous areas, Wickham\'s striae, vaginal involvement causing agglutination; treat with topical/systemic steroids',
+          'VIN (vulval intraepithelial neoplasia): precancerous; warty, papular, or flat lesions, pigmented or pale; HPV-related in younger women; treat with local excision or imiquimod',
+          'Vulval SCC: hard, indurated, fixed lesion with irregular edge — 2-week-wait referral; associated with lichen sclerosus or HPV',
+        ],
+        source: 'NICE NG58 (2015); British Association of Dermatologists guidelines',
+      },
+      {
+        id: 'spec-vulva-q2',
+        type: 'examiner',
+        text: 'What is a Bartholin\'s gland cyst and how does it differ from a Bartholin\'s abscess?',
+      },
+      {
+        id: 'spec-vulva-p2',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Bartholin\'s glands: bilateral mucus-secreting glands at the posterolateral vaginal introitus (4 and 8 o\'clock)',
+          'Cyst: duct obstruction causes painless fluid-filled swelling — treat conservatively or with marsupialisation',
+          'Abscess: infection of the cyst (usually polymicrobial including STI organisms) — tender, fluctuant, erythematous; treat with incision and drainage or Word catheter insertion',
+          'In women >40 with a Bartholin\'s lump: biopsy to exclude Bartholin\'s gland carcinoma (rare SCC)',
+        ],
+        source: 'OHCM 10th ed., Ch. 2',
+      },
+    ],
+  },
+  {
+    id: 'spec-insertion',
+    stepNumber: 3,
+    title: 'Speculum Insertion',
+    subtitle: 'Insert Cusco\'s speculum and visualise the cervix',
+    description: 'Insert the bivalve speculum into the posterior vaginal fornix and open it to bring the cervix into view under direct visualisation.',
+    checklist: [
+      'Hold speculum with dominant hand, blades closed, at 45° to the vertical with handles pointing to one side',
+      'Insert speculum gently into the posterior vaginal fornix, angling downward toward sacrum',
+      'Rotate to vertical once inside the vaginal canal',
+      'Gently open blades and advance until the cervix comes into view',
+      'Tighten the speculum screw once cervix is visualised and centred',
+      'Use adequate lighting (lamp or headlight) to inspect the cervix clearly',
+    ],
+    questions: [
+      {
+        id: 'spec-ins-q1',
+        type: 'examiner',
+        text: 'Why do you insert the speculum at 45° rather than vertically?',
+      },
+      {
+        id: 'spec-ins-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'The initial 45° angle avoids trauma to the urethra and anterior vaginal wall (which are anterosuperior)',
+          'Rotation to vertical once inside aligns the blades with the anterior and posterior vaginal walls',
+          'Directing the speculum posteriorly towards the sacrum follows the natural anatomical axis of the vaginal canal',
+        ],
+        source: 'geekymedics.com',
+      },
+    ],
+  },
+  {
+    id: 'spec-cervix',
+    stepNumber: 4,
+    title: 'Cervical Inspection',
+    subtitle: 'Inspect the cervix for normal and abnormal findings',
+    description: 'Systematically inspect the cervix, os, and squamocolumnar junction to identify normal variants and pathological changes requiring further investigation.',
+    checklist: [
+      'Identify the external os: circular in nulliparous women, transverse slit in parous women',
+      'Inspect the transformation zone and squamocolumnar junction for ectropion or abnormality',
+      'Note any visible polyp protruding from the os',
+      'Assess for mucopus or abnormal discharge at the cervical os',
+      'Look for irregular, friable, or ulcerated areas suspicious for cervical carcinoma',
+      'Note colour (normal = pink; ectropion = red/velvety; nabothian follicles = white-blue cysts)',
+    ],
+    questions: [
+      {
+        id: 'spec-cerv-q1',
+        type: 'examiner',
+        text: 'What is a cervical ectropion and when is it normal?',
+      },
+      {
+        id: 'spec-cerv-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Ectropion (erosion): columnar epithelium visible beyond the external os — appears red and velvety compared to the surrounding squamous epithelium',
+          'Normal in: pregnancy, OCP use, adolescence (physiological eversion of the transformation zone)',
+          'Causes postcoital bleeding and increased vaginal discharge — reassure; treat with cryotherapy if symptomatic',
+          'Must be distinguished from cervical carcinoma (irregular, friable, bleeds on contact)',
+        ],
+        source: 'geekymedics.com',
+      },
+      {
+        id: 'spec-cerv-q2',
+        type: 'examiner',
+        text: 'A 28-year-old woman has a red irregular area on her cervix that bleeds when touched with the swab. What is your management?',
+      },
+      {
+        id: 'spec-cerv-p2',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Contact bleeding from an irregular cervix is a red flag for cervical carcinoma until proven otherwise',
+          '2-week-wait urgent referral to colposcopy/gynaecology — do not delay for smear result',
+          'HPV 16 and 18 account for ~70% of cervical cancers; HPV primary screening introduced in England 2019',
+          'Cervical cancer staging: FIGO system; early-stage treated with LLETZ/cone biopsy or radical hysterectomy; advanced with chemoradiotherapy',
+        ],
+        source: 'NICE NG12 (2015); NHSCSP HPV Primary Screening (2019)',
+      },
+      {
+        id: 'spec-cerv-q3',
+        type: 'examiner',
+        text: 'What are nabothian follicles and what causes them?',
+      },
+      {
+        id: 'spec-cerv-r3',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Nabothian follicles: retention cysts of the cervical mucus glands — smooth, white-blue translucent bumps on the ectocervix',
+          'Form when squamous metaplasia covers mucous gland openings, trapping secretions',
+          'Normal finding; no treatment required; should not be confused with herpetic vesicles or early malignancy',
+        ],
+        source: 'OHCM 10th ed., Ch. 2',
+      },
+    ],
+  },
+  {
+    id: 'spec-swabs',
+    stepNumber: 5,
+    title: 'Taking Swabs',
+    subtitle: 'High vaginal swab and endocervical NAAT',
+    description: 'Take the appropriate swabs under direct vision to screen for vaginal and cervical infection, following correct technique to avoid contamination.',
+    checklist: [
+      'Take a high vaginal swab (HVS) from the posterior fornix — rotate against the vaginal wall, place in Amies transport medium',
+      'Take an endocervical swab for NAAT (chlamydia + gonorrhoea) — insert into the endocervical canal, rotate for 10–20 seconds',
+      'Avoid contaminating endocervical swab with vaginal secretions',
+      'Label all swabs with patient details and site of collection',
+      'Note characteristics of any discharge observed (colour, consistency, odour)',
+    ],
+    questions: [
+      {
+        id: 'spec-swab-q1',
+        type: 'examiner',
+        text: 'What organisms does a high vaginal swab detect and how do you differentiate bacterial vaginosis from candidiasis on microscopy?',
+      },
+      {
+        id: 'spec-swab-p1',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'HVS detects: BV (Gardnerella, anaerobes), candidiasis (Candida albicans), Trichomonas vaginalis',
+          'BV: grey watery discharge, fishy odour, pH >4.5, clue cells on microscopy (epithelial cells coated with organisms), positive whiff test with KOH; treat with metronidazole',
+          'Candidiasis: white curdy discharge, pruritus, erythema, pH normal (3.8–4.5), pseudohyphae on microscopy; treat with clotrimazole pessary',
+          'Trichomonas: frothy yellow-green discharge, strawberry cervix, motile flagellated protozoa on wet mount; treat both partners with metronidazole',
+        ],
+        source: 'BASHH UK National Guidelines on Vaginal Discharge (2021)',
+      },
+      {
+        id: 'spec-swab-q2',
+        type: 'examiner',
+        text: 'Why is NAAT preferred over culture for chlamydia and gonorrhoea testing?',
+      },
+      {
+        id: 'spec-swab-r2',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'NAAT (nucleic acid amplification test) detects pathogen DNA/RNA with sensitivity >95% and specificity >99% — superior to culture',
+          'Culture requires live organisms; transport conditions are critical and sensitivity is lower (~85%)',
+          'NAAT can be performed on urine, self-taken vulvovaginal swabs, and endocervical swabs — increasing patient acceptability',
+          'Gonorrhoea culture is still required alongside NAAT if resistance testing (antibiotic sensitivities) is needed',
+        ],
+        source: 'BASHH UK National Guidelines for Gonorrhoea (2019)',
+      },
+    ],
+  },
+  {
+    id: 'spec-vaginal-walls',
+    stepNumber: 6,
+    title: 'Vaginal Wall Inspection',
+    subtitle: 'Inspect vaginal walls as speculum is withdrawn',
+    description: 'As the speculum is slowly withdrawn, inspect the vaginal walls anteriorly and posteriorly for prolapse, discharge, and signs of atrophy or malignancy.',
+    checklist: [
+      'Loosen the speculum screw and begin slow withdrawal',
+      'Inspect the anterior vaginal wall for a bulge (cystocoele — anterior wall descent)',
+      'Inspect the posterior vaginal wall for a bulge (rectocoele — posterior wall descent)',
+      'Ask the patient to cough or strain to demonstrate prolapse dynamically',
+      'Note vaginal mucosa colour and texture (pale thin folds = atrophic vaginitis in postmenopause)',
+      'Complete withdrawal of speculum with blades partially open to avoid pinching',
+    ],
+    questions: [
+      {
+        id: 'spec-vag-q1',
+        type: 'examiner',
+        text: 'How do you classify pelvic organ prolapse and what symptoms does it cause?',
+      },
+      {
+        id: 'spec-vag-p1',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'POP-Q system (Pelvic Organ Prolapse Quantification): stage 0 = no prolapse; stage I = >1 cm above the hymen; stage II = within 1 cm of hymen; stage III = >1 cm beyond hymen; stage IV = complete eversion',
+          'Cystocoele (anterior): urinary frequency, stress incontinence, incomplete emptying; rectocoele (posterior): incomplete defecation, need to digitally reduce stool',
+          'Symptoms: dragging sensation, heaviness, visible/palpable bulge, worse on standing/straining, better lying down',
+          'Risk factors: multiparity, vaginal delivery (instrument/macrosomia), menopause, obesity, chronic straining, connective tissue disorders',
+          'Treat: pelvic floor exercises (mild-moderate), pessary (ring or shelf), surgical repair (anterior/posterior colporrhaphy, sacrocolpopexy)',
+        ],
+        source: 'NICE NG210 (2021)',
+      },
+      {
+        id: 'spec-vag-q2',
+        type: 'examiner',
+        text: 'What causes atrophic vaginitis and how is it treated?',
+      },
+      {
+        id: 'spec-vag-p2',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Oestrogen withdrawal in menopause → thinning and drying of vaginal epithelium, reduced lubrication, elevated vaginal pH',
+          'Symptoms: vaginal dryness, dyspareunia, burning, discharge, recurrent UTIs; now termed genitourinary syndrome of menopause (GSM)',
+          'Treat with: topical oestrogen (pessary or cream — minimal systemic absorption, safe in most women); systemic HRT if other menopausal symptoms coexist',
+          'Non-hormonal: vaginal moisturisers (regular use) and lubricants (intercourse); NICE NG23',
+        ],
+        source: 'NICE NG23 (2015)',
+      },
+    ],
+  },
+  {
+    id: 'spec-completion',
+    stepNumber: 7,
+    title: 'Completion',
+    subtitle: 'Bimanual examination and further investigations',
+    description: 'Complete the pelvic examination by offering bimanual palpation of the uterus and adnexa, and state a targeted investigation plan based on findings.',
+    checklist: [
+      'Remove speculum completely; offer the patient tissues',
+      'State you would proceed to bimanual examination: uterine size, position, and mobility; adnexal masses; cervical excitation',
+      'Send swabs to laboratory with relevant clinical details',
+      'Explain findings to the patient and arrange follow-up as appropriate',
+      'State investigations: USS pelvis (uterine or adnexal pathology), colposcopy (abnormal cervix), STI screen, endometrial biopsy (postmenopausal bleeding)',
+    ],
+    questions: [
+      {
+        id: 'spec-comp-q1',
+        type: 'examiner',
+        text: 'What is cervical excitation on bimanual examination and what does it indicate?',
+      },
+      {
+        id: 'spec-comp-r1',
+        type: 'rationale',
+        text: '',
+        bullets: [
+          'Cervical excitation (chandelier sign): pain on movement of the cervix during bimanual examination',
+          'Indicates peritoneal irritation from pelvic pathology: PID (pelvic inflammatory disease), ectopic pregnancy, ruptured ovarian cyst',
+          'In the context of lower abdominal pain, vaginal discharge, and cervical excitation → empirical antibiotic treatment for PID (BASHH guidelines): doxycycline + metronidazole ± ceftriaxone',
+          'Ectopic pregnancy must always be excluded in a woman of reproductive age with pain and cervical excitation — measure serum β-hCG',
+        ],
+        source: 'BASHH UK National Guidelines for PID (2019)',
+      },
+      {
+        id: 'spec-comp-q2',
+        type: 'examiner',
+        text: 'What are the criteria for a 2-week-wait urgent gynaecology referral according to NICE?',
+      },
+      {
+        id: 'spec-comp-p2',
+        type: 'pathology',
+        text: '',
+        bullets: [
+          'Postmenopausal bleeding (any age): endometrial cancer until proven otherwise — USS pelvis (endometrial thickness); biopsy if >4 mm',
+          'Unexplained vulval lump or ulceration (any age) — exclude vulval carcinoma',
+          'Cervical: any suspicious area or contact bleeding from an irregular cervix',
+          'Ovarian: ascites + pelvic or abdominal mass at any age — USS + CA-125; RMI (Risk of Malignancy Index) guides referral',
+        ],
+        source: 'NICE NG12 (2015)',
+      },
+    ],
+  },
+];
+
+// EXAM_ENTRY_DATA
+// {"id":"speculum","title":"Speculum Examination","description":"Systematic pelvic examination using a Cusco\'s speculum to inspect the vulva, vagina, and cervix, take swabs for infection, and identify pathology including cervical carcinoma, prolapse, and vaginal discharge.","specialtyId":"obstetrics-gynaecology","highYieldSummary":["Do NOT use lubricant gel before swabs — it inhibits culture media and PCR amplification; use warm water only.","Cervical ectropion: columnar epithelium beyond the os — normal in pregnancy/OCP use; treat with cryotherapy only if symptomatic.","Contact bleeding from an irregular cervix = 2-week-wait referral regardless of age — never reassure without colposcopy.","BV: pH >4.5, clue cells, fishy odour, treat with metronidazole. Candida: pH normal, pseudohyphae, treat with clotrimazole. Trichomonas: strawberry cervix, motile protozoa.","Anterior vaginal wall bulge (cystocoele) = bladder prolapse; posterior bulge (rectocoele) = rectum. Ask patient to strain to demonstrate dynamically.","Postmenopausal bleeding: always investigate — endometrial cancer until proven otherwise; USS pelvis + endometrial biopsy if thickness >4 mm."]}
