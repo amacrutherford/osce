@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { HighYieldSummary } from './components/HighYieldSummary';
 import { KeyboardShortcutsModal } from './components/KeyboardShortcutsModal';
 import { LandingPage } from './components/LandingPage';
+import { MockExamView } from './components/MockExamView';
 import { ModeToggle } from './components/ModeToggle';
 import { ProgressBar } from './components/ProgressBar';
 import { ResultsView } from './components/ResultsView';
@@ -9,6 +10,10 @@ import { SearchBar } from './components/SearchBar';
 import { Sidebar } from './components/Sidebar';
 import { StepView } from './components/StepView';
 import { EXAMS, SPECIALTIES } from './data/exams';
+import { NEURO_MOCK_EXAMS } from './data/neuroMockExams';
+import { ORTHO_MOCK_EXAMS } from './data/orthoMockExams';
+
+const ALL_MOCK_EXAMS = [...NEURO_MOCK_EXAMS, ...ORTHO_MOCK_EXAMS];
 import { useOsceStore } from './hooks/useOsceStore';
 import { countExaminerQuestions, groupMatches, groupQuestions, normalizeSearchTerm, stepMatches } from './utils/osce';
 
@@ -23,6 +28,7 @@ function readInitialExamId(): string {
 
 function App() {
   const [selectedExamId, setSelectedExamId] = useState<string>(readInitialExamId);
+  const [selectedMockExamId, setSelectedMockExamId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState<AppTab>('overview');
   const [onLanding, setOnLanding] = useState(true);
@@ -30,8 +36,31 @@ function App() {
 
   function goToLanding(scrollToSpecialtyId: string | null) {
     setLandingScrollTarget(scrollToSpecialtyId);
+    setSelectedMockExamId(null);
     setOnLanding(true);
   }
+
+  function openMockExam(examId: string) {
+    setSelectedMockExamId(examId);
+    setOnLanding(false);
+  }
+
+  const activeMockExam = useMemo(
+    () => (selectedMockExamId ? ALL_MOCK_EXAMS.find((e) => e.id === selectedMockExamId) ?? null : null),
+    [selectedMockExamId],
+  );
+
+  const mockExamsBySpecialty = useMemo(() => {
+    const grouped: { specialtyName: string; exams: typeof ALL_MOCK_EXAMS }[] = [];
+    for (const exam of ALL_MOCK_EXAMS) {
+      const specialty = SPECIALTIES.find((s) => s.id === exam.specialtyId);
+      const name = specialty?.name ?? exam.specialtyId;
+      const existing = grouped.find((g) => g.specialtyName === name);
+      if (existing) existing.exams.push(exam);
+      else grouped.push({ specialtyName: name, exams: [exam] });
+    }
+    return grouped;
+  }, []);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const normalizedSearch = useMemo(() => normalizeSearchTerm(searchTerm), [searchTerm]);
 
@@ -191,7 +220,7 @@ function App() {
             >
               OSCE Guide
             </h1>
-            {!onLanding && (
+            {!onLanding && !activeMockExam && (
               <p className="text-sm text-[#6b6b6b]">
                 <button
                   type="button"
@@ -202,6 +231,19 @@ function App() {
                 </button>
                 <span className="mx-1.5 text-[#d0cff0]">›</span>
                 {activeExam.title}
+              </p>
+            )}
+            {!onLanding && activeMockExam && (
+              <p className="text-sm text-[#6b6b6b]">
+                <button
+                  type="button"
+                  onClick={() => goToLanding(activeMockExam.specialtyId)}
+                  className="font-medium text-[#534AB7] transition hover:underline"
+                >
+                  {SPECIALTIES.find((s) => s.id === activeMockExam.specialtyId)?.name}
+                </button>
+                <span className="mx-1.5 text-[#d0cff0]">›</span>
+                Mock: {activeMockExam.title}
               </p>
             )}
           </div>
@@ -239,7 +281,15 @@ function App() {
 
       <main className="mx-auto w-full max-w-7xl p-4 md:p-6">
         {onLanding ? (
-          <LandingPage specialtiesWithExams={specialtiesWithExams} onSelectExam={switchExam} scrollToSpecialtyId={landingScrollTarget} />
+          <LandingPage
+            specialtiesWithExams={specialtiesWithExams}
+            onSelectExam={switchExam}
+            scrollToSpecialtyId={landingScrollTarget}
+            mockExamsBySpecialty={mockExamsBySpecialty}
+            onSelectMockExam={openMockExam}
+          />
+        ) : activeMockExam ? (
+          <MockExamView exam={activeMockExam} onBack={() => goToLanding(activeMockExam.specialtyId)} />
         ) : (
           <>
             <div className="mb-4 flex flex-wrap gap-2">

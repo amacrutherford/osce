@@ -91,6 +91,87 @@ Add `imageUrl` to a `rationale` or `pathology` question where a clinical image s
 
 Source images from Wikimedia Commons (free/CC-licensed). Set `imageUrl` to the direct image URL. No separate attribution needed in this field — include the source in the `source` field.
 
+## Mock OSCE Stations
+
+Mock stations simulate the full OSCE experience. Each `MockExamStation` object has four required sections:
+
+### 1. Candidate Brief (`candidateBrief`)
+
+What the student reads before entering. Must include:
+- `setting` — who the candidate is and where they are (e.g. "FY1 in A&E")
+- `scenario` — the clinical situation with observations if relevant (BP, HR, GCS etc.)
+- `tasks` — 3–4 numbered bullet points of what to do
+- `timeAllowed` — minutes (typically 10)
+
+**The brief must be intentionally vague about method.** Tasks state the expected outcome only — never the specific steps, tests, or framework to use. This preserves the station's ability to assess whether the student can independently select and conduct a tailored, focused approach.
+
+Good: `"Assess this patient's communication difficulties and present your findings"`
+Bad: `"Perform a structured speech and language assessment covering all 6 components of language, then test cranial nerves VII, IX, X, and XII"`
+
+Good: `"Take a focused history and state your diagnosis and management plan"`
+Bad: `"Take a focused history distinguishing central from peripheral causes, then perform the Dix-Hallpike test"`
+
+The scenario may include relevant clinical context (observations, referral reason) but must not name specific examination components, investigation frameworks, or clinical tools the student is expected to use.
+
+**If the brief references a diagram, chart, or document, it must actually exist.** Either:
+- Set `imageUrl` on the station to a verified, loadable Wikimedia Commons URL; update the setting text to say "a diagram is displayed above", OR
+- Remove the reference from the brief entirely
+
+Never write "a diagram has been placed on the desk" without providing the image. If a suitable image cannot be found, say so and ask the user to provide one.
+
+### 2. Actor Instructions (`actorInstructions`)
+
+The simulated patient script. Must contain sufficient medical detail for a real actor to portray the case accurately.
+
+**`historyToReveal`** — every clinically significant data point must have its own entry with an exact verbatim response. Required entries for history-taking stations:
+
+- **Onset and quality** — exact speed (thunderclap vs gradual), character in lay terms, NRS severity
+- **Site and radiation** — precise anatomical description in lay language
+- **Associated symptoms** — each symptom as a separate entry; explicitly deny red-flag symptoms the actor will be asked about
+- **Ictal/episodic features** — for seizure stations: focal motor features before generalisation, tongue bite laterality, incontinence, post-ictal duration, Todd's paresis
+- **Between-episode state** — confirm normal function between episodes (critical for BPPV, TIA, seizure)
+- **Relevant negatives** — explicitly script "no" answers to high-yield screening questions (diplopia, dysphagia, hearing loss, neck stiffness, photophobia, limb weakness etc.)
+- **Past medical history** — each condition as a separate entry; include medications with dose
+- **Vascular risk factors** — smoking (quantify pack-years), alcohol, diabetes, cholesterol, family history
+- **Social / safety questions** — driving, occupation, living situation
+
+For **examination stations** (e.g. speech/language, neurological):
+- Script the exact abnormality to demonstrate for every test the student might perform
+- Include both the positive finding AND the normal contralateral side
+- Specify UMN vs LMN pattern explicitly so the actor knows what to simulate
+- Include responses to tests the student might attempt but that are normal (e.g. CN V sensation, CN VIII hearing, contralateral limb power)
+
+**`onlyIfDirectlyAsked`** — list items the actor must NOT volunteer; explain why each is withheld (embarrassment, doesn't consider it relevant, etc.)
+
+**`behaviourNotes`** — describe emotional state, specific moments of distress, and how the actor should respond to empathy or poor communication technique
+
+### 3. Mark Scheme (`markScheme`)
+
+Organised by domain (e.g. "History — Onset", "Vascular Risk Factors", "Communication"). Each item:
+- One specific, objectively assessable action
+- Allocated marks (1–2 per item; 2 for the highest-yield items)
+- Total marks across all domains visible in the UI
+
+### 4. Expected Presentation (`expectedPresentation`)
+
+Before the viva questions, include a model presentation of findings — what a good candidate should say when they conclude their station and hand over to the examiner. This is displayed at the top of the Viva tab.
+
+Write it as a bulleted list of the key components a well-structured presentation would cover, in the order a student should present them:
+- Patient summary (name, age, key context)
+- Headline diagnosis or key findings
+- Supporting features from the history or examination that confirm the diagnosis
+- Relevant negatives that helped exclude differentials
+- Interpretation of any investigations or diagrams used
+- Management plan and safety-netting
+
+Each bullet should be one complete sentence written as if the student is speaking (e.g. "States the likely diagnosis with confidence before supporting it with evidence"). Aim for 5–7 bullets covering the whole presentation arc. This helps the examiner assess verbal presentation skill, not just factual knowledge.
+
+### Images on mock stations
+
+Use the top-level `imageUrl` field on `MockExamStation` for reference diagrams shown in the Brief tab. Source from Wikimedia Commons. Verify the URL resolves before writing it into the data — fetch the URL and confirm it returns image binary data, not a 404.
+
+---
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
