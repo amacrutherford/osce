@@ -218,7 +218,7 @@ function App() {
               onClick={!onLanding ? () => goToLanding(null) : undefined}
               className={`text-2xl font-black text-[#3C3489] transition md:text-3xl ${!onLanding ? 'cursor-pointer hover:opacity-70' : ''}`}
             >
-              OSCE Guide
+              OSCE Oracle
             </h1>
             {!onLanding && !activeMockExam && (
               <p className="text-sm text-[#6b6b6b]">
