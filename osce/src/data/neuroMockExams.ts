@@ -1,7 +1,7 @@
 import type { MockExamStation } from './mockExamTypes';
 
 const seizureMockExam: MockExamStation = {
-  id: 'neuro-mock-seizure',
+  id: 'seizure_loss_of_consciousness_history',
   title: 'Seizure / Loss of Consciousness History',
   diagnosis: 'Focal-onset bilateral tonic-clonic seizure (first seizure)',
   specialtyId: 'neurology',
@@ -237,7 +237,7 @@ const seizureMockExam: MockExamStation = {
 };
 
 const headacheMockExam: MockExamStation = {
-  id: 'neuro-mock-headache',
+  id: 'headache_and_visual_loss_history',
   title: 'Headache and Visual Loss History',
   diagnosis: 'Posterior circulation ischaemic stroke',
   specialtyId: 'neurology',
@@ -483,7 +483,7 @@ const headacheMockExam: MockExamStation = {
 };
 
 const speechLanguageMockExam: MockExamStation = {
-  id: 'neuro-mock-speech',
+  id: 'speech_and_language_assessment',
   title: 'Speech and Language Assessment',
   diagnosis: 'Broca\'s (expressive) aphasia',
   specialtyId: 'neurology',
@@ -697,7 +697,7 @@ const speechLanguageMockExam: MockExamStation = {
 };
 
 const dizzinessMockExam: MockExamStation = {
-  id: 'neuro-mock-dizziness',
+  id: 'dizziness_and_vertigo_history',
   title: 'Dizziness and Vertigo History',
   diagnosis: 'Benign paroxysmal positional vertigo (BPPV) — right posterior canal',
   specialtyId: 'neurology',

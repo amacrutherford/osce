@@ -15,6 +15,12 @@ import { ORTHO_MOCK_EXAMS } from './data/orthoMockExams';
 
 const ALL_MOCK_EXAMS = [...NEURO_MOCK_EXAMS, ...ORTHO_MOCK_EXAMS];
 import { useOsceStore } from './hooks/useOsceStore';
+
+function readInitialMockExamId(): string | null {
+  const match = window.location.pathname.match(/^\/mock\/(.+)$/);
+  if (!match) return null;
+  return ALL_MOCK_EXAMS.some((e) => e.id === match[1]) ? match[1] : null;
+}
 import { countExaminerQuestions, groupMatches, groupQuestions, normalizeSearchTerm, stepMatches } from './utils/osce';
 
 type AppTab = 'overview' | 'guide' | 'summary' | 'results';
@@ -22,28 +28,54 @@ type AppTab = 'overview' | 'guide' | 'summary' | 'results';
 const EXAM_STORAGE_KEY = 'osce-selected-exam';
 
 function readInitialExamId(): string {
+  const urlMatch = window.location.pathname.match(/^\/exam\/(.+)$/);
+  if (urlMatch && EXAMS.some((e) => e.id === urlMatch[1])) return urlMatch[1];
   const persisted = localStorage.getItem(EXAM_STORAGE_KEY);
   return EXAMS.some((e) => e.id === persisted) ? (persisted as string) : EXAMS[0].id;
 }
 
 function App() {
   const [selectedExamId, setSelectedExamId] = useState<string>(readInitialExamId);
-  const [selectedMockExamId, setSelectedMockExamId] = useState<string | null>(null);
+  const [selectedMockExamId, setSelectedMockExamId] = useState<string | null>(readInitialMockExamId);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState<AppTab>('overview');
-  const [onLanding, setOnLanding] = useState(true);
+  const [onLanding, setOnLanding] = useState(
+    () => readInitialMockExamId() === null && !window.location.pathname.match(/^\/exam\//)
+  );
   const [landingScrollTarget, setLandingScrollTarget] = useState<string | null>(null);
 
   function goToLanding(scrollToSpecialtyId: string | null) {
     setLandingScrollTarget(scrollToSpecialtyId);
     setSelectedMockExamId(null);
     setOnLanding(true);
+    history.pushState({}, '', '/');
   }
 
   function openMockExam(examId: string) {
     setSelectedMockExamId(examId);
     setOnLanding(false);
+    history.pushState({}, '', `/mock/${examId}`);
   }
+
+  useEffect(() => {
+    function handlePopState() {
+      const mockMatch = window.location.pathname.match(/^\/mock\/(.+)$/);
+      const examMatch = window.location.pathname.match(/^\/exam\/(.+)$/);
+      if (mockMatch && ALL_MOCK_EXAMS.some((e) => e.id === mockMatch[1])) {
+        setSelectedMockExamId(mockMatch[1]);
+        setOnLanding(false);
+      } else if (examMatch && EXAMS.some((e) => e.id === examMatch[1])) {
+        setSelectedExamId(examMatch[1]);
+        setSelectedMockExamId(null);
+        setOnLanding(false);
+      } else {
+        setSelectedMockExamId(null);
+        setOnLanding(true);
+      }
+    }
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const activeMockExam = useMemo(
     () => (selectedMockExamId ? ALL_MOCK_EXAMS.find((e) => e.id === selectedMockExamId) ?? null : null),
@@ -188,6 +220,7 @@ function App() {
     setSelectedExamId(examId);
     setActiveTab('overview');
     setOnLanding(false);
+    history.pushState({}, '', `/exam/${examId}`);
   }
 
   const specialtiesWithExams = useMemo(

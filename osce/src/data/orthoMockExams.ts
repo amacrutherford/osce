@@ -1,8 +1,8 @@
 import type { MockExamStation } from './mockExamTypes';
 
 const nofMockExam: MockExamStation = {
-  id: 'ortho-mock-nof',
-  title: 'Neck of Femur Fracture',
+  id: 'hip_pain_after_fall',
+  title: 'Hip Pain After a Fall — History and Consent',
   diagnosis: 'Displaced intracapsular right neck of femur fracture (Garden IV)',
   specialtyId: 'orthopaedics',
   candidateBrief: {
@@ -265,8 +265,8 @@ const nofMockExam: MockExamStation = {
 };
 
 const kneeInjuryMockExam: MockExamStation = {
-  id: 'ortho-mock-knee-injury',
-  title: 'Acute Knee Injury — ACL & Meniscal Tear',
+  id: 'acute_knee_injury',
+  title: 'Acute Knee Injury',
   diagnosis: 'Complete ACL tear with bucket-handle medial meniscal tear',
   specialtyId: 'orthopaedics',
   candidateBrief: {
@@ -513,8 +513,8 @@ const kneeInjuryMockExam: MockExamStation = {
 };
 
 const caudaEquinaMockExam: MockExamStation = {
-  id: 'ortho-mock-cauda-equina',
-  title: 'Cauda Equina Syndrome',
+  id: 'back_pain_with_neurological_symptoms',
+  title: 'Back Pain with Neurological Symptoms',
   diagnosis: 'Incomplete cauda equina syndrome (L4/L5 central disc prolapse)',
   specialtyId: 'orthopaedics',
   candidateBrief: {
@@ -765,8 +765,8 @@ const caudaEquinaMockExam: MockExamStation = {
 };
 
 const compartmentMockExam: MockExamStation = {
-  id: 'ortho-mock-compartment',
-  title: 'Acute Compartment Syndrome',
+  id: 'worsening_limb_pain_after_fracture',
+  title: 'Worsening Limb Pain After Fracture',
   diagnosis: 'Acute compartment syndrome — right lower leg (anterior compartment)',
   specialtyId: 'orthopaedics',
   candidateBrief: {
