@@ -91,84 +91,219 @@ Add `imageUrl` to a `rationale` or `pathology` question where a clinical image s
 
 Source images from Wikimedia Commons (free/CC-licensed). Set `imageUrl` to the direct image URL. No separate attribution needed in this field — include the source in the `source` field.
 
-## Mock OSCE Stations
+## Mock OSCE Stations — Style Guide
 
-Mock stations simulate the full OSCE experience. Each `MockExamStation` object has four required sections:
+Mock stations simulate the full OSCE experience. The reference standard is geekymedics.com. Study those examples before writing a new station.
+
+---
+
+### Data types — required fields
+
+```ts
+// Add to ActorInstructions:
+ice: {
+  ideas: string;        // Verbatim quote: what they think is causing it
+  concerns: string;     // Verbatim quote: what they're worried about
+  expectations: string; // Verbatim quote: what they want from the consultation
+};
+importantNegatives: string[];  // Explicit scripted denials (see below)
+
+// Add to MockExamStation:
+diagnosis: string;  // Single label, e.g. "Rheumatoid arthritis" or "BPPV"
+```
+
+---
 
 ### 1. Candidate Brief (`candidateBrief`)
 
-What the student reads before entering. Must include:
-- `setting` — who the candidate is and where they are (e.g. "FY1 in A&E")
-- `scenario` — the clinical situation with observations if relevant (BP, HR, GCS etc.)
-- `tasks` — 3–4 numbered bullet points of what to do
-- `timeAllowed` — minutes (typically 10)
+**Keep it to 3–4 lines.** Match the GeekyMedics format exactly:
 
-**The brief must be intentionally vague about method.** Tasks state the expected outcome only — never the specific steps, tests, or framework to use. This preserves the station's ability to assess whether the student can independently select and conduct a tailored, focused approach.
+```
+You are a [role] in [location].
+A [age]-year-old [optional gender] has presented with [presenting complaint].
+Please [one task — outcome only].
+At the end of the station, the examiner may ask you some further questions.
+```
 
-Good: `"Assess this patient's communication difficulties and present your findings"`
-Bad: `"Perform a structured speech and language assessment covering all 6 components of language, then test cranial nerves VII, IX, X, and XII"`
+- `setting` — role + location only: `"You are an FY1 in A&E"`. One sentence.
+- `scenario` — age, gender, presenting complaint. Observations only if they change management (e.g. haemodynamically unstable). Do not add backstory.
+- `tasks` — 1–2 tasks maximum, outcome-framed only. Never name the method, framework, or test.
+- `timeAllowed` — 10 minutes unless specified.
 
-Good: `"Take a focused history and state your diagnosis and management plan"`
-Bad: `"Take a focused history distinguishing central from peripheral causes, then perform the Dix-Hallpike test"`
+**Good:** `"Take a focused history and explain your diagnosis and management plan to the patient"`  
+**Bad:** `"Take a history using SOCRATES, screen for red flags, then consent the patient for hemiarthroplasty"`
 
-The scenario may include relevant clinical context (observations, referral reason) but must not name specific examination components, investigation frameworks, or clinical tools the student is expected to use.
+**If the brief references a document or diagram it must exist.** Either provide a verified `imageUrl` (fetch to confirm it loads) or remove the reference entirely. Never write "a diagram has been placed on the desk" without providing it.
 
-**If the brief references a diagram, chart, or document, it must actually exist.** Either:
-- Set `imageUrl` on the station to a verified, loadable Wikimedia Commons URL; update the setting text to say "a diagram is displayed above", OR
-- Remove the reference from the brief entirely
+---
 
-Never write "a diagram has been placed on the desk" without providing the image. If a suitable image cannot be found, say so and ask the user to provide one.
+### 2. Actor Script (`actorInstructions`)
 
-### 2. Actor Instructions (`actorInstructions`)
+The patient script must be detailed enough for a real actor to portray the case. Structure every history-taking station in this order:
 
-The simulated patient script. Must contain sufficient medical detail for a real actor to portray the case accurately.
+#### Presenting complaint
+One or two short opening quotes — what the patient would say if asked "what brings you in today?"
 
-**`historyToReveal`** — every clinically significant data point must have its own entry with an exact verbatim response. Required entries for history-taking stations:
+#### History of presenting complaint — SOCRATES
+For each symptom, write a **factual label** followed by **1–2 verbatim quote alternatives** in parentheses. Follow SOCRATES order:
 
-- **Onset and quality** — exact speed (thunderclap vs gradual), character in lay terms, NRS severity
-- **Site and radiation** — precise anatomical description in lay language
-- **Associated symptoms** — each symptom as a separate entry; explicitly deny red-flag symptoms the actor will be asked about
-- **Ictal/episodic features** — for seizure stations: focal motor features before generalisation, tongue bite laterality, incontinence, post-ictal duration, Todd's paresis
-- **Between-episode state** — confirm normal function between episodes (critical for BPPV, TIA, seizure)
-- **Relevant negatives** — explicitly script "no" answers to high-yield screening questions (diplopia, dysphagia, hearing loss, neck stiffness, photophobia, limb weakness etc.)
-- **Past medical history** — each condition as a separate entry; include medications with dose
-- **Vascular risk factors** — smoking (quantify pack-years), alcohol, diabetes, cholesterol, family history
-- **Social / safety questions** — driving, occupation, living situation
+```
+Site: [anatomical description] ("[quote 1]" – "[quote 2]")
+Onset: [speed + duration] ("[quote]")
+Character: [quality in lay terms] ("[quote 1]" – "[quote 2]")
+Radiation: [destination or none] ("[quote]")
+Associated symptoms: [list each as its own entry with a quote]
+Timing: [constant/episodic, pattern, duration] ("[quote]")
+Exacerbating/relieving factors: [what makes it worse/better] ("[quote]")
+Severity: [NRS score + context] ("[quote]")
+```
 
-For **examination stations** (e.g. speech/language, neurological):
-- Script the exact abnormality to demonstrate for every test the student might perform
-- Include both the positive finding AND the normal contralateral side
-- Specify UMN vs LMN pattern explicitly so the actor knows what to simulate
-- Include responses to tests the student might attempt but that are normal (e.g. CN V sensation, CN VIII hearing, contralateral limb power)
+Quote style rules:
+- Natural, colloquial language — how a real patient speaks, not medical terminology
+- Provide 2 alternatives for the most important items (character, onset) so the actor has options
+- Each quote is self-contained — the actor can say it in full without extra context
 
-**`onlyIfDirectlyAsked`** — list items the actor must NOT volunteer; explain why each is withheld (embarrassment, doesn't consider it relevant, etc.)
+#### Important negatives (`importantNegatives`)
+A dedicated array of explicit scripted denials for every red flag or screening question the student is expected to ask. Format each as a quoted denial:
 
-**`behaviourNotes`** — describe emotional state, specific moments of distress, and how the actor should respond to empathy or poor communication technique
+```ts
+importantNegatives: [
+  'No neck stiffness ("I haven\'t noticed any neck stiffness in particular.")',
+  'No photophobia ("I\'m okay with bright lights.")',
+  'No focal neurology ("I haven\'t noticed any weakness or numbness.")',
+  'No weight loss ("I haven\'t lost any weight.")',
+]
+```
+
+Every station must explicitly deny: systemic red flags (weight loss, night sweats, fatigue), relevant neurological symptoms, and any condition-specific red flags. The actor must know what to say when asked about things that are negative — not just the positives.
+
+#### ICE (`ice`)
+Always present. Three short, natural quotes:
+
+```ts
+ice: {
+  ideas: '"I\'m not sure what\'s going on — maybe something to do with my back?"',
+  concerns: '"I\'m worried it might be something serious that\'s going to affect my job."',
+  expectations: '"I just want to know what\'s causing it and what we can do about it."',
+}
+```
+
+ICE quotes should feel spontaneous, not rehearsed. The actor only reveals these if the student specifically asks.
+
+#### Past medical and surgical history
+Each condition as its own entry with a verbatim quote. Include dose and duration for medications. If no relevant history: `'"I\'ve never been diagnosed with anything."'`
+
+#### Drug history
+List prescribed medications with dose. Include OTC medications and the frequency of use — these are often clinically significant (e.g. daily analgesia → medication overuse headache). Include allergies with the reaction type.
+
+#### Family history
+Quote format. If no relevant history, script an explicit denial. Include age of onset if relevant.
+
+#### Social history
+Quantify smoking (pack-years), alcohol (units/week), occupation (and impact on symptoms), and living situation. Include recreational drug use with an explicit denial if negative.
+
+#### `onlyIfDirectlyAsked`
+Items the actor must not volunteer unprompted — embarrassment, stigma, or not thinking it relevant. Include the reason for withholding in the note.
+
+#### `behaviourNotes`
+Emotional state, specific moments of distress, and how the actor should respond to empathy vs. poor technique. Include specific questions the patient will ask the student (e.g. "Am I going to need an operation?") and what a good response looks like.
+
+#### Examination stations
+For physical examination stations, organise the script by examination sequence (Look → Feel → Move → Special Tests). For each step:
+- List positive findings explicitly with the expected response
+- List negative findings (what is normal) so the actor knows what to demonstrate when these are tested
+- Specify side (left/right) and UMN vs LMN pattern where relevant
+
+---
 
 ### 3. Mark Scheme (`markScheme`)
 
-Organised by domain (e.g. "History — Onset", "Vascular Risk Factors", "Communication"). Each item:
-- One specific, objectively assessable action
-- Allocated marks (1–2 per item; 2 for the highest-yield items)
-- Total marks across all domains visible in the UI
+**The mark scheme tests what the student DOES, not what they know.** Every item describes a student action or behaviour, not a clinical fact.
+
+#### Structure — always follow the consultation flow
+
+Domains must appear in this order:
+
+1. **Opening the consultation**
+   - Washes hands and introduces themselves
+   - Confirms patient's name and date of birth
+   - Explains purpose and gains consent to proceed
+
+2. **Presenting complaint** — open question used to elicit the PC
+
+3. **History of presenting complaint** — one domain per major symptom; items describe what the student asks, not what they find:
+   - "Explores the site and character of the pain using SOCRATES or equivalent"
+   - "Identifies [key positive feature] by asking about [specific topic]"
+   - "Determines [timing/pattern] of the [symptom]"
+
+4. **Screening for red flags / important negatives** — one domain; items name the questions asked, not the answers:
+   - "Screens for neurological red flags including neck stiffness, photophobia, and focal neurology"
+   - "Asks about [specific red flag] in the context of [symptom]"
+
+5. **ICE** — "Explores the patient's ideas, concerns, and expectations"
+
+6. **Systemic enquiry** — "Screens for relevant symptoms in other body systems"
+
+7. **Past medical and surgical history**
+
+8. **Drug history** — including OTC medications and allergies
+
+9. **Family history**
+
+10. **Social history** — smoking, alcohol, occupation, impact on quality of life
+
+11. **Closing the consultation**
+    - Summarises the history back to the patient
+    - Asks if anything has been missed
+    - Thanks the patient
+
+12. **Key communication skills** (always last, always these three):
+    - Active listening
+    - Summarising
+    - Signposting
+
+#### Item wording rules
+- Imperative third person: "Asks about...", "Explores...", "Identifies...", "Screens for..."
+- Name the question or action, not the expected answer: ✅ "Asks about the frequency of analgesic use" not ❌ "Identifies medication overuse headache"
+- 1 mark per item unless it is the single highest-yield item in the domain (then 2 marks)
+- Total marks for a 10-minute station: 20–30 marks
+
+---
 
 ### 4. Expected Presentation (`expectedPresentation`)
 
-Before the viva questions, include a model presentation of findings — what a good candidate should say when they conclude their station and hand over to the examiner. This is displayed at the top of the Viva tab.
+A bulleted model of what a well-structured verbal presentation sounds like at the end of the station. Written as third-person descriptions of what the student says (not direct speech):
 
-Write it as a bulleted list of the key components a well-structured presentation would cover, in the order a student should present them:
-- Patient summary (name, age, key context)
-- Headline diagnosis or key findings
-- Supporting features from the history or examination that confirm the diagnosis
-- Relevant negatives that helped exclude differentials
-- Interpretation of any investigations or diagrams used
-- Management plan and safety-netting
+- Patient summary: name, age, key context
+- Headline diagnosis stated with confidence
+- Supporting features from the history that confirm the diagnosis
+- Relevant negatives that exclude the main differential
+- Interpretation of any investigation result provided
+- Management plan including any safety-netting
 
-Each bullet should be one complete sentence written as if the student is speaking (e.g. "States the likely diagnosis with confidence before supporting it with evidence"). Aim for 5–7 bullets covering the whole presentation arc. This helps the examiner assess verbal presentation skill, not just factual knowledge.
+Aim for 5–7 bullets. Order them as the student would speak them.
+
+---
+
+### 5. Viva Questions (`vivaQuestions`)
+
+- 3–4 questions per station
+- Targets: differential diagnosis, investigations, management, complications, classification systems
+- Answers: 4–6 plain-English bullet points, no sub-bullets, no markdown inside the string
+- Each bullet under 120 characters
+- Include a `source` on each question
+
+---
+
+### 6. Diagnosis (`diagnosis`)
+
+Single short label displayed on the station card and in the UI. Examples: `"Tension-type headache"`, `"Rheumatoid arthritis"`, `"BPPV"`, `"Cauda equina syndrome"`. This is the correct answer the station is designed to reach.
+
+---
 
 ### Images on mock stations
 
-Use the top-level `imageUrl` field on `MockExamStation` for reference diagrams shown in the Brief tab. Source from Wikimedia Commons. Verify the URL resolves before writing it into the data — fetch the URL and confirm it returns image binary data, not a 404.
+Use the top-level `imageUrl` field on `MockExamStation` for reference diagrams shown in the Brief tab. Source from Wikimedia Commons. **Verify the URL resolves before writing it into the data** — fetch the URL and confirm it returns image binary data, not a 404. Never reference a diagram in the brief without providing the image.
 
 ---
 

@@ -90,6 +90,9 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
         <div className="flex-1">
           <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Mock OSCE Station</p>
           <h2 className="text-lg font-bold text-[#1a1a1a]">{exam.title}</h2>
+          <p className="mt-0.5 text-xs text-[#6b6b6b]">
+            <span className="font-medium text-[#534AB7]">Dx:</span> {exam.diagnosis}
+          </p>
         </div>
         <button
           type="button"
@@ -152,7 +155,7 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
               </div>
             )}
 
-          <div className="rounded-xl border border-[#d0cff0] bg-white p-4">
+            <div className="rounded-xl border border-[#d0cff0] bg-white p-4">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Your Tasks</p>
               <ol className="space-y-2">
                 {exam.candidateBrief.tasks.map((task, i) => (
@@ -192,7 +195,7 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
 
           <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
-              Background Information
+              Background
             </p>
             <p className="text-sm leading-relaxed text-[#1a1a1a]">
               {exam.actorInstructions.backgroundInfo}
@@ -207,9 +210,45 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
               {exam.actorInstructions.historyToReveal.map((item, i) => (
                 <div key={i} className="rounded-xl border border-[#e5e5e4] p-3">
                   <p className="mb-1 text-xs font-semibold text-[#534AB7]">{item.topic}</p>
-                  <p className="text-sm italic text-[#1a1a1a]">{item.response}</p>
+                  <p className="text-sm leading-relaxed text-[#1a1a1a]">{item.response}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {exam.actorInstructions.importantNegatives.length > 0 && (
+            <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+                Important Negatives — say these if asked
+              </p>
+              <ul className="space-y-1.5">
+                {exam.actorInstructions.importantNegatives.map((item, i) => (
+                  <li key={i} className="text-sm text-[#1a1a1a]">
+                    <span className="mr-1.5 font-semibold text-[#6b6b6b]">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
+              ICE — only reveal if asked
+            </p>
+            <div className="space-y-2">
+              <div>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Ideas</p>
+                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.ideas}</p>
+              </div>
+              <div>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Concerns</p>
+                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.concerns}</p>
+              </div>
+              <div>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Expectations</p>
+                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.expectations}</p>
+              </div>
             </div>
           </div>
 
@@ -247,11 +286,9 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
         <div className="space-y-3">
           <div className="flex items-center justify-between rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] px-5 py-3">
             <p className="text-sm font-semibold text-[#3C3489]">Your score</p>
-            <div className="flex items-center gap-2">
-              <span className="rounded-full bg-[#534AB7] px-3 py-1 text-sm font-bold text-white">
-                {scoredMarks} / {totalMarks} marks
-              </span>
-            </div>
+            <span className="rounded-full bg-[#534AB7] px-3 py-1 text-sm font-bold text-white">
+              {scoredMarks} / {totalMarks} marks
+            </span>
           </div>
 
           {exam.markScheme.map((domain, domainIndex) => {
@@ -318,7 +355,7 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
               Expected Presentation of Findings
             </p>
             <p className="mb-3 text-xs text-[#6b6b6b]">
-              A good candidate should cover these points when presenting their findings to the examiner before viva questions begin.
+              A good candidate should cover these points when presenting their findings to the examiner.
             </p>
             <ol className="space-y-2">
               {exam.expectedPresentation.map((point, i) => (
@@ -388,6 +425,7 @@ function generatePrompt(exam: MockExamStation): string {
   const lines: string[] = [];
 
   lines.push(`OSCE MOCK STATION: ${exam.title}`);
+  lines.push(`Diagnosis: ${exam.diagnosis}`);
   lines.push('='.repeat(60));
   lines.push('');
   lines.push('PHASE 1 — PATIENT ROLEPLAY');
@@ -403,13 +441,23 @@ function generatePrompt(exam: MockExamStation): string {
   lines.push('YOUR OPENING LINE (say this when the student first speaks to you):');
   lines.push(`"${exam.actorInstructions.openingLine}"`);
   lines.push('');
-  lines.push('BACKGROUND (know this, but do not volunteer it unless asked):');
+  lines.push('BACKGROUND:');
   lines.push(exam.actorInstructions.backgroundInfo);
   lines.push('');
   lines.push('HISTORY TO REVEAL (only share each item if the student specifically asks about that topic):');
   for (const item of exam.actorInstructions.historyToReveal) {
-    lines.push(`- ${item.topic}: "${item.response}"`);
+    lines.push(`- ${item.topic}: ${item.response}`);
   }
+  lines.push('');
+  lines.push('IMPORTANT NEGATIVES (say these if the student asks about the relevant topic):');
+  for (const item of exam.actorInstructions.importantNegatives) {
+    lines.push(`- ${item}`);
+  }
+  lines.push('');
+  lines.push('ICE (only reveal if specifically asked):');
+  lines.push(`- Ideas: ${exam.actorInstructions.ice.ideas}`);
+  lines.push(`- Concerns: ${exam.actorInstructions.ice.concerns}`);
+  lines.push(`- Expectations: ${exam.actorInstructions.ice.expectations}`);
   lines.push('');
   lines.push('ONLY REVEAL IF DIRECTLY ASKED:');
   for (const item of exam.actorInstructions.onlyIfDirectlyAsked) {
@@ -424,10 +472,7 @@ function generatePrompt(exam: MockExamStation): string {
   lines.push('INSTRUCTIONS FOR PHYSICAL EXAMINATION REQUESTS:');
   lines.push(
     'If the student asks to perform a physical examination or investigation, describe the findings ' +
-      'verbally as a medical actor would. For example, if they ask to auscultate the chest, describe ' +
-      'what they would hear. If they ask to perform fundoscopy, describe the findings. Use the history ' +
-      'items above as your guide to which findings are positive or negative. Physical manoeuvres cannot ' +
-      'be performed, so report all results verbally.',
+      'verbally. Use the history items above as your guide to which findings are positive or negative.',
   );
   lines.push('');
   lines.push('='.repeat(60));
@@ -435,16 +480,15 @@ function generatePrompt(exam: MockExamStation): string {
   lines.push('PHASE 2 — EXAMINER ROLEPLAY');
   lines.push('-'.repeat(40));
   lines.push(
-    'When the student says they are ready to present their findings, or explicitly asks for ' +
-      'viva questions, switch from patient to examiner mode.',
+    'When the student says they are ready to present their findings, switch to examiner mode.',
   );
   lines.push('');
-  lines.push('EXPECTED PRESENTATION (use this as your rubric when the student presents their findings):');
+  lines.push('EXPECTED PRESENTATION (use this as your rubric):');
   exam.expectedPresentation.forEach((point, i) => {
     lines.push(`${i + 1}. ${point}`);
   });
   lines.push('');
-  lines.push('VIVA QUESTIONS (ask these one at a time, in order. Wait for the student to answer each before moving on):');
+  lines.push('VIVA QUESTIONS (ask one at a time, wait for an answer before moving on):');
   exam.vivaQuestions.forEach((q, i) => {
     lines.push('');
     lines.push(`Q${i + 1}: ${q.question}`);
@@ -452,30 +496,20 @@ function generatePrompt(exam: MockExamStation): string {
     for (const point of q.keyPoints) {
       lines.push(`  • ${point}`);
     }
-    if (q.source) {
-      lines.push(`  (Source: ${q.source})`);
-    }
+    if (q.source) lines.push(`  (Source: ${q.source})`);
   });
   lines.push('');
   lines.push('='.repeat(60));
   lines.push('');
   lines.push('PHASE 3 — FEEDBACK');
   lines.push('-'.repeat(40));
-  lines.push('After the viva questions are complete, provide structured feedback with these sections:');
+  lines.push('After the viva, provide structured feedback:');
+  lines.push('1. PRESENTATION — what they covered vs missed from the expected presentation list');
+  lines.push('2. HISTORY COVERAGE — which mark scheme domains they addressed and which they missed');
+  lines.push('3. VIVA PERFORMANCE — brief assessment per question');
+  lines.push(`4. OVERALL SCORE ESTIMATE — out of ${totalMarks} based on the mark scheme below`);
   lines.push('');
-  lines.push('1. PRESENTATION OF FINDINGS');
-  lines.push('   What the student covered vs what they missed from the expected presentation list above.');
-  lines.push('');
-  lines.push('2. HISTORY COVERAGE');
-  lines.push('   Which mark scheme domains the student addressed and which they missed or were weak on.');
-  lines.push('');
-  lines.push('3. VIVA PERFORMANCE');
-  lines.push('   Brief assessment of each viva question — what they got right, what they missed.');
-  lines.push('');
-  lines.push('4. OVERALL SCORE ESTIMATE');
-  lines.push(`   Estimate their total marks out of ${totalMarks} based on the mark scheme below.`);
-  lines.push('');
-  lines.push('MARK SCHEME (for your reference when giving feedback):');
+  lines.push('MARK SCHEME:');
   for (const domain of exam.markScheme) {
     const domainTotal = domain.items.reduce((s, item) => s + item.marks, 0);
     lines.push('');

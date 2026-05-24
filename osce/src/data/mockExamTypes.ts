@@ -10,6 +10,12 @@ export interface ActorHistoryItem {
   response: string;
 }
 
+export interface ActorICE {
+  ideas: string;
+  concerns: string;
+  expectations: string;
+}
+
 export interface ActorInstructions {
   patientName: string;
   age: number;
@@ -17,6 +23,8 @@ export interface ActorInstructions {
   openingLine: string;
   backgroundInfo: string;
   historyToReveal: ActorHistoryItem[];
+  importantNegatives: string[];
+  ice: ActorICE;
   onlyIfDirectlyAsked: string[];
   behaviourNotes: string[];
 }
@@ -40,6 +48,7 @@ export interface VivaQuestion {
 export interface MockExamStation {
   id: string;
   title: string;
+  diagnosis: string;
   specialtyId: string;
   imageUrl?: string;
   candidateBrief: CandidateBrief;
