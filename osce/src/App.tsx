@@ -10,10 +10,27 @@ import { SearchBar } from './components/SearchBar';
 import { Sidebar } from './components/Sidebar';
 import { StepView } from './components/StepView';
 import { EXAMS, SPECIALTIES } from './data/exams';
+import { EMERGENCY_MOCK_EXAMS } from './data/emergencyMockExams';
+import { GP_MOCK_EXAMS } from './data/gpMockExams';
+import { GYNAE_MOCK_EXAMS } from './data/gynaeMockExams';
 import { NEURO_MOCK_EXAMS } from './data/neuroMockExams';
 import { ORTHO_MOCK_EXAMS } from './data/orthoMockExams';
+import { PAEDS_MOCK_EXAMS } from './data/paedsMockExams';
+import { PALLIATIVE_MOCK_EXAMS } from './data/palliativeMockExams';
+import { PSYCH_MOCK_EXAMS } from './data/psychMockExams';
+import { SEXUAL_HEALTH_MOCK_EXAMS } from './data/sexualHealthMockExams';
 
-const ALL_MOCK_EXAMS = [...NEURO_MOCK_EXAMS, ...ORTHO_MOCK_EXAMS];
+const ALL_MOCK_EXAMS = [
+  ...NEURO_MOCK_EXAMS,
+  ...ORTHO_MOCK_EXAMS,
+  ...PSYCH_MOCK_EXAMS,
+  ...PAEDS_MOCK_EXAMS,
+  ...EMERGENCY_MOCK_EXAMS,
+  ...SEXUAL_HEALTH_MOCK_EXAMS,
+  ...GYNAE_MOCK_EXAMS,
+  ...PALLIATIVE_MOCK_EXAMS,
+  ...GP_MOCK_EXAMS,
+];
 import { useOsceStore } from './hooks/useOsceStore';
 
 function readInitialMockExamId(): string | null {

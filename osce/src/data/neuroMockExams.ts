@@ -925,9 +925,275 @@ const dizzinessMockExam: MockExamStation = {
   ],
 };
 
+const parkinsonsExaminationMockExam: MockExamStation = {
+  id: 'parkinsons_examination',
+  title: 'Parkinsonism Examination — Drug Side Effects',
+  diagnosis: 'Drug-induced Parkinsonism (metoclopramide)',
+  specialtyId: 'neurology',
+  candidateBrief: {
+    setting: 'You are an FY1 in a general neurology outpatient clinic.',
+    scenario:
+      'Mrs Dorothy Lee, 70, has been referred by her GP with a 4-month history of tremor, slowness, and a change in her walking. Her GP\'s letter notes she has been taking metoclopramide 10 mg three times a day for reflux for the past 10 months.',
+    tasks: [
+      'Perform a focused neurological examination for parkinsonism',
+      'Present your findings and explain the likely diagnosis to the examiner',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Dorothy Lee',
+    age: 70,
+    occupation: 'Retired librarian',
+    openingLine:
+      '"Hello doctor. My GP sent me — she\'s worried about my shaking and the way I\'ve been walking. It\'s been getting worse over the last few months."',
+    backgroundInfo:
+      'Dorothy is a 70-year-old retired librarian who has been taking metoclopramide 10 mg three times daily for 10 months for GORD. She developed bilateral tremor, bradykinesia, and shuffling gait approximately 4 months into treatment — a classic timeline for drug-induced Parkinsonism (weeks to months after starting a dopamine antagonist). Her signs are BILATERAL AND SYMMETRIC, which distinguishes drug-induced Parkinsonism from idiopathic PD (which is asymmetric at onset). She is cooperative and anxious — her father had idiopathic PD and she is frightened she may have the same condition.',
+    historyToReveal: [
+      {
+        topic: 'History — presenting complaint',
+        response:
+          '"My hands shake when they\'re resting in my lap — it started about 4 months ago. I\'ve slowed right down; simple things like buttoning my coat take forever. My walk has changed — I shuffle." – "I feel stiff, especially in my arms."',
+      },
+      {
+        topic: 'History — drug history (the key)',
+        response:
+          '"I take metoclopramide 10 mg three times a day — been on it about 10 months for my reflux." – "I also take omeprazole and amlodipine for my blood pressure."',
+      },
+      {
+        topic: 'History — onset and timeline',
+        response:
+          '"The shaking started maybe 4 or 5 months after I started that tablet. I didn\'t connect the two at first." – "My GP noticed and sent me here."',
+      },
+      {
+        topic: 'Examination — general appearance and posture',
+        response:
+          '[Actor displays]: mildly reduced facial expression (soft masking); stooped posture; seated with both hands resting in lap showing slight bilateral resting tremor — right hand visibly more than left; slow to rise from the chair',
+      },
+      {
+        topic: 'Examination — speech',
+        response: '[Actor presents]: mildly hypophonic; monotonous; fully intelligible and coherent',
+      },
+      {
+        topic: 'Examination — tremor',
+        response:
+          '[Actor presents]: bilateral resting tremor (right > left, 4–5 Hz, pill-rolling quality); tremor REDUCES when the patient holds arms outstretched or reaches for an object (resting > postural/action); no intention tremor on finger-nose testing',
+      },
+      {
+        topic: 'Examination — tone (cogwheel rigidity)',
+        response:
+          '[Actor complies with passive limb movement]: bilateral cogwheel rigidity at wrists and elbows, right slightly > left; increased with reinforcement (contralateral hand clenching)',
+      },
+      {
+        topic: 'Examination — bradykinesia',
+        response:
+          '[Actor performs]: bilateral slowing and reduced amplitude on finger tapping (thumb to index, rapidly) with fatiguing; slowing on hand opening/closing; bilateral heel tapping reduced speed',
+      },
+      {
+        topic: 'Examination — gait',
+        response:
+          '[Actor walks]: short shuffling steps; reduced bilateral arm swing; stooped posture; en-bloc turning (multiple small steps); no freezing or festination demonstrated',
+      },
+      {
+        topic: 'Examination — postural stability',
+        response:
+          '[Actor]: after being warned, examiner pulls shoulders back — actor takes one step backwards to recover; recovers independently; abnormal retropulsion test',
+      },
+      {
+        topic: 'Examination — glabellar tap',
+        response:
+          '[Actor]: fails to habituate to repeated glabellar tapping — continues blinking after 5+ taps (positive Myerson\'s sign)',
+      },
+      {
+        topic: 'Examination — lower limb reflexes and plantars',
+        response:
+          '[Actor]: knee and ankle jerks present and symmetric; plantar responses flexor bilaterally (normal — distinguishes from vascular Parkinsonism or UMN pathology)',
+      },
+    ],
+    importantNegatives: [
+      'No family history of Parkinson\'s disease ("My father had it, but no siblings or children as far as I know.")',
+      'Symptoms did not predate metoclopramide ("I was completely fine before those tablets.")',
+      'No asymmetric onset ("Both sides started together — the right is a bit worse.")',
+      'No cognitive decline or hallucinations ("My memory is fine. I\'m not seeing or hearing things.")',
+      'No anosmia ("My sense of smell is the same as ever.")',
+      'No REM sleep behaviour disorder ("I sleep normally — no acting out dreams.")',
+    ],
+    ice: {
+      ideas:
+        '"My GP thinks it might be Parkinson\'s — I\'m terrified. My father had it and it was very difficult at the end."',
+      concerns:
+        '"I\'m worried I\'m going to deteriorate like he did. I live alone and I already find some things quite hard."',
+      expectations: '"I\'d like to know what\'s causing it and whether anything can be done."',
+    },
+    onlyIfDirectlyAsked: [
+      'Anosmia — sense of smell unchanged (negative; hyposmia characterises idiopathic PD)',
+      'Autonomic symptoms — no orthostatic dizziness, no constipation, no urinary problems (negative; common in idiopathic PD)',
+      'Whether she takes the metoclopramide as prescribed — yes, three times a day without fail for 10 months',
+    ],
+    behaviourNotes: [
+      'Cooperative and polite; visibly anxious about the diagnosis being Parkinson\'s disease',
+      'Visibly relieved if the student raises the possibility that metoclopramide is the cause: "Really? So it might not be Parkinson\'s disease?"',
+      'Asks "What happens now? Do I need to stop the tablet?" — student should advise stopping metoclopramide and explain the plan',
+      'Becomes briefly emotional when mentioning her father\'s illness — composes herself quickly',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves, explains the purpose of the examination, and gains consent', marks: 1 },
+        { description: 'Washes or gels hands before beginning', marks: 1 },
+        {
+          description:
+            'Takes a brief drug history before examining — identifies metoclopramide as the causative agent',
+          marks: 2,
+        },
+      ],
+    },
+    {
+      domain: 'General inspection',
+      items: [
+        {
+          description: 'Inspects from the end of the bed: notes resting tremor, masked facies, stooped posture',
+          marks: 1,
+        },
+        { description: 'Assesses speech — notes hypophonia and monotonous quality', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Upper limb examination',
+      items: [
+        {
+          description: 'Tests tone for cogwheel rigidity at wrists and elbows using reinforcement technique',
+          marks: 2,
+        },
+        {
+          description:
+            'Assesses resting tremor and demonstrates it diminishes with posture/action (distinguishes from essential tremor)',
+          marks: 2,
+        },
+        {
+          description: 'Tests bradykinesia — finger tapping and hand opening/closing; notes bilateral slowing with fatiguing',
+          marks: 2,
+        },
+      ],
+    },
+    {
+      domain: 'Lower limb examination',
+      items: [
+        { description: 'Tests heel tapping for lower limb bradykinesia', marks: 1 },
+        {
+          description: 'Checks reflexes and plantars — correctly identifies flexor plantars (distinguishes from UMN pathology)',
+          marks: 1,
+        },
+      ],
+    },
+    {
+      domain: 'Gait and postural stability',
+      items: [
+        {
+          description: 'Asks patient to walk and observes stride length, arm swing, posture, and turning',
+          marks: 2,
+        },
+        {
+          description: 'Performs the retropulsion test — warns patient before pulling; correctly identifies abnormal response',
+          marks: 1,
+        },
+      ],
+    },
+    {
+      domain: 'Special tests',
+      items: [
+        { description: 'Performs glabellar tap and identifies failure to habituate (Myerson\'s sign)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presenting findings and diagnosis',
+      items: [
+        {
+          description:
+            'Presents findings in structured format: bilateral symmetric tremor, cogwheel rigidity, bradykinesia; notes bilateral symmetric onset (atypical for idiopathic PD)',
+          marks: 2,
+        },
+        {
+          description:
+            'Correctly identifies drug-induced Parkinsonism as the likely diagnosis, citing metoclopramide as a dopamine D2-receptor antagonist',
+          marks: 2,
+        },
+        { description: 'Explains next steps: stop metoclopramide; switch to an alternative antiemetic; neurology follow-up', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Explains each examination step before performing it', marks: 1 },
+        {
+          description: 'Responds to patient\'s fear about Parkinson\'s disease with empathy and appropriate reassurance',
+          marks: 1,
+        },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Mrs Lee is a 70-year-old retired librarian presenting with a 4-month history of bilateral tremor, bradykinesia, and shuffling gait, beginning approximately 4 months after starting metoclopramide 10 mg TDS',
+    'Examination reveals bilateral symmetric parkinsonism: resting tremor (right > left, diminishes with action), cogwheel rigidity bilaterally, and bilateral bradykinesia on finger tapping with fatiguing',
+    'Gait shows shuffling small steps, reduced bilateral arm swing, stooped posture, and en-bloc turning; postural instability demonstrated on retropulsion testing; Myerson\'s sign positive',
+    'Crucially, the onset is BILATERAL AND SYMMETRIC — in idiopathic Parkinson\'s disease, onset is characteristically asymmetric (one side first)',
+    'Plantar responses are flexor bilaterally and reflexes symmetric — this excludes UMN pathology or vascular Parkinsonism as the primary cause',
+    'The most likely diagnosis is drug-induced Parkinsonism secondary to metoclopramide, a dopamine D2-receptor antagonist that crosses the blood-brain barrier and depletes striatal dopamine signalling',
+    'Management: stop metoclopramide immediately; switch to domperidone (does not cross the BBB) for reflux; symptoms may resolve over weeks to months; arrange neurology follow-up; if symptoms persist beyond 6 months after stopping the drug, consider DaTSCAN to exclude idiopathic PD',
+  ],
+  vivaQuestions: [
+    {
+      question: 'Which drugs commonly cause drug-induced Parkinsonism, and what is the mechanism?',
+      keyPoints: [
+        'Dopamine D2-receptor antagonists block nigrostriatal dopaminergic transmission: metoclopramide, prochlorperazine (both cross the BBB — domperidone does not)',
+        'Typical antipsychotics: haloperidol, chlorpromazine — high D2 affinity; extrapyramidal side effects (EPS) common',
+        'Atypical antipsychotics: clozapine, quetiapine — lower D2 affinity, lower EPS risk; aripiprazole has partial D2 agonist activity',
+        'Drug-induced Parkinsonism: bilateral symmetric onset, little or no tremor (or symmetric tremor), onset weeks to months after starting offending drug',
+        'DaTSCAN differentiates: normal in drug-induced Parkinsonism (presynaptic dopamine transporters intact), abnormal in idiopathic PD (reduced putamen uptake)',
+      ],
+      source: 'NICE NG71 (2017, updated 2022); Thanvi B & Lo TCN, Postgrad Med J 2004',
+    },
+    {
+      question: 'How do you distinguish drug-induced Parkinsonism from idiopathic Parkinson\'s disease clinically and on investigation?',
+      keyPoints: [
+        'Idiopathic PD: asymmetric onset, prominent resting tremor, anosmia, autonomic features (constipation, orthostatic hypotension), REM sleep behaviour disorder, progressive',
+        'Drug-induced: bilateral symmetric, often no tremor or symmetric tremor, no anosmia, no autonomic features, onset after offending drug, may improve after stopping',
+        'DaTSCAN (123I-FP-CIT SPECT): normal in drug-induced Parkinsonism; abnormal (reduced striatal uptake, especially putamen) in idiopathic PD — most useful differentiating investigation',
+        'If symptoms persist >6 months after stopping causative drug, idiopathic PD becomes more likely — arrange DaTSCAN and neurology referral',
+        'L-dopa trial: idiopathic PD typically shows good response; drug-induced may not respond while receptors remain blocked',
+      ],
+      source: 'NICE NG71 (2017); Brigo F et al., J Neurol 2014',
+    },
+    {
+      question: 'What are the cardinal features of Parkinson\'s disease, and which is required to make the diagnosis?',
+      keyPoints: [
+        'Bradykinesia is mandatory (UK Brain Bank Criteria): slowness and decrement in amplitude of repetitive movements',
+        'Plus at least one of: resting tremor (pill-rolling, 4–6 Hz, diminishes with action), or muscular rigidity (lead-pipe or cogwheel)',
+        'Postural instability is a fourth feature (Hoehn & Yahr 3+) — occurs late, not part of initial diagnostic criteria',
+        'Supportive features: unilateral onset, asymmetric progression, excellent and sustained L-dopa response',
+        'Red flags against PD: early falls, early autonomic failure, cerebellar signs, early dementia, no L-dopa response — suggest atypical Parkinsonism (MSA, PSP, DLB)',
+      ],
+      source: 'UK Parkinson\'s Disease Society Brain Bank Criteria; NICE NG71 (2017)',
+    },
+    {
+      question: 'What are the first-line pharmacological treatments for idiopathic Parkinson\'s disease?',
+      keyPoints: [
+        'Levodopa + peripheral dopa decarboxylase inhibitor (co-careldopa/co-beneldopa): most effective; first-line if functional disability significant; long-term complications include dyskinesias and motor fluctuations',
+        'Dopamine agonists (ropinirole, pramipexole, rotigotine): used as monotherapy in younger patients to delay L-dopa; risk of impulse control disorders and excessive daytime somnolence',
+        'MAO-B inhibitors (rasagiline, selegiline): modest symptomatic benefit; may have neuroprotective properties; fewer motor fluctuations',
+        'COMT inhibitors (entacapone, opicapone): adjunct to L-dopa; extend duration of action; manage "wearing off"',
+        'Advanced therapies for refractory motor fluctuations: duodopa (jejunal infusion), apomorphine infusion, deep brain stimulation (subthalamic nucleus or GPi)',
+      ],
+      source: 'NICE NG71 (2017); BNF — Antiparkinson drugs',
+    },
+  ],
+};
+
 export const NEURO_MOCK_EXAMS: MockExamStation[] = [
   seizureMockExam,
   headacheMockExam,
   speechLanguageMockExam,
   dizzinessMockExam,
+  parkinsonsExaminationMockExam,
 ];

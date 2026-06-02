@@ -62,6 +62,10 @@ export const SPECIALTIES: Specialty[] = [
   { id: 'ophthalmology', name: 'Ophthalmology' },
   { id: 'psychiatry', name: 'Psychiatry' },
   { id: 'paediatrics', name: 'Paediatrics' },
+  { id: 'emergency-medicine', name: 'Emergency Medicine' },
+  { id: 'general-practice', name: 'GP & Primary Care' },
+  { id: 'palliative', name: 'Palliative & End-of-Life Care' },
+  { id: 'sexual-health', name: 'Sexual Health' },
 ];
 
 export const EXAMS: OsceExam[] = [

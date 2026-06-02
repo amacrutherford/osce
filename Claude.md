@@ -4,6 +4,8 @@
 
 For all OSCE exams, this is for UK medical students prepare. For each step in the exam, give questions that the examiner could ask them, with particular focus on the medical reason behind each step in the exam, common pathologies (with their anatomical locations/causes), and commons scars and their pathologies if applicable. Ignore common steps, like asking for name and level of privacy. Ensure questions are medically correct.
 
+past exam topics listed in `Past Y5 OSCE Stations.md`
+
 ### Step structure
 
 Every `ExamStep` object **must** include `description` and `checklist` alongside the existing fields.
