@@ -20,57 +20,53 @@ const tensionPneumothoraxMockExam: MockExamStation = {
     age: 22,
     occupation: 'Apprentice electrician',
     openingLine: '"Can\'t... breathe properly. My chest..." [distressed, short of breath, gripping the bed rail]',
-    backgroundInfo:
-      'Ryan is acutely unwell and deteriorating. He is agitated and breathless; speaking in short phrases only. He has sustained blunt chest trauma and is developing a right-sided tension pneumothorax — air is accumulating in the right pleural space under positive pressure, compressing the mediastinum, causing cardiovascular compromise. He has no past medical history and takes no regular medications. The examination findings for each system are given below as "examination responses" — these represent what the student would find when examining each system, conveyed either by the actor or by the examiner.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'A — Airway assessment',
-        response:
-          '[Actor]: airway patent — patient is speaking in short phrases; no stridor; no visible foreign body; no tracheal deviation detectable by voice (patient phonates clearly)',
+        label: 'A — Airway: patent; speaking in short phrases; no stridor',
+        quote: '[Actor]: airway patent — patient is speaking in short phrases; no stridor; no visible foreign body.',
       },
       {
-        topic: 'B — Breathing: inspection',
-        response:
-          '[Examiner reports]: RR 30; SpO₂ 88% on 15L O₂ non-rebreathe; right chest visibly expanding less than left; right side appears slightly more expanded at rest (hyperinflated); trachea — examine by palpating the suprasternal notch — deviated to the LEFT',
+        label: 'B — Breathing: inspection — RR 30; SpO₂ 88%; right chest reduced expansion; trachea deviated LEFT',
+        quote: '[Examiner reports]: RR 30; SpO₂ 88% on 15L O₂ non-rebreathe; right chest visibly expanding less than left; trachea — examine by palpating the suprasternal notch — deviated to the LEFT.',
       },
       {
-        topic: 'B — Breathing: percussion',
-        response: '[Examiner reports]: right side HYPERRESONANT; left side resonant (normal)',
+        label: 'B — Breathing: percussion — right HYPERRESONANT; left resonant (normal)',
+        quote: '[Examiner reports]: right side HYPERRESONANT; left side resonant (normal).',
       },
       {
-        topic: 'B — Breathing: auscultation',
-        response:
-          '[Examiner reports]: breath sounds ABSENT on the right; breath sounds normal on the left',
+        label: 'B — Breathing: auscultation — breath sounds ABSENT on right; normal on left',
+        quote: '[Examiner reports]: breath sounds ABSENT on the right; breath sounds normal on the left.',
       },
       {
-        topic: 'C — Circulation',
-        response:
-          '[Examiner reports]: HR 128 (sinus tachycardia); BP 88/54 (obstructive shock); capillary refill 4 seconds peripherally; neck veins distended (JVD) — raised JVP visible; skin pale and clammy; no external haemorrhage identified',
+        label: 'C — Circulation: HR 128; BP 88/54 (obstructive shock); CRT 4s; JVD; pale and clammy',
+        quote: '[Examiner reports]: HR 128 (sinus tachycardia); BP 88/54 (obstructive shock); capillary refill 4 seconds peripherally; neck veins distended (JVD) — raised JVP visible; skin pale and clammy; no external haemorrhage identified.',
       },
       {
-        topic: 'D — Disability',
-        response:
-          '[Examiner reports]: GCS 13 — E3 V4 M6 (confused but following commands); pupils 4 mm and equal, reactive to light; BM 5.6 mmol/L',
+        label: 'D — Disability: GCS 13 (E3V4M6); pupils equal and reactive; BM 5.6 mmol/L',
+        quote: '[Examiner reports]: GCS 13 — E3 V4 M6 (confused but following commands); pupils 4 mm and equal, reactive to light; BM 5.6 mmol/L.',
       },
       {
-        topic: 'E — Exposure and environment',
-        response:
-          '[Examiner reports]: right-sided chest bruising and abrasions; no obvious open wound; trachea deviated left on re-examination (confirmed); abdomen soft; pelvis stable; long bones intact; temperature 35.8°C',
+        label: 'E — Exposure: right-sided chest bruising and abrasions; trachea deviated left (confirmed); abdomen soft; no long bone injury',
+        quote: '[Examiner reports]: right-sided chest bruising and abrasions; no obvious open wound; trachea deviated left on re-examination (confirmed); abdomen soft; pelvis stable; long bones intact; temperature 35.8°C.',
       },
       {
-        topic: 'History — what happened?',
-        response:
-          '"Car hit... a tree. Did my seatbelt." [short of breath, can only manage short phrases] "Was fine... at first. Getting worse."',
+        label: 'History — mechanism: driver in RTA at 40 mph; seatbelt worn; was speaking at scene; deteriorating',
+        quote: '"Car hit... a tree. Did my seatbelt." [short of breath, short phrases] "Was fine... at first. Getting worse."',
       },
       {
-        topic: 'History — past medical history and medications',
-        response: '"Nothing. No tablets." [short of breath]',
+        label: 'Response to needle decompression — immediate improvement: SpO₂ 94%; BP 102/68; HR 108; trachea re-centralises',
+        quote: '[Examiner]: after correct needle decompression (2nd ICS, MCL, right side) — rush of air; immediate improvement in SpO₂ (rises to 94%); BP improves to 102/68; HR reduces to 108; trachea re-centralises; patient says "I can breathe a bit better".',
       },
-      {
-        topic: 'Response to needle decompression',
-        response:
-          '[Examiner]: after correct needle decompression (2nd ICS, MCL, right side) — rush of air; immediate improvement in SpO₂ (rises to 94%); BP improves to 102/68; HR reduces to 108; trachea re-centralises; patient says "I can breathe a bit better"',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history', quote: '"Nothing." [short of breath]' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; no known allergies', quote: '"No tablets." [short of breath] – "None." [no allergies]' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Apprentice electrician (22)', quote: '[From candidate brief]' },
     ],
     importantNegatives: [
       'No stridor or upper airway obstruction',

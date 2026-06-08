@@ -22,68 +22,52 @@ const nofMockExam: MockExamStation = {
     occupation: 'Retired headmistress',
     openingLine:
       '"Oh, hello doctor. I\'m sorry to be such a nuisance at this time of night. My hip is terribly painful — can you tell me what\'s happened?"',
-    backgroundInfo:
-      'Margaret is a sharp, articulate 80-year-old retired headmistress. She is used to being in control and is frightened. She fell getting up from her armchair — she felt something give way before she went down. She lived independently before tonight: indoors without any aids, outdoors with a walking stick. She manages all her own housework and cooking. She lives alone in a ground-floor flat; her daughter lives 10 minutes away and is on her way in. She takes warfarin for AF and is worried about the operation and whether she will go home again.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response:
-          '"I was just standing up from my armchair to make a cup of tea. I felt something give in my hip as I stood — there was a sort of crack — and I went straight down. I couldn\'t get up at all."',
+        label: 'Mechanism of injury',
+        descriptor: 'felt something give in the right hip whilst standing from armchair — not a trip or pre-syncopal event',
+        quotes: ['"I was just standing up from my armchair to make a cup of tea. I felt something give in my hip as I stood — there was a sort of crack — and I went straight down. I couldn\'t get up at all."'],
       },
       {
-        topic: 'Pre-fall symptoms — onset and warning',
-        response:
-          '"No, I didn\'t feel dizzy or faint beforehand. It wasn\'t a trip — it wasn\'t the ground, it was something in the hip itself."',
+        label: 'Site',
+        descriptor: 'right hip and groin pain',
+        quotes: ['"It\'s in my right hip and groin — dreadful, about 8 out of 10."'],
       },
       {
-        topic: 'Pain — site, severity, and response to analgesia',
-        response:
-          '"It\'s in my right hip and groin — dreadful, about 8 out of 10. The injection they gave me helped a little but any movement makes it much worse."',
+        label: 'Severity and relief',
+        descriptor: '8/10; worse with any movement; partially relieved by analgesia in A&E',
+        quotes: ['"Dreadful, about 8 out of 10. The injection they gave me helped a little but any movement makes it much worse."'],
       },
       {
-        topic: 'Weight-bearing and time on the floor',
-        response:
-          '"I couldn\'t put any weight on it at all. I lay on the floor for about an hour before my neighbour heard me and called the ambulance."',
+        label: 'Associated symptoms',
+        descriptor: 'unable to weight-bear at all; lay on floor approximately 1 hour before found by neighbour',
+        quotes: ['"I couldn\'t put any weight on it at all. I lay on the floor for about an hour before my neighbour heard me and called the ambulance."'],
       },
       {
-        topic: 'Pre-injury mobility',
-        response:
-          '"Before tonight I walked with a stick outdoors — to the shops and so on — but I was completely fine indoors without it. I do my own cooking, housework, everything."',
+        label: 'Pre-injury symptoms',
+        descriptor: 'no dizziness, pre-syncope, palpitations, or chest pain before the fall',
+        quotes: ['"No, I didn\'t feel dizzy or faint beforehand. It wasn\'t a trip — it wasn\'t the ground, it was something in the hip itself."'],
       },
-      {
-        topic: 'Living situation and social support',
-        response:
-          '"I live on my own in a ground-floor flat. My daughter lives about 10 minutes away — she\'s on her way in now."',
-      },
-      {
-        topic: 'Previous falls',
-        response:
-          '"No, this is the first time I\'ve fallen. I\'ve never broken a bone before in my life."',
-      },
-      {
-        topic: 'Past medical history — AF and hypertension',
-        response:
-          '"I have an irregular heartbeat — atrial fibrillation they call it — and high blood pressure. I have some arthritis in my knees but nothing serious."',
-      },
-      {
-        topic: 'Medications and warfarin',
-        response:
-          '"I take warfarin for my heart, ramipril for blood pressure, and atorvastatin for cholesterol. I had my INR checked at the GP last Tuesday — it was 2.4, they said that was fine."',
-      },
-      {
-        topic: 'Allergies',
-        response: '"No, I\'m not allergic to anything as far as I know."',
-      },
-      {
-        topic: 'Bone health and previous bone density',
-        response:
-          '"My GP mentioned a couple of years ago that my bones might be thinning and suggested a scan, but I never got around to having it done."',
-      },
-      {
-        topic: 'Cognitive function',
-        response:
-          '"My memory is absolutely fine — my GP says I\'m sharper than most of her patients half my age."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Atrial fibrillation — on warfarin (INR 2.4 at last check on Tuesday)', quote: '"I have an irregular heartbeat — atrial fibrillation they call it — and high blood pressure. I take warfarin for my heart." – "I had my INR checked at the GP last Tuesday — it was 2.4, they said that was fine."' },
+      { label: 'Hypertension — on ramipril', quote: '"Ramipril for blood pressure."' },
+      { label: 'Hypercholesterolaemia — on atorvastatin', quote: '"Atorvastatin for cholesterol."' },
+      { label: 'Knee osteoarthritis — mild', quote: '"I have some arthritis in my knees but nothing serious."' },
+      { label: 'Possible osteoporosis — GP suggested DEXA scan 2 years ago, never completed', quote: '"My GP mentioned a couple of years ago that my bones might be thinning and suggested a scan, but I never got around to having it done."' },
+    ],
+    drugHistory: [
+      { label: 'Warfarin (AF anticoagulation)', quote: '"I take warfarin for my heart."' },
+      { label: 'Ramipril (hypertension)', quote: '"Ramipril for blood pressure."' },
+      { label: 'Atorvastatin (cholesterol)', quote: '"Atorvastatin for cholesterol."' },
+      { label: 'No known allergies', quote: '"No, I\'m not allergic to anything as far as I know."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Lives alone in ground-floor flat; daughter 10 minutes away (on her way in)', quote: '"I live on my own in a ground-floor flat. My daughter lives about 10 minutes away — she\'s on her way in now."' },
+      { label: 'Pre-injury mobility: walking stick outdoors; fully independent indoors; does own housework and cooking', quote: '"Before tonight I walked with a stick outdoors — to the shops and so on — but I was completely fine indoors without it. I do my own cooking, housework, everything."' },
+      { label: 'No previous falls; no previous fractures', quote: '"No, this is the first time I\'ve fallen. I\'ve never broken a bone before in my life."' },
+      { label: 'Alcohol: small glass of wine with dinner most evenings; non-smoker', quote: '"[One small glass of wine with dinner most evenings]" [only if directly asked]' },
     ],
     importantNegatives: [
       'No pre-fall loss of consciousness ("No, I didn\'t black out. It wasn\'t a faint.")',
@@ -286,63 +270,46 @@ const kneeInjuryMockExam: MockExamStation = {
     occupation: 'Law student and university rugby player',
     openingLine:
       '"Hi doctor, please tell me it\'s not as bad as it looks — I\'ve got a big tournament in six weeks and I\'ve never had anything like this before."',
-    backgroundInfo:
-      'James is a 22-year-old final-year law student who plays university-level rugby three times a week and five-a-side football at weekends. Sport is central to his life. He went down immediately on the pitch, heard the pop, and the knee swelled rapidly. He is devastated at the prospect of missing sport and worried about his upcoming law firm training contract — he needs to get around. He is also engaged and his wedding is in 4 months. He cannot fully straighten the knee; it locks if he tries. He has no previous knee problems.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response:
-          '"I was running with the ball, planted my right foot to sidestep and my knee just buckled. There was a really loud pop — people on the sideline heard it — and I went straight down."',
+        label: 'Mechanism',
+        descriptor: 'non-contact pivoting injury — planted right foot to sidestep; body twisted; immediate collapse with audible pop',
+        quotes: ['"I was running with the ball, planted my right foot to sidestep and my knee just buckled. There was a really loud pop — people on the sideline heard it — and I went straight down." – "There was no contact — no tackle, no kick. I planted my foot and twisted, and it just went."'],
       },
       {
-        topic: 'Onset and character of swelling',
-        response:
-          '"It blew up almost immediately — within about 20 minutes it was the size of a grapefruit. That\'s why the physio sent me straight here."',
+        label: 'Site',
+        descriptor: 'right knee — medial and posterior pain; haemarthrosis to grapefruit size within 20 minutes',
+        quotes: ['"It blew up almost immediately — within about 20 minutes it was the size of a grapefruit." – "About 6 out of 10 now with the painkillers — mainly inside the knee and behind the kneecap."'],
       },
       {
-        topic: 'Pain — site and severity',
-        response:
-          '"About 6 out of 10 now with the painkillers — mainly inside the knee and behind the kneecap. It\'s worse if I try to move it."',
+        label: 'Character',
+        descriptor: 'audible pop at injury; immediate instability; giving-way sensation; cannot fully weight-bear',
+        quotes: ['"There was a really loud pop — people on the sideline heard it." – "I can hobble on it but it really hurts and it feels like it might give way again at any moment."'],
       },
       {
-        topic: 'Weight-bearing and instability',
-        response:
-          '"I can hobble on it but it really hurts and it feels like it might give way again at any moment. I wouldn\'t trust it."',
+        label: 'Associated symptoms',
+        descriptor: 'mechanical block to full extension (locked knee) since the moment of injury; instability; haemarthrosis',
+        quotes: ['"Yes — I cannot straighten it fully. There\'s something stopping it going all the way out. It\'s been like that since the moment it happened." – "It really hurts and it feels like it might give way again at any moment."'],
       },
       {
-        topic: 'Locking — block to full extension',
-        response:
-          '"Yes — I cannot straighten it fully. There\'s something stopping it going all the way out. It\'s been like that since the moment it happened."',
+        label: 'Timing',
+        descriptor: '3 hours ago; acute haemarthrosis; no previous knee injury or surgery on either knee',
+        quotes: ['"Absolutely nothing. Both knees have been completely fine before today — no previous injuries, no surgery, no physio for either knee."'],
       },
-      {
-        topic: 'Mechanism — non-contact pivoting injury',
-        response:
-          '"There was no contact — no tackle, no kick. I planted my foot and twisted, and it just went. It was a pure non-contact injury."',
-      },
-      {
-        topic: 'Previous knee injury or surgery',
-        response:
-          '"Absolutely nothing. Both knees have been completely fine before today — no previous injuries, no surgery, no physio for either knee."',
-      },
-      {
-        topic: 'Activity level and sporting goals',
-        response:
-          '"I play rugby three times a week and football at weekends. Sport is everything to me — and I\'m meant to play in the national university cup in six weeks."',
-      },
-      {
-        topic: 'Occupation and upcoming commitments',
-        response:
-          '"I\'m finishing law school and starting a training contract at a City firm in September. I\'ve also got exams in 8 weeks. I\'m going to need to be mobile."',
-      },
-      {
-        topic: 'Past medical and surgical history',
-        response:
-          '"I\'ve never had an operation. I\'m completely fit and healthy — no medical conditions, no regular medications."',
-      },
-      {
-        topic: 'Allergies',
-        response: '"None that I know of."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No past medical history; no previous surgery or operations', quote: '"I\'ve never had an operation. I\'m completely fit and healthy — no medical conditions, no regular medications."' },
+    ],
+    drugHistory: [
+      { label: 'Ibuprofen 400 mg — taken approximately 2 hours ago (analgesia for today\'s injury only)', quote: '[Only if directly asked]' },
+      { label: 'No regular prescribed medications; no known allergies', quote: '"None that I know of."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Law student (final year); training contract starting September — needs to be mobile', quote: '"I\'m finishing law school and starting a training contract at a City firm in September. I\'ve also got exams in 8 weeks. I\'m going to need to be mobile."' },
+      { label: 'University-level rugby (3× week) and 5-a-side football (weekends) — sport central to life', quote: '"I play rugby three times a week and football at weekends. Sport is everything to me — and I\'m meant to play in the national university cup in six weeks."' },
+      { label: 'Engaged — wedding in 4 months', quote: '"I\'m getting married in four months." – "How long am I going to be out of sport?"' },
+      { label: 'Social smoker (2–3 cigarettes on weekends)', quote: '[Only if directly asked]' },
     ],
     importantNegatives: [
       'No contact mechanism ("Completely non-contact — my foot planted and I twisted, nothing hit me.")',
@@ -534,64 +501,50 @@ const caudaEquinaMockExam: MockExamStation = {
     occupation: 'Delivery driver',
     openingLine:
       '"I think this is just my disc playing up again, doctor — it happens every now and then. My wife insisted I come in because I had a bit of trouble having a wee this morning."',
-    backgroundInfo:
-      'David is a 45-year-old delivery driver with a 2-year history of chronic lower back pain. An MRI 18 months ago showed an L4/L5 disc prolapse — he was managed conservatively with physiotherapy and analgesia. This episode started 2 days ago with a sudden severe exacerbation after lifting a parcel at work. This morning he struggled to initiate urination (took 5 minutes to start, weak stream). He is the sole earner and worried about losing his job. He is minimising the severity of his symptoms and reluctant to believe this is serious.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response:
-          '"My back went two days ago when I was lifting a parcel from the van — an almighty tearing pain across my lower back. It\'s been agony since then. Then this morning I had trouble starting a wee."',
+        label: 'Site',
+        descriptor: 'lower back with bilateral leg radiation — right (posterior thigh to calf) >> left (thigh only)',
+        quotes: ['"My back went two days ago when I was lifting a parcel from the van — an almighty tearing pain across my lower back." – "It shoots down both legs — the right is much worse. It goes right down the back of the right thigh and into my calf. On the left it just goes to my thigh."'],
       },
       {
-        topic: 'Back pain — onset and character',
-        response:
-          '"It was sudden — I bent down and felt it go immediately. Much worse than my usual back pain. It\'s constant and I\'d say 8 out of 10."',
+        label: 'Onset',
+        descriptor: 'sudden onset 2 days ago while lifting a parcel at work — much worse than usual disc pain',
+        quotes: ['"I bent down and felt it go immediately. Much worse than my usual back pain. It\'s constant and I\'d say 8 out of 10."'],
       },
       {
-        topic: 'Radiation of pain',
-        response:
-          '"It shoots down both legs — the right is much worse. It goes right down the back of the right thigh and into my calf. On the left it just goes to my thigh."',
+        label: 'Associated symptoms — bladder',
+        descriptor: 'new this morning: urinary hesitancy (5 minutes to initiate); weak slow stream; not complete retention',
+        quotes: ['"This morning I needed to go but it took about 5 minutes to get going. When it did come, it was slow and weak. It\'s never happened like that before." – "I haven\'t been completely unable to go, but it was very hard to start. I haven\'t leaked or wet myself."'],
       },
       {
-        topic: 'Bladder — urinary hesitancy and stream',
-        response:
-          '"This morning I needed to go but it took about 5 minutes to get going. When it did come, it was slow and weak. It\'s never happened like that before."',
+        label: 'Associated symptoms — saddle anaesthesia',
+        descriptor: 'numbness/tingling in the perineal area — like sitting on a bike saddle; onset this morning',
+        quotes: ['"You know... now you mention it, my bottom area does feel a bit numb or tingly — like when you sit on a bike saddle for too long. I\'d put it down to sitting awkwardly with the pain."'],
       },
       {
-        topic: 'Bladder — retention or incontinence',
-        response:
-          '"I haven\'t been completely unable to go, but it was very hard to start. I haven\'t leaked or wet myself."',
+        label: 'Associated symptoms — bowel',
+        descriptor: 'no bowel movement for 2 days; attributed to codeine; no faecal incontinence',
+        quotes: ['"I haven\'t been to the toilet for 2 days — I thought that was the codeine I\'ve been taking. I haven\'t had any accidents."'],
       },
       {
-        topic: 'Saddle anaesthesia',
-        response:
-          '"You know... now you mention it, my bottom area does feel a bit numb or tingly — like when you sit on a bike saddle for too long. I\'d put it down to sitting awkwardly with the pain."',
+        label: 'Associated symptoms — lower limb weakness',
+        descriptor: 'bilateral leg weakness; almost fell getting out of the car; wife noticed severe limp',
+        quotes: ['"My legs feel very heavy and weak — I nearly fell getting out of the car. I had to hold onto the door. My wife noticed I was limping badly."'],
       },
-      {
-        topic: 'Bowel symptoms',
-        response:
-          '"I haven\'t been to the toilet for 2 days — I thought that was the codeine I\'ve been taking. I haven\'t had any accidents."',
-      },
-      {
-        topic: 'Lower limb weakness',
-        response:
-          '"My legs feel very heavy and weak — I nearly fell getting out of the car. I had to hold onto the door. My wife noticed I was limping badly."',
-      },
-      {
-        topic: 'Previous back history and imaging',
-        response:
-          '"I\'ve had back pain for about 2 years. An MRI 18 months ago showed a disc problem at L4/L5. I had physio for 6 months and it settled. This is much, much worse."',
-      },
-      {
-        topic: 'Current medications',
-        response:
-          '"I take naproxen and amitriptyline for the back pain. I\'ve been taking codeine for the last 2 days but it\'s barely touched it."',
-      },
-      {
-        topic: 'Occupation and financial concerns',
-        response:
-          '"I\'m a delivery driver — I\'m the only one earning. My wife is at home with our two children. I really can\'t afford to be off work."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Chronic lower back pain (2 years) — MRI 18 months ago: L4/L5 disc prolapse; managed with physiotherapy', quote: '"I\'ve had back pain for about 2 years. An MRI 18 months ago showed a disc problem at L4/L5. I had physio for 6 months and it settled. This is much, much worse."' },
+      { label: 'Epidural steroid injection 8 months ago — temporary benefit', quote: '"I had a jab in my back — an epidural — about 8 months ago. It helped for a while." [only if directly asked]' },
+    ],
+    drugHistory: [
+      { label: 'Naproxen (chronic back pain)', quote: '"I take naproxen..."' },
+      { label: 'Amitriptyline (neuropathic back pain)', quote: '"...and amitriptyline for the back pain."' },
+      { label: 'Codeine — taken for 2 days during this exacerbation (barely effective)', quote: '"I\'ve been taking codeine for the last 2 days but it\'s barely touched it."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Delivery driver — sole earner; wife at home with two children', quote: '"I\'m a delivery driver — I\'m the only one earning. My wife is at home with our two children. I really can\'t afford to be off work."' },
     ],
     importantNegatives: [
       'No urinary incontinence or overflow ("I haven\'t leaked or wet myself.")',
@@ -610,8 +563,8 @@ const caudaEquinaMockExam: MockExamStation = {
         '"I\'m hoping you\'ll give me some stronger painkillers and send me home to rest for a few days."',
     },
     onlyIfDirectlyAsked: [
-      'Sexual dysfunction — reduced perineal sensation: "Actually... yes, it has felt different down there — less sensation. I didn\'t want to mention it." (only if directly asked)',
-      'Epidural steroid injection 8 months ago — helped temporarily: "I had a jab in my back — an epidural — about 8 months ago. It helped for a while."',
+      'Sexual dysfunction — reduced perineal sensation: "Actually... yes, it has felt different down there — less sensation. I didn\'t want to mention it."',
+      'Epidural steroid injection 8 months ago — helped temporarily',
     ],
     behaviourNotes: [
       'Initially minimises symptoms — "I\'m sure it\'s just the disc" — student must actively probe for red flags',
@@ -786,53 +739,50 @@ const compartmentMockExam: MockExamStation = {
     occupation: 'Construction worker',
     openingLine:
       '"Doctor, thank god someone\'s here — the pain is absolutely unbearable. I\'ve been pressing this button constantly but it\'s not helping at all."',
-    backgroundInfo:
-      'Tom is a 25-year-old construction worker who was riding his motorbike home when a car pulled out in front of him. He sustained a closed midshaft tibial fracture. The backslab was applied at approximately 20:30 in A&E. He has been using the PCA with minimal effect. Over the last hour his pain has changed in character — it is now a burning, pressured feeling inside the leg, quite different to the bone pain earlier. He is otherwise fit and healthy with no past medical history. He is very frightened and has been asking the nurses repeatedly if something is going wrong.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Presenting complaint',
-        response:
-          '"The pain has changed — this isn\'t just the broken bone. It feels like there\'s burning pressure inside my leg, like it\'s going to explode from the inside. I\'d say 10 out of 10. The morphine is doing nothing."',
+        label: 'Pain character — changed from bone pain to burning pressured sensation inside the leg (10/10); PCA ineffective',
+        quote: '"The pain has changed — this isn\'t just the broken bone. It feels like there\'s burning pressure inside my leg, like it\'s going to explode from the inside. I\'d say 10 out of 10. The morphine is doing nothing."',
       },
       {
-        topic: 'Onset and progression of the new pain',
-        response:
-          '"The morphine was sort of helping at first. It started getting worse again around midnight, and for the last hour it\'s been completely uncontrollable. It\'s getting worse and worse."',
+        label: 'Onset and progression — initially partially controlled by PCA; escalating since midnight; worsening every hour',
+        quote: '"The morphine was sort of helping at first. It started getting worse again around midnight, and for the last hour it\'s been completely uncontrollable. It\'s getting worse and worse."',
       },
       {
-        topic: 'Pain on passive movement of the toes',
-        response:
-          '"Ow — yes! Just doing that makes it so much worse. Please stop." [flinches and pulls away]',
+        label: 'Pain on passive toe dorsiflexion — markedly worsened; pulls away sharply',
+        quote: '"Ow — yes! Just doing that makes it so much worse. Please stop." [flinches and pulls away]',
       },
       {
-        topic: 'Sensation in the foot — first web space',
-        response:
-          '"The top of my foot feels tingly and numb — particularly the bit between my big toe and the next toe. It started about an hour ago."',
+        label: 'Sensation — numbness and tingling in first web space (deep peroneal nerve territory); onset ~1 hour ago',
+        quote: '"The top of my foot feels tingly and numb — particularly the bit between my big toe and the next toe. It started about an hour ago."',
       },
       {
-        topic: 'Power — ability to move toes',
-        response:
-          '"I can move them a tiny bit but it hurts terribly and they feel weak. I can\'t lift them properly."',
+        label: 'Power — toe extension weak; movement extremely painful',
+        quote: '"I can move them a tiny bit but it hurts terribly and they feel weak. I can\'t lift them properly."',
       },
       {
-        topic: 'Tightness of the cast',
-        response:
-          '"Yes — the plaster feels extremely tight. It started feeling tight maybe an hour after they put it on. I told the nurse but she said swelling after a fracture was normal."',
+        label: 'Cast tightness — noticed extreme tightness ~1 hour after application; reported to nurse',
+        quote: '"Yes — the plaster feels extremely tight. It started feeling tight maybe an hour after they put it on. I told the nurse but she said swelling after a fracture was normal."',
       },
       {
-        topic: 'Mechanism of injury',
-        response:
-          '"A car pulled out right in front of me — I had no time to brake. I went straight over the bonnet. I don\'t remember much after that until I woke up in A&E."',
+        label: 'Mechanism — high-energy RTC at speed; car pulled out; went over bonnet; regained consciousness in A&E',
+        quote: '"A car pulled out right in front of me — I had no time to brake. I went straight over the bonnet. I don\'t remember much after that until I woke up in A&E."',
       },
       {
-        topic: 'Urinary output since admission',
-        response:
-          '"I haven\'t been to the toilet since I came in — no one brought me a bottle. I feel like I need to go, actually."',
+        label: 'Urinary output — has not voided since admission; needs to go now',
+        quote: '"I haven\'t been to the toilet since I came in — no one brought me a bottle. I feel like I need to go, actually."',
       },
-      {
-        topic: 'Past medical history and medications',
-        response: '"I\'m completely fit and healthy — no medical problems, not on any medication."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history', quote: '"I\'m completely fit and healthy — no medical problems, not on any medication."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; no known allergies', quote: '"Nothing. No tablets." – "None that I know of."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Construction worker (25); recreational cocaine 2 nights ago (embarrassed, only if asked)', quote: '"I had some at a party two nights ago." [very embarrassed; only if directly asked]' },
+      { label: 'Smoker — approximately 10 cigarettes per day', quote: '[Only if directly asked]' },
     ],
     importantNegatives: [
       'No foot pallor or mottling ("My foot looks the same colour as normal — not white or blue.")',

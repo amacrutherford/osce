@@ -21,88 +21,69 @@ const alcoholAnxietyMockExam: MockExamStation = {
     occupation: 'Office administrator',
     openingLine:
       '"Yeah, I\'m back. Look, I know what this is about — last night was embarrassing. I don\'t really think I need to be here, but they said I had to come."',
-    backgroundInfo:
-      'Tom is a 28-year-old office administrator who presents slightly defensive and embarrassed after last night\'s A&E attendance. He drinks approximately 40 units per week but does not see this as a serious problem. He has had social anxiety since he was a teenager, following persistent bullying at secondary school, and uses alcohol as a "social lubricant" — he cannot imagine going to a party or social event without drinking beforehand. He is developing features of alcohol dependence: morning tremor on days without alcohol, and an occasional early-morning drink before work to steady his hands. His flat-mate has expressed concern, which he has dismissed. He becomes progressively more open and honest if the student is non-judgemental.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Presenting complaint — last night',
-        response:
-          '"I went to my friend\'s birthday last night. I had a few drinks at home before — about three beers — then had more there. On the way home I tripped on a kerb and landed on my wrist. They did an X-ray, it\'s fine." – "I wouldn\'t say I was drunk. Okay, maybe I had a bit much."',
+        label: 'Last night\'s events — friend\'s birthday; drinking before and during; fall on kerb walking home',
+        quote: '"I went to my friend\'s birthday last night. I had a few drinks at home before — about three beers — then had more there. On the way home I tripped on a kerb and landed on my wrist." – "I wouldn\'t say I was drunk. Okay, maybe I had a bit much."',
       },
       {
-        topic: 'Alcohol — quantity and frequency',
-        response:
-          '"Most days, I suppose. Maybe 5 or 6 days a week." – "On a normal weeknight I have a few cans at home — maybe 4 or 5. At weekends when I\'m out it\'s more, maybe 10 or 12 units on a big night."',
+        label: 'Alcohol — frequency and quantity (approximately 40 units/week; 5–6 days/week)',
+        quote: '"Most days, I suppose. Maybe 5 or 6 days a week." – "On a normal weeknight I have a few cans at home — maybe 4 or 5. At weekends when I\'m out it\'s more, maybe 10 or 12 units on a big night."',
       },
       {
-        topic: 'Alcohol — pattern and triggers',
-        response:
-          '"I always have a drink before I go out somewhere social — just to calm my nerves. Without it I feel really on edge." – "At home it\'s more habit. It helps me wind down and switch my brain off."',
+        label: 'Alcohol — pattern: pre-social drinking to calm nerves; home drinking as habit',
+        quote: '"I always have a drink before I go out somewhere social — just to calm my nerves. Without it I feel really on edge." – "At home it\'s more habit. It helps me wind down and switch my brain off."',
       },
       {
-        topic: 'CAGE — Cut down attempts',
-        response:
-          '"I\'ve said to myself I\'ll cut back, yeah. I manage it for a day or two sometimes. But then a work thing comes up or I get invited somewhere and it just doesn\'t happen."',
+        label: 'CAGE — cut-down attempts (positive): tries but fails within 1–2 days',
+        quote: '"I\'ve said to myself I\'ll cut back, yeah. I manage it for a day or two sometimes. But then a work thing comes up or I get invited somewhere and it just doesn\'t happen."',
       },
       {
-        topic: 'CAGE — Annoyed by criticism',
-        response:
-          '"My flat-mate keeps nagging me about it. He said I drink too much. I told him to mind his own business, to be honest."',
+        label: 'CAGE — annoyed by criticism (positive): flat-mate\'s nagging dismissed',
+        quote: '"My flat-mate keeps nagging me about it. He said I drink too much. I told him to mind his own business, to be honest."',
       },
       {
-        topic: 'CAGE — Guilty feelings',
-        response:
-          '"Sometimes. After a really heavy one I wake up feeling a bit pathetic about it." [pause] "I don\'t love that I need it to feel normal."',
+        label: 'CAGE — guilty feelings (positive): feels pathetic after heavy sessions',
+        quote: '"Sometimes. After a really heavy one I wake up feeling a bit pathetic about it." [pause] "I don\'t love that I need it to feel normal."',
       },
       {
-        topic: 'CAGE / dependence — Eye opener',
-        response:
-          '"...sometimes, yeah." [reluctant, embarrassed] "If I wake up and my hands are shaking I might have a small beer to take the edge off before work. Not always, just sometimes."',
+        label: 'CAGE — eye-opener (positive): occasional beer before work when hands shaking',
+        quote: '"...sometimes, yeah." [reluctant, embarrassed] "If I wake up and my hands are shaking I might have a small beer to take the edge off before work. Not always, just sometimes."',
       },
       {
-        topic: 'Dependence — morning tremor and withdrawal symptoms',
-        response:
-          '"My hands shake when I wake up, on days when I haven\'t drunk the night before. And I get really sweaty and anxious." – "Once I have a drink it goes away."',
+        label: 'Dependence — morning tremor and physiological withdrawal relieved by alcohol',
+        quote: '"My hands shake when I wake up, on days when I haven\'t drunk the night before. And I get really sweaty and anxious." – "Once I have a drink it goes away."',
       },
       {
-        topic: 'Anxiety history — onset and triggers',
-        response:
-          '"I\'ve been anxious since school, really. I got badly bullied in year 9 and 10 — proper nasty stuff. After that I just felt like everyone was watching me and judging me." – "I hate going anywhere new or where I don\'t know people. Even in meetings at work I feel like I\'m going to have a panic attack."',
+        label: 'Social anxiety — onset following persistent bullying in secondary school (years 9–10)',
+        quote: '"I\'ve been anxious since school, really. I got badly bullied in year 9 and 10 — proper nasty stuff. After that I just felt like everyone was watching me and judging me." – "I hate going anywhere new or where I don\'t know people. Even in meetings at work I feel like I\'m going to have a panic attack."',
       },
       {
-        topic: 'Anxiety — physical symptoms',
-        response:
-          '"My heart races, I start sweating, my mouth goes dry. Sometimes I feel dizzy." – "And I just think everyone is looking at me and thinking I\'m an idiot."',
+        label: 'Anxiety — physical symptoms: palpitations, sweating, dry mouth, dizziness, fear of judgement',
+        quote: '"My heart races, I start sweating, my mouth goes dry. Sometimes I feel dizzy." – "And I just think everyone is looking at me and thinking I\'m an idiot."',
       },
       {
-        topic: 'Anxiety — impact on daily life',
-        response:
-          '"I\'ve turned down jobs because of the interviews. I cancelled a friend\'s wedding because I couldn\'t face it." – "Basically, anything social I either drink first or avoid."',
+        label: 'Anxiety — severe functional impairment: declined jobs, cancelled friend\'s wedding',
+        quote: '"I\'ve turned down jobs because of the interviews. I cancelled a friend\'s wedding because I couldn\'t face it." – "Basically, anything social I either drink first or avoid."',
       },
       {
-        topic: 'Alcohol as anxiety self-medication',
-        response:
-          '"It works, though — that\'s the thing. When I drink, the anxiety just disappears. I feel like a normal person. I can actually talk to people." – "Without it I\'m a nervous wreck at anything social."',
+        label: 'Alcohol as self-medication for anxiety: works acutely but perpetuates the cycle',
+        quote: '"It works, though — that\'s the thing. When I drink, the anxiety just disappears. I feel like a normal person. I can actually talk to people." – "Without it I\'m a nervous wreck at anything social."',
       },
-      {
-        topic: 'Past medical history',
-        response:
-          '"Nothing. I\'ve never been to a GP about the anxiety — I didn\'t see the point." – "I had a few black eyes from the bullying but nothing medical."',
-      },
-      {
-        topic: 'Medications',
-        response: '"Nothing. I take ibuprofen sometimes for headaches." – "No allergies."',
-      },
-      {
-        topic: 'Family history',
-        response:
-          '"My dad drinks a lot. He\'s always had a few drinks every night for as long as I can remember." – "No other health problems that I know of."',
-      },
-      {
-        topic: 'Social history',
-        response:
-          '"I live in a shared flat. I work as an admin assistant — been there about 3 years. I manage okay, mostly." – "I don\'t smoke. I haven\'t tried drugs — alcohol does the job."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No formal medical history; never seen GP for anxiety', quote: '"Nothing. I\'ve never been to a GP about the anxiety — I didn\'t see the point." – "I had a few black eyes from the bullying but nothing medical."' },
+    ],
+    drugHistory: [
+      { label: 'Ibuprofen — occasional for headaches', quote: '"I take ibuprofen sometimes for headaches."' },
+      { label: 'No regular prescribed medications; no allergies', quote: '"Nothing. No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — heavy regular alcohol use (every night)', quote: '"My dad drinks a lot. He\'s always had a few drinks every night for as long as I can remember." – "No other health problems that I know of."' },
+    ],
+    socialHistory: [
+      { label: 'Office administrator (3 years); lives in shared flat with flat-mate', quote: '"I live in a shared flat. I work as an admin assistant — been there about 3 years. I manage okay, mostly."' },
+      { label: 'Non-smoker; no illicit drug use', quote: '"I don\'t smoke. I haven\'t tried drugs — alcohol does the job."' },
     ],
     importantNegatives: [
       'No blackouts or memory loss ("I remember the whole night. I don\'t black out, no.")',
@@ -359,58 +340,59 @@ const lithiumCounsellingMockExam: MockExamStation = {
     occupation: 'Retired teacher',
     openingLine:
       '"Thank you for seeing me. I\'ve done some reading online about this lithium tablet they\'ve put Emma on and, to be honest, I\'m really worried. I\'ve read some alarming things about kidney damage and that it\'s very dangerous. I just want to make sure she\'s going to be safe."',
-    backgroundInfo:
-      'David is a 58-year-old retired secondary school teacher. He is intelligent and articulate but anxious and distressed — this is the first time his daughter has been seriously unwell, and he found the manic episode frightening and bewildering. He has done extensive internet research which has given him an alarming and incomplete picture of lithium. He lives with his wife and Emma will be coming home to stay with them on discharge. He is not hostile — he becomes progressively reassured when given clear, honest information. He genuinely wants to understand lithium so he can support Emma at home, and he needs to know what warning signs to look for. He is aware Emma has consented to him being involved.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Opening concern — online information',
-        response:
-          '"I looked it up online and it said lithium can cause permanent kidney damage and that the levels in the blood can become toxic." – "One forum said it can kill you if it goes too high. Is that actually true?"',
+        label: 'Opening concern — alarming online information about kidney damage and toxicity risk',
+        quote: '"I looked it up online and it said lithium can cause permanent kidney damage and that the levels in the blood can become toxic." – "One forum said it can kill you if it goes too high. Is that actually true?"',
       },
       {
-        topic: 'Question — what is lithium used for?',
-        response:
-          '"I know it\'s something to do with her mood, but the doctors spoke to Emma about it and I wasn\'t there. Can you explain to me what it actually does and why she needs it?" – "Is this going to be for life?"',
+        label: 'Question: what is lithium used for, and why does Emma need it?',
+        quote: '"I know it\'s something to do with her mood, but the doctors spoke to Emma about it and I wasn\'t there. Can you explain to me what it actually does and why she needs it?" – "Is this going to be for life?"',
       },
       {
-        topic: 'Question — why not something safer?',
-        response:
-          '"Are there no other tablets she could take that are safer? It seems like a very dangerous medication." – "I\'ve heard of others with bipolar who aren\'t on lithium."',
+        label: 'Question: why not something safer?',
+        quote: '"Are there no other tablets she could take that are safer? It seems like a very dangerous medication." – "I\'ve heard of others with bipolar who aren\'t on lithium."',
       },
       {
-        topic: 'Question — monitoring',
-        response:
-          '"They mentioned she\'ll need regular blood tests. How often? And what exactly are they checking for?" – "She\'s not always great at remembering appointments."',
+        label: 'Question: monitoring requirements and frequency',
+        quote: '"They mentioned she\'ll need regular blood tests. How often? And what exactly are they checking for?" – "She\'s not always great at remembering appointments."',
       },
       {
-        topic: 'Question — side effects',
-        response:
-          '"What side effects should we expect? The website said she might shake and put on weight — is that definitely going to happen?" – "She\'s already upset about how she looks after being in hospital."',
+        label: 'Question: expected side effects',
+        quote: '"What side effects should we expect? The website said she might shake and put on weight — is that definitely going to happen?" – "She\'s already upset about how she looks after being in hospital."',
       },
       {
-        topic: 'Question — signs of toxicity and what to do',
-        response:
-          '"How do I know if the levels have got too high? What do I look out for at home?" – "And what do I do if I\'m worried about her?"',
+        label: 'Question: signs of toxicity and what to do at home',
+        quote: '"How do I know if the levels have got too high? What do I look out for at home?" – "And what do I do if I\'m worried about her?"',
       },
       {
-        topic: 'Question — things to avoid',
-        response:
-          '"Is there anything she shouldn\'t take or eat?" – "She takes ibuprofen quite regularly for period pain. Is that okay?"',
+        label: 'Question: drug interactions and things to avoid (specifically ibuprofen)',
+        quote: '"Is there anything she shouldn\'t take or eat?" – "She takes ibuprofen quite regularly for period pain. Is that okay?"',
       },
       {
-        topic: 'Question — long-term outlook',
-        response:
-          '"Will she have to be on this forever? Can she ever come off it?" – "And can she lead a normal life? Work? Have children one day?"',
+        label: 'Question: long-term prognosis — can she lead a normal life, work, have children?',
+        quote: '"Will she have to be on this forever? Can she ever come off it?" – "And can she lead a normal life? Work? Have children one day?"',
       },
       {
-        topic: 'Question — lithium card',
-        response:
-          '"They mentioned something about a card she should carry. What is that?" – "I\'ll make sure she keeps it with her."',
+        label: 'Question: the lithium treatment card',
+        quote: '"They mentioned something about a card she should carry. What is that?" – "I\'ll make sure she keeps it with her."',
       },
+    ],
+    pastMedicalHistory: [
+      { label: 'Emma (patient) — bipolar I disorder; first manic episode (3 weeks ago)', quote: '"I understand she has bipolar — the consultant explained that, I\'m not questioning that."' },
+    ],
+    drugHistory: [
+      { label: 'Emma — lithium (do not share specific dose or serum level without explicit consent)', quote: '"They mentioned something about a card she should carry."' },
+    ],
+    familyHistory: [
+      { label: 'David\'s brother — possible undiagnosed bipolar-type episode in his 30s', quote: '"My brother had a breakdown in his 30s but was never formally diagnosed." [only if directly asked] "Looking back, I wonder if it was similar to what Emma\'s been through."' },
+    ],
+    socialHistory: [
+      { label: 'Retired teacher (58); lives with wife; Emma coming home to stay with them on discharge', quote: '"My wife is also worried but not present — she\'s with Emma right now. She said to ask you everything."' },
     ],
     importantNegatives: [
       'Does not challenge the diagnosis ("I understand she has bipolar — the consultant explained that, I\'m not questioning that.")',
-      'Does not know Emma\'s specific lithium dose or current serum level — the student should not share these specific clinical details without Emma\'s explicit consent for each item',
+      'Does not know Emma\'s specific lithium dose or current serum level',
       'Emma is not present at this meeting',
     ],
     ice: {
@@ -673,71 +655,64 @@ const mseManiaMockExam: MockExamStation = {
     occupation: 'Nursery school teacher',
     openingLine:
       '"I really don\'t know why I\'m here — I feel absolutely AMAZING. I\'ve never felt so alive. Your hospital really needs to hear about my healing work, by the way. I\'ve been sent to help people."',
-    backgroundInfo:
-      'Claire is 35 years old and has never had a psychiatric episode before. She has not slept more than 1–2 hours for 7 days, has spent £4,200 on crystals and equipment for her "healing practice", and has been neglecting meals. Her husband brought her in after she attempted to leave the house at 3 am to "begin her healing mission". She is dressed in a bright red floor-length dress with multiple necklaces; her hair is dishevelled. She is animated, disinhibited, and speaks rapidly. She has no insight into her illness and believes she is completely well. She becomes briefly irritable if the student challenges her beliefs directly. She has no prior psychiatric history, no current medications, and no illicit drug use.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'MSE — Appearance and behaviour',
-        response:
-          '[Actor presents]: bright red dress with multiple necklaces; dishevelled hair; animated facial expression; makes intense eye contact; moves around in seat; speaks before student finishes questions; laughs unprompted; disinhibited (tries to hold examiner\'s hand to "send healing energy")',
+        label: 'Appearance and behaviour — bright red dress; dishevelled hair; animated; disinhibited; tries to hold examiner\'s hand',
+        quote: '[Actor presents]: bright red dress with multiple necklaces; dishevelled hair; animated facial expression; makes intense eye contact; moves around in seat; speaks before student finishes questions; laughs unprompted; disinhibited (tries to hold examiner\'s hand to "send healing energy").',
       },
       {
-        topic: 'MSE — Speech (rate, rhythm, volume)',
-        response:
-          '[Actor presents]: markedly pressured speech — rapid, loud, difficult to interrupt; jumps between topics (flight of ideas); rhymes or puns occasionally; student needs to raise voice slightly to redirect',
+        label: 'Speech — markedly pressured; rapid; loud; flight of ideas; difficult to interrupt',
+        quote: '[Actor presents]: markedly pressured speech — rapid, loud, difficult to interrupt; jumps between topics (flight of ideas); rhymes or puns occasionally; student needs to raise voice slightly to redirect.',
       },
       {
-        topic: 'MSE — Mood (subjective)',
-        response:
-          '"I feel absolutely incredible — electric, powerful. Like I\'ve finally woken up and found my purpose." [not distressed, not sad]',
+        label: 'Mood (subjective) — "absolutely incredible, electric, powerful, like I\'ve found my purpose"',
+        quote: '"I feel absolutely incredible — electric, powerful. Like I\'ve finally woken up and found my purpose." [not distressed, not sad]',
       },
       {
-        topic: 'MSE — Affect (objective)',
-        response:
-          '[Actor presents]: elated/expansive affect; labile — briefly irritable if beliefs challenged ("You wouldn\'t understand"), then returns to elated; incongruent with the clinical concern',
+        label: 'Affect (objective) — elated/expansive; labile; briefly irritable if beliefs challenged',
+        quote: '[Actor presents]: elated/expansive affect; labile — briefly irritable if beliefs challenged ("You wouldn\'t understand"), then returns to elated; incongruent with the clinical concern.',
       },
       {
-        topic: 'MSE — Thought form',
-        response:
-          '[Actor presents]: flight of ideas — rapid loosely connected associations ("healing energy → crystals → hospitals need crystals → you look tired, do you need healing → my husband doesn\'t believe me but he will"); circumstantial; difficult to redirect; no thought block or formal thought disorder',
+        label: 'Thought form — flight of ideas; circumstantial; difficult to redirect',
+        quote: '[Actor presents]: flight of ideas — rapid loosely connected associations ("healing energy → crystals → hospitals need crystals → you look tired, do you need healing → my husband doesn\'t believe me but he will"); circumstantial; difficult to redirect; no thought block.',
       },
       {
-        topic: 'MSE — Thought content',
-        response:
-          '"I have been chosen. I can sense the energy of illness in people and draw it out. I\'ve already healed three of my neighbours." — grandiose delusion (special powers/mission); no suicidal ideation; no homicidal ideation; brief paranoid flavour if challenged: "Why does everyone try to stop me? My husband called me crazy."',
+        label: 'Thought content — grandiose delusion (special healing powers; chosen; healing mission)',
+        quote: '"I have been chosen. I can sense the energy of illness in people and draw it out. I\'ve already healed three of my neighbours." — grandiose delusion (special powers/mission); brief paranoid flavour if challenged: "Why does everyone try to stop me? My husband called me crazy."',
       },
       {
-        topic: 'MSE — Perception',
-        response:
-          '"Sometimes I see golden light around people — it\'s their healing aura." — possible visual pseudo-hallucinations or over-valued ideas; if probed further: "It\'s not like a ghost — I just perceive it. It\'s my gift."',
+        label: 'Perception — possible visual pseudo-hallucinations (golden auras around people)',
+        quote: '"Sometimes I see golden light around people — it\'s their healing aura." — possible visual pseudo-hallucinations or over-valued ideas; if probed: "It\'s not like a ghost — I just perceive it. It\'s my gift."',
       },
       {
-        topic: 'MSE — Cognition',
-        response:
-          '[Actor]: fully oriented to time, place, and person; attention impaired (easily distracted mid-sentence); serial 7s — gets to 93 then loses track; short-term registration OK but working memory impaired due to distractibility',
+        label: 'Cognition — fully oriented; attention impaired (distractibility); serial 7s incomplete',
+        quote: '[Actor]: fully oriented to time, place, and person; attention impaired (easily distracted mid-sentence); serial 7s — gets to 93 then loses track; short-term registration OK but working memory impaired due to distractibility.',
       },
       {
-        topic: 'MSE — Insight',
-        response:
-          '"I\'m not ill. I\'ve never been better in my life. My husband is jealous of my gifts — that\'s why he brought me here." — absent insight',
+        label: 'Insight — absent; does not recognise illness; believes husband is jealous of her gifts',
+        quote: '"I\'m not ill. I\'ve never been better in my life. My husband is jealous of my gifts — that\'s why he brought me here." — absent insight.',
       },
       {
-        topic: 'MSE — Risk',
-        response:
-          '"No, I\'m not going to hurt myself — why would I? I\'m on a mission." — denies suicidal or self-harm ideation; describes impulsive risk-taking: tried to leave house at 3 am, gave away jewellery to neighbours, spent £4,200 in two days',
+        label: 'Risk — no suicidal ideation; impulsive risk behaviours (£4,200 spent; 3 am wandering; not eating)',
+        quote: '"No, I\'m not going to hurt myself — why would I? I\'m on a mission." — denies suicidal ideation; describes impulsive risk-taking: tried to leave house at 3 am, gave away jewellery to neighbours, spent £4,200 in two days.',
       },
       {
-        topic: 'History — sleep',
-        response: '"I don\'t need sleep — sleep is for people who aren\'t fully awakened. Maybe 1 or 2 hours a night this past week."',
+        label: 'Sleep — 1–2 hours/night for 7 days; does not feel the need for sleep',
+        quote: '"I don\'t need sleep — sleep is for people who aren\'t fully awakened. Maybe 1 or 2 hours a night this past week."',
       },
-      {
-        topic: 'History — past psychiatric history',
-        response: '"None. I\'ve never seen a psychiatrist in my life." – "This is the first time anything like this has happened."',
-      },
-      {
-        topic: 'History — drugs and alcohol',
-        response: '"I don\'t take drugs. I gave up alcohol 6 months ago actually — it was lowering my vibrational frequency."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No prior psychiatric history', quote: '"None. I\'ve never seen a psychiatrist in my life." – "This is the first time anything like this has happened."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; gave up alcohol 6 months ago; no illicit drugs', quote: '"I don\'t take drugs. I gave up alcohol 6 months ago actually — it was lowering my vibrational frequency."' },
+    ],
+    familyHistory: [
+      { label: 'Aunt — "breakdown" in her 40s; hospitalised; family does not discuss it', quote: '"She was in hospital for a while — nobody talks about it." [only if directly asked]' },
+    ],
+    socialHistory: [
+      { label: 'Nursery school teacher (35); lives with husband', quote: '"My only concern is that being here is wasting time I should be spending on my healing work."' },
+      { label: 'Not eating adequately — only crackers yesterday (self-neglect; only if asked)', quote: '"I\'m not hungry. I had some crackers yesterday." [risk of self-neglect — only if asked]' },
     ],
     importantNegatives: [
       'No suicidal ideation ("Why would I? I feel amazing.")',
@@ -960,53 +935,53 @@ const capacityAssessmentMockExam: MockExamStation = {
     occupation: 'Retired builder',
     openingLine:
       '"You\'re here to try and change my mind, aren\'t you? I\'ve already told the surgeon — I won\'t have my leg cut off. I understand the risks. I\'m not stupid and I\'m not mad."',
-    backgroundInfo:
-      'Frank is a 68-year-old retired builder with longstanding type 2 diabetes and peripheral vascular disease. He is fully alert, oriented, and cognitively intact. He has read about the surgery online and has spoken to the vascular team; he understands that refusing amputation is likely to lead to his death from sepsis. His refusal is based on deeply held values about quality of life and bodily integrity — he watched his friend lose a leg and spend his final years in a nursing home, and he says he would rather die with his body intact than live as an amputee. He is not depressed and does not have a death wish. He has CAPACITY TO REFUSE. His decision must ultimately be respected. He is defensive at first (expects to be pressured) but becomes more open if the student explains they are there to understand his decision, not to change it.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Understanding — what is the problem with his foot?',
-        response:
-          '"The gangrene — I know. The tissue is dying because the blood supply has gone. The surgeon showed me the scan." – "Without the operation, the infection spreads and I\'ll go into sepsis and die. I understand that."',
+        label: 'Understanding — diagnosis: gangrenous right foot; tissue dying; blood supply gone',
+        quote: '"The gangrene — I know. The tissue is dying because the blood supply has gone. The surgeon showed me the scan."',
       },
       {
-        topic: 'Understanding — what does the amputation involve?',
-        response:
-          '"They remove the lower leg below the knee. Under general anaesthetic. Then there\'s rehabilitation — walking with a prosthetic leg eventually, apparently." – "I understand all of it. I\'ve read about it."',
+        label: 'Understanding — proposed operation: right below-knee amputation under GA; rehabilitation and prosthesis',
+        quote: '"They remove the lower leg below the knee. Under general anaesthetic. Then there\'s rehabilitation — walking with a prosthetic leg eventually, apparently." – "I understand all of it. I\'ve read about it."',
       },
       {
-        topic: 'Understanding — what are the risks of refusing?',
-        response:
-          '"The surgeon told me straight — if I don\'t have it done, the infection will spread, I\'ll become very ill, and I will almost certainly die within days to weeks." – "I\'ve heard that and I understand it."',
+        label: 'Understanding — consequences of refusal: infection → sepsis → almost certain death within days to weeks',
+        quote: '"The surgeon told me straight — if I don\'t have it done, the infection will spread, I\'ll become very ill, and I will almost certainly die within days to weeks." – "I\'ve heard that and I understand it."',
       },
       {
-        topic: 'Retention — can he recall the information?',
-        response:
-          '[When asked to summarise his understanding after a pause]: "The gangrene needs to come off to stop the infection killing me. The operation removes the leg below the knee. Without it I die. I know all this." [accurate and consistent]',
+        label: 'Retention — accurately recalls all key information when tested after a pause',
+        quote: '"The gangrene needs to come off to stop the infection killing me. The operation removes the leg below the knee. Without it I die. I know all this." [accurate and consistent]',
       },
       {
-        topic: 'Weighing — reasoning behind the decision',
-        response:
-          '"My best friend Billy lost his leg in 2018 — the same operation. He lived in a nursing home after that, couldn\'t do anything for himself. He was miserable every day until he died." – "I\'ve been a builder all my life. My body is who I am. I\'d rather die with both legs than live like that." – "I\'ve thought about this carefully. I know what I\'m choosing."',
+        label: 'Weighing — deeply held values about bodily integrity; informed by friend Billy\'s experience',
+        quote: '"My best friend Billy lost his leg in 2018 — the same operation. He lived in a nursing home after that, couldn\'t do anything for himself. He was miserable every day until he died." – "I\'ve been a builder all my life. My body is who I am. I\'d rather die with both legs than live like that." – "I\'ve thought about this carefully. I know what I\'m choosing."',
       },
       {
-        topic: 'Weighing — has he considered alternatives?',
-        response:
-          '"The surgeon told me there are no other options. IV antibiotics won\'t clear it — the tissue is already dead." – "I asked about saving the foot — he said it\'s beyond that."',
+        label: 'Weighing — has considered alternatives; surgeon confirmed none exist',
+        quote: '"The surgeon told me there are no other options. IV antibiotics won\'t clear it — the tissue is already dead." – "I asked about saving the foot — he said it\'s beyond that."',
       },
       {
-        topic: 'Communication — ability to communicate decision',
-        response: '"My decision is no. I refuse the operation. I\'ll say it however many times you need. No."',
+        label: 'Communication — decision clearly and consistently stated: refuses operation',
+        quote: '"My decision is no. I refuse the operation. I\'ll say it however many times you need. No."',
       },
       {
-        topic: 'Mood and psychiatric screen',
-        response:
-          '"I\'m not depressed. I\'m frightened of dying, yes, but I\'m not low in a clinical way. I\'m not hearing things or seeing things." – "I know what I\'m doing."',
+        label: 'Psychiatric screen — not depressed; frightened of dying but not suicidal; no psychosis; cognitively intact',
+        quote: '"I\'m not depressed. I\'m frightened of dying, yes, but I\'m not low in a clinical way. I\'m not hearing things or seeing things." – "I know what I\'m doing."',
       },
       {
-        topic: 'Any pressure or coercion from family?',
-        response:
-          '"My son thinks I\'m making a terrible mistake — he\'s very upset. But nobody is forcing me or threatening me. This is entirely my own decision." – "If anything, I wish they would stop trying to change my mind."',
+        label: 'Coercion screen — son upset but no pressure or threats; decision entirely his own',
+        quote: '"My son thinks I\'m making a terrible mistake — he\'s very upset. But nobody is forcing me or threatening me. This is entirely my own decision."',
       },
+    ],
+    pastMedicalHistory: [
+      { label: 'Type 2 diabetes (longstanding)', quote: '"...the blood supply has gone." [implied from clinical scenario]' },
+      { label: 'Peripheral vascular disease', quote: '"The surgeon showed me the scan."' },
+    ],
+    drugHistory: [],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Retired builder (68); physical identity central to self-image', quote: '"I\'ve been a builder all my life. My body is who I am."' },
+      { label: 'Son — distressed at decision but not coercive', quote: '"My son thinks I\'m making a terrible mistake — he\'s very upset."' },
     ],
     importantNegatives: [
       'No cognitive impairment ("I\'m as sharp as I\'ve ever been. Ask me anything.")',

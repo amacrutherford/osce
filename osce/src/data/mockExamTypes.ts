@@ -5,9 +5,15 @@ export interface CandidateBrief {
   timeAllowed: number;
 }
 
-export interface ActorHistoryItem {
-  topic: string;
-  response: string;
+export interface SocratesItem {
+  label: string;       // "Site", "Onset", "Character", etc.
+  descriptor: string;  // key clinical finding (the bold part in GeekyMedics style)
+  quotes: string[];    // 1–2 verbatim patient quotes
+}
+
+export interface HistoryItem {
+  label: string;  // clinical descriptor / bold label
+  quote: string;  // verbatim patient quote (may contain " – " for alternatives)
 }
 
 export interface ActorICE {
@@ -21,8 +27,15 @@ export interface ActorInstructions {
   age: number;
   occupation: string;
   openingLine: string;
-  backgroundInfo: string;
-  historyToReveal: ActorHistoryItem[];
+  // For symptom-based history stations (SOCRATES structure):
+  socrates?: SocratesItem[];
+  // For non-SOCRATES presenting history (counselling, MSE, physical exam, communication):
+  historyOfPresentingComplaint?: HistoryItem[];
+  // Explicit history sections:
+  pastMedicalHistory: HistoryItem[];
+  drugHistory: HistoryItem[];
+  familyHistory: HistoryItem[];
+  socialHistory: HistoryItem[];
   importantNegatives: string[];
   ice: ActorICE;
   onlyIfDirectlyAsked: string[];

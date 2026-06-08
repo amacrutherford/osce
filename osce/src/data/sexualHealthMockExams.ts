@@ -21,62 +21,62 @@ const primarySyphilisMockExam: MockExamStation = {
     occupation: 'Marketing executive',
     openingLine:
       '"I\'ve been putting off coming in, but I found this... sore, down below. I\'ve been Googling it and I\'m really worried. I don\'t know what it is."',
-    backgroundInfo:
-      'Sophie is a 26-year-old marketing executive who is embarrassed and anxious. She noticed a painless ulcer on her left labia approximately 10 days ago. She had unprotected vaginal intercourse with a new male partner (James) 3 weeks ago — she has not had sex since. She has had 3 sexual partners in total over the past year. She uses no contraception (the previous partner was long-term; she had not planned on James being a casual encounter). She had a sexual health screen 8 months ago which was negative. She takes no regular medications and has no known allergies. She has mild bilateral inguinal lymphadenopathy. The photo the examiner shows depicts a clean-edged, indurated, painless ulcer approximately 1 cm in diameter on the labium — a classic syphilitic chancre. Sophie is otherwise entirely well with no systemic symptoms.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Presenting complaint — the ulcer',
-        response:
-          '"I found it about 10 days ago. It\'s like a small sore — here." [gestures to left groin area] "It doesn\'t hurt at all, which is what I thought was weird. I thought genital sores always hurt."',
+        label: 'Presenting complaint — painless ulcer, left labia, 10 days; discovered while washing',
+        quote: '"I found it about 10 days ago. It\'s like a small sore — here." [gestures to left groin area] "It doesn\'t hurt at all, which is what I thought was weird. I thought genital sores always hurt."',
       },
       {
-        topic: 'Character of the lesion',
-        response:
-          '"It\'s a round ulcer, about the size of a small coin. The edges look quite defined. It feels firm when I press around it." – "There\'s no discharge from it."',
+        label: 'Character of lesion — round, ~1 cm, defined edges, firm base (indurated); no discharge',
+        quote: '"It\'s a round ulcer, about the size of a small coin. The edges look quite defined. It feels firm when I press around it." – "There\'s no discharge from it."',
       },
       {
-        topic: 'Pain',
-        response: '"No pain at all — not even when I touch it. Is that normal? That surprised me."',
+        label: 'Pain — completely absent',
+        quote: '"No pain at all — not even when I touch it. Is that normal? That surprised me."',
       },
       {
-        topic: 'Last sexual contact and partners',
-        response:
-          '"About 3 weeks ago. His name\'s James — we met at a work event. It was just the once." – "Before that I was with my previous boyfriend for two years. We split up in the spring."',
+        label: 'Last sexual contact — 3 weeks ago; new male partner James; single unprotected vaginal intercourse',
+        quote: '"About 3 weeks ago. His name\'s James — we met at a work event. It was just the once." – "Before that I was with my previous boyfriend for two years. We split up in the spring."',
       },
       {
-        topic: 'Type of sexual contact',
-        response: '"Just vaginal sex. No oral or anal sex."',
+        label: 'Type of sexual contact — vaginal only; no oral or anal',
+        quote: '"Just vaginal sex. No oral or anal sex."',
       },
       {
-        topic: 'Contraception and condoms',
-        response:
-          '"We didn\'t use anything — I know, that was stupid. I\'m not on the pill at the moment." – "I don\'t usually have casual encounters."',
+        label: 'Contraception — none used; not on pill at the time',
+        quote: '"We didn\'t use anything — I know, that was stupid. I\'m not on the pill at the moment." – "I don\'t usually have casual encounters."',
       },
       {
-        topic: 'Symptoms in partner',
-        response: '"I don\'t know — I\'ve only texted him once since. I haven\'t told him about this."',
+        label: 'Symptoms in partner — unknown; has only texted once since',
+        quote: '"I don\'t know — I\'ve only texted him once since. I haven\'t told him about this."',
       },
       {
-        topic: 'Previous STI screen',
-        response: '"I had a full screen at this clinic about 8 months ago. It was all clear."',
+        label: 'Previous STI screen — full screen 8 months ago, all clear',
+        quote: '"I had a full screen at this clinic about 8 months ago. It was all clear."',
       },
       {
-        topic: 'Systemic symptoms',
-        response: '"No. I feel completely well. No fever, no rash, no sore throat, no joint pains."',
+        label: 'Systemic symptoms — none; entirely well',
+        quote: '"No. I feel completely well. No fever, no rash, no sore throat, no joint pains."',
       },
       {
-        topic: 'Lymph nodes',
-        response: '"I noticed some swollen glands in my groin, both sides. They\'re not painful."',
+        label: 'Lymphadenopathy — bilateral inguinal lymph nodes (painless)',
+        quote: '"I noticed some swollen glands in my groin, both sides. They\'re not painful."',
       },
       {
-        topic: 'Gynaecological history',
-        response:
-          '"My last cervical smear was last year — normal. Periods are regular." – "No vaginal discharge that\'s unusual for me."',
+        label: 'Gynaecological history — last cervical smear last year (normal); regular periods; no unusual vaginal discharge',
+        quote: '"My last cervical smear was last year — normal. Periods are regular." – "No vaginal discharge that\'s unusual for me."',
       },
-      {
-        topic: 'Past medical history and medications',
-        response: '"Nothing. I\'m completely healthy. No regular medications." – "No allergies."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history', quote: '"Nothing. I\'m completely healthy."' },
+    ],
+    drugHistory: [
+      { label: 'No regular prescribed medications; no known allergies', quote: '"No regular medications." – "No allergies."' },
+      { label: 'No contraception currently', quote: '"I\'m not on the pill at the moment."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Marketing executive (26); sexually active; 3 partners in past year', quote: '"I don\'t usually have casual encounters."' },
     ],
     importantNegatives: [
       'No pain in the ulcer ("It\'s completely painless — which is what confused me.")',

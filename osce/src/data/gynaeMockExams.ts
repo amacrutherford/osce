@@ -21,44 +21,53 @@ const ovarianTumourExplanationMockExam: MockExamStation = {
     occupation: 'Retired nurse',
     openingLine:
       '"Hello doctor. I\'ve been counting the days since the scan. I knew something was wrong — I could feel it. Please just tell me what it shows."',
-    backgroundInfo:
-      'Helen is a 58-year-old retired nurse — she has medical knowledge that is helpful but also makes her more frightened. She has been experiencing progressive bloating and a dull ache in her lower abdomen for 3 months, with increasing urinary frequency. She is postmenopausal (since age 52). She is aware that her symptoms could indicate something serious, and she has prepared herself for difficult news. Her husband is in the waiting room; she will ask if he can come in. She has no children (nulliparous). She has a history of BRCA1 gene testing which she declined 10 years ago after her sister was diagnosed with breast cancer. She takes atorvastatin and amlodipine. No known allergies. She becomes upset on hearing the news but is dignified and quickly tries to be practical. She has many questions about prognosis, treatment, and what happens next.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Reaction to the news',
-        response:
-          '[After being told the scan shows a concerning mass on the right ovary]: "I knew it. I think I\'ve known for weeks." [eyes fill; composes quickly] "Okay. Tell me everything."',
+        label: 'Reaction to the news — expects it; composes quickly; wants full information',
+        quote: '[After being told the scan shows a concerning mass on the right ovary]: "I knew it. I think I\'ve known for weeks." [eyes fill; composes quickly] "Okay. Tell me everything."',
       },
       {
-        topic: 'Question — is it definitely cancer?',
-        response:
-          '"So the blood test is very abnormal — is it definitely cancer?" – "As a nurse I know CA-125 isn\'t perfect, but that number looks very worrying."',
+        label: 'Question: is it definitely cancer?',
+        quote: '"So the blood test is very abnormal — is it definitely cancer?" – "As a nurse I know CA-125 isn\'t perfect, but that number looks very worrying."',
       },
       {
-        topic: 'Question — what happens next?',
-        response:
-          '"What do I need to have done now? Is it a biopsy? An operation?" – "How quickly will this happen?"',
+        label: 'Question: what happens next?',
+        quote: '"What do I need to have done now? Is it a biopsy? An operation?" – "How quickly will this happen?"',
       },
       {
-        topic: 'Question — is it curable?',
-        response:
-          '"What\'s the prognosis if it is cancer? I need to know what I\'m dealing with." – "I\'ve nursed patients with ovarian cancer. I know it can be caught late."',
+        label: 'Question: prognosis',
+        quote: '"What\'s the prognosis if it is cancer? I need to know what I\'m dealing with." – "I\'ve nursed patients with ovarian cancer. I know it can be caught late."',
       },
       {
-        topic: 'Question — can her husband come in?',
-        response:
-          '"Can my husband come in? I don\'t want to be alone when you tell me the details." – "He\'s in the waiting room."',
+        label: 'Request: husband to join the consultation (in waiting room)',
+        quote: '"Can my husband come in? I don\'t want to be alone when you tell me the details." – "He\'s in the waiting room."',
       },
       {
-        topic: 'Question — risk factors and BRCA',
-        response:
-          '"I was offered BRCA testing years ago when my sister had breast cancer — I didn\'t go through with it. Could that have made a difference?" – "Is that what\'s caused this?"',
+        label: 'Question: BRCA testing — sister had breast cancer; patient declined BRCA testing 10 years ago',
+        quote: '"I was offered BRCA testing years ago when my sister had breast cancer — I didn\'t go through with it. Could that have made a difference?" – "Is that what\'s caused this?"',
       },
       {
-        topic: 'Symptoms history',
-        response:
-          '"The bloating has been getting worse. And I keep needing to wee more often — especially at night." – "I\'ve been more tired than usual too. I think I\'ve lost a few kilos without trying."',
+        label: 'Symptoms history — progressive bloating; urinary frequency (especially at night); fatigue; weight loss',
+        quote: '"The bloating has been getting worse. And I keep needing to wee more often — especially at night." – "I\'ve been more tired than usual too. I think I\'ve lost a few kilos without trying."',
       },
+    ],
+    pastMedicalHistory: [
+      { label: 'Postmenopausal since age 52', quote: '"I\'ve been postmenopausal since 52."' },
+      { label: 'No prior gynaecological malignancy', quote: '"No previous gynaecological problems."' },
+    ],
+    drugHistory: [
+      { label: 'Atorvastatin and amlodipine (background medications)', quote: '[From background history]' },
+      { label: 'HRT — tried for 1 year post-menopause; stopped 5 years ago', quote: '"I tried it for a year but stopped — that\'s 5 years ago."' },
+      { label: 'No known allergies', quote: '[Not specifically mentioned]' },
+    ],
+    familyHistory: [
+      { label: 'Sister — breast cancer (BRCA testing offered to patient 10 years ago; declined)', quote: '"I was offered BRCA testing years ago when my sister had breast cancer."' },
+      { label: 'No known ovarian cancer in the family', quote: '"No ovarian cancer that I know of."' },
+    ],
+    socialHistory: [
+      { label: 'Retired nurse (58); lives with husband (in waiting room)', quote: '"He\'s in the waiting room."' },
+      { label: 'Nulliparous (no children)', quote: '[From background — she has no children]' },
+      { label: 'Abdomen feels larger; gone up one dress size (only if directly asked)', quote: '"Yes, I have noticed — I\'ve gone up a dress size." [only if directly asked]' },
     ],
     importantNegatives: [
       'No prior diagnosis of ovarian or other gynaecological malignancy ("No previous gynaecological problems.")',
@@ -83,7 +92,7 @@ const ovarianTumourExplanationMockExam: MockExamStation = {
       'Opens the consultation ready for bad news — she has prepared herself; she does not need excessive softening',
       'Becomes tearful briefly on hearing the result, then composes herself and becomes practical and direct',
       'Appreciates clear, honest, direct communication without unnecessary jargon — she is a retired nurse',
-      'Ask "Can my husband come in?" — the student should offer to bring him in',
+      'Asks "Can my husband come in?" — the student should offer to bring him in',
       'Asks about prognosis — student should be honest that prognosis depends on stage, which is not yet known; explain that staging CT and MDT will inform this',
       'Asks about BRCA — student should explain that BRCA1/2 increases risk of ovarian and breast cancer; this will be part of the investigation/family discussion going forward',
       'Does NOT need to be given false hope but does respond well to the message that treatment is available and that the team will act quickly',

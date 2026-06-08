@@ -21,49 +21,51 @@ const endOfLifeStrokeMockExam: MockExamStation = {
     occupation: 'Retired administrator (Peter\'s wife)',
     openingLine:
       '"I\'ve been sitting with him for three days. Nobody has properly explained to me what\'s happening. I can see the machines are doing everything — he\'s not breathing on his own at all, is he?" [frightened but controlled]',
-    backgroundInfo:
-      'Linda and Peter have been married for 39 years. She is frightened, exhausted, and desperate for honest information. She senses the situation is grave but has not been told directly that Peter is dying. She works hard to hold herself together but will become emotional when the reality is confirmed. Their adult son David (35) is on his way from Scotland. Linda knows Peter would not have wanted to be "kept alive by machines" — she recalls him saying this when his own father died in a similar way — but she is frightened to say this in case it sounds like she wants him to die. She has no medical background. She has many questions and needs information in very plain language. After receiving the news, she becomes quiet and tearful, then asks practical questions about what happens next and whether Peter would be in pain.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'What does she currently understand?',
-        response:
-          '"I know it was a massive bleed in his brain — the surgeon explained that part. But when I ask if he\'s going to be okay, they all just look at me." – "I think I know the answer but I can\'t bring myself to say it."',
+        label: 'Current understanding — knows it was a massive brain bleed; has not been told prognosis clearly',
+        quote: '"I know it was a massive bleed in his brain — the surgeon explained that part. But when I ask if he\'s going to be okay, they all just look at me." – "I think I know the answer but I can\'t bring myself to say it."',
       },
       {
-        topic: 'Reaction to hearing the prognosis',
-        response:
-          '[After student gently confirms there is no possibility of recovery]: [silent for a moment; eyes fill with tears] "I knew. I think I\'ve known since the first day." [voice breaks briefly; then quiet, controlled] "Okay. Thank you for telling me honestly."',
+        label: 'Reaction to hearing prognosis — brief tearful; then quiet and controlled',
+        quote: '[After student gently confirms there is no possibility of recovery]: [silent for a moment; eyes fill with tears] "I knew. I think I\'ve known since the first day." [voice breaks briefly; then quiet, controlled] "Okay. Thank you for telling me honestly."',
       },
       {
-        topic: 'Question — what is brainstem death testing?',
-        response:
-          '"What does brainstem death mean? Does that mean he\'s already gone?" – "If the brain is dead, is he already dead — legally?"',
+        label: 'Question: what is brainstem death? Is he already gone legally?',
+        quote: '"What does brainstem death mean? Does that mean he\'s already gone?" – "If the brain is dead, is he already dead — legally?"',
       },
       {
-        topic: 'Question — will he be in pain?',
-        response:
-          '"This is the thing that\'s been worrying me so much. If they turn off the machine — will he suffer?" – "He won\'t feel like he\'s drowning or gasping?"',
+        label: 'Question: will he be in pain when the ventilator is stopped?',
+        quote: '"This is the thing that\'s been worrying me so much. If they turn off the machine — will he suffer?" – "He won\'t feel like he\'s drowning or gasping?"',
       },
       {
-        topic: 'Question — what happens when the ventilator is stopped?',
-        response:
-          '"Can I be with him? And our son is coming — he\'s driving down from Scotland. Can we wait until David gets here?" – "I don\'t want Peter to die alone."',
+        label: 'Question: can son David be present; can they wait until he arrives from Scotland?',
+        quote: '"Can I be with him? And our son is coming — he\'s driving down from Scotland. Can we wait until David gets here?" – "I don\'t want Peter to die alone."',
       },
       {
-        topic: 'Peter\'s wishes',
-        response:
-          '"He always said — after his father died — that he would never want to be kept alive by machines if there was no hope. He used to say, \'just let me go, Lindy\'." – [quietly] "I didn\'t want to say it in case you thought I was giving up on him."',
+        label: 'Peter\'s known wishes — would not want to be kept alive by machines; said so explicitly after his father died',
+        quote: '"He always said — after his father died — that he would never want to be kept alive by machines if there was no hope. He used to say, \'just let me go, Lindy\'." – [quietly] "I didn\'t want to say it in case you thought I was giving up on him."',
       },
       {
-        topic: 'Question — organ donation',
-        response:
-          '"Someone mentioned organ donation briefly. I don\'t know what Peter would have wanted. We never talked about it." – "Is it something we have to decide today?"',
+        label: 'Question: organ donation — uncertain of Peter\'s wishes; uncertain if he was registered',
+        quote: '"Someone mentioned organ donation briefly. I don\'t know what Peter would have wanted. We never talked about it." – "Is it something we have to decide today?"',
       },
       {
-        topic: 'Question — will it be a peaceful death?',
-        response:
-          '"I just want him to be comfortable and peaceful at the end. He was such a gentle man." – [quietly emotional]',
+        label: 'Question: will it be a peaceful death?',
+        quote: '"I just want him to be comfortable and peaceful at the end. He was such a gentle man." – [quietly emotional]',
       },
+    ],
+    pastMedicalHistory: [
+      { label: 'Peter — hypertension (on amlodipine)', quote: '"He had high blood pressure — he was on a tablet for it." [only if directly asked]' },
+      { label: 'No advance directive or ADRT in place', quote: '"We never got round to writing anything down."' },
+      { label: 'Not on NHS Organ Donor Register that she knows of', quote: '"I\'m not sure — he never showed me a card."' },
+    ],
+    drugHistory: [],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Married 39 years to Peter (65); adult son David (35) driving from Scotland', quote: '"Our son is coming — he\'s driving down from Scotland."' },
+      { label: 'Peter — smoked 10 cigarettes/day for 30 years (only if asked)', quote: '[Only if directly asked]' },
+      { label: 'Linda has had virtually no sleep for 3 days — "Maybe a few hours. I can\'t leave him."', quote: '"Maybe a few hours. I can\'t leave him." [only if asked]' },
     ],
     importantNegatives: [
       'No advance directive or ADRT in place ("We never got round to writing anything down.")',

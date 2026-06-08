@@ -1,11 +1,55 @@
 import { useState } from 'react';
-import type { MockExamStation } from '../data/mockExamTypes';
+import type { MockExamStation, HistoryItem, SocratesItem } from '../data/mockExamTypes';
 
 type MockTab = 'brief' | 'actor' | 'markscheme' | 'viva';
 
 interface MockExamViewProps {
   exam: MockExamStation;
   onBack: () => void;
+}
+
+function HistorySection({ title, items }: { title: string; items: HistoryItem[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">{title}</p>
+      <div className="space-y-2">
+        {items.map((item, i) => (
+          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3">
+            <p className="mb-1 text-xs font-semibold text-[#1a1a1a]">{item.label}</p>
+            <p className="text-sm italic leading-relaxed text-[#4a4a4a]">{item.quote}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SocratesSection({ items }: { items: SocratesItem[] }) {
+  return (
+    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+        History of Presenting Complaint
+      </p>
+      <div className="space-y-3">
+        {items.map((item, i) => (
+          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3">
+            <div className="mb-1.5 flex flex-wrap items-baseline gap-x-2">
+              <span className="text-xs font-bold uppercase tracking-wide text-[#534AB7]">
+                {item.label}:
+              </span>
+              <span className="text-sm font-semibold text-[#1a1a1a]">{item.descriptor}</span>
+            </div>
+            {item.quotes.map((q, qi) => (
+              <p key={qi} className="text-sm italic leading-relaxed text-[#4a4a4a]">
+                {q}
+              </p>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function MockExamView({ exam, onBack }: MockExamViewProps) {
@@ -18,7 +62,7 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
 
   const tabs: { id: MockTab; label: string }[] = [
     { id: 'brief', label: 'Candidate Brief' },
-    { id: 'actor', label: 'Actor Instructions' },
+    { id: 'actor', label: 'Patient Script' },
     { id: 'markscheme', label: 'Mark Scheme' },
     { id: 'viva', label: 'Viva Questions' },
   ];
@@ -76,6 +120,8 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
     a.click();
     URL.revokeObjectURL(url);
   }
+
+  const actor = exam.actorInstructions;
 
   return (
     <div className="mx-auto w-full max-w-3xl">
@@ -174,55 +220,60 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
 
       {activeTab === 'actor' && (
         <div className="space-y-4">
+          {/* Key details */}
           <div className="rounded-2xl border border-[#e5e5e4] bg-white p-6">
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
-              Simulated Patient
+              Key Details
             </p>
             <h3 className="text-lg font-bold text-[#1a1a1a]">
-              {exam.actorInstructions.patientName}, {exam.actorInstructions.age}
+              {actor.patientName}, {actor.age}
             </h3>
-            <p className="text-sm text-[#6b6b6b]">{exam.actorInstructions.occupation}</p>
+            <p className="text-sm text-[#6b6b6b]">{actor.occupation}</p>
           </div>
 
+          {/* Opening line */}
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
-              Opening Line
+              Presenting Complaint
             </p>
             <p className="text-sm italic leading-relaxed text-amber-900">
-              {exam.actorInstructions.openingLine}
+              {actor.openingLine}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
-              Background
-            </p>
-            <p className="text-sm leading-relaxed text-[#1a1a1a]">
-              {exam.actorInstructions.backgroundInfo}
-            </p>
-          </div>
+          {/* SOCRATES (symptom-based stations) */}
+          {actor.socrates && actor.socrates.length > 0 && (
+            <SocratesSection items={actor.socrates} />
+          )}
 
-          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
-              History to Reveal if Asked
-            </p>
-            <div className="space-y-3">
-              {exam.actorInstructions.historyToReveal.map((item, i) => (
-                <div key={i} className="rounded-xl border border-[#e5e5e4] p-3">
-                  <p className="mb-1 text-xs font-semibold text-[#534AB7]">{item.topic}</p>
-                  <p className="text-sm leading-relaxed text-[#1a1a1a]">{item.response}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* History of presenting complaint (non-SOCRATES) */}
+          {actor.historyOfPresentingComplaint && actor.historyOfPresentingComplaint.length > 0 && (
+            <HistorySection
+              title="History of Presenting Complaint"
+              items={actor.historyOfPresentingComplaint}
+            />
+          )}
 
-          {exam.actorInstructions.importantNegatives.length > 0 && (
+          {/* Past medical history */}
+          <HistorySection title="Past Medical and Surgical History" items={actor.pastMedicalHistory} />
+
+          {/* Drug history */}
+          <HistorySection title="Drug History" items={actor.drugHistory} />
+
+          {/* Family history */}
+          <HistorySection title="Family History" items={actor.familyHistory} />
+
+          {/* Social history */}
+          <HistorySection title="Social History" items={actor.socialHistory} />
+
+          {/* Important negatives */}
+          {actor.importantNegatives.length > 0 && (
             <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
-                Important Negatives — say these if asked
+                Other History / Important Negatives
               </p>
               <ul className="space-y-1.5">
-                {exam.actorInstructions.importantNegatives.map((item, i) => (
+                {actor.importantNegatives.map((item, i) => (
                   <li key={i} className="text-sm text-[#1a1a1a]">
                     <span className="mr-1.5 font-semibold text-[#6b6b6b]">—</span>
                     {item}
@@ -232,6 +283,7 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
             </div>
           )}
 
+          {/* ICE */}
           <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
             <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
               ICE — only reveal if asked
@@ -239,39 +291,43 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
             <div className="space-y-2">
               <div>
                 <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Ideas</p>
-                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.ideas}</p>
+                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.ideas}</p>
               </div>
               <div>
                 <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Concerns</p>
-                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.concerns}</p>
+                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.concerns}</p>
               </div>
               <div>
                 <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Expectations</p>
-                <p className="text-sm italic text-[#1a1a1a]">{exam.actorInstructions.ice.expectations}</p>
+                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.expectations}</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-orange-700">
-              Only Reveal if Directly Asked
-            </p>
-            <ul className="space-y-1">
-              {exam.actorInstructions.onlyIfDirectlyAsked.map((item, i) => (
-                <li key={i} className="flex gap-2 text-sm text-orange-900">
-                  <span className="mt-0.5 shrink-0 text-orange-500">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Only if directly asked */}
+          {actor.onlyIfDirectlyAsked.length > 0 && (
+            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-orange-700">
+                Only Reveal if Directly Asked
+              </p>
+              <ul className="space-y-1">
+                {actor.onlyIfDirectlyAsked.map((item, i) => (
+                  <li key={i} className="flex gap-2 text-sm text-orange-900">
+                    <span className="mt-0.5 shrink-0 text-orange-500">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
+          {/* Behaviour notes */}
           <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
               Behaviour Notes
             </p>
             <ul className="space-y-1">
-              {exam.actorInstructions.behaviourNotes.map((note, i) => (
+              {actor.behaviourNotes.map((note, i) => (
                 <li key={i} className="flex gap-2 text-sm text-[#1a1a1a]">
                   <span className="mt-0.5 shrink-0 text-[#534AB7]">•</span>
                   {note}
@@ -423,6 +479,7 @@ function generatePrompt(exam: MockExamStation): string {
   );
 
   const lines: string[] = [];
+  const actor = exam.actorInstructions;
 
   lines.push(`OSCE MOCK STATION: ${exam.title}`);
   lines.push(`Diagnosis: ${exam.diagnosis}`);
@@ -433,39 +490,86 @@ function generatePrompt(exam: MockExamStation): string {
   lines.push('You are playing the role of a simulated patient in a UK medical school OSCE exam.');
   lines.push('Stay in character throughout. Do not volunteer information unless the student asks.');
   lines.push('');
-  lines.push('PATIENT DETAILS');
-  lines.push(`Name: ${exam.actorInstructions.patientName}, Age: ${exam.actorInstructions.age}`);
-  lines.push(`Occupation: ${exam.actorInstructions.occupation}`);
+  lines.push('KEY DETAILS');
+  lines.push(`Name: ${actor.patientName}, Age: ${actor.age}`);
+  lines.push(`Occupation: ${actor.occupation}`);
   lines.push(`Setting: ${exam.candidateBrief.setting}`);
   lines.push('');
   lines.push('YOUR OPENING LINE (say this when the student first speaks to you):');
-  lines.push(`"${exam.actorInstructions.openingLine}"`);
+  lines.push(actor.openingLine);
   lines.push('');
-  lines.push('BACKGROUND:');
-  lines.push(exam.actorInstructions.backgroundInfo);
-  lines.push('');
-  lines.push('HISTORY TO REVEAL (only share each item if the student specifically asks about that topic):');
-  for (const item of exam.actorInstructions.historyToReveal) {
-    lines.push(`- ${item.topic}: ${item.response}`);
+
+  if (actor.socrates && actor.socrates.length > 0) {
+    lines.push('HISTORY OF PRESENTING COMPLAINT (SOCRATES):');
+    for (const item of actor.socrates) {
+      lines.push(`  ${item.label}: ${item.descriptor}`);
+      for (const q of item.quotes) lines.push(`    ${q}`);
+    }
+    lines.push('');
   }
-  lines.push('');
+
+  if (actor.historyOfPresentingComplaint && actor.historyOfPresentingComplaint.length > 0) {
+    lines.push('HISTORY OF PRESENTING COMPLAINT:');
+    for (const item of actor.historyOfPresentingComplaint) {
+      lines.push(`  [${item.label}]`);
+      lines.push(`    ${item.quote}`);
+    }
+    lines.push('');
+  }
+
+  if (actor.pastMedicalHistory.length > 0) {
+    lines.push('PAST MEDICAL AND SURGICAL HISTORY:');
+    for (const item of actor.pastMedicalHistory) {
+      lines.push(`  - ${item.label}: ${item.quote}`);
+    }
+    lines.push('');
+  }
+
+  if (actor.drugHistory.length > 0) {
+    lines.push('DRUG HISTORY:');
+    for (const item of actor.drugHistory) {
+      lines.push(`  - ${item.label}: ${item.quote}`);
+    }
+    lines.push('');
+  }
+
+  if (actor.familyHistory.length > 0) {
+    lines.push('FAMILY HISTORY:');
+    for (const item of actor.familyHistory) {
+      lines.push(`  - ${item.label}: ${item.quote}`);
+    }
+    lines.push('');
+  }
+
+  if (actor.socialHistory.length > 0) {
+    lines.push('SOCIAL HISTORY:');
+    for (const item of actor.socialHistory) {
+      lines.push(`  - ${item.label}: ${item.quote}`);
+    }
+    lines.push('');
+  }
+
   lines.push('IMPORTANT NEGATIVES (say these if the student asks about the relevant topic):');
-  for (const item of exam.actorInstructions.importantNegatives) {
+  for (const item of actor.importantNegatives) {
     lines.push(`- ${item}`);
   }
   lines.push('');
   lines.push('ICE (only reveal if specifically asked):');
-  lines.push(`- Ideas: ${exam.actorInstructions.ice.ideas}`);
-  lines.push(`- Concerns: ${exam.actorInstructions.ice.concerns}`);
-  lines.push(`- Expectations: ${exam.actorInstructions.ice.expectations}`);
+  lines.push(`- Ideas: ${actor.ice.ideas}`);
+  lines.push(`- Concerns: ${actor.ice.concerns}`);
+  lines.push(`- Expectations: ${actor.ice.expectations}`);
   lines.push('');
-  lines.push('ONLY REVEAL IF DIRECTLY ASKED:');
-  for (const item of exam.actorInstructions.onlyIfDirectlyAsked) {
-    lines.push(`- ${item}`);
+
+  if (actor.onlyIfDirectlyAsked.length > 0) {
+    lines.push('ONLY REVEAL IF DIRECTLY ASKED:');
+    for (const item of actor.onlyIfDirectlyAsked) {
+      lines.push(`- ${item}`);
+    }
+    lines.push('');
   }
-  lines.push('');
+
   lines.push('HOW TO BEHAVE:');
-  for (const note of exam.actorInstructions.behaviourNotes) {
+  for (const note of actor.behaviourNotes) {
     lines.push(`- ${note}`);
   }
   lines.push('');

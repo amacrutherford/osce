@@ -19,60 +19,54 @@ const seizureMockExam: MockExamStation = {
     age: 22,
     occupation: 'University student (2nd year, Biology)',
     openingLine: '"I don\'t really know what happened — one minute I was reading in the library and the next I woke up on the floor with paramedics around me. It\'s really frightened me."',
-    backgroundInfo: 'Ryan is a fit, healthy 22-year-old with no past medical history and no regular medications. He is embarrassed and anxious. He recently passed his driving test and uses his car to get home at weekends — he is worried about losing his licence. He had only 3 hours of sleep the night before (revision), had consumed three energy drinks, and drank 6 units of alcohol at a party two nights ago. His mother had epilepsy in her 20s.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Presenting complaint',
-        response: '"I collapsed in the library. My friends said I fell off my chair and was shaking. I don\'t remember any of it." – "Apparently someone called an ambulance. I just came round on the floor feeling completely exhausted."',
+        label: 'Presenting complaint — witnessed collapse in library',
+        quote: '"I collapsed in the library. My friends said I fell off my chair and was shaking. I don\'t remember any of it." – "Apparently someone called an ambulance. I just came round on the floor feeling completely exhausted."',
       },
       {
-        topic: 'Aura / pre-ictal warning — olfactory aura',
-        response: '"Actually, now you mention it — I did notice a really strange smell just before, like burning rubber. It only lasted a few seconds." – "I thought it was something in the library at first. I didn\'t connect it."',
+        label: 'Pre-ictal aura — olfactory (burning rubber smell)',
+        quote: '"Actually, now you mention it — I did notice a really strange smell just before, like burning rubber. It only lasted a few seconds." – "I thought it was something in the library at first. I didn\'t connect it."',
       },
       {
-        topic: 'Focal onset — right arm',
-        response: '"My friends said my right hand started twitching first, then my right arm, and my head turned to the right — before the whole body shaking started." – "I don\'t remember any of that bit."',
+        label: 'Focal onset — right hand twitching, right arm, head version right before generalisation',
+        quote: '"My friends said my right hand started twitching first, then my right arm, and my head turned to the right — before the whole body shaking started." – "I don\'t remember any of that bit."',
       },
       {
-        topic: 'Ictal phase — tonic-clonic movements',
-        response: '"They said I went stiff first and then started shaking all over. The whole thing was about 2–3 minutes of shaking. Then I just lay still."',
+        label: 'Ictal phase — tonic stiffening then tonic-clonic shaking; approximately 2–3 minutes',
+        quote: '"They said I went stiff first and then started shaking all over. The whole thing was about 2–3 minutes of shaking. Then I just lay still."',
       },
       {
-        topic: 'Post-ictal state — confusion and duration',
-        response: '"When I came round I had no idea where I was. The paramedics said I was confused for about 15–20 minutes. I had a really bad headache afterwards." – "I just wanted to sleep."',
+        label: 'Post-ictal — confused 15–20 minutes; severe headache; exhausted',
+        quote: '"When I came round I had no idea where I was. The paramedics said I was confused for about 15–20 minutes. I had a really bad headache afterwards." – "I just wanted to sleep."',
       },
       {
-        topic: 'Post-ictal — right hand weakness (Todd\'s paresis)',
-        response: '"My right hand felt really weak when I woke up — I couldn\'t grip properly. It\'s mostly better now but still feels a bit clumsy." – "It\'s been getting better over the last hour."',
+        label: 'Post-ictal — right hand weakness (Todd\'s paresis, resolving over ~1 hour)',
+        quote: '"My right hand felt really weak when I woke up — I couldn\'t grip properly. It\'s mostly better now but still feels a bit clumsy." – "It\'s been getting better over the last hour."',
       },
       {
-        topic: 'Previous similar episodes',
-        response: '"Nothing like this ever before. I\'ve never lost consciousness, no blackouts, no funny turns." – "Completely out of the blue."',
+        label: 'No previous episodes of any kind — first event',
+        quote: '"Nothing like this ever before. I\'ve never lost consciousness, no blackouts, no funny turns." – "Completely out of the blue."',
       },
       {
-        topic: 'Sleep and precipitating triggers',
-        response: '"I only slept about 3 hours. I had a big exam this morning and I was up all night revising." – "I also had three cans of energy drink. I know, I know."',
+        label: 'Precipitating factors — severe sleep deprivation (3 hours); 3 energy drinks',
+        quote: '"I only slept about 3 hours. I had a big exam this morning and I was up all night revising." – "I also had three cans of energy drink. I know, I know."',
       },
-      {
-        topic: 'Past medical history',
-        response: '"Nothing. I\'ve never been diagnosed with anything. Never in hospital before." – "Mum says I had febrile convulsions as a baby but nothing since."',
-      },
-      {
-        topic: 'Medications',
-        response: '"Nothing regular — just ibuprofen occasionally for headaches."',
-      },
-      {
-        topic: 'Family history',
-        response: '"My mum had epilepsy when she was in her twenties. I think she grew out of it — it\'s well controlled now with medication." – "No one else that I know of."',
-      },
-      {
-        topic: 'Social history — occupation and driving',
-        response: '"I\'m a second year Biology student. I live in halls during term time." – "I passed my test six months ago. I drive home most weekends to see my family. Am I going to lose my licence?" [visibly distressed]',
-      },
-      {
-        topic: 'Alcohol',
-        response: '"About 8–10 units a week, mostly at weekends. I had a few drinks at a party two nights ago."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history', quote: '"Nothing. I\'ve never been diagnosed with anything. Never in hospital before."' },
+      { label: 'Febrile convulsions in infancy', quote: '"Mum says I had febrile convulsions as a baby but nothing since."' },
+    ],
+    drugHistory: [
+      { label: 'Ibuprofen — occasional for headaches only', quote: '"Nothing regular — just ibuprofen occasionally for headaches."' },
+    ],
+    familyHistory: [
+      { label: 'Mother — epilepsy in her twenties (now well controlled on medication)', quote: '"My mum had epilepsy when she was in her twenties. I think she grew out of it — it\'s well controlled now with medication." – "No one else that I know of."' },
+    ],
+    socialHistory: [
+      { label: 'University student (2nd year Biology); lives in halls during term', quote: '"I\'m a second year Biology student. I live in halls during term time."' },
+      { label: 'Driving licence — passed 6 months ago; drives home at weekends [visibly distressed]', quote: '"I passed my test six months ago. I drive home most weekends to see my family. Am I going to lose my licence?" [visibly distressed]' },
+      { label: 'Alcohol: approximately 8–10 units/week, mainly weekends', quote: '"About 8–10 units a week, mostly at weekends. I had a few drinks at a party two nights ago."' },
     ],
     importantNegatives: [
       'No head injury ("No, I haven\'t hit my head recently or had any trauma.")',
@@ -257,68 +251,66 @@ const headacheMockExam: MockExamStation = {
     age: 68,
     occupation: 'Retired secondary school teacher',
     openingLine: '"I\'ve had this terrible headache since yesterday morning and my vision has gone funny on one side. My husband insisted I come in — I thought it might just be a migraine but it\'s not going away."',
-    backgroundInfo: 'Margaret is a 68-year-old retired teacher with known hypertension and atrial fibrillation. She was told she did not need blood thinners when AF was diagnosed 2 years ago (CHADS2 score was calculated as low-risk at the time, though this was incorrect — she should have been anticoagulated). She is on ramipril only. She lives with her husband and has an adult daughter nearby. She is anxious about her vision and frightened it might be permanent.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response: '"I have a terrible headache and my left side vision has gone blurry in both eyes." – "It started suddenly on Thursday morning."',
+        label: 'Site',
+        descriptor: 'occipital headache — back of the head',
+        quotes: ['"It\'s at the back of my head, mostly." – "Right in the occipital area — here." [touches back of head]'],
       },
       {
-        topic: 'Site — headache',
-        response: '"It\'s at the back of my head, mostly." – "Right in the occipital area — here." [touches back of head]',
+        label: 'Onset',
+        descriptor: 'sudden thunderclap — instantaneous, worst headache ever, whilst making breakfast Thursday morning',
+        quotes: ['"It came on like a thunderclap — bang, instantly, the worst headache I\'ve ever had in my life." – "I was making breakfast and it just hit me. I nearly dropped my cup."'],
       },
       {
-        topic: 'Onset — thunderclap character',
-        response: '"It came on like a thunderclap — bang, instantly, the worst headache I\'ve ever had in my life." – "I was making breakfast and it just hit me. I nearly dropped my cup."',
+        label: 'Character',
+        descriptor: 'severe aching and pressure — completely unlike usual headaches',
+        quotes: ['"It\'s a really severe aching and pressure feeling." – "Nothing like my usual headaches — this is completely different."'],
       },
       {
-        topic: 'Character — headache',
-        response: '"It\'s a really severe aching and pressure feeling." – "Nothing like my usual headaches — this is completely different."',
+        label: 'Radiation',
+        descriptor: 'none reported',
+        quotes: [],
       },
       {
-        topic: 'Severity',
-        response: '"At its worst it was 9 out of 10. With the paracetamol it\'s about a 6 or 7 now, but it\'s still there constantly."',
+        label: 'Associated symptoms',
+        descriptor: 'sudden-onset left homonymous visual field loss — blurring and missing vision on the left in both eyes simultaneously with headache',
+        quotes: ['"The left side of my vision in both eyes is blurry and missing." – "I keep bumping into things on my left — I nearly walked into a doorframe this morning."'],
       },
       {
-        topic: 'Visual symptoms — site and character',
-        response: '"The left side of my vision in both eyes is blurry and missing." – "I keep bumping into things on my left — I nearly walked into a doorframe this morning."',
+        label: 'Timing',
+        descriptor: 'continuous since Thursday morning (2 days); first ever episode of this type',
+        quotes: ['"It\'s been there continuously since Thursday morning. That\'s 2 days now. It hasn\'t come and gone." – "No, I\'ve never had anything like this before in my life."'],
       },
       {
-        topic: 'Visual symptoms — onset',
-        response: '"The vision problem started at the same time as the headache — it just came on suddenly with it on Thursday."',
+        label: 'Exacerbating / relieving',
+        descriptor: 'paracetamol every 4 hours — only marginally effective',
+        quotes: ['"I\'ve been taking paracetamol every 4 hours since Thursday. It takes the edge off slightly but doesn\'t come close to clearing it."'],
       },
       {
-        topic: 'Previous identical headache',
-        response: '"No, I\'ve never had anything like this before in my life." – "I do get the occasional mild headache but nothing remotely like this."',
+        label: 'Severity',
+        descriptor: '9/10 initially; 6–7/10 with analgesia — still constant',
+        quotes: ['"At its worst it was 9 out of 10. With the paracetamol it\'s about a 6 or 7 now, but it\'s still there constantly."'],
       },
-      {
-        topic: 'Timing — duration',
-        response: '"It\'s been there continuously since Thursday morning. That\'s 2 days now. It hasn\'t come and gone." – "The vision hasn\'t improved at all either."',
-      },
-      {
-        topic: 'Analgesia response',
-        response: '"I\'ve been taking paracetamol every 4 hours since Thursday. It takes the edge off slightly but doesn\'t come close to clearing it."',
-      },
-      {
-        topic: 'Past medical history — atrial fibrillation',
-        response: '"I was told I have an irregular heartbeat — AF, they called it — about 2 years ago." – "The GP said I didn\'t need blood thinners at the time. I\'m just on the blood pressure tablet."',
-      },
-      {
-        topic: 'Past medical history — hypertension',
-        response: '"Yes, high blood pressure for about 8 years. It\'s been well controlled on ramipril — the last reading at the GP was about 136/82."',
-      },
-      {
-        topic: 'Medications',
-        response: '"Just ramipril 5 mg once a day. And paracetamol since Thursday. Nothing else." – "No aspirin, no blood thinners."',
-      },
-      {
-        topic: 'Family history',
-        response: '"My father had a stroke at 70." – "My mother had high blood pressure too."',
-      },
-      {
-        topic: 'Social history',
-        response: '"I\'m retired. I live with my husband — he drove me in today." – "I don\'t smoke. I have a small glass of wine with dinner most evenings, maybe 7 units a week." – "I\'ve never had diabetes as far as I know."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Atrial fibrillation — diagnosed 2 years ago; not anticoagulated (on ramipril only)', quote: '"I was told I have an irregular heartbeat — AF, they called it — about 2 years ago." – "The GP said I didn\'t need blood thinners at the time. I\'m just on the blood pressure tablet."' },
+      { label: 'Hypertension — 8 years, well controlled on ramipril', quote: '"Yes, high blood pressure for about 8 years. It\'s been well controlled on ramipril — the last reading at the GP was about 136/82."' },
+    ],
+    drugHistory: [
+      { label: 'Ramipril 5 mg once daily (hypertension)', quote: '"Just ramipril 5 mg once a day."' },
+      { label: 'Paracetamol — regularly since Thursday', quote: '"Paracetamol every 4 hours since Thursday."' },
+      { label: 'No anticoagulants, antiplatelets, or other medications', quote: '"Nothing else." – "No aspirin, no blood thinners."' },
+    ],
+    familyHistory: [
+      { label: 'Father — stroke at age 70', quote: '"My father had a stroke at 70."' },
+      { label: 'Mother — hypertension', quote: '"My mother had high blood pressure too."' },
+    ],
+    socialHistory: [
+      { label: 'Retired secondary school teacher; lives with husband (drove her in today)', quote: '"I\'m retired. I live with my husband — he drove me in today."' },
+      { label: 'Non-smoker', quote: '"I don\'t smoke."' },
+      { label: 'Alcohol: approximately 7 units/week (glass of wine with dinner)', quote: '"I have a small glass of wine with dinner most evenings, maybe 7 units a week."' },
+      { label: 'No known diabetes', quote: '"I\'ve never had diabetes as far as I know."' },
     ],
     importantNegatives: [
       'No diplopia ("No, I\'m not seeing double — it\'s just the blurring on the left side.")',
@@ -501,56 +493,64 @@ const speechLanguageMockExam: MockExamStation = {
     age: 71,
     occupation: 'Retired civil engineer',
     openingLine: '"H... hello. I\'m... George." [long pause, effortful] "Stroke. Yesterday." [frustrated expression]',
-    backgroundInfo: 'George is a 71-year-old retired engineer who suffered a left MCA ischaemic stroke approximately 36 hours ago. He has Broca\'s (expressive) aphasia. His speech is non-fluent, effortful, and telegraphic — he produces short phrases and single words, with noticeable effort and frustration. His comprehension is relatively preserved (he can follow simple commands and answer yes/no questions correctly). He cannot repeat long phrases. He is frustrated by his inability to communicate but is cooperative and makes good eye contact. His wife visited this morning.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Fluency — spontaneous speech',
-        response: 'Non-fluent, effortful output. Short, telegraphic phrases only. Long pauses between words. Simplified grammar. Examples: "Yes... hospital." "Wife... morning... came." "Better... today... little." Actor should demonstrate visible effort and frustration with each sentence.',
+        label: 'Fluency — non-fluent, effortful, telegraphic output; visible frustration',
+        quote: 'Non-fluent, effortful output. Short, telegraphic phrases only. Long pauses between words. Simplified grammar. Examples: "Yes... hospital." "Wife... morning... came." "Better... today... little." Actor should demonstrate visible effort and frustration with each sentence.',
       },
       {
-        topic: 'Comprehension — yes/no questions',
-        response: 'Intact for simple yes/no questions. Answers correctly: "Is your name George?" → nods. "Are you in a hotel?" → shakes head. "Did your wife visit today?" → nods. "Are you feeling better?" → slight nod with uncertain expression.',
+        label: 'Comprehension — yes/no questions: intact',
+        quote: 'Intact for simple yes/no questions. Answers correctly: "Is your name George?" → nods. "Are you in a hotel?" → shakes head. "Did your wife visit today?" → nods. "Are you feeling better?" → slight nod with uncertain expression.',
       },
       {
-        topic: 'Comprehension — 3-step command',
-        response: 'Can follow a 3-step command correctly: "Point to the ceiling, then touch your nose, then hold up 2 fingers." Completes all 3 steps correctly though slowly.',
+        label: 'Comprehension — 3-step command: follows all 3 steps correctly (slowly)',
+        quote: 'Can follow a 3-step command correctly: "Point to the ceiling, then touch your nose, then hold up 2 fingers." Completes all 3 steps correctly though slowly.',
       },
       {
-        topic: 'Repetition',
-        response: 'Impaired. Cannot repeat phrases. For "No ifs, ands, or buts": attempts "No... ifs... and..." then stops, shakes head in frustration. For short phrases like "the cat sat": manages "cat... sat" only.',
+        label: 'Repetition — impaired; cannot repeat phrases; frustrated',
+        quote: 'Impaired. Cannot repeat phrases. For "No ifs, ands, or buts": attempts "No... ifs... and..." then stops, shakes head in frustration. For short phrases like "the cat sat": manages "cat... sat" only.',
       },
       {
-        topic: 'Naming — confrontation naming',
-        response: 'Impaired for less common objects. Can name: watch, pen, hand. Struggles with: knuckle, lapel, thumbnail. For difficult items: long pause, sometimes produces first sound only, then shakes head.',
+        label: 'Naming — confrontation naming: impaired for less common objects',
+        quote: 'Impaired for less common objects. Can name: watch, pen, hand. Struggles with: knuckle, lapel, thumbnail. For difficult items: long pause, sometimes produces first sound only, then shakes head.',
       },
       {
-        topic: 'Reading — written commands',
-        response: 'Can follow a simple written command (point to window) correctly when shown a card. Cannot read aloud fluently — effortful, misses words.',
+        label: 'Reading — follows simple written command; cannot read aloud fluently',
+        quote: 'Can follow a simple written command (point to window) correctly when shown a card. Cannot read aloud fluently — effortful, misses words.',
       },
       {
-        topic: 'Writing',
-        response: 'Can write his name legibly. Written sentences are abbreviated and agrammatic — mirrors his spoken output. "George. Wife visit."',
+        label: 'Writing — can write name; written sentences agrammatic (mirrors spoken output)',
+        quote: 'Can write his name legibly. Written sentences are abbreviated and agrammatic — mirrors his spoken output. "George. Wife visit."',
       },
       {
-        topic: 'CN VII — facial nerve',
-        response: 'UMN pattern right-sided lower facial weakness. Right nasolabial fold flattened. Right corner of mouth droops slightly at rest. Forehead wrinkles symmetrically (forehead spared — UMN lesion above facial nerve nucleus).',
+        label: 'CN VII — right-sided lower facial weakness (UMN pattern; forehead spared)',
+        quote: 'UMN pattern right-sided lower facial weakness. Right nasolabial fold flattened. Right corner of mouth droops slightly at rest. Forehead wrinkles symmetrically (forehead spared — UMN lesion above facial nerve nucleus).',
       },
       {
-        topic: 'CN IX/X — voice and palate',
-        response: 'Mild dysarthria present — slurred quality to speech. Soft palate elevates symmetrically on "aah". Gag reflex present bilaterally.',
+        label: 'CN IX/X — mild dysarthria; soft palate elevates symmetrically; gag intact',
+        quote: 'Mild dysarthria present — slurred quality to speech. Soft palate elevates symmetrically on "aah". Gag reflex present bilaterally.',
       },
       {
-        topic: 'CN XII — tongue',
-        response: 'Tongue deviates to the right on protrusion (UMN pattern — deviates towards the weak side). No wasting or fasciculations (UMN lesion, not LMN).',
+        label: 'CN XII — tongue deviates right on protrusion (UMN pattern; no wasting)',
+        quote: 'Tongue deviates to the right on protrusion (UMN pattern — deviates towards the weak side). No wasting or fasciculations (UMN lesion, not LMN).',
       },
       {
-        topic: 'Right arm — motor',
-        response: 'Right arm held in UMN posture — flexed at elbow, wrist flexion. Tone increased. Patient cannot fully extend right elbow against resistance.',
+        label: 'Right arm — UMN posture; increased tone; reduced extension against resistance',
+        quote: 'Right arm held in UMN posture — flexed at elbow, wrist flexion. Tone increased. Patient cannot fully extend right elbow against resistance.',
       },
       {
-        topic: 'Left side — normal',
-        response: 'Left face normal. Left arm and leg normal power and tone. Left tongue movement normal.',
+        label: 'Left side — normal throughout (face, arm, leg, tongue)',
+        quote: 'Left face normal. Left arm and leg normal power and tone. Left tongue movement normal.',
       },
+    ],
+    pastMedicalHistory: [
+      { label: 'Left MCA ischaemic stroke — 36 hours ago', quote: '"Stroke. Yesterday." [effortful, points to head]' },
+    ],
+    drugHistory: [],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Retired civil engineer', quote: '"George." [cooperative, maintains good eye contact]' },
+      { label: 'Wife visited this morning', quote: '"Wife..." [emotional, eyes fill] "Talk... back?" [gestures asking if speech will return]' },
     ],
     importantNegatives: [
       'No jargon or paraphasias ("George does not substitute wrong words or produce nonsense words — his output is reduced and effortful, not fluent with errors")',
@@ -715,56 +715,53 @@ const dizzinessMockExam: MockExamStation = {
     age: 55,
     occupation: 'Secondary school teacher',
     openingLine: '"I\'ve been getting these awful dizzy spells for about three weeks now. They come on when I turn over in bed or look up at the whiteboard at school. I\'m a bit worried — could it be something serious?"',
-    backgroundInfo: 'Sarah is a fit and well 55-year-old teacher. She had a mild upper respiratory tract infection about 4 weeks ago, which has since fully resolved. She has mild hypertension managed with amlodipine. She is very active and cycles to work. She is worried because the dizziness has made her reluctant to drive, and she is anxious that it could be something sinister like a brain tumour. She lives with her husband and two teenage children.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response: '"I get these spinning dizzy spells — the room rotates." – "It definitely feels like the room is going round, not just that I feel faint or lightheaded."',
+        label: 'Site / character',
+        descriptor: 'true rotational vertigo — room spinning; not faintness or non-specific dizziness',
+        quotes: ['"I get these spinning dizzy spells — the room rotates." – "It definitely feels like the room is going round, not just that I feel faint or lightheaded."'],
       },
       {
-        topic: 'Onset — when episodes started',
-        response: '"They started about 3 weeks ago, quite suddenly." – "The first time it happened I\'d just turned over in bed and the room just spun violently."',
+        label: 'Onset',
+        descriptor: 'sudden onset 3 weeks ago; first episode on rolling over in bed',
+        quotes: ['"They started about 3 weeks ago, quite suddenly." – "The first time it happened I\'d just turned over in bed and the room just spun violently."'],
       },
       {
-        topic: 'Character — rotational vertigo',
-        response: '"It\'s a proper spinning sensation — the room rotates." – "It\'s not like feeling faint or woozy — it\'s definitely a spinning feeling, like getting off a roundabout."',
+        label: 'Duration of each episode',
+        descriptor: 'very brief — 20 to 30 seconds; resolves suddenly; never more than 1 minute',
+        quotes: ['"Each episode is very brief — probably 20 to 30 seconds at most." – "Then it just stops, as suddenly as it started. It doesn\'t last more than a minute."'],
       },
       {
-        topic: 'Duration of each episode',
-        response: '"Each episode is very brief — probably 20 to 30 seconds at most." – "Then it just stops, as suddenly as it started. It doesn\'t last more than a minute."',
+        label: 'Triggers',
+        descriptor: 'specific positional triggers — rolling right in bed; tilting head back; looking up at whiteboard; no symptoms at rest',
+        quotes: ['"It happens when I roll to the right in bed — every single time." – "Also when I look up at the whiteboard at school, or if I tilt my head back." – "It doesn\'t happen when I\'m just sitting still or standing still."'],
       },
       {
-        topic: 'Triggers',
-        response: '"It happens when I roll to the right in bed — every single time." – "Also when I look up at the whiteboard at school, or if I tilt my head back." – "It doesn\'t happen when I\'m just sitting still or standing still."',
+        label: 'Associated symptoms',
+        descriptor: 'nausea with each episode (no vomiting); completely normal between episodes',
+        quotes: ['"Yes, I do feel quite nauseous when it happens — it\'s unpleasant." – "I haven\'t actually been sick with it." – "Between the episodes I\'m completely normal — no dizziness at all."'],
       },
       {
-        topic: 'Between episodes — normal function',
-        response: '"Between the episodes I\'m completely normal — no dizziness at all." – "I feel absolutely fine once it\'s stopped."',
+        label: 'Preceding illness',
+        descriptor: 'mild URTI (cold) approximately 4 weeks ago, fully resolved; dizziness started ~1 week later',
+        quotes: ['"I had a cold about 4 weeks ago — just a mild one, blocked nose and sore throat. It\'s fully cleared up now." – "The dizziness started about a week after the cold."'],
       },
-      {
-        topic: 'Associated nausea',
-        response: '"Yes, I do feel quite nauseous when it happens — it\'s unpleasant." – "I haven\'t actually been sick with it."',
-      },
-      {
-        topic: 'Preceding illness',
-        response: '"I had a cold about 4 weeks ago — just a mild one, blocked nose and sore throat. It\'s fully cleared up now." – "The dizziness started about a week after the cold."',
-      },
-      {
-        topic: 'Past medical history',
-        response: '"Just mild high blood pressure — I\'ve been on amlodipine for about 3 years. It\'s well controlled." – "Never had anything like this before."',
-      },
-      {
-        topic: 'Medications',
-        response: '"Amlodipine 5 mg once a day for my blood pressure. No other prescribed medications." – "I take vitamin D sometimes."',
-      },
-      {
-        topic: 'Family history',
-        response: '"My mother had vertigo in her 60s — I think it was called labyrinthitis or something." – "No history of neurological problems in the family."',
-      },
-      {
-        topic: 'Social history',
-        response: '"I\'m a secondary school teacher, been teaching for 25 years." – "I cycle to work — I haven\'t been because I\'m worried about the dizziness." – "I\'m married with two teenagers." – "I don\'t smoke. Maybe 6–7 units of alcohol a week, weekends only."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Mild hypertension — well controlled on amlodipine (3 years)', quote: '"Just mild high blood pressure — I\'ve been on amlodipine for about 3 years. It\'s well controlled." – "Never had anything like this before."' },
+    ],
+    drugHistory: [
+      { label: 'Amlodipine 5 mg once daily (hypertension)', quote: '"Amlodipine 5 mg once a day for my blood pressure."' },
+      { label: 'Vitamin D — occasional', quote: '"I take vitamin D sometimes."' },
+      { label: 'No other prescribed medications', quote: '"No other prescribed medications."' },
+    ],
+    familyHistory: [
+      { label: 'Mother — vertigo in her 60s (labyrinthitis)', quote: '"My mother had vertigo in her 60s — I think it was called labyrinthitis or something." – "No history of neurological problems in the family."' },
+    ],
+    socialHistory: [
+      { label: 'Secondary school teacher (25 years); cycles to work — stopped due to dizziness concerns', quote: '"I\'m a secondary school teacher, been teaching for 25 years." – "I cycle to work — I haven\'t been because I\'m worried about the dizziness."' },
+      { label: 'Married with two teenage children; not driving for 3 weeks (considers it unsafe)', quote: '"I\'m married with two teenagers." – "I haven\'t driven for 3 weeks — I don\'t feel it\'s safe."' },
+      { label: 'Non-smoker; alcohol 6–7 units/week (weekends only)', quote: '"I don\'t smoke. Maybe 6–7 units of alcohol a week, weekends only."' },
     ],
     importantNegatives: [
       'No hearing loss ("My hearing is completely normal — no change at all.")',
@@ -946,73 +943,70 @@ const parkinsonsExaminationMockExam: MockExamStation = {
     occupation: 'Retired librarian',
     openingLine:
       '"Hello doctor. My GP sent me — she\'s worried about my shaking and the way I\'ve been walking. It\'s been getting worse over the last few months."',
-    backgroundInfo:
-      'Dorothy is a 70-year-old retired librarian who has been taking metoclopramide 10 mg three times daily for 10 months for GORD. She developed bilateral tremor, bradykinesia, and shuffling gait approximately 4 months into treatment — a classic timeline for drug-induced Parkinsonism (weeks to months after starting a dopamine antagonist). Her signs are BILATERAL AND SYMMETRIC, which distinguishes drug-induced Parkinsonism from idiopathic PD (which is asymmetric at onset). She is cooperative and anxious — her father had idiopathic PD and she is frightened she may have the same condition.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'History — presenting complaint',
-        response:
-          '"My hands shake when they\'re resting in my lap — it started about 4 months ago. I\'ve slowed right down; simple things like buttoning my coat take forever. My walk has changed — I shuffle." – "I feel stiff, especially in my arms."',
+        label: 'Presenting complaint — bilateral tremor, bradykinesia, shuffling gait (onset 4 months ago)',
+        quote: '"My hands shake when they\'re resting in my lap — it started about 4 months ago. I\'ve slowed right down; simple things like buttoning my coat take forever. My walk has changed — I shuffle." – "I feel stiff, especially in my arms."',
       },
       {
-        topic: 'History — drug history (the key)',
-        response:
-          '"I take metoclopramide 10 mg three times a day — been on it about 10 months for my reflux." – "I also take omeprazole and amlodipine for my blood pressure."',
+        label: 'Timeline — symptoms began 4–5 months after starting metoclopramide (10 months ago)',
+        quote: '"The shaking started maybe 4 or 5 months after I started that tablet. I didn\'t connect the two at first." – "My GP noticed and sent me here."',
       },
       {
-        topic: 'History — onset and timeline',
-        response:
-          '"The shaking started maybe 4 or 5 months after I started that tablet. I didn\'t connect the two at first." – "My GP noticed and sent me here."',
+        label: 'Examination: general appearance — masked facies; stooped; bilateral resting tremor right > left; slow to rise',
+        quote: '[Actor displays]: mildly reduced facial expression (soft masking); stooped posture; seated with both hands showing slight bilateral resting tremor — right hand visibly more than left; slow to rise from the chair.',
       },
       {
-        topic: 'Examination — general appearance and posture',
-        response:
-          '[Actor displays]: mildly reduced facial expression (soft masking); stooped posture; seated with both hands resting in lap showing slight bilateral resting tremor — right hand visibly more than left; slow to rise from the chair',
+        label: 'Examination: speech — mildly hypophonic and monotonous; fully intelligible',
+        quote: '[Actor presents]: mildly hypophonic; monotonous; fully intelligible and coherent.',
       },
       {
-        topic: 'Examination — speech',
-        response: '[Actor presents]: mildly hypophonic; monotonous; fully intelligible and coherent',
+        label: 'Examination: tremor — bilateral resting (4–5 Hz, pill-rolling, right > left); reduces with action; no intention tremor',
+        quote: '[Actor presents]: bilateral resting tremor (right > left, 4–5 Hz, pill-rolling quality); tremor REDUCES when the patient holds arms outstretched or reaches for an object; no intention tremor on finger-nose testing.',
       },
       {
-        topic: 'Examination — tremor',
-        response:
-          '[Actor presents]: bilateral resting tremor (right > left, 4–5 Hz, pill-rolling quality); tremor REDUCES when the patient holds arms outstretched or reaches for an object (resting > postural/action); no intention tremor on finger-nose testing',
+        label: 'Examination: tone — bilateral cogwheel rigidity (right > left); increases with reinforcement',
+        quote: '[Actor complies]: bilateral cogwheel rigidity at wrists and elbows, right slightly > left; increased with reinforcement (contralateral hand clenching).',
       },
       {
-        topic: 'Examination — tone (cogwheel rigidity)',
-        response:
-          '[Actor complies with passive limb movement]: bilateral cogwheel rigidity at wrists and elbows, right slightly > left; increased with reinforcement (contralateral hand clenching)',
+        label: 'Examination: bradykinesia — bilateral slowing with fatiguing on finger tapping and heel tapping',
+        quote: '[Actor performs]: bilateral slowing and reduced amplitude on finger tapping with fatiguing; slowing on hand opening/closing; bilateral heel tapping reduced speed.',
       },
       {
-        topic: 'Examination — bradykinesia',
-        response:
-          '[Actor performs]: bilateral slowing and reduced amplitude on finger tapping (thumb to index, rapidly) with fatiguing; slowing on hand opening/closing; bilateral heel tapping reduced speed',
+        label: 'Examination: gait — shuffling small steps; reduced bilateral arm swing; stooped; en-bloc turning; no freezing',
+        quote: '[Actor walks]: short shuffling steps; reduced bilateral arm swing; stooped posture; en-bloc turning (multiple small steps); no freezing or festination demonstrated.',
       },
       {
-        topic: 'Examination — gait',
-        response:
-          '[Actor walks]: short shuffling steps; reduced bilateral arm swing; stooped posture; en-bloc turning (multiple small steps); no freezing or festination demonstrated',
+        label: 'Examination: postural stability — abnormal retropulsion test (one step back to recover)',
+        quote: '[Actor]: after being warned, examiner pulls shoulders back — actor takes one step backwards to recover; recovers independently.',
       },
       {
-        topic: 'Examination — postural stability',
-        response:
-          '[Actor]: after being warned, examiner pulls shoulders back — actor takes one step backwards to recover; recovers independently; abnormal retropulsion test',
+        label: 'Examination: glabellar tap — positive Myerson\'s sign (fails to habituate after 5+ taps)',
+        quote: '[Actor]: fails to habituate to repeated glabellar tapping — continues blinking after 5+ taps (positive Myerson\'s sign).',
       },
       {
-        topic: 'Examination — glabellar tap',
-        response:
-          '[Actor]: fails to habituate to repeated glabellar tapping — continues blinking after 5+ taps (positive Myerson\'s sign)',
-      },
-      {
-        topic: 'Examination — lower limb reflexes and plantars',
-        response:
-          '[Actor]: knee and ankle jerks present and symmetric; plantar responses flexor bilaterally (normal — distinguishes from vascular Parkinsonism or UMN pathology)',
+        label: 'Examination: lower limb reflexes and plantars — present, symmetric; plantars flexor bilaterally',
+        quote: '[Actor]: knee and ankle jerks present and symmetric; plantar responses flexor bilaterally (normal — distinguishes from vascular Parkinsonism or UMN pathology).',
       },
     ],
+    pastMedicalHistory: [
+      { label: 'GORD — on metoclopramide 10 mg TDS for 10 months', quote: '"I take metoclopramide 10 mg three times a day — been on it about 10 months for my reflux."' },
+    ],
+    drugHistory: [
+      { label: 'Metoclopramide 10 mg three times daily — GORD (KEY causative agent)', quote: '"I take metoclopramide 10 mg three times a day — been on it about 10 months for my reflux."' },
+      { label: 'Omeprazole (GORD)', quote: '"I also take omeprazole..."' },
+      { label: 'Amlodipine (hypertension)', quote: '"...and amlodipine for my blood pressure."' },
+    ],
+    familyHistory: [
+      { label: 'Father — idiopathic Parkinson\'s disease', quote: '"My father had it, but no siblings or children as far as I know."' },
+    ],
+    socialHistory: [
+      { label: 'Retired librarian; lives alone', quote: '"I\'m worried I\'m going to deteriorate like he did. I live alone and I already find some things quite hard."' },
+    ],
     importantNegatives: [
-      'No family history of Parkinson\'s disease ("My father had it, but no siblings or children as far as I know.")',
+      'No family history of Parkinson\'s disease in siblings or children ("My father had it, but no siblings or children as far as I know.")',
       'Symptoms did not predate metoclopramide ("I was completely fine before those tablets.")',
-      'No asymmetric onset ("Both sides started together — the right is a bit worse.")',
+      'Bilateral onset — not asymmetric ("Both sides started together — the right is a bit worse.")',
       'No cognitive decline or hallucinations ("My memory is fine. I\'m not seeing or hearing things.")',
       'No anosmia ("My sense of smell is the same as ever.")',
       'No REM sleep behaviour disorder ("I sleep normally — no acting out dreams.")',

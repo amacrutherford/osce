@@ -21,49 +21,49 @@ const weightLossCounsellingMockExam: MockExamStation = {
     occupation: 'HGV driver',
     openingLine:
       '"The surgeon told me I\'ve got to lose weight or he won\'t do the operation. I\'ve tried diets before and they never work. I\'m not sure this is going to be any different." [resigned, slightly defensive]',
-    backgroundInfo:
-      'Gary is a 52-year-old HGV driver. He has significant osteoarthritis of the right knee that limits his walking to approximately 100 metres before severe pain forces him to stop. He has been told he needs a right knee replacement but the surgeon will not operate until his BMI is below 35 — he needs to lose approximately 10 kg. He is frustrated and slightly defeated by this: he has tried diets before (low-calorie diet, a slimming club) without sustained success. He has type 2 diabetes (HbA1c 61 mmol/mol, currently on metformin), hypertension (on amlodipine), and hypercholesterolaemia (on atorvastatin). He has a physically sedentary lifestyle due to knee pain and his driving job. He drinks approximately 20 units of alcohol per week (4–5 pints of beer 4 nights a week). He does not smoke. He lives with his wife who does all the cooking. If the student uses motivational interviewing techniques (open questions, affirmations, reflections) and focuses on what Gary values (being mobile, returning to leisure activities, not wanting to be a burden to his wife), he becomes increasingly engaged.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Current situation — knee pain and motivation',
-        response:
-          '"I can barely walk to the end of the street. I used to go fishing with my mate on weekends but I haven\'t been able to for two years." – "I just want my life back. That\'s what I want."',
+        label: 'Current situation — severe right knee OA; can walk ~100 metres before severe pain',
+        quote: '"I can barely walk to the end of the street. I used to go fishing with my mate on weekends but I haven\'t been able to for two years." – "I just want my life back. That\'s what I want."',
       },
       {
-        topic: 'Previous weight loss attempts',
-        response:
-          '"I did a slimming club — lost about 5 kilos and then I just couldn\'t keep it up. The evenings are the hardest; I eat in front of the telly." – "I tried a diet on the internet too. Lost a bit, put it all back."',
+        label: 'Previous weight loss attempts — slimming club (lost 5 kg, couldn\'t sustain); internet diet (lost then regained)',
+        quote: '"I did a slimming club — lost about 5 kilos and then I just couldn\'t keep it up. The evenings are the hardest; I eat in front of the telly." – "I tried a diet on the internet too. Lost a bit, put it all back."',
       },
       {
-        topic: 'Typical diet',
-        response:
-          '"Breakfast: nothing usually, or maybe a couple of biscuits. Lunch in the lorry — usually a pasty or a meal deal. Dinner\'s a proper meal, my wife cooks." – "I eat too many biscuits in the evenings. It\'s habit more than hunger."',
+        label: 'Typical diet — no breakfast (or biscuits); lorry meal deal at lunch; proper dinner (wife cooks); evening biscuits',
+        quote: '"Breakfast: nothing usually, or maybe a couple of biscuits. Lunch in the lorry — usually a pasty or a meal deal. Dinner\'s a proper meal, my wife cooks." – "I eat too many biscuits in the evenings. It\'s habit more than hunger."',
       },
       {
-        topic: 'Alcohol history',
-        response:
-          '"I have a few beers in the evening — about 4 or 5 pints on weekdays after work. Not every night, but most nights." – "I know it\'s a lot, but I haven\'t thought of it as a problem."',
+        label: 'Physical activity — severely limited by knee pain; used to cycle; cannot now',
+        quote: '"I can\'t do much with this knee — even walking is agony after 100 metres." – "I used to cycle before my knee got bad. Can\'t do that now."',
       },
       {
-        topic: 'Physical activity',
-        response:
-          '"I can\'t do much with this knee — even walking is agony after 100 metres." – "I used to cycle before my knee got bad. Can\'t do that now."',
+        label: 'Motivations for change — fishing with friend; playing with grandchildren; reducing burden on wife',
+        quote: '"I want to be able to do things again. Not just the fishing — I can\'t play with my grandkids properly." – "My wife is having to do everything. I don\'t want to be like this." [some emotion here]',
       },
       {
-        topic: 'Past medical history',
-        response:
-          '"Diabetes — I take metformin. High blood pressure — amlodipine. Cholesterol — atorvastatin." – "The nurse at the surgery said my diabetes control isn\'t brilliant — my HbA1c was 61."',
+        label: 'Readiness to change — cautiously willing if convinced it will work; past failures cause pessimism',
+        quote: '"If I thought it would actually work... I\'d give it a proper go. I just feel like I\'ve failed before and I\'ll fail again." – "What\'s different this time?"',
       },
-      {
-        topic: 'Motivations for change',
-        response:
-          '"I want to be able to do things again. Not just the fishing — I can\'t play with my grandkids properly." – "My wife is having to do everything. I don\'t want to be like this." [some emotion here]',
-      },
-      {
-        topic: 'Readiness to change',
-        response:
-          '"If I thought it would actually work... I\'d give it a proper go. I just feel like I\'ve failed before and I\'ll fail again." – "What\'s different this time?"',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Type 2 diabetes — HbA1c 61 mmol/mol; on metformin', quote: '"Diabetes — I take metformin. The nurse at the surgery said my diabetes control isn\'t brilliant — my HbA1c was 61."' },
+      { label: 'Hypertension — on amlodipine', quote: '"High blood pressure — amlodipine."' },
+      { label: 'Hypercholesterolaemia — on atorvastatin', quote: '"Cholesterol — atorvastatin."' },
+      { label: 'Severe right knee osteoarthritis — requires TKR; surgeon stipulates BMI <35 first', quote: '"The surgeon told me I\'ve got to lose weight or he won\'t do the operation."' },
+    ],
+    drugHistory: [
+      { label: 'Metformin (type 2 diabetes)', quote: '"Diabetes — I take metformin."' },
+      { label: 'Amlodipine (hypertension)', quote: '"High blood pressure — amlodipine."' },
+      { label: 'Atorvastatin (hypercholesterolaemia)', quote: '"Cholesterol — atorvastatin."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'HGV driver (52); physically sedentary job; eats meals in lorry cab', quote: '"I\'m an HGV driver, been doing it for years."' },
+      { label: 'Lives with wife who does all cooking; very supportive if given guidance', quote: '"My wife is having to do everything." – "She\'d cook whatever I need if I told her what to do." [only if asked]' },
+      { label: 'Alcohol: approximately 20 units/week (4–5 pints most weeknights)', quote: '"I have a few beers in the evening — about 4 or 5 pints on weekdays after work. Not every night, but most nights." – "I know it\'s a lot, but I haven\'t thought of it as a problem."' },
+      { label: 'Non-smoker (quit 15 years ago)', quote: '"Gave up 15 years ago."' },
     ],
     importantNegatives: [
       'No secondary causes of obesity ("I\'ve never been tested for a thyroid problem — could that be it?")',

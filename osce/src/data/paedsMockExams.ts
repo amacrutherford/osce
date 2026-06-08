@@ -21,73 +21,69 @@ const paedsMigraineHistoryMockExam: MockExamStation = {
     occupation: 'Part-time administrator (Jack\'s mother)',
     openingLine:
       '"Thank you for seeing us. Jack\'s been getting these really bad headaches for about 6 months now and I\'m quite worried — his school is starting to notice he keeps missing days."',
-    backgroundInfo:
-      'Diane is Jack\'s attentive and articulate mother. Jack (8) is present but sits quietly; he can confirm simple facts if asked directly. Jack has had 2–3 headaches per month for 6 months. They are bifrontal, pulsating, severe (7/10), lasting 2–6 hours, associated with nausea and vomiting, photophobia, and phonophobia. He prefers to lie down in a dark quiet room during attacks. He is completely well between episodes. There is a strong family history — Diane herself has migraine, as does her own mother. Triggers include lack of sleep and dehydration. No red flags. The headaches started around the time Jack moved to junior school (possible stress trigger). He has missed approximately 1 day of school per attack.',
-    historyToReveal: [
+    socrates: [
       {
-        topic: 'Presenting complaint',
-        response:
-          '"He gets really bad headaches — he says they\'re the worst pain he\'s ever had. He usually goes pale, feels sick, sometimes vomits." – "He just wants to lie down in a dark room and be left alone."',
+        label: 'Site',
+        descriptor: 'bifrontal — both sides of forehead; sometimes behind the eyes',
+        quotes: ['"He points to the front of his head — here, both sides." – "Sometimes he says it\'s behind his eyes too."'],
       },
       {
-        topic: 'Site',
-        response:
-          '"He points to the front of his head — here, both sides." – "Sometimes he says it\'s behind his eyes too."',
+        label: 'Onset',
+        descriptor: 'started 6 months ago; 2–3 per month; sometimes builds insidiously (goes quiet before onset)',
+        quotes: ['"Started about 6 months ago. He gets them 2 or 3 times a month." – "Sometimes they come out of nowhere and sometimes I can tell one\'s coming because he goes quiet."'],
       },
       {
-        topic: 'Onset and frequency',
-        response:
-          '"Started about 6 months ago. He gets them 2 or 3 times a month." – "Sometimes they come out of nowhere and sometimes I can tell one\'s coming because he goes quiet."',
+        label: 'Character',
+        descriptor: 'pulsating / throbbing quality; aggravated by movement and coughing',
+        quotes: ['"He describes it as banging or throbbing — like his head is pounding." – "It gets worse when he runs around or when he coughs, so he just stays still."'],
       },
       {
-        topic: 'Character',
-        response:
-          '"He describes it as banging or throbbing — like his head is pounding." – "It gets worse when he runs around or when he coughs, so he just stays still."',
+        label: 'Radiation',
+        descriptor: 'none reported',
+        quotes: [],
       },
       {
-        topic: 'Duration',
-        response:
-          '"Usually 2 to 6 hours. Then he sleeps and wakes up completely fine." – "Some are shorter, some longer. Never more than half a day."',
+        label: 'Associated symptoms',
+        descriptor: 'nausea; vomiting (frequent); photophobia (pulls curtains, turns off lights); phonophobia (loud sounds unbearable); prefers dark quiet room',
+        quotes: ['"He always feels nauseous with them and he\'s vomited during quite a few." – "He hates bright light — he pulls the curtains and turns everything off. He finds loud sounds really unbearable too."'],
       },
       {
-        topic: 'Associated symptoms — nausea, vomiting, photo/phonophobia',
-        response:
-          '"He always feels nauseous with them and he\'s vomited during quite a few." – "He hates bright light — he pulls the curtains and turns everything off. He finds loud sounds really unbearable too."',
+        label: 'Timing',
+        descriptor: '2–6 hours per episode; sleeps afterwards and wakes completely normal; well between attacks',
+        quotes: ['"Usually 2 to 6 hours. Then he sleeps and wakes up completely fine." – "Completely normal in between — you would never know. He\'s his usual self."'],
       },
       {
-        topic: 'Between episodes',
-        response: '"Completely normal in between — you would never know. He\'s his usual self."',
+        label: 'Exacerbating / triggers',
+        descriptor: 'sleep deprivation; dehydration; possible stress (onset coincided with junior school transition); no aura',
+        quotes: ['"If he has a late night — or if he hasn\'t drunk enough water. Stress might be a trigger too — they started when he went up to junior school." – "He doesn\'t describe anything visual before it starts."'],
       },
       {
-        topic: 'Triggers',
-        response:
-          '"If he has a late night — or if he hasn\'t drunk enough water. Stress might be a trigger too — they started when he went up to junior school." – "Cheese doesn\'t seem to matter."',
+        label: 'Severity',
+        descriptor: 'severe — "worst pain he\'s ever had"; misses approximately 1 school day per episode',
+        quotes: ['"He says they\'re the worst pain he\'s ever had." – "He\'s missed probably one day per attack."'],
       },
-      {
-        topic: 'Past medical history',
-        response:
-          '"Nothing significant. Normal delivery, hit all his milestones. Had the usual childhood illnesses." – "No allergies. He\'s not on any regular medications."',
-      },
-      {
-        topic: 'Family history',
-        response:
-          '"I have migraines — I\'ve had them since I was a teenager. My mum has them too." – "His dad doesn\'t get headaches."',
-      },
-      {
-        topic: 'School and development',
-        response:
-          '"He\'s a happy, sociable boy — bright, doing well at school. He\'s missed probably one day per attack." – "His teacher has noticed he\'s off more than usual."',
-      },
-      {
-        topic: 'Social history',
-        response: '"He lives with me and his dad and his younger sister. Normal family home. No significant stressors other than the school transition."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history; normal birth; all developmental milestones met', quote: '"Nothing significant. Normal delivery, hit all his milestones. Had the usual childhood illnesses." – "No allergies."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; no known allergies', quote: '"He\'s not on any regular medications."' },
+    ],
+    familyHistory: [
+      { label: 'Mother (Diane) — migraine since teenage years', quote: '"I have migraines — I\'ve had them since I was a teenager."' },
+      { label: 'Maternal grandmother — migraine', quote: '"My mum has them too."' },
+      { label: 'Father — no headaches', quote: '"His dad doesn\'t get headaches."' },
+    ],
+    socialHistory: [
+      { label: 'Jack (8) — bright, sociable; Year 3 at junior school; moved up from infants 6 months ago', quote: '"He\'s a happy, sociable boy — bright, doing well at school."' },
+      { label: 'School impact — approximately 1 day absent per attack; teacher has noticed increased absences', quote: '"He\'s missed probably one day per attack." – "His teacher has noticed he\'s off more than usual."' },
+      { label: 'Lives with parents and younger sister; no significant stressors beyond school transition', quote: '"He lives with me and his dad and his younger sister. Normal family home. No significant stressors other than the school transition."' },
     ],
     importantNegatives: [
       'No early morning headache or headache waking from sleep ("No — they never happen in the morning when he first wakes up.")',
       'No progressive worsening over weeks ("It\'s been up and down — not getting consistently worse.")',
       'No vomiting without headache or projectile vomiting ("The vomiting is always with the headache, not separate.")',
-      'No visual disturbance before the headache (no aura) ("He doesn\'t describe anything visual before it starts.")',
+      'No visual disturbance before the headache — no aura ("He doesn\'t describe anything visual before it starts.")',
       'No weakness, clumsiness, or speech changes during attacks ("Nothing like that — he\'s just pale and miserable.")',
       'No neck stiffness or fever ("No.")',
       'No recent head injury ("No.")',
@@ -263,38 +259,37 @@ const paedsCannulaCounsellingMockExam: MockExamStation = {
     occupation: 'Primary school teacher (Mia\'s mother)',
     openingLine:
       '"I\'m really worried about Mia — she\'s been burning up for two days and hasn\'t really eaten anything. The nurse said she needs a drip but I don\'t want her to be in pain. Can\'t she just have tablets?"',
-    backgroundInfo:
-      'Rachel is an intelligent, caring mother who is frightened and protective of her daughter. She is not hostile — she is genuinely anxious about the cannula causing Mia pain, and has a misconception that IV antibiotics are only for "really serious" cases. She does not understand why oral antibiotics would not suffice. She had a previous difficult experience of watching her nephew have a cannula inserted without anaesthetic cream. She is very receptive to clear explanations and becomes reassured when the seriousness of the situation is explained calmly and the pain minimisation measures are described. She will give consent if she understands why it is needed.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Concern — pain from cannula',
-        response:
-          '"I just don\'t want her to be in pain. She\'s only 3. I once saw my nephew have a drip put in and he screamed — I don\'t want that for Mia." – "Can\'t you use numbing cream or something?"',
+        label: 'Concern — cannula pain; traumatic memory of watching nephew have one without anaesthetic cream',
+        quote: '"I just don\'t want her to be in pain. She\'s only 3. I once saw my nephew have a drip put in and he screamed — I don\'t want that for Mia." – "Can\'t you use numbing cream or something?"',
       },
       {
-        topic: 'Why not oral antibiotics?',
-        response:
-          '"She has been vomiting — she can\'t keep things down." – "But the doctor last time just gave her oral antibiotics for a urine infection and they worked fine."',
+        label: 'Question: why not oral antibiotics?',
+        quote: '"She has been vomiting — she can\'t keep things down." – "But the doctor last time just gave her oral antibiotics for a urine infection and they worked fine."',
       },
       {
-        topic: 'Understanding of the situation',
-        response:
-          '"I know she\'s poorly but I didn\'t realise it was that serious." [after explanation] "Oh — so her blood results show the infection has got into her bloodstream? That\'s why?"',
+        label: 'Understanding of clinical situation (after explanation)',
+        quote: '"I know she\'s poorly but I didn\'t realise it was that serious." [after explanation] "Oh — so her blood results show the infection has got into her bloodstream? That\'s why?"',
       },
       {
-        topic: 'Previous experiences',
-        response:
-          '"She had a UTI 8 months ago. It cleared with a week of trimethoprim at home." – "She\'s never been this poorly before."',
+        label: 'Previous UTI — 8 months ago; resolved with oral trimethoprim at home',
+        quote: '"She had a UTI 8 months ago. It cleared with a week of trimethoprim at home." – "She\'s never been this poorly before."',
       },
       {
-        topic: 'Mia\'s current state',
-        response:
-          '"She\'s just lying there — she\'s not herself at all. Normally she never sits still. She hasn\'t eaten since yesterday morning and she keeps vomiting."',
+        label: 'Mia\'s current state — prostrate; not eating since yesterday morning; vomiting persistently',
+        quote: '"She\'s just lying there — she\'s not herself at all. Normally she never sits still. She hasn\'t eaten since yesterday morning and she keeps vomiting."',
       },
-      {
-        topic: 'Other children at home',
-        response: '"She has an older brother, 6. He\'s at school. My husband is on his way — he\'s at work."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Previous UTI 8 months ago — resolved with oral trimethoprim', quote: '"She had a UTI 8 months ago. It cleared with a week of trimethoprim at home."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; no known allergies', quote: '"None that I know of."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Mia (3); older brother (6, at school); father on his way from work', quote: '"She has an older brother, 6. He\'s at school. My husband is on his way — he\'s at work."' },
     ],
     importantNegatives: [
       'No allergy to antibiotics ("None that I know of.")',
@@ -472,70 +467,60 @@ const paedsEatingDisorderMockExam: MockExamStation = {
     occupation: 'School librarian (Ella\'s mother)',
     openingLine:
       '"Thank you for seeing us. Ella has been losing weight very rapidly — she was 55 kg four months ago and she\'s now 47 kg. I\'ve been reading about coeliac disease and thyroid problems. I\'m sure it\'s something physical — she eats like a bird but she says she\'s not hungry."',
-    backgroundInfo:
-      'Susan is anxious and somewhat defensive. She loves Ella deeply but has found it difficult to acknowledge the possibility of an eating disorder — she has been attributing the weight loss to organic causes. Ella (14) is present but quiet; if directly and sensitively asked, she will acknowledge (reluctantly) that she eats less because she "watches what she eats" and feels fat despite being clinically underweight. The true picture includes: daily calorie restriction to <800 kcal, excessive exercise (2 hours daily), amenorrhoea for 3 months, cold intolerance, and lanugo hair on her arms. Ella hides food and eats alone at school. She is on no medications and has no significant past medical history. There is no family history of thyroid disease or coeliac disease. Ella denies any of this in front of her mother initially but the student should try to speak with Ella alone.',
-    historyToReveal: [
+    historyOfPresentingComplaint: [
       {
-        topic: 'Presenting complaint — weight loss',
-        response:
-          '"She was 55 kg in September and she\'s now 47 kg — that\'s 8 kg in 4 months. She just doesn\'t eat. She says she\'s not hungry but she used to love her food." – "I\'ve tried cooking her favourite meals but she picks at them."',
+        label: 'Weight loss — 8 kg over 4 months (55 → 47 kg); marked reduction in appetite',
+        quote: '"She was 55 kg in September and she\'s now 47 kg — that\'s 8 kg in 4 months. She just doesn\'t eat. She says she\'s not hungry but she used to love her food." – "I\'ve tried cooking her favourite meals but she picks at them."',
       },
       {
-        topic: 'What has she been eating?',
-        response:
-          '"She says she just isn\'t hungry — she has a small lunch at school and maybe a bit of dinner at home. She\'s cut out all carbs." – "If I push her to eat more she gets really upset and distressed."',
+        label: 'Dietary restriction — small lunch; minimal dinner; has cut out all carbohydrates',
+        quote: '"She says she just isn\'t hungry — she has a small lunch at school and maybe a bit of dinner at home. She\'s cut out all carbs." – "If I push her to eat more she gets really upset and distressed."',
       },
       {
-        topic: 'Exercise',
-        response:
-          '"She goes running every morning before school — at least an hour. And she goes again in the evenings sometimes." – "She was never this sporty before. I\'m pleased she\'s active but it does seem excessive."',
+        label: 'Excessive exercise — ≥1 hour running each morning before school; sometimes evenings too',
+        quote: '"She goes running every morning before school — at least an hour. And she goes again in the evenings sometimes." – "She was never this sporty before. I\'m pleased she\'s active but it does seem excessive."',
       },
       {
-        topic: 'Body image and distorted perception',
-        response:
-          '[If student asks Ella directly, sensitively]: "I\'m not that thin. I still feel like I have fat on my stomach. I just want to be a bit lighter." [said quietly, not meeting eyes]',
+        label: 'Body image distortion — feels fat despite being clinically underweight (Ella, if asked sensitively)',
+        quote: '[If student asks Ella directly, sensitively]: "I\'m not that thin. I still feel like I have fat on my stomach. I just want to be a bit lighter." [said quietly, not meeting eyes]',
       },
       {
-        topic: 'Menstrual history',
-        response:
-          '"She started her periods about 18 months ago. But she hasn\'t had one for the last 3 months — is that normal?" [asked with concern]',
+        label: 'Amenorrhoea — no periods for 3 months (started 18 months ago)',
+        quote: '"She started her periods about 18 months ago. But she hasn\'t had one for the last 3 months — is that normal?" [asked with concern]',
       },
       {
-        topic: 'Physical symptoms',
-        response:
-          '"She\'s always cold — she wears jumpers in summer. And her arms have this fine downy hair on them that wasn\'t there before." – "She gets dizzy if she stands up quickly."',
+        label: 'Physical symptoms — cold intolerance; lanugo hair on arms; dizziness on standing',
+        quote: '"She\'s always cold — she wears jumpers in summer. And her arms have this fine downy hair on them that wasn\'t there before." – "She gets dizzy if she stands up quickly."',
       },
       {
-        topic: 'Mood and mental health',
-        response:
-          '"She\'s become quite withdrawn — she doesn\'t see her friends as much. She used to be so social." – "She snaps at me if I say anything about her eating."',
+        label: 'Mood and social withdrawal — irritable; less social; lost interest in previous activities',
+        quote: '"She\'s become quite withdrawn — she doesn\'t see her friends as much. She used to be so social." – "She snaps at me if I say anything about her eating."',
       },
       {
-        topic: 'Organic causes — thyroid and coeliac',
-        response:
-          '"I really think we should check her thyroid. My sister has an underactive thyroid and it caused weight changes." – "And I read that coeliac disease can cause weight loss in teenagers."',
+        label: 'Mother\'s working hypothesis — requests thyroid and coeliac blood tests',
+        quote: '"I really think we should check her thyroid. My sister has an underactive thyroid and it caused weight changes." – "And I read that coeliac disease can cause weight loss in teenagers."',
       },
-      {
-        topic: 'Past medical history',
-        response:
-          '"Nothing significant. She\'s had the usual childhood vaccinations. No allergies. No regular medications." – "She\'s never been admitted to hospital."',
-      },
-      {
-        topic: 'Family history',
-        response:
-          '"My sister has hypothyroidism." – "No eating disorders in the family that I\'m aware of." [uncertain pause]',
-      },
-      {
-        topic: 'School and social history',
-        response:
-          '"She\'s in year 10. Her grades have dropped a bit — she used to be top of her class. She\'s less interested in things she used to enjoy." – "I did ask if anything had happened at school — she said everything was fine."',
-      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history; all childhood vaccinations; no hospital admissions', quote: '"Nothing significant. She\'s had the usual childhood vaccinations. No allergies. No regular medications." – "She\'s never been admitted to hospital."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; no known allergies', quote: '"No regular medications. No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Maternal aunt — hypothyroidism', quote: '"My sister has hypothyroidism."' },
+      { label: 'No known eating disorders in the family', quote: '"No eating disorders in the family that I\'m aware of." [uncertain pause]' },
+    ],
+    socialHistory: [
+      { label: 'Year 10 (14 years old); grades have dropped; less interested in hobbies', quote: '"She\'s in year 10. Her grades have dropped a bit — she used to be top of her class. She\'s less interested in things she used to enjoy."' },
+      { label: 'School and friendships — some friends have noticed she looks thin', quote: '"I did ask if anything had happened at school — she said everything was fine." [friends have told her she looks thin — only if asked]' },
+      { label: 'Social media — follows "wellness" and "clean eating" accounts (contributing factor; only if asked)', quote: '[Only if directly asked about social media]' },
     ],
     importantNegatives: [
       'No diarrhoea or malabsorptive symptoms ("No diarrhoea. Her stools are normal.")',
       'No heat intolerance, sweating, or palpitations ("She\'s always cold — the opposite.")',
       'No abdominal pain or bloating ("None.")',
-      'No evidence of purging ("She doesn\'t go to the bathroom straight after meals." [though this should be explored])',
+      'No evidence of purging openly disclosed ("She doesn\'t go to the bathroom straight after meals." — though this should be specifically explored with Ella alone)',
       'No suicidal ideation ("I don\'t think she wants to hurt herself — she just won\'t eat.")',
     ],
     ice: {
@@ -552,12 +537,12 @@ const paedsEatingDisorderMockExam: MockExamStation = {
       'Social media — Ella follows a number of "wellness" and "clean eating" accounts; this may be a contributing factor',
     ],
     behaviourNotes: [
-      'Susan is in denial about an eating disorder — she is genuinely convinced it is organic; she becomes defensive if the student suggests anorexia too directly and too early',
+      'Susan is in denial about an eating disorder — genuinely convinced it is organic; becomes defensive if anorexia is suggested too directly too early',
       'Susan responds better to an exploratory approach — "I want to make sure we don\'t miss anything; let me ask a few more questions first"',
       'The student should ideally ask to speak with Ella alone at some point — Susan may resist briefly but ultimately agrees: "If it helps..."',
       'Ella (if seen alone): quiet and guarded; acknowledges "watching what I eat" but says she doesn\'t have a problem; won\'t make eye contact when asked about her weight',
       'If the student is sensitive, acknowledges the seriousness, and validates Susan\'s concern, she becomes more receptive to the possibility of an eating disorder',
-      'Ask "Are we talking about anorexia?" — student should respond honestly but compassionately, explaining what anorexia is and that it is treatable',
+      'Asks "Are we talking about anorexia?" — student should respond honestly but compassionately, explaining what anorexia is and that it is treatable',
     ],
   },
   markScheme: [
@@ -641,7 +626,7 @@ const paedsEatingDisorderMockExam: MockExamStation = {
   ],
   expectedPresentation: [
     'Ella is a 14-year-old girl presenting with an 8 kg weight loss over 4 months (from 55 to 47 kg), representing approximately 15% of body weight — a clinically significant rate of loss',
-    'The history reveals a pattern consistent with anorexia nervosa: severe dietary restriction (<800 kcal/day by history), excessive compulsive exercise (2+ hours daily), distorted body image ("I feel fat"), amenorrhoea for 3 months (secondary), cold intolerance, lanugo hair, and social withdrawal',
+    'The history reveals a pattern consistent with anorexia nervosa: severe dietary restriction, excessive compulsive exercise (2+ hours daily), distorted body image ("I feel fat"), amenorrhoea for 3 months (secondary), cold intolerance, lanugo hair, and social withdrawal',
     'Physical red flag features: amenorrhoea, lanugo, dizziness on standing (orthostatic hypotension from malnutrition and dehydration)',
     'Organic causes have been considered: hypothyroidism (cold intolerance is present but no heat sensitivity or palpitations; TFTs to be checked) and coeliac disease (no diarrhoea or malabsorption symptoms; anti-TTG to be checked)',
     'Mrs Clarke is in denial about an eating disorder and attributes the weight loss to physical causes — this was explored sensitively while validating her concerns',
