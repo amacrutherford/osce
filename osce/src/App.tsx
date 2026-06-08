@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { ExamTimer } from './components/ExamTimer';
 import { HighYieldSummary } from './components/HighYieldSummary';
 import { KeyboardShortcutsModal } from './components/KeyboardShortcutsModal';
 import { LandingPage } from './components/LandingPage';
@@ -45,6 +46,16 @@ import { countExaminerQuestions, groupMatches, groupQuestions, normalizeSearchTe
 type AppTab = 'overview' | 'guide' | 'summary' | 'results';
 
 const EXAM_STORAGE_KEY = 'osce-selected-exam';
+const COMPLETED_MOCKS_KEY = 'osce-completed-mocks';
+
+function readCompletedMocks(): Set<string> {
+  try {
+    const raw = localStorage.getItem(COMPLETED_MOCKS_KEY);
+    return raw ? new Set(JSON.parse(raw) as string[]) : new Set();
+  } catch {
+    return new Set();
+  }
+}
 
 function readInitialExamId(): string {
   const urlMatch = window.location.pathname.match(/^\/exam\/(.+)$/);
@@ -56,12 +67,23 @@ function readInitialExamId(): string {
 function App() {
   const [selectedExamId, setSelectedExamId] = useState<string>(readInitialExamId);
   const [selectedMockExamId, setSelectedMockExamId] = useState<string | null>(readInitialMockExamId);
+  const [completedMockIds, setCompletedMockIds] = useState<Set<string>>(readCompletedMocks);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState<AppTab>('overview');
   const [onLanding, setOnLanding] = useState(
     () => readInitialMockExamId() === null && !window.location.pathname.match(/^\/exam\//)
   );
   const [landingScrollTarget, setLandingScrollTarget] = useState<string | null>(null);
+
+  function toggleMockCompleted(examId: string) {
+    setCompletedMockIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(examId)) next.delete(examId);
+      else next.add(examId);
+      localStorage.setItem(COMPLETED_MOCKS_KEY, JSON.stringify([...next]));
+      return next;
+    });
+  }
 
   function goToLanding(scrollToSpecialtyId: string | null) {
     setLandingScrollTarget(scrollToSpecialtyId);
@@ -323,6 +345,7 @@ function App() {
                 </svg>
               </button>
               <ModeToggle mode={mode} onChange={setMode} />
+              {!activeMockExam && mode === 'exam' && <ExamTimer />}
               <div className="flex-1 min-w-0">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
               </div>
@@ -339,9 +362,15 @@ function App() {
             scrollToSpecialtyId={landingScrollTarget}
             mockExamsBySpecialty={mockExamsBySpecialty}
             onSelectMockExam={openMockExam}
+            completedMockIds={completedMockIds}
           />
         ) : activeMockExam ? (
-          <MockExamView exam={activeMockExam} onBack={() => goToLanding(activeMockExam.specialtyId)} />
+          <MockExamView
+            exam={activeMockExam}
+            onBack={() => goToLanding(activeMockExam.specialtyId)}
+            isCompleted={completedMockIds.has(activeMockExam.id)}
+            onToggleCompleted={() => toggleMockCompleted(activeMockExam.id)}
+          />
         ) : (
           <>
             <div className="mb-4 flex flex-wrap gap-2">

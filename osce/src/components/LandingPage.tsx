@@ -8,6 +8,7 @@ interface LandingPageProps {
   scrollToSpecialtyId?: string | null;
   mockExamsBySpecialty?: { specialtyName: string; exams: MockExamStation[] }[];
   onSelectMockExam?: (examId: string) => void;
+  completedMockIds?: Set<string>;
 }
 
 export function LandingPage({
@@ -16,6 +17,7 @@ export function LandingPage({
   scrollToSpecialtyId,
   mockExamsBySpecialty,
   onSelectMockExam,
+  completedMockIds,
 }: LandingPageProps) {
   useEffect(() => {
     if (!scrollToSpecialtyId) return;
@@ -81,6 +83,11 @@ export function LandingPage({
                         <span className="rounded-full bg-[#534AB7] px-2 py-0.5 text-xs font-bold text-white">
                           Mock
                         </span>
+                        {completedMockIds?.has(exam.id) && (
+                          <span className="rounded-full border border-green-300 bg-green-50 px-2 py-0.5 text-xs font-bold text-green-700">
+                            Done
+                          </span>
+                        )}
                       </div>
                       <p className="font-semibold text-[#1a1a1a]">{exam.title}</p>
                       <p className="mt-0.5 text-xs text-[#6b6b6b]">

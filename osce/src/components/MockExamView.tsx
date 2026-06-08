@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import type { MockExamStation, HistoryItem, SocratesItem } from '../data/mockExamTypes';
+import { ExamTimer } from './ExamTimer';
 
 type MockTab = 'brief' | 'actor' | 'markscheme' | 'viva';
 
 interface MockExamViewProps {
   exam: MockExamStation;
   onBack: () => void;
+  isCompleted: boolean;
+  onToggleCompleted: () => void;
 }
 
 function HistorySection({ title, items }: { title: string; items: HistoryItem[] }) {
@@ -52,7 +55,7 @@ function SocratesSection({ items }: { items: SocratesItem[] }) {
   );
 }
 
-export function MockExamView({ exam, onBack }: MockExamViewProps) {
+export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: MockExamViewProps) {
   const [activeTab, setActiveTab] = useState<MockTab>('brief');
   const [expandedViva, setExpandedViva] = useState<Set<number>>(new Set());
   const [expandedDomains, setExpandedDomains] = useState<Set<number>>(
@@ -125,28 +128,44 @@ export function MockExamView({ exam, onBack }: MockExamViewProps) {
 
   return (
     <div className="mx-auto w-full max-w-3xl">
-      <div className="mb-4 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={onBack}
-          className="flex items-center gap-1.5 rounded-lg border border-[#e5e5e4] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
-        >
-          <span aria-hidden="true">←</span> Back
-        </button>
-        <div className="flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Mock OSCE Station</p>
-          <h2 className="text-lg font-bold text-[#1a1a1a]">{exam.title}</h2>
-          <p className="mt-0.5 text-xs text-[#6b6b6b]">
-            <span className="font-medium text-[#534AB7]">Dx:</span> {exam.diagnosis}
-          </p>
+      <div className="mb-4 space-y-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onBack}
+            className="flex items-center gap-1.5 rounded-lg border border-[#e5e5e4] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
+          >
+            <span aria-hidden="true">←</span> Back
+          </button>
+          <div className="flex-1">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Mock OSCE Station</p>
+            <h2 className="text-lg font-bold text-[#1a1a1a]">{exam.title}</h2>
+            <p className="mt-0.5 text-xs text-[#6b6b6b]">
+              <span className="font-medium text-[#534AB7]">Dx:</span> {exam.diagnosis}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={exportPrompt}
+            className="flex items-center gap-1.5 rounded-lg border border-[#AFA9EC] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
+          >
+            Export Prompt
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={exportPrompt}
-          className="flex items-center gap-1.5 rounded-lg border border-[#AFA9EC] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
-        >
-          Export Prompt
-        </button>
+        <div className="flex items-center gap-3">
+          <ExamTimer />
+          <button
+            type="button"
+            onClick={onToggleCompleted}
+            className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-sm font-semibold transition ${
+              isCompleted
+                ? 'border-green-300 bg-green-50 text-green-700 hover:bg-green-100'
+                : 'border-[#AFA9EC] bg-white text-[#3C3489] hover:bg-[#EEEDFE]'
+            }`}
+          >
+            {isCompleted ? '✓ Completed' : 'Mark as done'}
+          </button>
+        </div>
       </div>
 
       <div className="mb-4 flex flex-wrap gap-2">
