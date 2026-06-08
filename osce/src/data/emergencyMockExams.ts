@@ -217,4 +217,203 @@ const tensionPneumothoraxMockExam: MockExamStation = {
   ],
 };
 
-export const EMERGENCY_MOCK_EXAMS: MockExamStation[] = [tensionPneumothoraxMockExam];
+const pvHaemorrhageMockExam: MockExamStation = {
+  id: 'ae_antepartum_haemorrhage',
+  title: 'A-E Assessment — Major Antepartum Haemorrhage',
+  diagnosis: 'Major antepartum haemorrhage — likely placenta praevia at 34 weeks',
+  specialtyId: 'emergency-medicine',
+  candidateBrief: {
+    setting: 'You are an FY1 in the Emergency Department resuscitation bay.',
+    scenario:
+      'Fatima Al-Hassan, 31, G2P1, is 34 weeks pregnant. She arrived by ambulance after calling 999 with sudden, painless, heavy vaginal bleeding soaking through her clothes. On arrival: HR 124, BP 88/56, SpO2 97% on air, RR 22. She is pale, tremulous, and alert.',
+    tasks: [
+      'Perform a systematic A-E assessment and initiate immediate management at each step',
+      'Identify the likely diagnosis and explain your management priorities',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Fatima Al-Hassan',
+    age: 31,
+    occupation: 'Primary school teaching assistant',
+    openingLine:
+      '"I\'m bleeding — there\'s so much blood. Please help my baby." [pale, tremulous, frightened, speaking in full sentences]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'A — Airway: patent; speaking in full sentences; no stridor or airway compromise',
+        quote: '[Actor]: Fatima is speaking in full sentences; no stridor; airway patent and self-maintained.',
+      },
+      {
+        label: 'B — Breathing: RR 22; SpO2 97% on air; equal bilateral air entry; no wheeze or crackles',
+        quote: '[Examiner reports]: RR 22; SpO2 97% on room air; chest expansion equal bilaterally; percussion resonant; auscultation clear — no wheeze or crackles.',
+      },
+      {
+        label: 'C — Circulation: HR 124; BP 88/56 (haemorrhagic shock); CRT 4s; pale and tremulous; heavy fresh vaginal bleeding soaking bed pad',
+        quote: '[Examiner reports]: HR 124 sinus tachycardia; BP 88/56 — haemorrhagic shock; capillary refill 4 seconds; skin pale, cool, and clammy. Heavy fresh red vaginal bleeding visible soaking the bed pad. No IV access yet.',
+      },
+      {
+        label: 'D — Disability: GCS 15, AVPU Alert; pupils equal and reactive; BM 5.1 mmol/L; no headache, no visual disturbance, no epigastric pain',
+        quote: '[Examiner reports]: GCS 15, E4V5M6; Alert on AVPU; pupils 3 mm equal and reactive; BM 5.1 mmol/L. [If asked about headache, visual disturbance, or epigastric pain]: "No — none of those." [Rules out pre-eclampsia]',
+      },
+      {
+        label: 'E — Exposure: gravid uterus 34 weeks; uterus SOFT and NON-TENDER (not abruption); fetal HR on doptone 148 bpm; no VE performed',
+        quote: '[Examiner reports]: Gravid abdomen consistent with 34 weeks; uterus is SOFT and NON-TENDER on palpation — no rigidity or tenderness. Doptone fetal heart rate 148 bpm — reassuring. Temperature 36.8°C. [If student attempts or requests VE]: Do NOT perform a vaginal examination — this is contraindicated in suspected placenta praevia and may precipitate catastrophic haemorrhage.',
+      },
+      {
+        label: 'History: sudden painless bleeding starting 30 minutes ago; no contractions; no trauma; previous scan showed low-lying placenta at 20 weeks',
+        quote: '"It just started — pouring out. No pain at all." – "No pain, no tightenings, nothing like that." [If asked about previous scans]: "They said at my 20-week scan the placenta was low down — they said to come back for another scan at 32 weeks but I missed the appointment."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'G2P1 — previous normal vaginal delivery at term (2 years ago)', quote: '"My first pregnancy was fine — normal delivery, healthy baby girl."' },
+      { label: 'Low-lying placenta noted at 20-week anomaly scan — follow-up scan missed', quote: '"They said the placenta was low at the 20-week scan. I missed the follow-up." [only if directly asked]' },
+      { label: 'No other significant medical history', quote: '"Nothing else — I\'ve been healthy."' },
+    ],
+    drugHistory: [
+      { label: 'Pregnancy multivitamins and folic acid', quote: '"Just pregnancy vitamins and folic acid."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Non-smoker; no alcohol during pregnancy', quote: '"I don\'t smoke and I haven\'t had any alcohol since I found out I was pregnant."' },
+      { label: 'Lives with husband and 2-year-old daughter', quote: '"My husband is coming — he has our daughter."' },
+    ],
+    importantNegatives: [
+      'No abdominal pain or uterine tenderness ("No pain at all — it started completely out of the blue.")',
+      'No headache, visual disturbance, or epigastric pain — excludes pre-eclampsia ("No — none of those.")',
+      'No uterine contractions ("No tightenings at all.")',
+      'No recent trauma or intercourse ("No — nothing like that.")',
+      'No fever or signs of infection ("I haven\'t felt unwell before this.")',
+    ],
+    ice: {
+      ideas: '"I don\'t know what\'s happening — is it the placenta? I\'m so scared."',
+      concerns: '"Please — is my baby okay? She\'s moving still." [touches abdomen]',
+      expectations: '"I just want to know my baby is safe and that you can stop the bleeding."',
+    },
+    onlyIfDirectlyAsked: [
+      'Fetal movements — "Yes — she\'s been moving today, just before this happened. She felt fine."',
+      'Blood group — "I\'m not sure — O positive I think."',
+      'Rhesus status — "O positive." [student should note Anti-D may be required if Rhesus negative]',
+    ],
+    behaviourNotes: [
+      'Frightened and pale throughout — speaks in short bursts but sentences are complete (she is not in respiratory distress)',
+      'Becomes more panicked if the student attempts or mentions vaginal examination — "Is that safe? I\'m scared."',
+      'Visibly reassured when told the baby\'s heartbeat is being monitored: "Thank you — that\'s such a relief."',
+      'If the student correctly positions her in left lateral tilt, she can say "This feels better actually."',
+      'If asked about the low-lying placenta history, reveals the missed scan — this is the key piece of history linking to placenta praevia',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Immediate safety and positioning',
+      items: [
+        { description: 'Calls for help — activates the emergency team / 2222 and senior obstetric input immediately', marks: 1 },
+        { description: 'Positions patient in left lateral tilt (15-30 degrees) to relieve aortocaval compression', marks: 2 },
+        { description: 'Applies high-flow oxygen via non-rebreathe mask', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Airway (A)',
+      items: [
+        { description: 'Assesses airway — confirms patent; identifies she is speaking in full sentences', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Breathing (B)',
+      items: [
+        { description: 'Assesses RR and SpO2; auscultates chest — identifies no respiratory cause; SpO2 97% on air', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Circulation (C)',
+      items: [
+        { description: 'Identifies haemorrhagic shock: HR 124, BP 88/56, CRT 4s, pallor, heavy vaginal bleeding', marks: 1 },
+        { description: 'Establishes 2 large-bore IV cannulae and sends blood tests: FBC, U&Es, clotting, LFTs, group and save, cross-match 6 units', marks: 2 },
+        { description: 'Activates major haemorrhage protocol', marks: 1 },
+        { description: 'Initiates IV crystalloid resuscitation (cautious — maintain systolic >90 until definitive haemostasis)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Disability and Exposure (D+E)',
+      items: [
+        { description: 'Assesses GCS/AVPU, pupils, and blood glucose; asks about headache, visual disturbance, epigastric pain to exclude pre-eclampsia', marks: 1 },
+        { description: 'Palpates uterus on exposure — identifies SOFT, non-tender uterus (distinguishing from abruption)', marks: 1 },
+        { description: 'Checks fetal heart rate with doptone — 148 bpm (reassuring)', marks: 1 },
+        { description: 'Explicitly states: NO vaginal examination to be performed — risk of precipitating catastrophic haemorrhage in placenta praevia', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Further management',
+      items: [
+        { description: 'Calls obstetric registrar or senior obstetrician urgently for immediate review', marks: 1 },
+        { description: 'Inserts urinary catheter; commences strict fluid balance monitoring', marks: 1 },
+        { description: 'Requests continuous CTG for fetal monitoring', marks: 1 },
+        { description: 'Administers betamethasone IM (2 doses 24 hours apart) for fetal lung maturity at 34 weeks', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Communicates clearly with the team; delegates tasks (blood tests, monitoring) explicitly', marks: 1 },
+        { description: 'Reassures Fatima in plain language; addresses her concern about the baby\'s wellbeing', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Fatima is a 31-year-old woman, G2P1, 34 weeks pregnant, presenting with sudden painless major antepartum haemorrhage; observations consistent with haemorrhagic shock: HR 124, BP 88/56, CRT 4s, SpO2 97%',
+    'Airway patent; breathing uncompromised; circulation in haemorrhagic shock requiring immediate resuscitation — 2 large-bore cannulae, major haemorrhage protocol activated, IV crystalloid commenced',
+    'The likely diagnosis is placenta praevia: the haemorrhage is painless, the uterus is soft and non-tender (distinguishing it from placental abruption where uterus is rigid and tender), and she had a low-lying placenta at 20 weeks with a missed follow-up scan',
+    'Critical safety point: NO vaginal examination — this could precipitate uncontrollable haemorrhage if placenta praevia is confirmed; ultrasound is required to determine placental location',
+    'Left lateral tilt applied to relieve aortocaval compression; fetal heart rate 148 bpm on doptone (reassuring); continuous CTG commenced; obstetric registrar called urgently',
+    'Betamethasone IM prescribed for fetal lung maturity at 34 weeks; urinary catheter inserted; blood tests sent including cross-match 6 units, clotting, FBC',
+    'Likely definitive management: emergency Caesarean section when haemodynamically optimised; senior obstetric input essential',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the main causes of antepartum haemorrhage and how do you clinically distinguish placenta praevia from placental abruption?',
+      keyPoints: [
+        'APH causes: placenta praevia (20%), placental abruption (30%), uterine rupture (rare), vasa praevia, show/cervical/vaginal causes (50%)',
+        'Placenta praevia: painless bright red haemorrhage; uterus soft and non-tender; fetal lie may be abnormal (oblique/transverse); no uterine tenderness; can present with no warning',
+        'Placental abruption: painful (often severe); uterine rigidity and tenderness; concealed or revealed haemorrhage; associated with hypertension, cocaine use, trauma; DIC risk',
+        'Vasa praevia: rupture of membranes triggers sudden fetal vessel haemorrhage — fetal tachycardia/bradycardia; Apt test (sodium hydroxide) distinguishes fetal from maternal blood',
+        'Neither should have vaginal examination in the emergency setting until placental location confirmed by USS',
+      ],
+      source: 'RCOG Green-top Guideline No. 63 (Antepartum Haemorrhage, 2011 updated 2018)',
+    },
+    {
+      question: 'What are the indications for corticosteroid therapy in preterm labour, what drug is used, and what is the dose?',
+      keyPoints: [
+        'Indication: threatened or anticipated preterm delivery between 24+0 and 34+6 weeks to accelerate fetal lung maturity',
+        'Drug: betamethasone — two IM doses of 12 mg, 24 hours apart (total 24 mg)',
+        'Mechanism: induces surfactant production in type II pneumocytes; reduces risk of neonatal respiratory distress syndrome, intraventricular haemorrhage, and necrotising enterocolitis',
+        'NICE NG25 recommends a single rescue course if preterm birth did not occur after initial course and is now imminent',
+        'Steroids should not delay emergency delivery if mother or fetus is at immediate risk',
+      ],
+      source: 'RCOG Green-top Guideline No. 7 (Antenatal Corticosteroids to Reduce Neonatal Morbidity, 2010); NICE NG25 (2015)',
+    },
+    {
+      question: 'Define and outline the management of postpartum haemorrhage (PPH).',
+      keyPoints: [
+        'PPH: primary (within 24 hours of delivery) — blood loss >500 mL vaginal delivery or >1000 mL Caesarean; severe PPH >1000 mL',
+        'Causes (4 Ts): Tone (uterine atony — 70%), Trauma (lacerations, uterine rupture), Tissue (retained placenta), Thrombin (coagulopathy)',
+        'Management: call for help; massage uterus bimanually; IV oxytocin 5-10 units (first-line); ergometrine 500 mcg IM; carboprost (Hemabate) 250 mcg IM; misoprostol 800 mcg SL',
+        'Activate major haemorrhage protocol; transfuse packed red cells and FFP in 1:1 ratio; cryoprecipitate if fibrinogen <2 g/L; TXA 1 g IV within 3 hours',
+        'Surgical: Bakri balloon tamponade; B-Lynch suture; uterine artery ligation; hysterectomy as last resort',
+      ],
+      source: 'RCOG Green-top Guideline No. 52 (Postpartum Haemorrhage, 2016); ATLS 10th ed.',
+    },
+    {
+      question: 'Why is left lateral tilt used in pregnant women in the resuscitation bay, and when is it applied?',
+      keyPoints: [
+        'After 20 weeks gestation the gravid uterus compresses the inferior vena cava (IVC) when the patient is supine — reducing venous return to the heart by up to 30%',
+        'Aortocaval compression reduces cardiac output, causing supine hypotension syndrome: dizziness, hypotension, fetal bradycardia',
+        'Left lateral tilt of 15–30 degrees displaces the uterus off the IVC, restoring venous return and improving cardiac output',
+        'Applied immediately in any pregnant woman from 20 weeks gestation receiving resuscitation or in the lateral recumbent position',
+        'In cardiac arrest in pregnancy: manual left uterine displacement (one hand) is used alongside CPR if tilt is not feasible',
+      ],
+      source: 'RCOG Green-top Guideline No. 63 (2018); Resuscitation Council UK — Cardiac Arrest in Special Circumstances (2021)',
+    },
+  ],
+};
+
+export const EMERGENCY_MOCK_EXAMS: MockExamStation[] = [tensionPneumothoraxMockExam, pvHaemorrhageMockExam];

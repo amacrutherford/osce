@@ -19,6 +19,7 @@ import { PAEDS_MOCK_EXAMS } from './data/paedsMockExams';
 import { PALLIATIVE_MOCK_EXAMS } from './data/palliativeMockExams';
 import { PSYCH_MOCK_EXAMS } from './data/psychMockExams';
 import { SEXUAL_HEALTH_MOCK_EXAMS } from './data/sexualHealthMockExams';
+import { OPHTHAL_MOCK_EXAMS } from './data/ophthalmologyMockExams';
 
 const ALL_MOCK_EXAMS = [
   ...NEURO_MOCK_EXAMS,
@@ -30,6 +31,7 @@ const ALL_MOCK_EXAMS = [
   ...GYNAE_MOCK_EXAMS,
   ...PALLIATIVE_MOCK_EXAMS,
   ...GP_MOCK_EXAMS,
+  ...OPHTHAL_MOCK_EXAMS,
 ];
 import { useOsceStore } from './hooks/useOsceStore';
 

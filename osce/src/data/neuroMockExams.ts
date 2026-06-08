@@ -1184,10 +1184,483 @@ const parkinsonsExaminationMockExam: MockExamStation = {
   ],
 };
 
+const serotoninSyndromeMockExam: MockExamStation = {
+  id: 'neuro_serotonin_syndrome',
+  title: 'Serotonin Syndrome — History and Examination',
+  diagnosis: 'Serotonin syndrome',
+  specialtyId: 'neurology',
+  candidateBrief: {
+    setting: 'You are an FY1 in the Medical Assessment Unit.',
+    scenario:
+      'Robert Yates, a 62-year-old retired teacher, has been brought in by his wife Dorothy. Robert is too confused to give a reliable history. Observations: temp 38.8°C, HR 118 bpm, BP 148/88 mmHg. He is visibly agitated and sweating.',
+    tasks: [
+      'Take a focused history from Dorothy and examine Robert, then present your findings and diagnosis to the examiner.',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Robert Yates (history given by wife Dorothy)',
+    age: 62,
+    occupation: 'Retired teacher',
+    openingLine:
+      '"Thank you for seeing us — I\'m Dorothy, Robert\'s wife. He\'s been getting worse and worse over the last two days and I\'m really frightened. He\'s not himself at all — he\'s confused and he can\'t stop shaking."',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Onset of confusion — 2 days after tramadol started',
+        quote:
+          '"He\'s been on his antidepressant for about six months without any trouble. But then four days ago the GP gave him tramadol for his back, and about two days after he started that he started getting confused and agitated."',
+      },
+      {
+        label: 'Agitation and restlessness',
+        quote: '"He keeps picking at the bedsheets and he can\'t sit still. He was trying to get out of bed last night — it\'s very unlike him."',
+      },
+      {
+        label: 'Diaphoresis — profuse sweating',
+        quote:
+          '"He\'s been absolutely drenched in sweat — I had to change his pyjamas twice last night. He\'s not usually a sweaty person at all."',
+      },
+      {
+        label: 'Tremor of hands and legs',
+        quote:
+          '"His hands have been shaking badly since yesterday — a real coarse shake. And his legs too, I noticed them trembling."',
+      },
+      {
+        label: 'Myoclonus — sudden jerking movements',
+        quote: '"He keeps having these sudden jerks — like he\'s startled, but he\'s not. His whole body jolts. It started yesterday."',
+      },
+      {
+        label: 'Diarrhoea',
+        quote: '"He\'s had loose stools since the day after the tramadol — about four or five times yesterday."',
+      },
+      {
+        label: 'Current medications — sertraline 50 mg once daily (6 months) and tramadol 50 mg four times daily (4 days)',
+        quote:
+          '"He takes sertraline for his depression — has done for six months. And then the GP added tramadol four days ago for his back. He\'s not on anything else, apart from the tramadol that was just added."',
+      },
+      {
+        label: 'Examination finding — bilateral coarse tremor (reveal when tremor assessed)',
+        quote:
+          '[Robert holds out his hands — a visible coarse bilateral tremor is present at rest and with action. His legs also show intermittent trembling.]',
+      },
+      {
+        label: 'Examination finding — hyperreflexia lower limbs 3+ bilaterally (reveal when reflexes tested)',
+        quote:
+          "[Robert's knee and ankle jerks are brisk and exaggerated bilaterally — grade 3+. The examiner provides this to the student.]",
+      },
+      {
+        label: 'Examination finding — bilateral ankle clonus 3 beats (reveal when clonus tested)',
+        quote: '[Sustained ankle clonus of 3 beats is elicited bilaterally. The examiner provides this to the student.]',
+      },
+      {
+        label: 'Examination finding — no focal power deficit (reveal when power tested)',
+        quote: '[Power is 5/5 in all groups bilaterally. There is no focal weakness. The examiner confirms this to the student.]',
+      },
+      {
+        label: 'Examination finding — temperature 38.8°C on examination',
+        quote: '[Axillary temperature confirmed as 38.8°C during examination.]',
+      },
+    ],
+    pastMedicalHistory: [
+      {
+        label: 'Depression — 6 months',
+        quote: '"He was diagnosed with depression about six months ago after he retired. He\'s been on sertraline since then."',
+      },
+      {
+        label: 'Acute back pain — mechanical, started one week ago',
+        quote: '"He\'s been having bad back pain for about a week — the GP thought it was muscular. That\'s why he prescribed the tramadol."',
+      },
+      { label: 'No other significant medical history', quote: '"He\'s otherwise been perfectly healthy — no heart problems, no kidney problems, nothing like that."' },
+    ],
+    drugHistory: [
+      { label: 'Sertraline 50 mg once daily — 6 months', quote: '"He takes one sertraline tablet every morning. He\'s been on it for six months and never had any trouble with it before."' },
+      { label: 'Tramadol 50 mg four times daily — started 4 days ago', quote: '"The GP gave him tramadol four days ago — one tablet four times a day for the back pain."' },
+      { label: 'No OTC medications or herbal supplements', quote: '"He doesn\'t take any over-the-counter painkillers or any herbal things — I always check."' },
+      { label: 'No known drug allergies', quote: '"No allergies that we know of."' },
+    ],
+    familyHistory: [
+      { label: 'No relevant family history', quote: '"No, nothing like this in the family. His father had heart trouble but there\'s nothing neurological."' },
+    ],
+    socialHistory: [
+      { label: 'Retired teacher — retired 6 months ago', quote: '"He retired six months ago — that\'s partly when the depression started, I think. He found the transition quite hard."' },
+      { label: 'Non-smoker', quote: '"He\'s never smoked."' },
+      { label: 'Alcohol — occasional, 2–3 units per week', quote: '"He barely drinks — maybe a glass of wine at the weekend."' },
+      { label: 'Lives with wife Dorothy at home', quote: '"We live together at home — we\'ve been married 35 years. He\'s my whole world."' },
+    ],
+    importantNegatives: [
+      'No recent medication changes other than tramadol ("The only thing that changed was the tramadol four days ago. Nothing else.")',
+      'No illicit drug use or recreational substances ("Absolutely not — that\'s not Robert at all.")',
+      'No head injury or fall prior to onset ("No, he hasn\'t fallen or banged his head.")',
+      'No fever or infection symptoms before the tramadol ("He wasn\'t unwell before the tramadol — just the back pain.")',
+      'No seizure activity witnessed ("He hasn\'t had a proper seizure — the jerks are more like sudden jolts, not a full fit.")',
+      'No neck stiffness or photophobia ("He hasn\'t complained of neck stiffness or being bothered by the light.")',
+      'No focal limb weakness ("His arms and legs seem to move normally, just the shaking.")',
+    ],
+    ice: {
+      ideas: '"I looked it up online and I wondered if the two tablets were interacting somehow — is that possible?"',
+      concerns: '"I\'m terrified something permanent is happening to his brain. He\'s not Robert at all."',
+      expectations: '"I just want you to find out what\'s causing this and make him better — tell me what to do."',
+    },
+    onlyIfDirectlyAsked: [
+      'Robert tried to leave the house last night — Dorothy stopped him ("He tried to go out in the middle of the night in his pyjamas. I had to physically guide him back to bed.")',
+      'Robert has been incontinent of urine once ("He was incontinent last night — that\'s never happened before. I didn\'t mention it because I thought it was embarrassing for him.")',
+    ],
+    behaviourNotes: [
+      'Dorothy is visibly distressed and frightened — she should appear close to tears at moments but composed enough to give a clear history.',
+      'She is attentive and precise — she has been closely observing Robert and can describe the timeline clearly.',
+      'Robert (if the student addresses him directly) should appear confused and distractable — give short, confused responses and trail off mid-sentence. He is not aggressive but is clearly not himself.',
+      'If the student asks specifically about the combination of sertraline and tramadol, Dorothy should say she didn\'t know they could interact.',
+      'If the student is empathic and explains what they think is happening, Dorothy should visibly relax slightly and say: "So it\'s the tablets doing this? Can you stop them?"',
+      "If the student ignores Dorothy or fails to introduce themselves to Robert as well, Dorothy should prompt: \"Are you going to speak to him too?\"",
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Washes hands and introduces themselves to both Robert and Dorothy by name and role', marks: 1 },
+        { description: "Confirms patient's name, date of birth, and Dorothy's relationship to Robert", marks: 1 },
+        { description: 'Explains purpose of the assessment and gains consent to take history from Dorothy', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History of presenting complaint — symptom timeline',
+      items: [
+        { description: 'Establishes that confusion and agitation began approximately 2 days after tramadol was started', marks: 2 },
+        { description: 'Identifies and quantifies the diaphoresis (profuse sweating, requiring pyjama changes)', marks: 1 },
+        { description: 'Identifies the coarse bilateral tremor affecting hands and legs', marks: 1 },
+        { description: 'Identifies the myoclonic jerks described by Dorothy', marks: 1 },
+        { description: 'Asks about gastrointestinal symptoms and identifies diarrhoea', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Medication history — identification of serotonergic combination',
+      items: [
+        { description: 'Takes a full medication history and identifies sertraline (SSRI) and tramadol as current medications', marks: 2 },
+        { description: 'Establishes the dose and duration of sertraline (50 mg, 6 months) and tramadol (50 mg QDS, 4 days)', marks: 1 },
+        { description: 'Asks specifically about OTC medications, herbal remedies, and recreational drugs', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Focused neurological examination',
+      items: [
+        { description: 'Assesses tone in lower limbs and identifies bilateral increased (spastic) tone', marks: 1 },
+        { description: 'Tests lower limb reflexes and identifies hyperreflexia bilaterally (3+)', marks: 1 },
+        { description: 'Tests for clonus at ankles and identifies bilateral sustained clonus', marks: 2 },
+        { description: 'Assesses power in lower limbs (confirms no focal deficit)', marks: 1 },
+        { description: 'Observes and documents temperature as part of examination findings', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Past medical, family, and social history',
+      items: [
+        { description: 'Establishes past medical history including the depression diagnosis and its timeline', marks: 1 },
+        { description: 'Takes social history including living situation, alcohol, and smoking', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing the consultation',
+      items: [
+        { description: 'Summarises the history back to Dorothy and checks for any missed information', marks: 1 },
+        { description: 'Thanks Dorothy and acknowledges her distress with an empathic statement', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — does not interrupt Dorothy; uses appropriate non-verbal cues', marks: 1 },
+        { description: 'Summarising — recaps key points at a natural break in the consultation', marks: 1 },
+        { description: 'Signposting — prepares Dorothy before moving from history to examination', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Robert Yates is a 62-year-old retired teacher presenting with a 2-day history of confusion, agitation, profuse sweating, bilateral coarse tremor, myoclonic jerks, and diarrhoea.',
+    'He is on sertraline 50 mg daily (6 months) and tramadol 50 mg QDS was added 4 days ago — symptoms began 2 days after tramadol was started.',
+    'On examination: temperature 38.8°C, HR 118; bilateral coarse tremor, bilateral lower limb hyperreflexia (3+), and bilateral ankle clonus (3 beats); no focal power deficit.',
+    'The combination of sertraline (SSRI) and tramadol (weak serotonin reuptake inhibitor + opioid) has precipitated serotonin syndrome.',
+    'He meets Hunter criteria: inducible clonus plus agitation, and tremor plus hyperreflexia.',
+    'Management: immediate cessation of both sertraline and tramadol, supportive care, and consideration of cyproheptadine (serotonin antagonist). Senior and toxicology review required.',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the Hunter criteria for serotonin syndrome, and how do they differ from the Sternbach criteria?',
+      keyPoints: [
+        'Hunter criteria require one of: spontaneous clonus; inducible clonus + agitation or diaphoresis; ocular clonus + agitation or diaphoresis; tremor + hyperreflexia; hypertonia + temperature >38°C + ocular clonus or inducible clonus',
+        'Hunter criteria have higher sensitivity (84%) and specificity (97%) than Sternbach criteria for serotonin toxicity',
+        'Sternbach criteria require 3+ of: agitation, myoclonus, hyperreflexia, diaphoresis, tremor, diarrhoea, incoordination, fever, after excluding other causes',
+        'Hunter criteria are preferred clinically — clonus is the most discriminating sign and is not included in Sternbach',
+        'Sternbach criteria are older (1991) and less specific — they generate more false positives in practice',
+        'Both require recent addition of a serotonergic agent and exclusion of other causes (NMS, meningitis, anticholinergic toxicity)',
+      ],
+      source: 'Boyer EW & Shannon M, NEJM 2005; Dunkley et al., QJM 2003 (Hunter criteria validation)',
+    },
+    {
+      question: 'Name the drug classes and specific agents that can cause serotonin syndrome.',
+      keyPoints: [
+        'SSRIs (sertraline, fluoxetine, citalopram) and SNRIs (venlafaxine, duloxetine) — increase serotonin availability via reuptake inhibition',
+        'Tramadol — weak serotonin reuptake inhibitor plus opioid agonist; one of the most common precipitants when combined with SSRIs',
+        'MAOIs (phenelzine, moclobemide, linezolid — an antibiotic with MAOI properties) — prevent serotonin breakdown; highest risk of severe syndrome',
+        'Triptans (sumatriptan), lithium, and St John\'s Wort can contribute to serotonergic excess, particularly in combination',
+        'Opioids with serotonergic properties: pethidine (meperidine), fentanyl, and methadone in addition to tramadol',
+        'Combination risk is greatest with MAOI + SSRI or MAOI + tramadol — can be fatal',
+      ],
+      source: 'Boyer EW & Shannon M, NEJM 2005; TOXBASE (UK National Poisons Information Service)',
+    },
+    {
+      question: 'How would you manage a confirmed case of serotonin syndrome in the acute setting?',
+      keyPoints: [
+        'Stop all serotonergic agents immediately — this is the single most important intervention',
+        'Supportive care: IV fluids, continuous cardiac monitoring, oxygen, temperature management for hyperthermia',
+        'Benzodiazepines (IV diazepam or lorazepam) for agitation, myoclonus, and seizure control — first-line sedation',
+        'Cyproheptadine (5-HT2A antagonist) 12 mg loading dose then 2 mg every 2 hours orally — evidence from case series; not available IV in UK',
+        'For hyperthermia >41°C: external cooling, consider intubation and paralysis (non-depolarising agent — avoid suxamethonium due to hyperkalaemia risk with rhabdomyolysis)',
+        'Refer to TOXBASE / National Poisons Information Service and escalate to ICU if severe; most mild-moderate cases resolve within 24–72 hours of stopping causative agents',
+      ],
+      source: 'TOXBASE (UK National Poisons Information Service); Boyer EW & Shannon M, NEJM 2005',
+    },
+  ],
+};
+
+const lowerLimbNeuroMockExam: MockExamStation = {
+  id: 'neuro_lower_limb_exam',
+  title: 'Lower Limb Neurological Examination',
+  diagnosis: "Left-sided upper motor neurone lesion — previous right MCA territory ischaemic stroke",
+  specialtyId: 'neurology',
+  candidateBrief: {
+    setting: 'You are an FY2 in neurology outpatients.',
+    scenario: 'Michael Brennan, a 68-year-old retired builder, has been referred for a follow-up appointment 8 months after a stroke.',
+    tasks: ['Perform a lower limb neurological examination and present your findings to the examiner.'],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Michael Brennan',
+    age: 68,
+    occupation: 'Retired builder',
+    openingLine: '"Hello — I\'ve been coming here since my stroke. The left side has never quite been right since."',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Inspection — no wasting; left foot equinus posture and slight circumduction on walking',
+        quote:
+          '[Michael stands and walks when asked: left foot shows slight equinus (foot drop posture); he circumducts his left leg slightly when walking. No muscle wasting visible bilaterally.]',
+      },
+      {
+        label: 'Tone LEFT lower limb — increased spastic tone, clasp-knife quality',
+        quote:
+          '[When the examiner passively flexes and extends the left knee and ankle, increased resistance is felt with a clasp-knife quality (resistance that gives way on sustained stretch). The examiner confirms: "You notice increased tone on the left — spastic in character."]',
+      },
+      {
+        label: 'Tone RIGHT lower limb — normal',
+        quote: '[Right lower limb tone is normal on passive movement. The examiner confirms: "Right sided tone is normal."]',
+      },
+      {
+        label: 'Power LEFT: hip flexion 4/5, knee extension 4/5, ankle dorsiflexion 3/5, plantarflexion 4/5',
+        quote:
+          '[Michael resists testing but has reduced power on the left. Ankle dorsiflexion is most affected at 3/5. The examiner provides findings: hip flexion 4/5, knee extension 4/5, ankle dorsiflexion 3/5, plantarflexion 4/5.]',
+      },
+      {
+        label: 'Power RIGHT: 5/5 all groups',
+        quote: '[Full power 5/5 in all right lower limb muscle groups. The examiner confirms: "Right-sided power is normal throughout."]',
+      },
+      {
+        label: 'Reflexes LEFT: knee jerk 3+, ankle jerk 3+ (brisk and exaggerated)',
+        quote: '[Left knee jerk and ankle jerk are both brisk and exaggerated — grade 3+. The examiner confirms this when reflexes are tested on the left.]',
+      },
+      {
+        label: 'Reflexes RIGHT: knee jerk 2+, ankle jerk 2+ (normal)',
+        quote: '[Right knee jerk and ankle jerk are both normal — grade 2+. The examiner confirms this.]',
+      },
+      {
+        label: 'Plantar response LEFT: upgoing (extensor plantar — positive Babinski sign)',
+        quote: '[Stroking the lateral sole of the left foot produces extension (upgoing) of the big toe. The examiner confirms: "Left plantar is extensor."]',
+      },
+      {
+        label: 'Plantar response RIGHT: downgoing (normal)',
+        quote: '[Right plantar response is flexor (downgoing) — normal. The examiner confirms: "Right plantar is flexor — normal."]',
+      },
+      {
+        label: 'Clonus LEFT: ankle clonus 4 beats',
+        quote: '[Rapid dorsiflexion of the left ankle elicits 4 beats of sustained clonus before settling. The examiner confirms this finding.]',
+      },
+      {
+        label: 'Clonus RIGHT: nil',
+        quote: '[No clonus on the right. The examiner confirms: "No clonus on the right."]',
+      },
+      {
+        label: 'Sensation — mildly reduced pinprick left leg (subtle, only if tested with neurotip)',
+        quote:
+          '[If pinprick sensation is tested: mildly reduced on the left leg compared to right, but not absent. Michael says: "That feels a bit duller on the left — less sharp." The examiner confirms mild hemisensory loss on the left.]',
+      },
+      {
+        label: 'Coordination — heel-shin test normal bilaterally (cerebellar function intact)',
+        quote:
+          '[Heel-shin test is performed smoothly and accurately on both sides. Michael says: "Is that the one where I slide my heel down my shin?" He performs it correctly bilaterally. Examiner confirms: "Coordination is intact bilaterally."]',
+      },
+      {
+        label: 'Gait — circumduction of left leg; hemiplegic pattern; uses a single walking stick',
+        quote:
+          '[Michael stands and walks when asked. He uses a single walking stick in his right hand. He circumducts his left leg in a hemiplegic gait pattern. He says: "I\'ve had this stick since the stroke — I manage, but the left leg just doesn\'t do what I tell it."]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Right MCA territory ischaemic stroke — 8 months ago', quote: '"I had the stroke eight months ago — right side of the brain they said, which is why my left side is affected."' },
+      { label: 'Hypertension', quote: '"I\'ve had high blood pressure for years — that\'s what they said caused the stroke."' },
+      { label: 'Hypercholesterolaemia', quote: '"My cholesterol was high — that\'s why they put me on the statin."' },
+    ],
+    drugHistory: [
+      { label: 'Aspirin 75 mg once daily', quote: '"I take a small aspirin every day since the stroke."' },
+      { label: 'Atorvastatin 40 mg once daily', quote: '"I\'m on a statin for the cholesterol."' },
+      { label: 'Amlodipine 5 mg once daily — for hypertension', quote: '"I\'m on a blood pressure tablet — amlodipine."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — hypertension and ischaemic heart disease', quote: '"My dad had heart trouble and high blood pressure — he had a heart attack in his 60s."' },
+    ],
+    socialHistory: [
+      { label: 'Retired builder', quote: '"I\'m retired now — I was a builder for 40 years. Can\'t do much with the leg how it is."' },
+      { label: 'Ex-smoker — stopped at time of stroke, 30 pack-year history', quote: '"I stopped smoking when I had the stroke — smoked for 30 years, about 20 a day."' },
+      { label: 'Alcohol — 8 units per week (within recommended limits)', quote: '"I have a couple of pints at the weekend — nothing heavy."' },
+      { label: 'Lives with wife; independently mobile with a walking stick', quote: '"I live with my wife. I manage at home — the stick helps a lot."' },
+    ],
+    importantNegatives: [
+      'No new weakness or deterioration since the stroke ("The left side has been the same for the last four or five months — it\'s not getting worse.")',
+      'No diplopia, dysarthria, or dysphagia ("No double vision or trouble swallowing.")',
+      'No bladder or bowel dysfunction ("No problems with that.")',
+      'No cognitive impairment or memory problems ("My mind is fine — it was just the physical side.")',
+      'No falls since stroke ("I haven\'t fallen — I\'m careful with the stick.")',
+    ],
+    ice: {
+      ideas: '"I know it\'s the stroke — they told me the damage is done, but I wonder if it could still improve."',
+      concerns: '"I\'m worried I might have another stroke — should I be on more tablets?"',
+      expectations: '"I\'d like to know if there\'s any more physio that could help the leg."',
+    },
+    onlyIfDirectlyAsked: [
+      'Michael had a mild expressive dysphasia immediately post-stroke but it fully resolved ("I had trouble finding words after the stroke for a few weeks but that\'s completely gone now.")',
+      'He has been attending physiotherapy weekly but feels progress has plateaued ("The physio has been helpful but it seems to have levelled off over the last couple of months.")',
+    ],
+    behaviourNotes: [
+      'Michael is friendly, cooperative, and used to being examined — he has attended neurology follow-up several times.',
+      'He complies willingly with all examination requests but moves slowly; the examiner should allow adequate time.',
+      'He may prompt if the student forgets a component: "Do you want me to walk for you?" — only if the student has not asked by the time they reach the end of their examination.',
+      'The examiner (not Michael) provides neurological findings when specific tests are performed — Michael does not describe his own findings beyond what is scripted above.',
+      'If the student fails to compare left and right sides, Michael may ask: "Aren\'t you going to check the other side?"',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the examination',
+      items: [
+        { description: 'Washes hands and introduces themselves to the patient by name and role', marks: 1 },
+        { description: "Confirms patient's name and date of birth; explains what the examination involves and gains consent", marks: 1 },
+        { description: 'Positions the patient appropriately — lying flat on the couch with legs exposed', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Inspection',
+      items: [
+        { description: 'Inspects both lower limbs for wasting, asymmetry, fasciculations, and abnormal posture', marks: 1 },
+        { description: 'Observes the patient\'s gait and identifies the hemiplegic (circumduction) pattern on the left', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Tone',
+      items: [
+        { description: 'Assesses tone in both lower limbs using passive movement at knee and ankle', marks: 1 },
+        { description: 'Identifies increased (spastic/clasp-knife) tone on the left and normal tone on the right', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Power',
+      items: [
+        { description: 'Tests power systematically in hip flexion, knee extension, ankle dorsiflexion, and plantarflexion bilaterally', marks: 1 },
+        { description: 'Identifies weakness in left lower limb (dorsiflexion most affected at 3/5) and full power on the right', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Reflexes and plantar responses',
+      items: [
+        { description: 'Elicits knee and ankle jerks bilaterally and identifies hyperreflexia on the left (3+) vs normal on the right (2+)', marks: 2 },
+        { description: 'Tests plantar responses using Babinski technique and identifies upgoing left plantar and normal right plantar', marks: 2 },
+        { description: 'Tests for ankle clonus bilaterally and identifies sustained clonus on the left', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Sensation and coordination',
+      items: [
+        { description: 'Tests sensation (pinprick or light touch) in lower limbs and identifies mild hemisensory reduction on the left', marks: 1 },
+        { description: 'Tests coordination with heel-shin test bilaterally and confirms cerebellar function is intact', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presentation of findings',
+      items: [
+        { description: 'Presents findings in a structured format: inspection → tone → power → reflexes → plantars → sensation → gait', marks: 2 },
+        { description: 'Correctly identifies a left-sided UMN lesion and attributes it to a previous right-sided stroke', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — responds appropriately to patient cues and comments throughout', marks: 1 },
+        { description: 'Summarising — recaps findings to the examiner clearly and concisely', marks: 1 },
+        { description: 'Signposting — warns the patient before each component of the examination', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Michael Brennan is a 68-year-old retired builder attending neurology follow-up 8 months after a right MCA territory ischaemic stroke.',
+    'On inspection, he has no lower limb wasting but has a left equinus foot posture and a hemiplegic (circumduction) gait, requiring a single walking stick.',
+    'Tone is increased on the left with a clasp-knife quality consistent with spasticity; tone is normal on the right.',
+    'Power is reduced in the left lower limb — hip flexion and knee extension 4/5, ankle dorsiflexion 3/5 (most affected), and plantarflexion 4/5; power is 5/5 throughout the right.',
+    'Reflexes are hyperreflexic on the left (knee and ankle jerks 3+) with an upgoing plantar response and 4 beats of ankle clonus; right-sided reflexes are normal (2+) with a downgoing plantar.',
+    'Sensation is mildly reduced to pinprick on the left leg; heel-shin coordination is intact bilaterally.',
+    'These findings are consistent with a left-sided upper motor neurone lesion, attributable to the known right MCA territory ischaemic stroke.',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the differences between upper and lower motor neurone lesion signs on examination?',
+      keyPoints: [
+        'UMN: increased tone (spastic/clasp-knife), hyperreflexia, upgoing plantar (Babinski positive), clonus, minimal wasting',
+        'LMN: decreased tone (flaccid), hyporeflexia or areflexia, downgoing or absent plantar, no clonus, significant wasting and fasciculations',
+        'UMN lesions: caused by cortex, internal capsule, brainstem, or spinal cord pathology above the anterior horn cell',
+        'LMN lesions: caused by anterior horn cell, nerve root, peripheral nerve, or neuromuscular junction pathology',
+        'In acute UMN lesions (e.g. immediately post-stroke) tone may initially be flaccid (spinal shock) — spasticity develops over days to weeks',
+        'Pattern of weakness differs: UMN causes pyramidal distribution weakness (extensors in upper limb, flexors in lower limb most affected)',
+      ],
+      source: 'Geekymedics.com Lower Limb Neurological Examination; OHCM 10th ed., Ch. 6',
+    },
+    {
+      question: 'Describe the MRC grading scale for muscle power.',
+      keyPoints: [
+        'Grade 0: no muscle contraction visible or palpable',
+        'Grade 1: flicker of contraction but no movement at the joint',
+        'Grade 2: movement possible with gravity eliminated (tested in horizontal plane)',
+        'Grade 3: movement against gravity but not against any added resistance',
+        'Grade 4: movement against gravity and some resistance — subdivided into 4-, 4, and 4+ in clinical practice',
+        'Grade 5: normal power — full movement against full resistance',
+      ],
+      source: 'MRC Aids to the Examination of the Peripheral Nervous System, 5th ed. (2010)',
+    },
+    {
+      question: 'What are the clinical features of right, left, and posterior cerebral artery territory strokes?',
+      keyPoints: [
+        'Right MCA territory: left hemiplegia/hemiparesis, left hemisensory loss, left homonymous hemianopia, hemispatial neglect (left-sided), dysarthria',
+        'Left MCA territory: right hemiplegia/hemiparesis, right hemisensory loss, right homonymous hemianopia, aphasia (Broca\'s or Wernicke\'s depending on area affected)',
+        'Anterior cerebral artery: contralateral leg weakness > arm weakness (leg area at the medial cortex), urinary incontinence, frontal lobe behavioural change',
+        'Posterior cerebral artery: contralateral homonymous hemianopia (often with macular sparing), memory impairment (hippocampal involvement), visual agnosia',
+        'Brainstem (basilar artery): cranial nerve palsies ipsilateral + contralateral limb weakness (crossed deficits), locked-in syndrome in severe occlusion',
+        'Cerebellar (PICA/AICA): ipsilateral cerebellar signs (ataxia, dysmetria, nystagmus), Wallenberg syndrome with PICA occlusion (ipsilateral facial sensory loss, Horner\'s, contralateral limb sensory loss)',
+      ],
+      source: 'OHCM 10th ed., Ch. 6; Geekymedics.com Stroke Overview',
+    },
+  ],
+};
+
 export const NEURO_MOCK_EXAMS: MockExamStation[] = [
   seizureMockExam,
   headacheMockExam,
   speechLanguageMockExam,
   dizzinessMockExam,
   parkinsonsExaminationMockExam,
+  serotoninSyndromeMockExam,
+  lowerLimbNeuroMockExam,
 ];

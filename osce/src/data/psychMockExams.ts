@@ -1167,9 +1167,472 @@ const capacityAssessmentMockExam: MockExamStation = {
   ],
 };
 
+const suicideRiskMockExam: MockExamStation = {
+  id: 'psych_suicide_risk',
+  title: 'Psychiatric Risk Assessment — Suicidal Patient',
+  diagnosis:
+    'Moderate-to-high suicide risk — recurrent depressive disorder with active suicidal ideation, specific plan, and access to means',
+  specialtyId: 'psychiatry',
+  candidateBrief: {
+    setting: 'You are an FY1 in the psychiatric liaison team in A&E.',
+    scenario:
+      "Kevin Marshall, a 44-year-old man, has been brought in by ambulance after his GP called 999 following a phone call in which Kevin said he \"couldn't go on\".",
+    tasks: ['Assess Kevin\'s mental state and suicide risk, then present your risk formulation to the examiner.'],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Kevin Marshall',
+    age: 44,
+    occupation: 'Unemployed carpenter (made redundant 4 months ago)',
+    openingLine:
+      '"I didn\'t want them to call an ambulance. I\'m fine. [long pause, looks at the floor] I just... I can\'t keep going like this. I don\'t know why I\'m here."',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Active suicidal ideation — present every day for 2 weeks, progressing from passive to active',
+        quote:
+          '"At first it was just... I\'d think, I\'d be better off dead. Everyone would be better off without me. But in the last week it\'s changed — I\'ve been thinking about actually doing it. About taking an overdose."',
+      },
+      {
+        label: 'Specific plan — overdose of zopiclone sleeping tablets',
+        quote:
+          '"I\'ve got my sleeping tablets at home — zopiclone. I\'ve been saving them up. I\'ve got about 30 of them in the medicine cupboard."',
+      },
+      {
+        label: 'Intent — has not yet acted but has made preparatory acts',
+        quote:
+          '"I haven\'t done it. But I wrote a letter. To my kids. [becomes tearful] I didn\'t... I just wanted them to know I loved them. And I gave my brother my dad\'s old watch — the one I always wanted him to have."',
+      },
+      {
+        label: 'Reason for not acting — does not want to hurt his children',
+        quote:
+          '"The only thing stopping me is Jake and Mia. They\'re 10 and 12. I keep thinking what it would do to them. But then I think maybe they\'d be better off without me dragging everything down."',
+      },
+      {
+        label: 'Depression symptoms — 2 months duration; anhedonia, early morning wakening, weight loss, hopelessness, social withdrawal',
+        quote:
+          '"I\'ve had no interest in anything for about two months. I used to love the woodwork, even just tinkering at home, but I can\'t face it. I wake up at about 3 in the morning and I just lie there with these thoughts. I\'ve lost about four kilos — food just doesn\'t appeal. And I feel hopeless. Like nothing will ever get better."',
+      },
+      {
+        label: 'Alcohol use — escalated to approximately 6 units per day since redundancy',
+        quote:
+          '"I\'ve been drinking more since I lost my job. Maybe half a bottle of whisky a day — I know I shouldn\'t. I was like that before. It just numbs things."',
+      },
+      {
+        label: 'Recent stressors — redundancy 4 months ago, relationship breakdown 3 months ago, social isolation',
+        quote:
+          '"I was made redundant in February — the company folded. Then Sarah — my partner — she left. Said she couldn\'t cope with how I\'d become. I\'m in the flat on my own. The kids are with her. I barely see them."',
+      },
+      {
+        label: 'No previous suicide attempts or self-harm',
+        quote: '"No, I\'ve never done anything like this before. Never hurt myself. This is the first time it\'s got this bad."',
+      },
+      {
+        label: "MSE — appearance dishevelled; low eye contact; speech slow and monotone; mood 'terrible, I can't go on'; affect flat and congruent; no psychotic features; partial insight",
+        quote:
+          '"[Kevin appears unshaven, wearing creased clothes. He maintains poor eye contact throughout, looking at his hands or the floor. He speaks slowly with long pauses.] My mood? Terrible. I can\'t go on like this. [When asked about hearing voices or seeing things:] No, nothing like that. [When asked if he thinks he needs help:] I don\'t know. I don\'t really want to be in hospital. But I know something\'s wrong."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No previous psychiatric admissions', quote: '"I\'ve never been in a psychiatric unit. I saw my GP for low mood about four years ago but it resolved on its own."' },
+      { label: 'No significant physical health conditions', quote: '"Nothing physically wrong with me — I\'ve always been pretty healthy."' },
+    ],
+    drugHistory: [
+      { label: 'Zopiclone 7.5 mg — prescribed for insomnia 3 months ago', quote: '"My GP gave me sleeping tablets — zopiclone. Three months ago. I\'ve been saving some up instead of taking them every night."' },
+      { label: 'No other regular medications', quote: '"Nothing else. No antidepressants — my GP suggested them but I didn\'t want to start."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — depression and heavy alcohol use (died of cirrhosis age 58)', quote: '"My dad had depression — he drank heavily too. He died when I was 20 from his liver. That\'s part of why I\'m scared of where I\'m heading with the drink."' },
+      { label: 'No family history of suicide', quote: '"He never tried to kill himself — it was the drink that got him."' },
+    ],
+    socialHistory: [
+      { label: 'Unemployed carpenter — made redundant 4 months ago after company closed', quote: '"I was a carpenter — ran my own jobs for a small building firm. The company went under in February."' },
+      { label: 'Separated from partner Sarah 3 months ago; two children aged 10 and 12 living with Sarah', quote: '"Sarah and I split up three months ago. The kids — Jake and Mia — they live with her. I see them every other weekend but even that\'s been hard recently."' },
+      { label: 'Lives alone in a flat; estranged from brother', quote: '"I\'m on my own in the flat. Me and my brother had a falling out — I haven\'t spoken to him in a couple of weeks, not since I gave him the watch."' },
+      { label: 'Non-smoker', quote: '"I don\'t smoke."' },
+      { label: 'Alcohol — approximately 6 units daily, escalated from social drinking', quote: '"About half a bottle of whisky a day at the moment. I know it\'s a lot. I was just a social drinker before — a few pints at the weekend."' },
+    ],
+    importantNegatives: [
+      'No psychotic features — no auditory or visual hallucinations ("No, I\'m not hearing voices or seeing things. I\'m not mad.")',
+      'No command hallucinations to harm self ("There\'s nothing telling me to do it — it\'s just my own thoughts.")',
+      'No history of previous suicide attempts ("I\'ve never done this before — never tried anything.")',
+      'No previous self-harm ("I\'ve never hurt myself deliberately.")',
+      'No current homicidal ideation ("I\'ve never wanted to hurt anyone else. Just myself.")',
+      'No biological symptoms of mania — no reduced sleep with elevated mood, no grandiosity ("I\'m not high — I wish I was. It\'s the opposite.")',
+      'No recent change in zopiclone dose or other new medications ("The dose has been the same — it\'s just me who\'s been saving them.")',
+    ],
+    ice: {
+      ideas: '"I think I\'m just a burden. To the kids, to Sarah, to everyone. I think it would be easier for everyone if I wasn\'t here."',
+      concerns:
+        '"I\'m scared that I\'m going to do it. Part of me doesn\'t want to. But part of me is scared that one night I\'ll just... not be able to stop myself."',
+      expectations: '"I don\'t know. Maybe I need help. I just don\'t want to be locked up."',
+    },
+    onlyIfDirectlyAsked: [
+      'Kevin has been researching methods online — not just zopiclone ("I looked some things up online. I\'m not proud of it.")',
+      'He has not told his ex-partner Sarah about his thoughts ("She doesn\'t know. She\'d be horrified. Or maybe relieved — I don\'t know anymore.")',
+      'He called his GP this morning because a small part of him wanted to be stopped ("I think I called him because I wanted someone to stop me. I don\'t know.")',
+    ],
+    behaviourNotes: [
+      'Kevin is withdrawn and guarded at the start — he resists being in A&E and makes minimal eye contact. He needs to feel safe before he opens up.',
+      'He responds well to a calm, non-judgemental approach. If the student rushes or uses clinical jargon, Kevin should shut down: "I don\'t know what you mean" or fall silent.',
+      'When asked directly about the letter to his children, Kevin becomes visibly tearful and may need a moment. The student should acknowledge this empathically before continuing.',
+      'When asked about the tablets: Kevin hesitates before admitting he has been saving them. He says it quietly, not dramatically.',
+      'Kevin will ask the student directly: "You\'re not going to lock me up, are you?" A good response acknowledges the concern, is honest about the process, and does not make promises. A poor response dismisses the question or gives false reassurance.',
+      "Kevin's ambivalence is central — he called his GP, which shows a part of him wants help. If the student reflects this back to him, Kevin should soften: \"Yeah... I suppose I did call him.\"",
+      'At the end of the station, if the student has been empathic and thorough, Kevin can say: "I\'m glad I came in. I think."',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Washes hands and introduces themselves by name and role', marks: 1 },
+        { description: "Confirms patient's name and date of birth; acknowledges the difficult circumstances and thanks Kevin for attending", marks: 1 },
+        { description: 'Explains the purpose of the assessment in accessible, non-stigmatising language and gains consent to proceed', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presenting complaint — opening and current mental state',
+      items: [
+        { description: "Uses an open question to invite Kevin to describe what has been happening in his own words", marks: 1 },
+        { description: 'Explores the duration and progression of low mood over the preceding 2 months', marks: 1 },
+        { description: 'Assesses core depressive symptoms: anhedonia, early morning wakening, weight change, hopelessness, and concentration', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Suicidal ideation — systematic and sensitive exploration',
+      items: [
+        { description: 'Asks directly and sensitively about thoughts of suicide or not wanting to be alive', marks: 2 },
+        { description: 'Distinguishes between passive suicidal ideation and active intent to act', marks: 1 },
+        { description: 'Establishes the frequency and duration of suicidal thoughts (daily, 2 weeks)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Plan, means, and intent',
+      items: [
+        { description: "Asks specifically whether Kevin has a plan for how he would end his life", marks: 2 },
+        { description: 'Establishes access to means — identifies the zopiclone tablets at home and quantifies them (approximately 30)', marks: 2 },
+        { description: "Asks about preparatory acts and identifies the letter to his children and giving away his father's watch", marks: 2 },
+        { description: 'Explores protective factors including his children as the primary anchor and his ambivalence (calling the GP)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Past psychiatric history and previous attempts',
+      items: [
+        { description: 'Asks about previous suicide attempts and self-harm and establishes there are none', marks: 1 },
+        { description: 'Asks about previous contact with mental health services', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Drug and alcohol history',
+      items: [
+        { description: 'Takes a full medication history including zopiclone and establishes the patient has been saving tablets', marks: 1 },
+        { description: 'Quantifies alcohol use and identifies the escalation since redundancy', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Social history and stressors',
+      items: [
+        { description: 'Explores recent life stressors and identifies redundancy, relationship breakdown, and social isolation', marks: 1 },
+        { description: 'Establishes living situation (alone) and support network (limited)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Risk formulation — presentation to examiner',
+      items: [
+        { description: 'Presents a structured risk formulation identifying static and dynamic risk factors clearly', marks: 2 },
+        { description: 'Identifies protective factors and articulates the risk level (moderate-to-high) with justification', marks: 2 },
+        { description: 'Proposes an immediate safety plan including removal of means (zopiclone) and discusses admission or crisis team input', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — tolerates silences; does not rush Kevin; reflects emotional content back to him', marks: 1 },
+        { description: 'Summarising — summarises the key points of the risk assessment clearly at the end', marks: 1 },
+        { description: 'Signposting — prepares Kevin before moving to sensitive topics', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Kevin Marshall is a 44-year-old unemployed carpenter attending A&E following a call to his GP in which he expressed he could not go on.',
+    'He describes a 2-month history of a depressive episode with anhedonia, early morning wakening at 3am, 4 kg weight loss, profound hopelessness, and social withdrawal.',
+    'He has active suicidal ideation — daily for 2 weeks — progressing from passive to active, with a specific plan to overdose on zopiclone 7.5 mg, approximately 30 tablets at home.',
+    'He has made preparatory acts: a written letter to his children and giving away a significant possession, indicating intent beyond ideation.',
+    'Risk factors include: male sex, age 44, specific plan with access to means, preparatory acts, alcohol escalation to approximately 6 units daily, unemployment, relationship breakdown, social isolation, paternal depression, and hopelessness.',
+    'Protective factors include: two young children (aged 10 and 12) as his primary anchor, his ambivalence and help-seeking (calling his GP), no previous attempts, and partial insight into his illness.',
+    'My assessment is that Kevin presents a moderate-to-high risk. I would recommend urgent psychiatric review, immediate safety planning including removal of the zopiclone from his home, and likely admission or intensive community crisis team support.',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What structured risk assessment tools can be used to assess suicide risk, and what are their limitations?',
+      keyPoints: [
+        'SAD PERSONS scale: Sex (male), Age (<19 or >45), Depression, Previous attempt, Ethanol use, Rational thinking loss, Social support lacking, Organised plan, No spouse, Sickness — score 0–10; simple but poor predictive validity for individual patients',
+        'Columbia Suicide Severity Rating Scale (C-SSRS): widely validated; distinguishes ideation intensity (passive, active without plan, with plan, with intent) from behaviour (attempt, preparatory acts, self-harm)',
+        'Manchester Self-Harm Rule: validated for repeat self-harm risk — identifies known psychiatric care, benzodiazepine use, previous self-harm, and current psychiatric treatment as predictors',
+        'NICE NG225 (2022) cautions against using structured tools alone to stratify risk — clinical judgement and therapeutic relationship are essential',
+        'No tool reliably predicts completed suicide at an individual level — all tools have high false-positive and false-negative rates',
+        'Tools are best used as frameworks to structure a comprehensive clinical assessment rather than as algorithmic decision aids',
+      ],
+      source: 'NICE NG225 Self-harm: assessment, management and preventing recurrence (2022); Columbia C-SSRS (Posner et al., Am J Psychiatry 2011)',
+    },
+    {
+      question: 'What are the key risk factors and protective factors for suicide?',
+      keyPoints: [
+        'Static risk factors: male sex, age (bimodal: 15–24 and >65), previous attempt (strongest single predictor), family history of suicide, chronic physical illness, psychiatric diagnosis (depression, schizophrenia, substance misuse, borderline personality disorder)',
+        'Dynamic (modifiable) risk factors: active suicidal ideation with plan and means, hopelessness (stronger predictor than depression severity alone), alcohol and substance intoxication, recent significant loss, social isolation, unemployment',
+        'High-lethality indicators: specific plan, access to lethal means, preparatory acts (letters, giving away possessions, arranging affairs), stating intent, inability to engage with safety planning',
+        'Protective factors: strong social supports, responsibility for children or dependants, religious/cultural beliefs, engagement with healthcare, positive therapeutic relationship, reasons for living, ambivalence about dying',
+        'The combination of hopelessness + specific plan + access to means represents the highest acute risk triad',
+        'Alcohol significantly elevates acute risk by disinhibiting protective factors and impairing judgement — the risk is dynamic and fluctuates with intoxication level',
+      ],
+      source: 'NICE NG225 (2022); NICE CG90 Depression (updated 2022); Hawton et al., Lancet 2013',
+    },
+    {
+      question: 'What are the key components of a safety plan for a patient with active suicidal ideation?',
+      keyPoints: [
+        'Warning signs: help patient identify personal triggers, thoughts, and feelings that precede a suicidal crisis',
+        'Internal coping strategies: activities the patient can do alone to manage distress (distraction, breathing exercises, going for a walk)',
+        'Social contacts for distraction: people and social settings that provide distraction — not for disclosure, just connection',
+        'People to contact for support: trusted individuals (friend, family member) who know the situation and can help in a crisis',
+        'Professional crisis contacts: crisis team number, Samaritans (116 123), A&E — with explicit instruction to use them',
+        'Means restriction: removal or restriction of access to lethal means is one of the most evidence-based interventions — in this case, removing the zopiclone tablets from home (with family assistance or by prescribing smaller quantities)',
+      ],
+      source: 'NICE NG225 (2022); Stanley & Brown, Cognitive and Behavioral Practice 2012 (Safety Planning Intervention)',
+    },
+    {
+      question: 'What are the criteria for compulsory admission under the Mental Health Act 1983 in England, and which section would you consider for this patient?',
+      keyPoints: [
+        'Section 2 MHA 1983: admission for assessment for up to 28 days; requires mental disorder warranting detention, necessary for the patient\'s health or safety or for protection of others, and cannot be arranged informally — requires two doctors (one approved under s12) and an Approved Mental Health Professional (AMHP)',
+        'Section 3 MHA 1983: admission for treatment for up to 6 months; requires known mental disorder with appropriate treatment available; used when diagnosis is established',
+        'Section 136 MHA 1983: police power to remove a person from a public place to a place of safety for assessment (up to 24 hours)',
+        'For Kevin: if he refuses voluntary admission and is assessed to pose a serious risk to his life, Section 2 would be the most appropriate — his diagnosis is not yet formally established and he requires assessment',
+        'Before compulsory admission, least restrictive alternatives must be considered: voluntary admission, crisis team (CRHT) support at home, crisis house, or day hospital',
+        'Mental Capacity Act 2005 is distinct from MHA: if a patient with capacity refuses admission, MHA provides the legal framework to detain — capacity alone does not prevent MHA use if criteria are met',
+      ],
+      source: 'Mental Health Act 1983 (as amended 2007); NICE NG225 (2022); Mental Capacity Act 2005',
+    },
+  ],
+};
+
+const maniaPregnancyMockExam: MockExamStation = {
+  id: 'psych_mania_pregnancy',
+  title: 'Psychiatric History — Manic Episode in Pregnancy',
+  diagnosis: 'Manic episode — bipolar I disorder, 18 weeks pregnant, stopped lamotrigine',
+  specialtyId: 'psychiatry',
+  candidateBrief: {
+    setting: 'You are an FY1 in the psychiatric liaison service.',
+    scenario:
+      'Amy Thornton, 29, is 18 weeks pregnant and has been referred by her community midwife following concerns raised by her partner James about significant behavioural changes over the past 2 weeks. Amy has a background of bipolar I disorder. You have been asked to take a psychiatric history.',
+    tasks: [
+      'Take a focused psychiatric history from Amy',
+      'Assess her mental state and identify the key risks',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Amy Thornton',
+    age: 29,
+    occupation: 'Graphic designer',
+    openingLine:
+      '"I feel amazing, actually — better than I have in years. I don\'t really understand why James called the midwife. I\'ve been so productive." [smiling broadly, slightly breathless, speaking quickly]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Mood — elated and euphoric; subjectively "the best I\'ve felt in years"; incongruent elevated affect',
+        quote: '"Everything is brilliant right now. I feel like I\'ve finally cracked it." – "I know I\'m a bit full-on but honestly this is a good thing."',
+      },
+      {
+        label: 'Sleep — 3 days without sleeping; does not feel tired',
+        quote: '"I haven\'t really slept in about 3 days. But I don\'t feel tired at all — I don\'t need it right now." – "James keeps telling me to go to bed but I just can\'t switch off."',
+      },
+      {
+        label: 'Racing thoughts and pressured speech — thoughts jumping quickly; difficult to interrupt during history',
+        quote: '[Actor: speech is rapid, jumps between topics, difficult to interrupt] "I have so many ideas — they\'re coming faster than I can write them down. I\'ve got this app, and then I was thinking about the colour palette, and it links to this design philosophy I read about last year..." [continues unprompted]',
+      },
+      {
+        label: 'Grandiosity — believes she is developing a revolutionary baby app that will "make millions"; unrealistic business plans',
+        quote: '"I\'ve been designing this baby app — it\'s genuinely going to change parenting. Nobody has thought of this before. I\'ve been sending emails to investors at 3 in the morning." – "It\'s going to be worth millions."',
+      },
+      {
+        label: 'Reckless spending — spent £3,000 in 2 weeks on baby equipment and business supplies',
+        quote: '"I\'ve been ordering things for the nursery — and for the business. I may have spent a bit. About £3,000." [dismissively] "It\'s an investment."',
+      },
+      {
+        label: 'Distractibility — unable to focus on one task; started multiple projects simultaneously',
+        quote: '"I keep starting things and then moving on to the next idea. I have about 15 tabs open." – "James says I\'m chaotic but I prefer \'inspired\'."',
+      },
+      {
+        label: 'Hypersexuality — increased sexual interest commented on by partner (student should ask sensitively)',
+        quote: '[Only if directly asked about sexual behaviour changes]: "I\'ve been very... affectionate lately. James can\'t keep up." [laughs] "Is that a problem?"',
+      },
+      {
+        label: 'Insight — limited; does not believe she is unwell; attributes all changes to pregnancy energy and creativity',
+        quote: '"I don\'t think I\'m ill. I think I\'m just finally myself." – "The bipolar diagnosis was years ago. I\'ve been stable — I know what an episode feels like and this isn\'t it."',
+      },
+      {
+        label: 'Lamotrigine stopped at 6 weeks — self-discontinued after reading about teratogenicity (cleft palate)',
+        quote: '"I stopped my medication when I found out I was pregnant. I read that lamotrigine can cause cleft palate. I didn\'t want to harm the baby." – "I stopped it at about 6 weeks. I didn\'t tell my psychiatrist — I knew she\'d try to talk me out of it."',
+      },
+      {
+        label: 'Last seen by psychiatrist — 3 months ago; was in remission at that appointment',
+        quote: '"I saw Dr Patel 3 months ago. Everything was fine then." – "I was completely stable — she didn\'t change anything."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Bipolar I disorder — diagnosed 4 years ago; 2 previous manic episodes requiring inpatient admission', quote: '"I was diagnosed about 4 years ago. I\'ve had two manic episodes before that needed hospital." – "But this is different. I\'m pregnant. I\'m not the same person I was."' },
+      { label: '1 previous depressive episode — did not require inpatient admission', quote: '"I had a bad depression too — maybe 2 years ago. I didn\'t need to go in for that."' },
+      { label: 'No psychotic features currently', quote: '"I\'m not hearing things or seeing things." [if asked directly about hallucinations]' },
+      { label: '18 weeks pregnant — planned pregnancy with partner James; no obstetric complications so far', quote: '"It was planned. James and I have been together 4 years. The pregnancy has been fine." – "I had the 12-week scan — everything was normal."' },
+    ],
+    drugHistory: [
+      { label: 'Lamotrigine 200 mg once daily — stopped at 6 weeks gestation without medical advice', quote: '"I was on lamotrigine — 200 mg. But I stopped it at 6 weeks. I know I should have talked to Dr Patel but I was scared."' },
+      { label: 'Pregnancy multivitamins and folic acid', quote: '"Just vitamins. And folic acid."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Mother — bipolar II disorder', quote: '"My mum has bipolar — she\'s bipolar II." [if directly asked]' },
+      { label: 'No family history of schizophrenia', quote: '"Nobody else that I know of."' },
+    ],
+    socialHistory: [
+      { label: 'Lives with partner James; supportive relationship; James is concerned about Amy', quote: '"We live together. James is brilliant but he\'s really worried. He\'s not wrong that things have been... intense."' },
+      { label: 'Non-smoker; no alcohol (pregnancy); no illicit drug use', quote: '"No smoking. Not drinking — because of the pregnancy. No drugs."' },
+      { label: 'Self-employed graphic designer; currently not taking on client work (distracted by app project)', quote: '"I\'m self-employed. I haven\'t taken on much client work recently because of the app." [if asked about work]' },
+    ],
+    importantNegatives: [
+      'No auditory or visual hallucinations ("I\'m not hearing or seeing things that aren\'t there.")',
+      'No formal thought disorder (racing thoughts and tangential thinking present but goal-directed when pressed)',
+      'No suicidal ideation ("No — absolutely not. I feel the opposite of that.")',
+      'No homicidal ideation ("Nothing like that.")',
+      'No persecutory delusions ("I don\'t feel like anyone is out to get me.")',
+      'No illicit substance use ("I\'m pregnant — I wouldn\'t.")',
+    ],
+    ice: {
+      ideas: '"I think I\'m finally living my best life. I don\'t think anything is wrong — I think James is overreacting."',
+      concerns: '"I\'m a bit worried about money if James takes over the finances. And I don\'t want to go back on medication and harm the baby."',
+      expectations: '"I want you to tell James I\'m fine. And I want information about whether my medication is actually safe in pregnancy."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether she has spent money she cannot afford — "£3,000 on a credit card. James doesn\'t know the half of it."',
+      'Whether she has sent emails or messages she regrets — "Maybe a few. To clients. They might have been a bit... direct."',
+      'Whether she has driven recently — "Yes. I\'ve been driving a lot at night. James doesn\'t know."',
+    ],
+    behaviourNotes: [
+      'Elated, bright, quickly engaged; speech is pressured and difficult to interrupt — actor should keep talking unless student firmly and politely redirects',
+      'Does not believe she is unwell; framing everything positively; becomes slightly irritable if the student challenges her diagnosis too directly early on',
+      'Responds better to collaborative exploration than confrontation: "I\'d like to understand more about how you\'ve been feeling — can you tell me about your sleep?"',
+      'Grandiose themes should be consistent throughout; the app is her main preoccupation',
+      'If the student asks sensitively about the lamotrigine decision, Amy explains her reasoning — she stopped it out of genuine concern for the baby, not irresponsibility',
+      'Becomes slightly more reflective when the student explains the risks of untreated mania in pregnancy to her and the baby',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; clarifies the purpose of the assessment in a non-threatening way', marks: 1 },
+        { description: 'Establishes rapport before diving into symptoms — acknowledges Amy\'s view that she feels well', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History of presenting complaint — manic features',
+      items: [
+        { description: 'Asks about mood — identifies elated, euphoric, and sustained elevation', marks: 1 },
+        { description: 'Asks about sleep — identifies 3 days without sleeping and decreased need for sleep (not insomnia)', marks: 1 },
+        { description: 'Identifies increased energy, increased goal-directed activity, and reduced ability to complete tasks', marks: 1 },
+        { description: 'Identifies grandiose beliefs — the app will "make millions"; unrealistic plans', marks: 1 },
+        { description: 'Asks about reckless behaviour — identifies excessive spending (£3,000 in 2 weeks)', marks: 1 },
+        { description: 'Asks about hypersexuality and disinhibited behaviour', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Mental state examination',
+      items: [
+        { description: 'Assesses affect — identifies elated, incongruent, and pressured speech during the interview', marks: 1 },
+        { description: 'Screens for psychotic features: hallucinations and delusions (grandiose vs. persecutory)', marks: 1 },
+        { description: 'Assesses insight — identifies limited insight; Amy does not believe she is unwell', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Medication and psychiatric history',
+      items: [
+        { description: 'Asks about current and previous medications — identifies lamotrigine 200 mg stopped at 6 weeks', marks: 1 },
+        { description: 'Explores reason for stopping medication — fear of cleft palate teratogenicity; did not inform psychiatrist', marks: 1 },
+        { description: 'Asks about previous episodes — 2 manic episodes requiring admission; 1 depressive episode', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Risk assessment',
+      items: [
+        { description: 'Assesses suicide and self-harm risk explicitly', marks: 1 },
+        { description: 'Assesses risk to others — including risks from disinhibition (driving at night, reckless spending, sexual risk)', marks: 2 },
+        { description: 'Considers risk to the unborn baby — implications of maternal mania and untreated bipolar disorder in pregnancy', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing the consultation',
+      items: [
+        { description: 'Summarises findings back to Amy in a non-confrontational way', marks: 1 },
+        { description: 'Explains need for urgent psychiatric review and discussion with her perinatal psychiatry team', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — follows Amy\'s rapid speech without shutting her down; redirects gently', marks: 1 },
+        { description: 'Maintains a non-judgemental, collaborative tone throughout', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Amy is a 29-year-old graphic designer, 18 weeks pregnant, with a background of bipolar I disorder; referred by her midwife following partner-reported behavioural change over 2 weeks',
+    'The presentation is consistent with a manic episode: elated mood, 3 days without sleep (decreased need for sleep — not insomnia), pressured speech, grandiosity, reckless spending (£3,000 in 2 weeks), hypersexuality, and distractibility with multiple unfinished projects',
+    'Key precipitant: Amy self-discontinued lamotrigine 200 mg at 6 weeks gestation due to concerns about cleft palate teratogenicity, without informing her psychiatrist; she has been unmedicated for 12 weeks',
+    'Mental state: elated affect; pressured speech difficult to interrupt; flight of ideas; grandiose beliefs about the app; no hallucinations; no persecutory delusions; limited insight — does not believe she is unwell',
+    'Risk: no suicidal ideation; significant risk from disinhibition — night driving, excessive spending on credit, sending unprofessional emails to clients; risk to the pregnancy from untreated mania and future pharmacological decisions',
+    'Management: urgent referral to perinatal psychiatry; risk management with partner; discussion of safest mood stabiliser in pregnancy (lamotrigine has lowest teratogenic risk of the main agents); consider informal admission if risk cannot be managed in the community; safeguarding assessment for unborn child',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the pharmacological options for managing bipolar disorder in pregnancy, and what are the teratogenic risks?',
+      keyPoints: [
+        'Sodium valproate: CONTRAINDICATED in pregnancy — 10% major congenital malformations, 30–40% neurodevelopmental disorders; MHRA Black Triangle; must not be prescribed to women of childbearing potential without a Pregnancy Prevention Programme',
+        'Lithium: risk of Ebstein\'s anomaly (tricuspid valve malformation) — absolute risk small (~0.1-0.2%); requires careful monitoring; therapeutic drug monitoring essential; risk of neonatal toxicity ("floppy baby syndrome")',
+        'Lamotrigine: lowest teratogenic risk of the main mood stabilisers; small risk of oral cleft (1–2/1000 vs. 0.37/1000 background); preferred agent in pregnancy for many women with bipolar disorder; dose requires increase in pregnancy (increased renal clearance)',
+        'Quetiapine/olanzapine: atypical antipsychotics used in acute mania in pregnancy — no clear teratogenicity but risk of gestational diabetes, neonatal withdrawal; may be preferred for acute treatment',
+        'All decisions involve shared risk-benefit discussion: risk of untreated bipolar mania in pregnancy (relapse, postpartum psychosis, risk to fetus) vs. pharmacological risk',
+      ],
+      source: 'NICE NG185 (Bipolar disorder: assessment and management, 2014 updated 2023); MHRA Drug Safety Update — Valproate and pregnancy (2018)',
+    },
+    {
+      question: 'What are the criteria for involuntary admission under the Mental Health Act 1983, and would they apply here?',
+      keyPoints: [
+        'Section 2 MHA 1983: admission for assessment; up to 28 days; requires mental disorder warranting detention for assessment; necessary for safety of patient or others; informal admission not appropriate or refused',
+        'Section 3 MHA 1983: admission for treatment; up to 6 months; requires mental disorder treatable in hospital; necessary for safety of patient or others; appropriate treatment available',
+        'Application to Amy: she has limited insight and refuses to acknowledge she is unwell; if she cannot be safely managed in the community (driving, reckless spending, risk to self and pregnancy) and refuses voluntary admission, Section 2 may be appropriate',
+        'Pregnancy does not create additional grounds for detention — it cannot override the statutory criteria',
+        'Nearest relative must be consulted (with section 3); nearest relative can be overridden by the courts if unreasonably objecting',
+      ],
+      source: 'Mental Health Act 1983 (amended 2007); NICE NG185 (2023); Royal College of Psychiatrists CR232',
+    },
+    {
+      question: 'What is the risk of postpartum psychosis in a woman with bipolar I disorder, and how should it be managed?',
+      keyPoints: [
+        'Postpartum psychosis: severe psychiatric emergency occurring within days to weeks of delivery; affects approximately 1-2 per 1000 deliveries overall',
+        'Risk in bipolar I disorder: approximately 25-50% of women with bipolar I will have a postpartum episode; risk substantially higher if they have a personal or family history of postpartum psychosis',
+        'Features: acute onset; confusion, disorientation, hallucinations, delusions, labile mood, sleep disturbance; may progress rapidly',
+        'Management: requires inpatient admission — ideally mother and baby unit (MBU) to preserve bonding; mood stabilisers +/- antipsychotics; breastfeeding guidance if on lithium; specialist perinatal psychiatric team essential',
+        'Prophylaxis: discuss lithium prophylaxis from 36 weeks or immediately post-delivery in high-risk women; perinatal psychiatry must be involved antenatally',
+      ],
+      source: 'NICE NG185 (2023); Royal College of Psychiatrists: Perinatal Psychiatry (PS05, 2015); SIGN 131 (Perinatal Mental Health, 2012)',
+    },
+  ],
+};
+
 export const PSYCH_MOCK_EXAMS: MockExamStation[] = [
   alcoholAnxietyMockExam,
   lithiumCounsellingMockExam,
   mseManiaMockExam,
   capacityAssessmentMockExam,
+  suicideRiskMockExam,
+  maniaPregnancyMockExam,
 ];

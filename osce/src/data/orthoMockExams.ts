@@ -948,9 +948,256 @@ const compartmentMockExam: MockExamStation = {
   ],
 };
 
+const shoulderRotatorCuffMockExam: MockExamStation = {
+  id: 'ortho_shoulder_rotator_cuff',
+  title: 'Shoulder Pain — History and Examination',
+  diagnosis: 'Full-thickness supraspinatus tear — rotator cuff tear',
+  specialtyId: 'orthopaedics',
+  candidateBrief: {
+    setting: 'You are an FY2 doctor in an orthopaedic outpatient clinic.',
+    scenario: 'Brian Collins, 61, a farmer, has been referred by his GP with a 6-month history of right shoulder pain and progressive weakness. He is right-handed.',
+    tasks: [
+      'Take a focused history and perform a targeted shoulder examination',
+      'Explain your working diagnosis and management plan to the patient',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Brian Collins',
+    age: 61,
+    occupation: 'Farmer (arable and livestock)',
+    openingLine: '"Hello doctor. This shoulder has been giving me grief for months now. It\'s getting worse and I can\'t do half the things I need to do on the farm."',
+    socrates: [
+      {
+        label: 'Site',
+        descriptor: 'right shoulder, lateral deltoid region — not neck, not below elbow',
+        quotes: ['"It\'s right here — the top and outside of the shoulder." [points to lateral deltoid region] "Not in my neck. Not really down the arm, mainly just here."'],
+      },
+      {
+        label: 'Onset',
+        descriptor: 'insidious onset 6 months ago; acute-on-chronic worsening after heavy lifting (hay bales) 3 months ago',
+        quotes: ['"It crept up on me over last summer — I can\'t pinpoint an exact day." – "But 3 months ago I was lifting heavy hay bales and it got much, much worse after that." – "No single injury as such. It built up."'],
+      },
+      {
+        label: 'Character',
+        descriptor: 'dull aching at rest; sharp on movement, especially overhead or reaching behind back',
+        quotes: ['"At rest it\'s a dull ache — always there in the background." – "When I try to lift my arm up or reach for something above my head, it goes very sharp." – "Reaching behind my back to do my jacket up is the worst."'],
+      },
+      {
+        label: 'Radiation',
+        descriptor: 'radiates into lateral upper arm to elbow; not below elbow; no neurological symptoms',
+        quotes: ['"It goes down the outside of my arm — to about here." [points to lateral upper arm, elbow level] "Not further than that." – "No tingling or pins and needles in my hand."'],
+      },
+      {
+        label: 'Associated symptoms',
+        descriptor: 'night pain waking from sleep; cannot lie on right side; progressive weakness — cannot abduct above shoulder height',
+        quotes: ['"The night is the worst. I wake up at about 3 in the morning in pain. I cannot lie on this side at all." – "And it\'s getting weaker — I can\'t lift things above my shoulder height anymore. I used to be able to throw a bale."'],
+      },
+      {
+        label: 'Timing',
+        descriptor: 'constant background ache; 6-month duration; no improvement; worsening trend',
+        quotes: ['"It\'s there all the time — not just when I use it." – "It hasn\'t got any better. If anything it\'s worse than it was 6 months ago."'],
+      },
+      {
+        label: 'Exacerbating and relieving',
+        descriptor: 'worse: overhead activity, reaching behind back, lying on right side; partially relieved by ibuprofen and rest',
+        quotes: ['"Anything above my head is terrible. Reaching for something on a high shelf. Lying on it." – "Ibuprofen helps a bit. Resting helps. But I can\'t rest on a farm."'],
+      },
+      {
+        label: 'Severity',
+        descriptor: '7/10 on lifting; 4/10 at rest; disrupting sleep and limiting work capacity',
+        quotes: ['"At its worst — lifting something — it\'s about a 7 out of 10." – "At rest it\'s more like a 4, always there." – "I\'m losing sleep over it and I\'m slowing down at work. My wife\'s taken on tasks she shouldn\'t have to."'],
+      },
+    ],
+    historyOfPresentingComplaint: [
+      {
+        label: 'Examination: inspection — no wasting; no deformity; no swelling; guarding of right arm',
+        quote: '[Actor at rest]: no visible muscle wasting of deltoid or supraspinatus fossa; no bony deformity; no swelling; holds right arm slightly close to the body (guarding). Right shoulder contour symmetric with left.',
+      },
+      {
+        label: 'Examination: palpation — tender at greater tuberosity and subacromial bursa; AC joint non-tender',
+        quote: '[When palpated]: tender at the greater tuberosity of the humerus and in the subacromial space just below the anterior acromion. No tenderness at the AC joint or along the clavicle.',
+      },
+      {
+        label: 'Examination: active ROM — abduction limited to 80°; forward flexion to 100°; external rotation reduced',
+        quote: '[When active ROM tested]: abduction stops at approximately 80° due to pain and weakness; forward flexion reaches 100°; external rotation visibly reduced compared with left side.',
+      },
+      {
+        label: 'Examination: passive ROM — near-full passive range (distinguishes from adhesive capsulitis)',
+        quote: '[When passive ROM tested]: near-full range achieved passively with mild end-range discomfort; passive abduction approaches 160°. [This distinguishes from frozen shoulder where passive range is also restricted.]',
+      },
+      {
+        label: 'Examination: painful arc — positive; pain between 60° and 120° of abduction, resolving above 120°',
+        quote: '[When painful arc tested]: pain clearly provoked between 60° and 120° of abduction — actor grimaces. Pain resolves above 120°. "Yes — that\'s the sore range right there."',
+      },
+      {
+        label: 'Examination: strength — abduction markedly weak (0–1/5 right); cannot initiate against gravity; left 5/5',
+        quote: '[When abduction strength tested against resistance]: cannot abduct right arm against any resistance; can barely initiate the movement even without resistance. Left arm full power (5/5).',
+      },
+      {
+        label: 'Examination: Neer\'s impingement sign — positive',
+        quote: '[When Neer\'s test performed — scapula stabilised, arm passively forward-flexed in internal rotation]: positive — pain reproduced at approximately 90°. "Yes — that\'s it exactly."',
+      },
+      {
+        label: 'Examination: Hawkins-Kennedy test — positive',
+        quote: '[When Hawkins-Kennedy performed — arm at 90° flexion, examiner internally rotates]: positive — pain reproduced. "That hurts — yes."',
+      },
+      {
+        label: 'Examination: empty can test (Jobe\'s) — positive; marked pain and weakness',
+        quote: '[When empty can test performed — arm at 90° abduction, 30° forward flexion, thumb down, downward pressure]: markedly weak and painful; cannot maintain position against any resistance. "I can\'t hold it at all — it just gives way."',
+      },
+      {
+        label: 'Examination: Gerber\'s lift-off — negative (subscapularis intact)',
+        quote: '[When Gerber\'s lift-off tested — hand placed on lower back, asked to push away against resistance]: can perform normally — subscapularis intact. No pain or weakness.',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Type 2 diabetes — diet-controlled', quote: '"I have diabetes — diet-controlled. No tablets for it at the moment."' },
+      { label: 'No previous shoulder surgery or significant shoulder injury', quote: '"No operations on this shoulder. I\'ve knocked it about over the years on the farm but nothing serious before."' },
+    ],
+    drugHistory: [
+      { label: 'Ibuprofen 400 mg three times daily (GP prescribed)', quote: '"Ibuprofen — 400 mg three times a day with meals. My GP gave me that for the shoulder."' },
+      { label: 'No other regular medications; no known allergies', quote: '"Nothing else regular. No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'No family history of shoulder problems or inflammatory arthritis', quote: '"No — none of the family have had anything like this as far as I know."' },
+    ],
+    socialHistory: [
+      { label: 'Farmer (arable and livestock); heavy overhead and lifting demands; right-handed dominant arm affected', quote: '"I\'ve been farming all my life — 200 acres, arable and sheep. A lot of heavy lifting and overhead work." – "I\'m right-handed, so this is my dominant arm."' },
+      { label: 'Married; wife now helping with tasks he previously managed alone', quote: '"My wife\'s been doing more than she should have to. I\'m not happy about that at all."' },
+      { label: 'Non-smoker; alcohol 10 units/week (weekends)', quote: '"I don\'t smoke. I have a few pints at the weekend — maybe 10 units."' },
+    ],
+    importantNegatives: [
+      'No neck pain or cervical symptoms ("My neck is fine.")',
+      'No pins and needles or numbness in hand ("No tingling — my hand feels completely normal.")',
+      'No bilateral symptoms — left shoulder entirely normal ("Left shoulder is completely fine.")',
+      'No systemic symptoms — no weight loss, fever, or night sweats ("Nothing like that — just the shoulder.")',
+      'No history of shoulder dislocation ("It\'s never come out of the socket.")',
+    ],
+    ice: {
+      ideas: '"I think I\'ve probably torn something. My neighbour had the same — had an operation in the end. Is that what I\'ve done?"',
+      concerns: '"I\'m worried it\'s going to need surgery. I can\'t afford to be off the farm for months — harvest is in 8 weeks."',
+      expectations: '"I want to know what\'s wrong and what needs to happen. And if there\'s anything that can buy me some time until after harvest."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether he has had physiotherapy — GP mentioned it but not yet referred; open to it if recommended',
+      'Whether he has had a steroid injection — not yet; open to trying if it would help',
+      'Sleep impact — wakes at approximately 3 am most nights; significant disruption for 3 months',
+    ],
+    behaviourNotes: [
+      'Stoic and practical — a farmer who does not visit the doctor unless necessary; minimises symptoms initially',
+      'Responds well to a clear anatomical explanation and a structured plan — wants to understand what has happened',
+      'The harvest deadline is his primary concern — acknowledge it explicitly and incorporate it into the management discussion',
+      'Asks "Will I need an operation?" — student should explain that most tears are managed conservatively first but a full-thickness tear with significant weakness may ultimately require surgical referral; be honest',
+      'If the student dismisses the harvest concern or says "just rest it", Brian will look sceptical: "Doctor, I run a 200-acre farm. I can\'t just rest."',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Washes hands and introduces themselves; confirms patient\'s identity and gains consent', marks: 1 },
+        { description: 'Uses an open question to invite the patient to describe the presenting complaint', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History — SOCRATES',
+      items: [
+        { description: 'Establishes site (lateral shoulder), onset (insidious with acute-on-chronic exacerbation), and character (aching at rest, sharp on movement)', marks: 1 },
+        { description: 'Asks about night pain — identifies waking from sleep and inability to lie on the shoulder (highly suggestive of rotator cuff pathology)', marks: 2 },
+        { description: 'Identifies progressive weakness — unable to abduct above shoulder height; degree of weakness suggests full-thickness tear rather than impingement alone', marks: 2 },
+        { description: 'Asks about radiation and neurological symptoms — excludes cervical radiculopathy pattern', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Shoulder examination — inspection and palpation',
+      items: [
+        { description: 'Inspects from front, side, and behind — notes absence of wasting, guarding posture', marks: 1 },
+        { description: 'Palpates bony landmarks (greater tuberosity, AC joint) and subacromial space — identifies point tenderness in subacromial region', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Shoulder examination — movement',
+      items: [
+        { description: 'Tests active and passive ROM and identifies the discrepancy — passive near-full, active limited (impingement/tear pattern, not frozen shoulder)', marks: 2 },
+        { description: 'Identifies a positive painful arc (60–120° of abduction)', marks: 1 },
+        { description: 'Tests abduction strength and identifies severe weakness (0–1/5) — distinguishes full-thickness tear from impingement alone', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Shoulder examination — special tests',
+      items: [
+        { description: 'Performs Neer\'s impingement sign and identifies a positive result', marks: 1 },
+        { description: 'Performs Hawkins-Kennedy test and identifies a positive result', marks: 1 },
+        { description: 'Performs empty can (Jobe\'s) test and identifies marked pain and weakness — consistent with supraspinatus tear', marks: 2 },
+        { description: 'Performs Gerber\'s lift-off test and correctly identifies a normal result (subscapularis intact)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'ICE and closing',
+      items: [
+        { description: 'Explores ICE — specifically acknowledges the harvest deadline and incorporates it into the plan', marks: 1 },
+        { description: 'Summarises findings and working diagnosis; explains investigation (MRI) and management plan', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — acknowledges the patient\'s occupational concerns and adapts the discussion accordingly', marks: 1 },
+        { description: 'Summarising — presents findings and plan in a structured, accessible way', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Mr Collins is a 61-year-old right-handed farmer with a 6-month history of right shoulder pain and progressive weakness, with an acute-on-chronic exacerbation after heavy lifting 3 months ago — consistent with a full-thickness supraspinatus tear',
+    'Key history features: night pain (waking at 3 am), inability to lie on the right shoulder, and progressive loss of abduction above shoulder height — this triad is highly suggestive of significant rotator cuff pathology',
+    'Examination: positive painful arc (60–120°); active abduction limited to 80°; passive range near-full — confirms subacromial pathology rather than glenohumeral or capsular disease',
+    'Strength testing: severe weakness of abduction (0–1/5) — the degree of weakness exceeds what pain inhibition alone can explain, indicating a structural full-thickness tear',
+    'Special tests: Neer\'s positive; Hawkins-Kennedy positive; empty can (Jobe\'s) positive for supraspinatus; Gerber\'s lift-off negative (subscapularis intact)',
+    'Investigation: MRI shoulder (gold standard to characterise tear size, retraction, and muscle atrophy)',
+    'Management: regular analgesia (NSAIDs, paracetamol); subacromial corticosteroid injection for symptom relief; physiotherapy (rotator cuff rehabilitation); if conservative management fails — referral for surgical opinion (arthroscopic rotator cuff repair)',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What is the anatomy of the rotator cuff, and which tendons are most commonly torn?',
+      keyPoints: [
+        'Rotator cuff = SITS: Supraspinatus (initiates abduction above 15°), Infraspinatus (external rotation), Teres minor (external rotation), Subscapularis (internal rotation)',
+        'Supraspinatus is most commonly torn — it runs in the supraspinatus outlet beneath the acromion; vulnerable to impingement with repetitive overhead activity and age-related degeneration',
+        'The "critical zone" — ~1 cm proximal to the insertion at the greater tuberosity — is the watershed area with the poorest blood supply, predisposing to degenerative tearing',
+        'Full-thickness tears allow communication between the glenohumeral joint and subacromial bursa — demonstrated on MRI arthrogram or ultrasound',
+        'Tear spectrum: partial thickness → full-thickness → massive tear (involving ≥2 tendons); progressive weakness of abduction is the hallmark of a full-thickness tear',
+      ],
+      source: 'OHCM 10th ed., Ch.11; Neer CS II, Clin Orthop 1983',
+    },
+    {
+      question: 'What special tests assess rotator cuff function and what does each test specifically?',
+      keyPoints: [
+        'Empty can (Jobe\'s): arm at 90° abduction, 30° forward flexion, thumb down; downward pressure — pain/weakness indicates supraspinatus pathology; sensitivity ~70%, specificity ~70%',
+        'Neer\'s impingement sign: scapula stabilised, arm passively forward-flexed in internal rotation — pain indicates supraspinatus/bursa impingement under the coracoacromial arch; sensitivity ~72%',
+        'Hawkins-Kennedy: arm at 90° flexion, examiner internally rotates — pain indicates impingement against the coracoacromial ligament; sensitivity ~79%',
+        'Gerber\'s lift-off: hand on lower back, lift away against resistance — weakness indicates subscapularis tear',
+        'External rotation lag sign: arm passively externally rotated then released — lag (failure to maintain position) indicates infraspinatus or teres minor tear',
+      ],
+      source: 'Geekymedics.com (Shoulder Examination); Hegedus EJ et al., Br J Sports Med 2008',
+    },
+    {
+      question: 'How are rotator cuff tears managed, and what are the indications for surgical referral?',
+      keyPoints: [
+        'Conservative first-line: regular analgesia (NSAIDs, paracetamol), physiotherapy (rotator cuff strengthening, scapular stabilisation, posture correction), activity modification',
+        'Subacromial corticosteroid injection: short-term (6–12 weeks) symptom relief; maximum 3 injections/year; ultrasound guidance improves accuracy; does not promote tendon healing',
+        'MRI shoulder: gold standard — characterises tear size, retraction, and degree of muscle atrophy (Goutallier fatty infiltration grade); guides surgical planning',
+        'Surgical indications: failure of 3–6 months conservative management; acute full-thickness tear in active patient with significant functional deficit; young patient with traumatic tear',
+        'Arthroscopic rotator cuff repair (primary surgical technique); massive irreparable tears — debridement, biceps tenotomy, or reverse shoulder arthroplasty in older patients',
+      ],
+      source: 'NICE CKS Shoulder pain (updated 2023); British Elbow and Shoulder Society (BESS) guidelines',
+    },
+  ],
+};
+
 export const ORTHO_MOCK_EXAMS: MockExamStation[] = [
   nofMockExam,
   kneeInjuryMockExam,
   caudaEquinaMockExam,
   compartmentMockExam,
+  shoulderRotatorCuffMockExam,
 ];

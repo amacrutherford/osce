@@ -242,4 +242,224 @@ const endOfLifeStrokeMockExam: MockExamStation = {
   ],
 };
 
-export const PALLIATIVE_MOCK_EXAMS: MockExamStation[] = [endOfLifeStrokeMockExam];
+const eolRefusedTreatmentMockExam: MockExamStation = {
+  id: 'eol_refused_treatment_relative',
+  title: 'End-of-Life Communication — Relative Distressed by Patient\'s Refusal of Treatment',
+  diagnosis: 'Navigating a relative\'s distress when a patient has refused treatment with capacity — end-of-life care for metastatic colorectal cancer',
+  specialtyId: 'palliative',
+  candidateBrief: {
+    setting: 'You are an FY1 on the oncology ward.',
+    scenario:
+      'Karen Walsh, 46, has asked to speak with a doctor about her father Dennis Walsh, 74, who has metastatic colorectal cancer with liver and lung metastases. Dennis has made an informed decision, with full mental capacity, to decline further chemotherapy. This decision has been discussed with the oncology consultant and is documented in the notes. Karen disagrees with her father\'s decision.',
+    tasks: [
+      'Speak with Karen about her father\'s decision and address her concerns',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Karen Walsh',
+    age: 46,
+    occupation: 'Primary school teacher (Dennis\'s daughter)',
+    openingLine:
+      '"I need to talk to someone about my dad. He\'s told you he doesn\'t want the chemotherapy, but I know he\'s making a mistake. He\'s giving up and I think the doctors have given up on him too." [upset, slightly confrontational]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Karen\'s understanding — believes Dennis is depressed and not thinking clearly; equates refusing treatment with "giving up"',
+        quote: '"He\'s depressed. He must be. Who in their right mind would refuse treatment that could save their life?" – "I think he\'s just lost all hope and you\'re all letting him."',
+      },
+      {
+        label: 'Karen\'s accusation — feels the doctors have given up on Dennis; does not believe they have done enough',
+        quote: '"I feel like nobody is fighting for him. You\'re just letting him die." – "Have you actually spoken to him? Properly? Or did someone just have a 5-minute conversation with him?"',
+      },
+      {
+        label: 'Karen\'s request — wants doctors to override Dennis\'s decision; asks if he can be forced to have chemotherapy',
+        quote: '"Can\'t you just... give him the chemotherapy anyway? Override his decision? He doesn\'t know what he\'s choosing." – "What if I sign something? I\'m his next of kin."',
+      },
+      {
+        label: 'Emotional shift — if student is empathetic and explains the legal and ethical framework clearly, Karen becomes less confrontational',
+        quote: '[After explanation of the MCA and Dennis\'s capacity]: [quieter, tearful] "I just can\'t bear the thought of losing him. I feel so helpless." – "I know he\'s an adult. I know he can make his own choices. I just thought there was more time."',
+      },
+      {
+        label: 'Dennis\'s reasons — only reveal if student asks what Dennis has said about his decision',
+        quote: '"He said he watched his best friend go through chemotherapy and it was absolutely awful. He said he would rather have quality time at home — feeling himself — than be sick in a hospital." – "He said \'I\'d rather have six good months than eighteen bad ones, Karen.\'"',
+      },
+      {
+        label: 'Karen\'s fear — really fears dying without reconciling with her father; has had a difficult relationship with him',
+        quote: '[Only if asked very sensitively about her own feelings]: "We\'ve had our difficult patches. I suppose I\'m terrified that if he doesn\'t have treatment, I\'ll lose him before I get to say what I need to say." [tearful]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Dennis — metastatic colorectal cancer; liver and lung metastases; median prognosis approximately 6 months without chemotherapy', quote: '[Clinical background from notes — not disclosed by Karen unless asked]' },
+      { label: 'Dennis — has capacity; capacity formally assessed by the oncology consultant and documented', quote: '"The consultant sat with him for a long time. Dad was very clear about what he was saying." [only if student asks whether capacity was properly assessed]' },
+    ],
+    drugHistory: [],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Dennis (74) — widower; lives alone; Karen visits twice a week; one other adult child (son Michael) lives abroad', quote: '"Mum died 6 years ago. Dad lives alone — I go twice a week. My brother Michael is in Australia. He\'s flying over." [only if asked]' },
+    ],
+    importantNegatives: [
+      'Dennis has NOT lost capacity — the oncologist formally assessed this and it is documented ("The consultant was very clear that Dad understood everything.")',
+      'Dennis is NOT depressed in a way that impairs capacity — he has expressed clear, consistent, values-based reasons for his decision',
+      'Karen does NOT have legal authority to override a capacitous adult\'s decision as next of kin ("I know he has the right to decide. But I just can\'t accept it.")',
+    ],
+    ice: {
+      ideas: '"I think he\'s depressed and not thinking clearly — nobody who wants to live would refuse treatment."',
+      concerns: '"I\'m terrified of losing him. I\'m not ready. And I\'m scared he\'s making a decision he\'ll regret when it\'s too late to change it."',
+      expectations: '"I want you to talk to him again and change his mind. Or tell me there\'s something else — another option."',
+    },
+    onlyIfDirectlyAsked: [
+      'Karen\'s relationship with Dennis — they have had periods of difficulty; she wants to reconcile',
+      'Whether Dennis could change his mind — yes, he can revisit the decision at any time; the door is open',
+      'What palliative care can offer Dennis — symptom control, quality time at home, pain management, psychological support',
+    ],
+    behaviourNotes: [
+      'Starts confrontational and upset; this is grief and helplessness expressed as anger — not genuine aggression',
+      'Responds to empathy before information — if the student jumps straight to legal explanation, Karen becomes more defensive',
+      'The student should first acknowledge how difficult this is before explaining the law',
+      'Becomes tearful rather than angry once the student explains Dennis\'s reasons (from the notes) and validates that his choice comes from love, not depression',
+      'Asks "Can he change his mind?" — student should answer yes, emphasise the team remains available to Dennis',
+      'Asks "What happens now? Is he just going to die at home?" — student should explain palliative care: symptom control, community palliative team, hospice if needed',
+      'If the student is dismissive or purely legalistic, Karen becomes more upset and says "I came here for help, not a lecture"',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; thanks Karen for coming; confirms her relationship to Dennis', marks: 1 },
+        { description: 'Offers a private space; offers to have a nurse or support person present', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Establishing understanding',
+      items: [
+        { description: 'Asks Karen what she already knows about her father\'s diagnosis and the discussions that have taken place', marks: 1 },
+        { description: 'Listens to Karen\'s concerns without interrupting before responding', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Acknowledging emotion before explaining',
+      items: [
+        {
+          description: 'Acknowledges Karen\'s distress, fear of losing her father, and feeling of helplessness with genuine empathy before any legal or ethical explanation',
+          marks: 2,
+        },
+      ],
+    },
+    {
+      domain: 'Explaining mental capacity',
+      items: [
+        {
+          description: 'Explains that Dennis\'s capacity was formally assessed by the consultant and that Dennis understood his diagnosis, prognosis, and the consequences of refusing treatment',
+          marks: 2,
+        },
+        {
+          description: 'Explains the Mental Capacity Act 2005 principle: a capacitous adult has the absolute right to refuse any treatment, including life-prolonging treatment',
+          marks: 2,
+        },
+        { description: 'Clarifies that next of kin status does not give Karen legal authority to override Dennis\'s capacitous decision', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Addressing depression concern',
+      items: [
+        {
+          description: 'Addresses Karen\'s belief that Dennis is depressed: explains that depression does not automatically equal incapacity; Dennis\'s decision is consistent, reasoned, and grounded in his values',
+          marks: 1,
+        },
+      ],
+    },
+    {
+      domain: 'Explaining Dennis\'s stated reasons',
+      items: [
+        {
+          description: 'Shares (from the notes/history) Dennis\'s articulated reason — quality time over quantity, avoiding suffering from chemotherapy — reframing this as an autonomous values-based decision rather than "giving up"',
+          marks: 1,
+        },
+      ],
+    },
+    {
+      domain: 'Explaining palliative care and what happens next',
+      items: [
+        {
+          description: 'Explains what the team CAN offer: palliative care input for symptom control, community palliative nursing, pain management, psychological support, and hospice if needed',
+          marks: 1,
+        },
+        { description: 'Confirms Dennis can revisit his decision at any time and that the team remains available to him', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing the consultation',
+      items: [
+        { description: 'Offers Karen access to a Macmillan nurse or palliative care support for herself', marks: 1 },
+        { description: 'Summarises the conversation; checks Karen has understood; thanks her', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — does not interrupt Karen\'s emotional expression; validates rather than dismisses', marks: 1 },
+        { description: 'Avoids clinical jargon; uses plain accessible language when explaining the law', marks: 1 },
+        { description: 'Signposting — signals when moving from emotional support to factual explanation', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Karen Walsh is the daughter of Dennis Walsh, 74, who has metastatic colorectal cancer; Dennis has made an informed, capacitous decision to decline further chemotherapy, documented by the oncology consultant',
+    'Karen is distressed and believes her father is depressed and "giving up"; she initially requested that the clinical team override his decision or that she, as next of kin, could countermand it',
+    'The meeting began with acknowledgement of Karen\'s grief and fear of losing her father, before explaining the legal and ethical framework',
+    'Mental Capacity Act 2005: a competent adult has an absolute right to refuse any medical treatment, including life-prolonging treatment; capacity was formally assessed and is documented',
+    'Next of kin has no legal authority to override a capacitous person\'s decision; the team cannot administer treatment a patient has competently refused',
+    'Dennis\'s decision was grounded in his personal values — he wished to avoid the suffering of chemotherapy and prioritise quality time at home, consistent with an autonomous, reasoned decision rather than depressive cognition',
+    'The team continues to offer palliative care: community palliative nursing, symptom control, and hospice referral if appropriate; Dennis can revisit his decision at any time; Karen was offered support from the Macmillan nursing team',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the five principles of the Mental Capacity Act 2005, and how do they apply to a patient refusing treatment?',
+      keyPoints: [
+        'Principle 1: A person is assumed to have capacity unless it is established that they do not',
+        'Principle 2: All practicable steps must be taken to help a person make their own decision before concluding they lack capacity',
+        'Principle 3: A person is not lacking in capacity merely because they make an unwise decision',
+        'Principle 4: Any act done or decision made under the Act must be in the person\'s best interests',
+        'Principle 5: Any act or decision must be the least restrictive option available',
+        'Application: a capacitous adult\'s refusal of treatment must be respected even if it results in death; the team cannot treat against the patient\'s expressed wishes',
+      ],
+      source: 'Mental Capacity Act 2005 (England and Wales); GMC Treatment and Care Towards the End of Life (2010)',
+    },
+    {
+      question: 'How does depression interact with mental capacity, and how would you assess capacity in a patient refusing treatment?',
+      keyPoints: [
+        'Depression does not automatically impair capacity — many patients with depression retain full capacity to make decisions',
+        'The Mental Capacity Act 2005 two-stage test: (1) is there an impairment or disturbance of the mind or brain? (2) does it prevent the person from understanding, retaining, using/weighing, or communicating the decision?',
+        'Assess capacity for each specific decision at the time of the decision — it is decision-specific and time-specific',
+        'A patient with depression may refuse treatment because they want to die (which may indicate impaired capacity) OR because they have weighed the risks and benefits based on their values (which may indicate full capacity)',
+        'Seek specialist psychiatric opinion if there is genuine doubt about whether depression is impairing the decision-making process',
+      ],
+      source: 'Mental Capacity Act 2005; British Medical Association: Mental Capacity Act Toolkit (2016); Beauchamp TL & Childress JF Principles of Biomedical Ethics 8th ed.',
+    },
+    {
+      question: 'What is an Advance Decision to Refuse Treatment (ADRT) and what are its legal requirements in England and Wales?',
+      keyPoints: [
+        'An ADRT (advance directive) allows a capacitous adult to refuse specific medical treatment in advance, to take effect if they subsequently lose capacity',
+        'An ADRT is legally binding under the MCA 2005 if it is valid (made when the person had capacity, not withdrawn, not superseded by a later LPA) and applicable (the circumstances that have arisen match those specified)',
+        'To refuse life-sustaining treatment, the ADRT must be in writing, signed by the person and a witness, and include a statement that it applies "even if life is at risk"',
+        'An ADRT cannot demand specific treatments — only refuse them; it cannot override a clinician\'s decision to withhold a treatment that is not in the patient\'s best interests',
+        'If validity or applicability is uncertain, seek legal advice and apply a best interests standard while the question is resolved',
+      ],
+      source: 'Mental Capacity Act 2005, Sections 24-26; BMA Advance Decisions guidance (2020)',
+    },
+    {
+      question: 'How do you support a relative who is distressed by a patient\'s end-of-life decision?',
+      keyPoints: [
+        'Acknowledge the relative\'s distress and grief first — emotional containment before explanation; avoid leading with legal information',
+        'Explore their understanding of the situation and what the patient has said to them; the relative may not have heard the patient\'s stated reasons',
+        'Explain the patient\'s autonomy and the legal framework in plain language; reinforce that the patient is not "giving up" but exercising a right to choose',
+        'Reframe the clinical team\'s role: shifting from cure to comfort is not abandonment; palliative care can offer a great deal',
+        'Offer the relative their own support: Macmillan nursing, palliative social work, psychological support, family meetings with senior clinicians',
+      ],
+      source: 'GMC Treatment and Care Towards the End of Life (2010); Beauchamp TL & Childress JF Principles of Biomedical Ethics 8th ed.',
+    },
+  ],
+};
+
+export const PALLIATIVE_MOCK_EXAMS: MockExamStation[] = [endOfLifeStrokeMockExam, eolRefusedTreatmentMockExam];
