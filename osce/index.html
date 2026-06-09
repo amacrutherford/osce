@@ -5,6 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OSCE Revision</title>
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        sessionStorage.removeItem('spa-redirect');
+        if (redirect && redirect !== location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

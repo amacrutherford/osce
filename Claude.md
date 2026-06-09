@@ -99,20 +99,44 @@ Mock stations simulate the full OSCE experience. The reference standard is geeky
 
 ---
 
-### Data types — required fields
+### Data types — `ActorInstructions` structure
+
+The `ActorInstructions` interface uses structured, explicit sections that mirror the GeekyMedics patient script format. There is **no** `backgroundInfo` prose block and **no** generic `historyToReveal` array.
 
 ```ts
-// Add to ActorInstructions:
-ice: {
-  ideas: string;        // Verbatim quote: what they think is causing it
-  concerns: string;     // Verbatim quote: what they're worried about
-  expectations: string; // Verbatim quote: what they want from the consultation
-};
-importantNegatives: string[];  // Explicit scripted denials (see below)
+interface SocratesItem {
+  label: string;      // "Site", "Onset", "Character", etc.
+  descriptor: string; // key clinical finding in plain English (the bold part)
+  quotes: string[];   // 1–2 verbatim patient quotes
+}
 
-// Add to MockExamStation:
-diagnosis: string;  // Single label, e.g. "Rheumatoid arthritis" or "BPPV"
+interface HistoryItem {
+  label: string;  // clinical descriptor / bold label
+  quote: string;  // verbatim patient quote (use " – " for alternatives)
+}
+
+interface ActorInstructions {
+  patientName: string;
+  age: number;
+  occupation: string;
+  openingLine: string;
+  // For symptom-based history stations (headache, dizziness, pain etc.):
+  socrates?: SocratesItem[];
+  // For non-SOCRATES history (counselling, MSE, physical exam, communication):
+  historyOfPresentingComplaint?: HistoryItem[];
+  // Explicit history sections — always required:
+  pastMedicalHistory: HistoryItem[];
+  drugHistory: HistoryItem[];
+  familyHistory: HistoryItem[];
+  socialHistory: HistoryItem[];
+  importantNegatives: string[];
+  ice: ActorICE;
+  onlyIfDirectlyAsked: string[];
+  behaviourNotes: string[];
+}
 ```
+
+Use `socrates` when the presenting complaint is a symptom that maps cleanly to Site / Onset / Character / Radiation / Associated symptoms / Timing / Exacerbating-Relieving / Severity. Use `historyOfPresentingComplaint` for counselling stations, MSE, physical examination findings, or any HPC that does not fit the SOCRATES template.
 
 ---
 
@@ -141,79 +165,80 @@ At the end of the station, the examiner may ask you some further questions.
 
 ### 2. Actor Script (`actorInstructions`)
 
-The patient script must be detailed enough for a real actor to portray the case. Structure every history-taking station in this order:
+The patient script must be detailed enough for a real actor to portray the case. Model the format on geekymedics.com. Every `actorInstructions` object must follow this structure:
 
-#### Presenting complaint
-One or two short opening quotes — what the patient would say if asked "what brings you in today?"
+#### Opening line (`openingLine`)
+One or two short opening quotes — what the patient would say if asked "what brings you in today?" Include any relevant emotional cues in square brackets.
 
-#### History of presenting complaint — SOCRATES
-For each symptom, write a **factual label** followed by **1–2 verbatim quote alternatives** in parentheses. Follow SOCRATES order:
+#### History of presenting complaint
 
+**For symptom-based history stations** (headache, chest pain, dizziness, joint pain etc.) — use `socrates: SocratesItem[]`:
+
+Each item follows the format: `label` (e.g. "Site") + `descriptor` (key clinical finding in plain English) + `quotes` (1–2 verbatim patient quotes). Follow SOCRATES order:
+
+```ts
+socrates: [
+  {
+    label: 'Site',
+    descriptor: 'occipital headache — back of the head',
+    quotes: ['"It\'s at the back of my head." – "Right in the occipital area — here." [touches back of head]'],
+  },
+  {
+    label: 'Onset',
+    descriptor: 'sudden thunderclap — instantaneous, worst ever headache',
+    quotes: ['"It came on like a thunderclap — bang, instantly, the worst headache I\'ve ever had."',
+             '"I was making breakfast and it just hit me."'],
+  },
+  // ... Character, Radiation, Associated symptoms, Timing, Exacerbating/Relieving, Severity
+]
 ```
-Site: [anatomical description] ("[quote 1]" – "[quote 2]")
-Onset: [speed + duration] ("[quote]")
-Character: [quality in lay terms] ("[quote 1]" – "[quote 2]")
-Radiation: [destination or none] ("[quote]")
-Associated symptoms: [list each as its own entry with a quote]
-Timing: [constant/episodic, pattern, duration] ("[quote]")
-Exacerbating/relieving factors: [what makes it worse/better] ("[quote]")
-Severity: [NRS score + context] ("[quote]")
-```
 
-Quote style rules:
-- Natural, colloquial language — how a real patient speaks, not medical terminology
-- Provide 2 alternatives for the most important items (character, onset) so the actor has options
-- Each quote is self-contained — the actor can say it in full without extra context
+**For non-symptom stations** (counselling, MSE, physical examination, communication stations) — use `historyOfPresentingComplaint: HistoryItem[]`:
+
+Each item is `{ label: string, quote: string }` where `label` is a bold clinical descriptor and `quote` is a verbatim patient response.
+
+#### Explicit history sections (always required)
+
+All four sections must be present, even if empty (`[]`):
+
+- **`pastMedicalHistory`** — each condition as `{ label, quote }`. Include dose and duration where relevant.
+- **`drugHistory`** — each medication as `{ label, quote }`. Include dose, frequency, OTC drugs, and allergies.
+- **`familyHistory`** — each condition as `{ label, quote }`. Script an explicit denial if no relevant history.
+- **`socialHistory`** — quantify: smoking (pack-years), alcohol (units/week), occupation (impact on symptoms), living situation. Each as `{ label, quote }`.
 
 #### Important negatives (`importantNegatives`)
-A dedicated array of explicit scripted denials for every red flag or screening question the student is expected to ask. Format each as a quoted denial:
+Explicit scripted denials for every red flag the student is expected to ask about. Format each as: `'No [symptom] ("[verbatim denial]")'`
 
 ```ts
 importantNegatives: [
   'No neck stiffness ("I haven\'t noticed any neck stiffness in particular.")',
-  'No photophobia ("I\'m okay with bright lights.")',
   'No focal neurology ("I haven\'t noticed any weakness or numbness.")',
-  'No weight loss ("I haven\'t lost any weight.")',
 ]
 ```
 
-Every station must explicitly deny: systemic red flags (weight loss, night sweats, fatigue), relevant neurological symptoms, and any condition-specific red flags. The actor must know what to say when asked about things that are negative — not just the positives.
+Every station must deny: systemic red flags (weight loss, night sweats), condition-specific red flags, and relevant neurological symptoms.
 
 #### ICE (`ice`)
-Always present. Three short, natural quotes:
+Three short, natural verbatim quotes. The actor only reveals these if specifically asked.
 
 ```ts
 ice: {
   ideas: '"I\'m not sure what\'s going on — maybe something to do with my back?"',
-  concerns: '"I\'m worried it might be something serious that\'s going to affect my job."',
-  expectations: '"I just want to know what\'s causing it and what we can do about it."',
+  concerns: '"I\'m worried it might be something serious."',
+  expectations: '"I just want to know what\'s causing it."',
 }
 ```
 
-ICE quotes should feel spontaneous, not rehearsed. The actor only reveals these if the student specifically asks.
-
-#### Past medical and surgical history
-Each condition as its own entry with a verbatim quote. Include dose and duration for medications. If no relevant history: `'"I\'ve never been diagnosed with anything."'`
-
-#### Drug history
-List prescribed medications with dose. Include OTC medications and the frequency of use — these are often clinically significant (e.g. daily analgesia → medication overuse headache). Include allergies with the reaction type.
-
-#### Family history
-Quote format. If no relevant history, script an explicit denial. Include age of onset if relevant.
-
-#### Social history
-Quantify smoking (pack-years), alcohol (units/week), occupation (and impact on symptoms), and living situation. Include recreational drug use with an explicit denial if negative.
-
 #### `onlyIfDirectlyAsked`
-Items the actor must not volunteer unprompted — embarrassment, stigma, or not thinking it relevant. Include the reason for withholding in the note.
+Items the actor must not volunteer unprompted — embarrassment, stigma, or not thinking it relevant.
 
 #### `behaviourNotes`
-Emotional state, specific moments of distress, and how the actor should respond to empathy vs. poor technique. Include specific questions the patient will ask the student (e.g. "Am I going to need an operation?") and what a good response looks like.
+Emotional state, specific moments of distress, how the actor responds to empathy vs poor technique. Include specific questions the patient will ask the student and what a good response looks like.
 
 #### Examination stations
-For physical examination stations, organise the script by examination sequence (Look → Feel → Move → Special Tests). For each step:
-- List positive findings explicitly with the expected response
-- List negative findings (what is normal) so the actor knows what to demonstrate when these are tested
+For physical examination stations, use `historyOfPresentingComplaint` to list examination findings. Organise by examination sequence. For each step:
+- State positive findings explicitly with the expected actor response
+- State what is normal so the actor knows what to demonstrate when negative findings are tested
 - Specify side (left/right) and UMN vs LMN pattern where relevant
 
 ---
