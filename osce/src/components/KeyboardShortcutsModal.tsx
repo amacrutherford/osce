@@ -46,6 +46,28 @@ export function KeyboardShortcutsModal({ onClose }: KeyboardShortcutsModalProps)
             </div>
           ))}
         </dl>
+
+        <div className="mt-5 border-t border-[#e5e5e4] pt-4 dark:border-zinc-700">
+          <p className="mb-2 text-xs font-semibold text-[#6b6b6b] dark:text-zinc-400">Feedback</p>
+          <div className="flex flex-col gap-1.5">
+            <a
+              href="https://github.com/amacrutherford/osce/discussions"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-[#534AB7] hover:underline dark:text-[#a5a0e8]"
+            >
+              GitHub Discussions — suggest a station or report an issue
+            </a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeLm43peHtMLIiCmMmHoKGKld6ohRI96IF2ypnJs7e1slGOmA/viewform"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-[#6b6b6b] hover:underline dark:text-zinc-400"
+            >
+              No GitHub account? Leave feedback here →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,58 @@
+name: New station request
+description: Request or submit a new OSCE exam or mock station
+labels: ["content"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Content type
+      options:
+        - Exam steps (step-by-step examination guide)
+        - Mock station (full brief, actor script, mark scheme)
+        - Both
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Station title
+      description: e.g. "Shoulder examination", "Chest pain history"
+      placeholder: Station title
+    validations:
+      required: true
+
+  - type: dropdown
+    id: specialty
+    attributes:
+      label: Specialty
+      options:
+        - Orthopaedics
+        - Neurology
+        - Psychiatry
+        - Paediatrics
+        - Gynaecology
+        - Emergency medicine
+        - GP / General medicine
+        - Ophthalmology
+        - ENT
+        - Sexual health
+        - Palliative care
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: past-paper
+    attributes:
+      label: Past paper reference (if applicable)
+      description: If this appeared in a Y5 OSCE paper, note the year and station number
+      placeholder: e.g. Y5 2024, Station 3
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that would help — key findings to cover, common differentials, specific pathologies the station should test
+    validations:
+      required: false

@@ -1,0 +1,33 @@
+name: Bug report
+description: Something broken or incorrect in the app
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: Type of issue
+      options:
+        - Medical content error (incorrect fact, wrong source)
+        - UI / display bug
+        - Broken link or missing image
+        - Progress not saving
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Where is the issue?
+      description: Exam name, station name, or page
+      placeholder: e.g. "Knee examination — Palpation step" or "Mock station: Chest pain history"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: For content errors, include the correct information and a source if you have one
+    validations:
+      required: true

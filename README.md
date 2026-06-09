@@ -33,3 +33,7 @@ Found a bug or want to request a station? [Open an issue](https://github.com/ama
 ## Support
 
 If this helped you, consider [buying me a coffee](https://buymeacoffee.com/amacrutherford).
+
+## License
+
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free for personal and educational use; commercial use prohibited. © 2025 Alex Rutherford
