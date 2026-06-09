@@ -2022,6 +2022,244 @@ const mseSuicidalMockExam: MockExamStation = {
   ],
 };
 
+const mseDepressionRiskMockExam: MockExamStation = {
+  id: 'psych_mse_depression_risk',
+  title: 'Mental State Examination — Risk of Depression',
+  diagnosis: 'Moderate depressive episode with passive suicidal ideation and significant risk factors',
+  specialtyId: 'psychiatry',
+  candidateBrief: {
+    setting: 'You are an FY1 in a GP-linked psychiatric liaison outpatient clinic.',
+    scenario:
+      'David Saunders, 45, was referred by his practice nurse following a routine diabetic review where she noted he appeared flat and withdrawn. His wife mentioned he has not been himself since losing his job 5 months ago. David came in expecting to discuss his diabetes.',
+    tasks: [
+      'Perform a Mental State Examination on Mr Saunders',
+      'Present your findings and risk formulation to the examiner',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'David Saunders',
+    age: 45,
+    occupation: 'Civil engineer (made redundant 5 months ago)',
+    openingLine:
+      '"I honestly don\'t know why they sent me here. I came in about my diabetes. I\'m fine — just a bit tired. My wife worries too much." [sits down, avoids eye contact, arms crossed, tired-looking]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Appearance and behaviour — mild self-neglect; tracksuit; unshaven; psychomotor slowing; poor eye contact; arms crossed',
+        quote: '[Actor presents]: Wearing a tracksuit and trainers; 3–4 days of stubble; dark circles; hair not recently washed. Sits back with arms crossed. Little spontaneous movement. Poor eye contact — looks at the floor, makes brief eye contact then looks away. Does not smile. Cooperative but guarded.',
+      },
+      {
+        label: 'Speech — normal to slightly slowed rate; low volume; clipped monosyllabic answers; improves slightly with open questions',
+        quote: '[Actor presents]: Responses initially clipped and monosyllabic. Pauses before answering. No pressure, no tangentiality.',
+      },
+      {
+        label: 'Mood (subjective) — "flat", "grey", "just going through the motions"; does not use the word depressed',
+        quote: '"Flat, I suppose. Grey. I\'m just going through the motions really." – "I\'m not depressed. I just haven\'t really been feeling myself." [does not volunteer the word \'depressed\']',
+      },
+      {
+        label: 'Affect (objective) — restricted; blunted; congruent with depressed mood; no lability; no reactivity',
+        quote: '[Actor presents]: Minimal facial expression throughout. Does not brighten with light topics. Affect restricted in range and congruent with reported mood. No irritability. No lability.',
+      },
+      {
+        label: 'Thought form — coherent; linear; no formal thought disorder; perseveration on job loss without prompting',
+        quote: '[Actor presents]: Thinking coherent and sequential. No tangentiality or flight of ideas. Tendency to return to job loss without prompting.',
+      },
+      {
+        label: 'Thought content — worthlessness, hopelessness; passive suicidal ideation ("easier if I wasn\'t here") — no formed plan, no intent; only discloses if asked directly and sensitively',
+        quote: '"I feel like I\'ve nothing to offer — my wife, the boys. I used to be the provider and now I\'m just sitting at home." – "I don\'t really see how things are going to change." [hopelessness] – [only if sensitively and directly asked about suicidal thoughts]: "Sometimes I think it might be easier for everyone if I just wasn\'t here anymore. But I wouldn\'t do anything — I have the boys." [passive ideation; no plan; no intent]',
+      },
+      {
+        label: 'Perception — no hallucinations; no perceptual abnormalities',
+        quote: '"No. I\'m not hearing things or seeing things." [if asked directly]',
+      },
+      {
+        label: 'Cognition — alert; fully oriented; mild concentration impairment (serial 7s to 79 then fails); recalls 2/3 objects at 5 minutes; complains of poor memory',
+        quote: '[Actor]: Alert and oriented to time, place, and person. Serial 7s: 93, 86, 79, then: "74... 67?" [incorrect]. Recalls 2/3 objects at 5 minutes. "My memory is terrible — I keep forgetting appointments."',
+      },
+      {
+        label: 'Insight — partial; attributes low mood to unemployment and life circumstances; resistant to diagnostic label; stigma (male identity; "the strong one")',
+        quote: '"It\'s not depression. I\'m just in a difficult situation — anyone would feel this way if they\'d lost their job." – "I\'m not the sort of person who gets depressed. I\'ve always been the strong one." [partial insight; resistance to diagnostic label]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Type 2 diabetes — diagnosed 3 years ago; on metformin', quote: '"I have diabetes — 3 years now. I\'m on the metformin tablet." [only reason he expected the visit]' },
+      { label: 'No previous psychiatric history; no previous episodes of depression', quote: '"Never. I\'ve never had depression. Never seen a psychiatrist." [defensive if pressed]' },
+    ],
+    drugHistory: [
+      { label: 'Metformin 500 mg BD — for type 2 diabetes', quote: '"The diabetes tablet — twice a day."' },
+      { label: 'Alcohol — increased to 4–6 units/night (whisky at home); previously social drinker only; justifies as "helping to sleep"', quote: '"I have a few whiskies in the evening. Helps me sleep." – "Maybe 3 or 4 glasses. Perhaps more some nights." [if asked to quantify: approximately 30–40 units/week]' },
+      { label: 'No other medications; no known drug allergies', quote: '"Nothing else. No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — depression; died by suicide at age 53 (found hanged); not widely discussed in the family; only revealed if explicitly asked about family mental health history', quote: '"My dad died when I was 22." [if asked how]: "He took his own life." [quiet; looks at floor] "He was 53. We don\'t really talk about it." [CRITICAL risk factor — only reveals if explicitly asked about family mental health or suicide history]' },
+    ],
+    socialHistory: [
+      { label: 'Married to Diane (18 years); two sons aged 12 and 15; lives in family home', quote: '"Married 18 years. Two boys — 12 and 15."' },
+      { label: 'Made redundant 5 months ago after 20 years as a civil engineer; mounting financial pressure; struggling to find new work', quote: '"I was made redundant 5 months ago. Twenty years with the same firm." – "I\'ve been applying but... nothing yet." [financial stress; loss of occupational identity]' },
+      { label: 'Socially withdrawn; stopped 5-a-side football; declining social invitations; wife increasingly concerned', quote: '"I used to play 5-a-side on Thursdays. I just stopped going." – "I don\'t really want to see anyone."' },
+    ],
+    importantNegatives: [
+      'No active suicidal ideation with formed plan or intent ("I wouldn\'t do anything. I have the boys.")',
+      'No psychotic features — no hallucinations, no delusions ("Nothing like that.")',
+      'No previous manic or hypomanic episodes ("No — always the opposite, if anything.")',
+      'No illicit drug use ("No. Just the whisky.")',
+      'No significant objective cognitive decline beyond concentration symptoms of depression',
+    ],
+    ice: {
+      ideas: '"I think I\'m just struggling with the situation — once I find work it\'ll sort itself out."',
+      concerns: '"I\'m worried about the family. The mortgage. What the boys must think of me."',
+      expectations: '"I didn\'t really expect to be here. But if you can help me feel more like myself again... that would be something."',
+    },
+    onlyIfDirectlyAsked: [
+      'Father\'s suicide — "He took his own life. He was 53. We don\'t talk about it." [only reveals if explicitly asked about family mental health or how his father died — the key risk disclosure of the station]',
+      'Passive suicidal ideation — "Sometimes I think it\'d be easier for everyone if I just wasn\'t here. But I wouldn\'t act on it. I have the boys." [only if sensitively and directly asked]',
+      'Alcohol quantity — "Maybe 4–6 glasses of whisky a night. More at weekends." [approximately 30–40 units/week]',
+    ],
+    behaviourNotes: [
+      'Opens very guarded and dismissive — masculine identity; does not want to be seen as weak; "I\'m not the sort of person who gets depressed"',
+      'Gradually opens if the student is patient, non-judgemental, and avoids pathologising language early on',
+      'The father\'s suicide is the key clinical turning point: becomes visibly quiet and looks at the floor when asked. Does not volunteer this information. Only reveals if the student explicitly asks about family mental health or how his father died',
+      'Passive ideation is only disclosed if the student asks sensitively and directly — a normalising approach works ("sometimes when things feel this heavy, some people have thoughts that life isn\'t worth living — have you had any thoughts like that?"). Does not disclose if asked bluntly ("have you thought about killing yourself?")',
+      'After disclosing passive ideation, quickly reassures: "But I wouldn\'t do anything — I have the boys." The student should explore this further, not accept it at face value',
+      'Asks "Am I actually depressed?" near the end — student should respond with empathy and appropriate psychoeducation rather than a blunt label',
+      'Do NOT play this as open or tearful — emotional breakthrough only occurs if the student earns it through careful rapport-building',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the assessment',
+      items: [
+        { description: 'Introduces themselves; explains the purpose of the mental state assessment', marks: 1 },
+        { description: 'Acknowledges that David was not expecting a psychiatric referral; validates this without apologising for it; creates a non-judgemental space', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Appearance and behaviour',
+      items: [
+        { description: 'Observes and records appearance: mild self-neglect (tracksuit, unshaven, unkempt), psychomotor slowing, poor eye contact', marks: 1 },
+        { description: 'Notes posture and non-verbal communication — closed body language (arms crossed), minimal spontaneous movement', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Speech',
+      items: [
+        { description: 'Assesses speech: slightly slowed rate, low volume, clipped and monosyllabic; no pressure, no formal thought disorder', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Mood and affect',
+      items: [
+        { description: 'Elicits subjective mood in David\'s own words — "flat", "grey", "going through the motions"', marks: 1 },
+        { description: 'Assesses objective affect — restricted range, blunted, congruent with depressed mood; no reactivity or lability', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Thought form and content',
+      items: [
+        { description: 'Assesses thought form — coherent and linear; notes perseveration on job loss; no formal thought disorder', marks: 1 },
+        { description: 'Elicits negative automatic thoughts: worthlessness ("nothing to offer"), hopelessness ("things won\'t change")', marks: 1 },
+        { description: 'Asks sensitively and directly about suicidal ideation — elicits passive death wishes ("easier if I wasn\'t here") without formed plan or active intent', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Perception',
+      items: [
+        { description: 'Screens for hallucinations in all modalities — correctly establishes none are present', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Cognition',
+      items: [
+        { description: 'Assesses orientation and concentration — identifies mild impairment (serial 7s incomplete, recall 2/3) consistent with depressive pseudodementia rather than organic dementia', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Insight',
+      items: [
+        { description: 'Assesses insight — correctly identifies partial insight: acknowledges feeling unwell but attributes it to external circumstances; resistance to the label of depression', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Risk assessment',
+      items: [
+        { description: 'Directly asks about family history of mental illness and suicide — elicits paternal death by suicide at age 53', marks: 2 },
+        { description: 'Asks about and quantifies alcohol use — identifies harmful use at approximately 30–40 units/week as a perpetuating and risk-amplifying factor', marks: 1 },
+        { description: 'Identifies and documents risk factors: passive suicidal ideation, family history of completed suicide, male sex, middle-aged, social isolation, financial stress, occupational identity loss, harmful alcohol use', marks: 2 },
+        { description: 'Identifies protective factors: two teenage sons (explicit deterrent), wife engaged and concerned, partial willingness to engage with treatment', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing the assessment',
+      items: [
+        { description: 'Summarises MSE findings clearly and empathically; acknowledges stigma concerns', marks: 1 },
+        { description: 'States risk formulation and immediate next steps — moderate-to-high risk; requires urgent GP liaison, safety-netting, address means (alcohol + access), and psychiatry follow-up', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — does not rush or pressurise David; allows silence without filling it unnecessarily', marks: 1 },
+        { description: 'Demonstrates sensitivity when eliciting suicidal ideation and family suicide history — does not react with alarm or abruptly shift topic', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Mr Saunders is a 45-year-old civil engineer made redundant 5 months ago, referred by his practice nurse following a routine diabetic review — he was not expecting a psychiatric assessment and presented guardedly',
+    'Appearance and behaviour: mild self-neglect (tracksuit, unshaven), psychomotor slowing, closed posture, poor eye contact; speech slightly slowed, low volume, clipped',
+    'Mood: subjectively "flat" and "grey" — does not label it depression; objectively restricted, blunted, congruent; no lability',
+    'Thought form: coherent with perseveration on job loss; thought content: worthlessness ("nothing to offer"), hopelessness ("things won\'t change"), and passive suicidal ideation without formed plan or active intent ("easier if I wasn\'t here — but I wouldn\'t act on it")',
+    'Perception: no hallucinations; cognition: mild impairment (serial 7s incomplete, recall 2/3) consistent with depressive pseudodementia; insight: partial — attributes low mood to life circumstances, resistant to diagnostic label',
+    'Risk formulation — MODERATE-TO-HIGH: passive suicidal ideation + father died by suicide at 53 (strongest single predictive risk factor) + male + middle-aged + social isolation + financial crisis + harmful alcohol use (30–40 units/week) + occupational identity loss; protective factors: two teenage sons (explicit deterrent), wife engaged, partial willingness to accept help',
+    'Likely diagnosis: moderate depressive episode (first presentation); immediate management — urgent GP liaison and safety-net; address harmful alcohol use (AUDIT and brief intervention); SSRI (sertraline first-line); IAPT referral; financial and occupational support; review within 1–2 weeks',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the key risk factors for suicide in this patient, and how would you stratify his risk?',
+      keyPoints: [
+        'Family history of completed suicide (father at 53): strongest single static risk predictor; biological risk (genetic serotonergic dysregulation) and social modelling mechanism',
+        'Passive suicidal ideation + hopelessness: hopelessness is a stronger predictor of completed suicide than depression severity (Beck Hopelessness Scale >9 predicts 91% of subsequent completions)',
+        'Male sex, middle-aged: men are 3–4× more likely to die by suicide than women; middle age is a peak period in men for completed suicide in the UK',
+        'Harmful alcohol use (30–40 units/week): disinhibits impulsive action; exacerbates depression; strongly associated with acute suicidal behaviour in men',
+        'Dynamic risk factors — financial crisis, occupational identity loss, social isolation — are potentially modifiable therapeutic targets; risk stratification: moderate-to-high acute risk given the accumulation of static and dynamic factors without a formed plan',
+      ],
+      source: 'NICE NG225 (Self-harm and suicide: assessment, management and preventing recurrence, 2022); Hawton K et al., BMJ 2013; Office for National Statistics Suicide data (2022)',
+    },
+    {
+      question: 'What is the relationship between alcohol use and depression, and how does this affect management?',
+      keyPoints: [
+        'Bidirectional relationship: alcohol use disorder and depression co-occur in 30–40% of cases; alcohol depletes serotonin and disrupts sleep architecture, perpetuating and deepening depression',
+        'Self-medication cycle: acute alcohol use relieves depression transiently via GABA-A potentiation; chronic use worsens it; avoidant coping reinforces low mood',
+        'In a patient with passive suicidal ideation, intoxication substantially raises the risk of impulsive self-harm — means restriction includes addressing alcohol access',
+        'Management sequence: address alcohol use alongside antidepressants; use AUDIT-C for screening; brief intervention (FRAMES model) in primary care; refer to alcohol services if dependence features are present',
+        'SSRIs are not contraindicated with moderate alcohol use; avoid mirtazapine in heavy drinkers (excess sedation risk); sertraline is preferred in men with cardiac risk factors from long-term alcohol use',
+      ],
+      source: 'NICE CG115 (Alcohol-use disorders, 2011); NICE NG222 (Depression in adults, 2022); Sullivan LE et al., Ann Intern Med 2005',
+    },
+    {
+      question: 'How would you approach a patient with partial insight who resists the label of depression?',
+      keyPoints: [
+        'Partial insight is common in men and in first presentations of depression — does not preclude treatment, but requires a tailored approach',
+        'Avoid confronting the explanatory model: disputing "you\'re wrong, it\'s depression" reinforces resistance; instead validate the stressor while introducing the possibility that the reaction has become a clinical entity',
+        'Normalising language: frame depression as a biological response to prolonged stress (cortisol-mediated neuroplasticity changes) rather than a character weakness — effective in reducing stigma particularly in men',
+        'Motivational approach: "what would your life look like if you felt more like yourself again?" is more effective than diagnostic labelling; explore ambivalence about treatment',
+        'Cognitive symptoms (memory, concentration) can be reframed: explaining that these are recognised features of depression — not dementia or weakness — is often persuasive and reduces fear',
+      ],
+      source: 'NICE NG222 (2022); Gask L et al.: Primary care mental health — Br J Gen Pract 2012; OHCM 10th ed., Ch. 20',
+    },
+    {
+      question: 'What constitutes a moderate depressive episode under ICD-11 and NICE criteria, and what is the first-line treatment?',
+      keyPoints: [
+        'ICD-11 moderate depressive episode: ≥4 depressive symptoms present most of the day for ≥2 weeks, with ≥2 core symptoms (depressed mood, anhedonia, reduced energy); significant functional impairment',
+        'NICE NG222 (2022): offer antidepressant therapy (SSRI first-line) combined with evidence-based psychological therapy (CBT or behavioural activation) for moderate-to-severe depression',
+        'Sertraline is NICE-preferred SSRI: broadest evidence base, fewest drug interactions (relevant here given metformin; no clinically significant interaction), preferred in patients with cardiovascular comorbidity',
+        'Treatment duration: minimum 6 months after remission in a first episode to prevent relapse; review at 2 weeks after starting antidepressant to check tolerability and any increase in suicidal ideation',
+        'PHQ-9 ≥10 supports the diagnosis; David\'s symptom profile corresponds to moderately severe range; IAPT referral for CBT and social prescribing (behavioural activation via exercise, occupation) are key adjuncts',
+      ],
+      source: 'NICE NG222 (Depression in adults: treatment and management, 2022); ICD-11 (2022) — 6A70; Kroenke K et al., J Gen Intern Med 2001 (PHQ-9)',
+    },
+  ],
+};
+
 export const PSYCH_MOCK_EXAMS: MockExamStation[] = [
   alcoholAnxietyMockExam,
   lithiumCounsellingMockExam,
@@ -2031,4 +2269,5 @@ export const PSYCH_MOCK_EXAMS: MockExamStation[] = [
   maniaPregnancyMockExam,
   lowMoodDepressionMockExam,
   mseSuicidalMockExam,
+  mseDepressionRiskMockExam,
 ];

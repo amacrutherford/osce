@@ -373,6 +373,7 @@ const fraserGuidelines: MockExamStation = {
       domain: 'Contraception counselling and prescribing',
       items: [
         { description: 'Explains the COCP — how to take it, quick start, missed pill rules, efficacy', marks: 1 },
+        { description: 'Addresses future fertility — explains that the COCP does not affect long-term fertility and that ovulation returns promptly after stopping; notes that Depo-Provera can delay return of fertility by up to 12–18 months if that option is discussed', marks: 1 },
         { description: 'Discusses dual protection — continues using condoms for STI protection; offers STI screening', marks: 1 },
         { description: 'Agrees a prescription and explains when to return — review at 3 months', marks: 1 },
       ],
@@ -405,6 +406,7 @@ const fraserGuidelines: MockExamStation = {
     'Confidentiality is maintained — Mia was correctly advised that her parents will not be contacted; she was gently encouraged to consider involving a trusted adult but was not pressured',
     'UKMEC screening is clear: no migraines with aura, no VTE, BP normal, no enzyme-inducing medications, not pregnant',
     'COCP prescribed (e.g. Microgynon 30) with quick start instructions, missed pill rules explained, dual protection with condoms reinforced; STI screen offered; review in 3 months',
+    'Future fertility discussed: Mia was reassured that the COCP does not affect long-term fertility — ovulation returns within weeks of stopping; if DMPA had been discussed, the potential 12–18 month delay in return of fertility would have been highlighted as a significant consideration at her age',
     'The consultation was documented carefully including the Gillick/Fraser assessment; a copy retained in the notes',
   ],
   vivaQuestions: [
@@ -437,6 +439,7 @@ const fraserGuidelines: MockExamStation = {
         'All licensed contraceptive methods are available to Gillick-competent young people under 16 — there are no legal or clinical restrictions unique to this age group',
         'LARC (implant, IUS, Cu-IUD) can all be offered; the implant is particularly useful in young people who may have difficulty remembering a daily pill',
         'DMPA (Depo-Provera) injectable: concerns about bone mineral density loss in under-18s — FSRH states it can be used but review every 2 years; it is not an absolute contraindication in young people',
+        'Future fertility and method choice: the COCP, POP, implant, IUS, and Cu-IUD all carry no long-term impairment to fertility — ovulation returns promptly after stopping; DMPA is the exception, with a median delay of 6–12 months and up to 18 months before conception in some users, which is particularly relevant to counsel young patients about',
         'COCP and POP: as for adults — apply UKMEC criteria; migraine with aura is a UKMEC 4 contraindication at any age',
         'Emergency contraception (Cu-IUD, UPA, LNG) is also available without restriction; condoms and STI screening should be discussed at every visit',
       ],
