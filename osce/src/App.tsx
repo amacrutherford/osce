@@ -329,8 +329,17 @@ function App() {
               </p>
             )}
           </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://buymeacoffee.com/amacrutherford"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-[#f7c94a] bg-[#ffdd57] px-3 py-1.5 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#f7c94a]"
+            >
+              Support ☕️
+            </a>
           {!onLanding && (
-            <div className="flex items-center gap-2">
+            <>
               <button
                 type="button"
                 onClick={() => setShowShortcuts(true)}
@@ -357,8 +366,9 @@ function App() {
               <div className="flex-1 min-w-0">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
               </div>
-            </div>
+            </>
           )}
+          </div>
         </div>
       </header>
 
