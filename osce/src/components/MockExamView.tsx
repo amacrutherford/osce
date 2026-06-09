@@ -62,6 +62,8 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
     new Set(exam.markScheme.map((_, i) => i)),
   );
   const [tickedItems, setTickedItems] = useState<Set<string>>(new Set());
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [feedbackText, setFeedbackText] = useState('');
 
   const tabs: { id: MockTab; label: string }[] = [
     { id: 'brief', label: 'Candidate Brief' },
@@ -165,7 +167,7 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
         </div>
       </div>
 
-      <div className="mb-4 flex flex-wrap gap-2">
+      <div className="mb-4 flex flex-wrap items-center gap-2">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -180,7 +182,61 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             {tab.label}
           </button>
         ))}
+        {activeTab === 'viva' && (
+          <button
+            type="button"
+            onClick={() => setShowFeedback(true)}
+            className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#AFA9EC] bg-white text-sm font-bold text-[#3C3489] transition hover:bg-[#EEEDFE]"
+            aria-label="Send feedback"
+          >
+            ?
+          </button>
+        )}
       </div>
+
+      {showFeedback && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="font-bold text-[#1a1a1a]">Send Feedback</h3>
+              <button
+                type="button"
+                onClick={() => { setShowFeedback(false); setFeedbackText(''); }}
+                className="text-[#6b6b6b] hover:text-[#1a1a1a]"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="mb-3 text-sm text-[#6b6b6b]">
+              Spotted an error or have a suggestion for <span className="font-medium text-[#1a1a1a]">{exam.title}</span>?
+            </p>
+            <textarea
+              value={feedbackText}
+              onChange={(e) => setFeedbackText(e.target.value)}
+              placeholder="Describe the issue or suggestion..."
+              rows={5}
+              className="w-full rounded-xl border border-[#e5e5e4] p-3 text-sm text-[#1a1a1a] outline-none focus:border-[#534AB7]"
+            />
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => { setShowFeedback(false); setFeedbackText(''); }}
+                className="rounded-lg border border-[#e5e5e4] px-4 py-2 text-sm font-medium text-[#6b6b6b] transition hover:bg-[#f5f5f4]"
+              >
+                Cancel
+              </button>
+              <a
+                href={`mailto:amacrutherford@gmail.com?subject=${encodeURIComponent(`Feedback: ${exam.title}`)}&body=${encodeURIComponent(feedbackText)}`}
+                onClick={() => { setShowFeedback(false); setFeedbackText(''); }}
+                className="rounded-lg bg-[#534AB7] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#3C3489]"
+              >
+                Send
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {activeTab === 'brief' && (
         <div className="space-y-4">

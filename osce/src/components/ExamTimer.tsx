@@ -2,10 +2,21 @@ import { useEffect, useRef, useState } from 'react';
 
 const TOTAL_SECONDS = 7 * 60;
 
+function parseTime(value: string): number | null {
+  const trimmed = value.trim();
+  if (/^\d+$/.test(trimmed)) return parseInt(trimmed, 10) * 60;
+  const match = trimmed.match(/^(\d{1,2}):(\d{2})$/);
+  if (match) return parseInt(match[1], 10) * 60 + parseInt(match[2], 10);
+  return null;
+}
+
 export function ExamTimer() {
   const [secondsLeft, setSecondsLeft] = useState(TOTAL_SECONDS);
   const [running, setRunning] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [editValue, setEditValue] = useState('');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!running) return;
@@ -23,6 +34,10 @@ export function ExamTimer() {
     };
   }, [running]);
 
+  useEffect(() => {
+    if (editing) inputRef.current?.select();
+  }, [editing]);
+
   function toggle() {
     if (secondsLeft === 0) return;
     setRunning((r) => !r);
@@ -32,6 +47,25 @@ export function ExamTimer() {
     setRunning(false);
     if (intervalRef.current) clearInterval(intervalRef.current);
     setSecondsLeft(TOTAL_SECONDS);
+  }
+
+  function startEditing() {
+    if (running) return;
+    const minutes = Math.floor(secondsLeft / 60);
+    const seconds = secondsLeft % 60;
+    setEditValue(`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+    setEditing(true);
+  }
+
+  function commitEdit() {
+    const parsed = parseTime(editValue);
+    if (parsed !== null && parsed > 0) setSecondsLeft(parsed);
+    setEditing(false);
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter') commitEdit();
+    if (e.key === 'Escape') setEditing(false);
   }
 
   const minutes = Math.floor(secondsLeft / 60);
@@ -50,19 +84,32 @@ export function ExamTimer() {
       }`}
     >
       <span className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Timer</span>
-      <span
-        className={`font-mono text-base font-bold tabular-nums ${
-          isFinished
-            ? 'text-red-600'
-            : isWarning
-              ? 'text-amber-600'
-              : running
-                ? 'text-[#1a1a1a]'
-                : 'text-[#6b6b6b]'
-        }`}
-      >
-        {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
-      </span>
+      {editing ? (
+        <input
+          ref={inputRef}
+          value={editValue}
+          onChange={(e) => setEditValue(e.target.value)}
+          onBlur={commitEdit}
+          onKeyDown={handleKeyDown}
+          className="w-16 bg-transparent font-mono text-base font-bold tabular-nums text-[#534AB7] outline-none"
+        />
+      ) : (
+        <span
+          onClick={startEditing}
+          title={running ? undefined : 'Click to set time'}
+          className={`font-mono text-base font-bold tabular-nums ${
+            isFinished
+              ? 'text-red-600'
+              : isWarning
+                ? 'text-amber-600'
+                : running
+                  ? 'text-[#1a1a1a]'
+                  : 'cursor-pointer text-[#6b6b6b] hover:text-[#534AB7]'
+          }`}
+        >
+          {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+        </span>
+      )}
       <button
         type="button"
         onClick={toggle}
