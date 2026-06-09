@@ -21,6 +21,10 @@ import { PALLIATIVE_MOCK_EXAMS } from './data/palliativeMockExams';
 import { PSYCH_MOCK_EXAMS } from './data/psychMockExams';
 import { SEXUAL_HEALTH_MOCK_EXAMS } from './data/sexualHealthMockExams';
 import { OPHTHAL_MOCK_EXAMS } from './data/ophthalmologyMockExams';
+import { CONTRACEPTION_MOCK_EXAMS } from './data/contraceptionMockExams';
+import { MED_COUNSELLING_MOCK_EXAMS_1 } from './data/medCounsellingMockExams1';
+import { MED_COUNSELLING_MOCK_EXAMS_2 } from './data/medCounsellingMockExams2';
+import { CHRONIC_DISEASE_REVIEW_MOCK_EXAMS } from './data/chronicDiseaseReviewMockExams';
 
 const ALL_MOCK_EXAMS = [
   ...NEURO_MOCK_EXAMS,
@@ -33,6 +37,10 @@ const ALL_MOCK_EXAMS = [
   ...PALLIATIVE_MOCK_EXAMS,
   ...GP_MOCK_EXAMS,
   ...OPHTHAL_MOCK_EXAMS,
+  ...CONTRACEPTION_MOCK_EXAMS,
+  ...MED_COUNSELLING_MOCK_EXAMS_1,
+  ...MED_COUNSELLING_MOCK_EXAMS_2,
+  ...CHRONIC_DISEASE_REVIEW_MOCK_EXAMS,
 ];
 import { useOsceStore } from './hooks/useOsceStore';
 

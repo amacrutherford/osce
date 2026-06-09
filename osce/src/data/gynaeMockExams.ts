@@ -665,8 +665,434 @@ const uterineCancerMockExam: MockExamStation = {
   ],
 };
 
+const endometriosisMockExam: MockExamStation = {
+  id: 'gynae_endometriosis_dyspareunia',
+  title: 'Gynaecological History — Dyspareunia and Cyclical Pelvic Pain',
+  diagnosis: 'Endometriosis',
+  specialtyId: 'obstetrics-gynaecology',
+  candidateBrief: {
+    setting: 'You are an FY1 in the gynaecology outpatient clinic.',
+    scenario:
+      'Aisha Patel, 28, has been referred by her GP with a 3-year history of painful periods and pain during intercourse. She has not yet started a family but is hoping to in the future.',
+    tasks: [
+      'Take a focused gynaecological history from Aisha',
+      'Explain your working diagnosis and outline the initial management plan',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Aisha Patel',
+    age: 28,
+    occupation: 'Solicitor',
+    openingLine:
+      '"I\'ve had painful periods and pain during sex for a few years now. My GP thought it was worth getting checked out. To be honest, it\'s been affecting everything." [slightly embarrassed, but opens up quickly]',
+    socrates: [
+      {
+        label: 'Site',
+        descriptor: 'deep central pelvic pain; also lower back; deep dyspareunia (not superficial)',
+        quotes: ['"It\'s deep inside — central, low down. Not at the surface." – "I also get a dull ache in my lower back."'],
+      },
+      {
+        label: 'Onset',
+        descriptor: 'gradually worsening over 3 years; started as bad periods then progressively spread',
+        quotes: ['"It started about 3 years ago with really bad periods. Over time it\'s spread to all the time and sex." – "Each year it gets a bit worse."'],
+      },
+      {
+        label: 'Character',
+        descriptor: 'deep aching and cramping; dyspareunia is deep (not superficial) — worst with deep penetration and certain positions',
+        quotes: ['"It\'s a deep aching, cramping feeling. During sex it\'s specifically when it\'s deep — it makes me pull away." – "It\'s not at the entrance — it\'s deeper."'],
+      },
+      {
+        label: 'Radiation',
+        descriptor: 'lower back radiation; occasionally into rectum (especially during periods) — dyschezia',
+        quotes: ['"Sometimes during my period I get this awful pain going through to my back passage — like I need to pass a stool urgently." – "It goes to my lower back a lot."'],
+      },
+      {
+        label: 'Associated symptoms',
+        descriptor: 'heavy painful periods (dysmenorrhoea); cyclical rectal pain and bloating; mild subfertility concern (not yet trying to conceive)',
+        quotes: ['"My periods are really heavy and painful — I take maximum ibuprofen and it barely touches it." – "I get bloated and constipated around my period." – "We haven\'t been trying for a baby yet but I\'m worried it might affect things."'],
+      },
+      {
+        label: 'Timing',
+        descriptor: 'pain cyclical — worst in the week before and during menstruation; deep dyspareunia is constant but worsens premenstrually',
+        quotes: ['"It\'s always worse the week before my period and then terrible during it." – "The sex pain is there all the time but gets much worse around my period."'],
+      },
+      {
+        label: 'Exacerbating / relieving',
+        descriptor: 'worsened by deep penetration, certain positions, and defaecation during period; NSAIDs provide partial relief only',
+        quotes: ['"Ibuprofen helps a bit but doesn\'t take it away." – "Certain positions during sex are worse." – "Going to the toilet during my period is agony."'],
+      },
+      {
+        label: 'Severity',
+        descriptor: '8/10 at worst; significantly affects quality of life, sex life, and work performance',
+        quotes: ['"About 8 out of 10 at worst — I\'ve had to leave work early sometimes." – "It\'s affecting my relationship. My partner tries to understand but it\'s hard for both of us."'],
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No previous gynaecological surgery; no previous diagnosis of endometriosis', quote: '"I\'ve never had surgery. Nobody\'s ever told me what\'s causing this." [frustrated]' },
+      { label: 'Regular smears — all normal', quote: '"My smears are all up to date and have been normal." [if asked]' },
+    ],
+    drugHistory: [
+      { label: 'Combined oral contraceptive pill (Microgynon 30) — for 4 years; provides limited symptom relief', quote: '"I\'m on the pill — Microgynon. I\'ve been on it for years." – "It helps a little with the periods but not much with the pain."' },
+      { label: 'Ibuprofen 400 mg PRN — regular use during periods', quote: '"I take ibuprofen for the pain — maximum dose. It only takes the edge off."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Mother — had a hysterectomy in her 30s (likely endometriosis, not formally diagnosed)', quote: '"My mum had her womb removed in her 30s. I don\'t think they called it endometriosis back then but I wonder if it was the same thing." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'In a stable relationship for 3 years; partner is aware of the symptoms; avoiding sex due to pain', quote: '"I\'ve been with my partner for 3 years. He\'s supportive but we\'ve been avoiding sex because it hurts. It\'s putting a strain on us."' },
+      { label: 'Non-smoker; no alcohol; works long hours as a solicitor; stress worsens perceived pain', quote: '"I don\'t smoke. I don\'t really drink. Work is very stressful." [if asked]' },
+    ],
+    importantNegatives: [
+      'No intermenstrual or postcoital bleeding ("No — just heavy periods.")',
+      'No abnormal vaginal discharge ("No — nothing unusual.")',
+      'No urinary symptoms or haematuria ("No.")',
+      'No weight loss or systemic symptoms ("I feel well in myself — just the pain.")',
+      'No previous STIs or PID ("Not that I know of.")',
+      'Not currently trying to conceive — subfertility not yet confirmed ("We haven\'t been trying yet — I\'m worried about what this might mean.")',
+    ],
+    ice: {
+      ideas: '"I\'ve read about endometriosis online. I think that\'s what this might be. But I\'m not sure how they prove it."',
+      concerns: '"I\'m worried about whether I\'ll be able to have children. And I just want the pain to stop."',
+      expectations: '"I want to find out what\'s wrong and what can be done about it."',
+    },
+    onlyIfDirectlyAsked: [
+      'Impact on relationship — "It\'s been really difficult. We barely have sex anymore."',
+      'Previous investigations — "I had a pelvic ultrasound 2 years ago — they said it was normal."',
+      'Whether pain occurs outside menstrual cycle — "Yes — the deep sex pain is there throughout the month."',
+    ],
+    behaviourNotes: [
+      'Initially slightly embarrassed discussing dyspareunia — opens up once the clinician is matter-of-fact and empathetic',
+      'Visibly relieved when the clinician validates her symptoms and suggests endometriosis as a possibility',
+      'Asks "Will I need surgery?" — student should explain the diagnostic pathway (laparoscopy is gold standard) but non-surgical management is tried first',
+      'Asks "Will this affect my fertility?" — student should acknowledge this is a genuine concern, explain the association, and reassure that many women with endometriosis conceive successfully',
+      'Mentions the normal ultrasound at 2 years ago — student should explain that USS can miss endometriosis; laparoscopy is the definitive test',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; establishes rapport; thanks Aisha for attending', marks: 1 },
+        { description: 'Uses open questioning and creates a non-judgemental environment for discussing dyspareunia', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presenting complaint',
+      items: [
+        { description: 'Uses open question to elicit presenting complaint — painful periods and dyspareunia', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History of presenting complaint',
+      items: [
+        { description: 'Explores dysmenorrhoea: onset, character, severity, relationship to menstrual cycle', marks: 1 },
+        { description: 'Characterises dyspareunia as deep (not superficial) — asks specifically whether pain is at the entrance or deep inside', marks: 2 },
+        { description: 'Asks about dyschezia (cyclical rectal pain/pain on defaecation) — key associated symptom of endometriosis', marks: 1 },
+        { description: 'Asks about cyclical timing — identifies pain is worst premenstrually and during menstruation', marks: 1 },
+        { description: 'Asks about impact on quality of life, relationship, and work', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Fertility and gynaecological history',
+      items: [
+        { description: 'Asks about fertility wishes — identifies subfertility concern and future pregnancy plans', marks: 1 },
+        { description: 'Takes menstrual history: cycle length, duration, heaviness, spotting', marks: 1 },
+        { description: 'Asks about previous investigations — notes prior USS was normal (does not exclude endometriosis)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Screening for red flags',
+      items: [
+        { description: 'Screens for postcoital and intermenstrual bleeding, abnormal discharge, weight loss — all negative', marks: 1 },
+      ],
+    },
+    {
+      domain: 'ICE',
+      items: [
+        { description: 'Explores ICE — acknowledges Aisha\'s concerns about fertility and validates her suspicion of endometriosis', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Past medical, drug, family, social history',
+      items: [
+        { description: 'Asks about family history — identifies possible maternal endometriosis (hysterectomy in her 30s)', marks: 1 },
+        { description: 'Asks about current medications — identifies COCP and NSAIDs providing partial relief', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing and management plan',
+      items: [
+        { description: 'Summarises history back to Aisha; explains working diagnosis of endometriosis in plain language', marks: 1 },
+        { description: 'Explains that a normal USS does not exclude endometriosis — laparoscopy is the gold-standard investigation', marks: 1 },
+        { description: 'Outlines initial management: optimise analgesia; consider hormonal suppression (progestogen IUS or continuous OCP); refer to gynaecology for diagnostic laparoscopy', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — validates Aisha\'s experience without minimising her symptoms', marks: 1 },
+        { description: 'Signposting and summarising throughout', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Aisha is a 28-year-old solicitor presenting with a 3-year progressive history of severe secondary dysmenorrhoea, deep dyspareunia, dyschezia, and cyclical lower back pain — all worsening premenstrually',
+    'The clinical picture is strongly consistent with endometriosis: cyclical pelvic pain, deep dyspareunia (not superficial), dyschezia, heavy periods, and likely positive family history (maternal hysterectomy in her 30s)',
+    'A previous pelvic USS 2 years ago was normal — importantly, transvaginal USS cannot exclude peritoneal endometriosis; diagnostic laparoscopy is the gold standard',
+    'Current medications (COCP and ibuprofen) provide only partial relief — options to optimise include continuous COCP (suppress cycles), progestogen IUS (Mirena), or progestogen-only pill; NSAIDs remain first-line for analgesia',
+    'Key concern: potential impact on fertility — endometriosis is associated with subfertility in 30–40% of cases; Aisha should be reassured that many women with endometriosis conceive, but early referral to gynae is important',
+    'Red flags excluded: no PCB, no IMB, no weight loss, no abnormal discharge — malignancy unlikely in this clinical context',
+    'Management: refer to gynaecology; optimise analgesia; discuss laparoscopy for definitive diagnosis and staged surgical treatment; address psychological impact on relationship',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What is endometriosis and how is it classified?',
+      keyPoints: [
+        'Endometriosis: presence of endometrial-like tissue (glands and stroma) outside the uterus — ovaries, peritoneum, rectovaginal septum, bladder, diaphragm',
+        'Affects approximately 10% of women of reproductive age; average diagnostic delay 7–10 years',
+        'rASRM staging (I–IV): stage I = minimal (superficial implants); II = mild; III = moderate (endometriomas, adhesions); IV = severe (deep infiltrating, frozen pelvis)',
+        'Deep infiltrating endometriosis (DIE): implants >5 mm depth into peritoneum; causes the most severe symptoms including dyschezia, ureteric obstruction, and severe dyspareunia',
+        'Endometrioma: "chocolate cyst" of the ovary — endometrial tissue within ovarian cortex; seen on USS as homogeneous low-level echoes (ground-glass appearance)',
+      ],
+      source: 'NICE NG73 (Endometriosis: diagnosis and management, 2017); geekymedics.com',
+    },
+    {
+      question: 'What investigations are used to diagnose endometriosis and why is laparoscopy the gold standard?',
+      keyPoints: [
+        'Clinical diagnosis: symptoms (dysmenorrhoea, dyspareunia, dyschezia, subfertility) + examination findings (uterosacral tenderness, fixed retroverted uterus, adnexal masses) have positive predictive value',
+        'Transvaginal USS: sensitive for endometriomas and DIE (rectovaginal); NOT sensitive for superficial peritoneal implants — a normal USS does NOT exclude endometriosis',
+        'MRI pelvis: better than USS for mapping DIE; useful pre-operatively to plan bowel/bladder resection',
+        'CA-125: may be elevated but not sufficiently sensitive or specific to diagnose endometriosis — do NOT use as a screening test',
+        'Diagnostic laparoscopy: allows direct visualisation of peritoneal implants, biopsy for histological confirmation, and staging; remains the gold standard per NICE NG73; ideally combined with surgical treatment at the same procedure',
+      ],
+      source: 'NICE NG73 (Endometriosis: diagnosis and management, 2017)',
+    },
+    {
+      question: 'What are the medical and surgical management options for endometriosis?',
+      keyPoints: [
+        'Analgesia: NSAIDs (ibuprofen/naproxen) first-line; consider adding paracetamol; avoid opioids for long-term management',
+        'Hormonal suppression: COCP (continuous, no pill-free week suppresses cycles); progestogen IUS (Mirena) — reduces dysmenorrhoea; progestogen-only pill; GnRH analogues + add-back HRT for severe disease (max 6 months)',
+        'Surgical: laparoscopic excision or ablation of implants; drainage of endometriomas (excision preferred over drainage — lower recurrence); resection for DIE',
+        'Subfertility: laparoscopic treatment of endometriomas and peritoneal disease improves natural conception rates in mild–moderate disease; IVF for severe disease or failed surgical treatment',
+        'Definitive: hysterectomy ± BSO for women who have completed their family and have severe disease — counselling essential as premature menopause carries long-term consequences',
+      ],
+      source: 'NICE NG73 (2017); ESHRE Endometriosis Guideline (2022)',
+    },
+  ],
+};
+
+const vaginalRashMockExam: MockExamStation = {
+  id: 'gynae_primary_genital_herpes',
+  title: 'Sexual Health History — Primary Genital Herpes',
+  diagnosis: 'Primary genital herpes — HSV-2 infection',
+  specialtyId: 'obstetrics-gynaecology',
+  candidateBrief: {
+    setting: 'You are an FY1 in the Women\'s Reproductive Health clinic.',
+    scenario:
+      'Bethany Walsh, 22, has self-referred with a 4-day history of a painful vulval rash that developed after a new sexual encounter. She is distressed and embarrassed.',
+    tasks: [
+      'Take a focused sexual health and gynaecological history from Bethany',
+      'Explain your working diagnosis and initial management plan',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Bethany Walsh',
+    age: 22,
+    occupation: 'Nursing student',
+    openingLine:
+      '"I\'ve got this really painful rash down below — it started 4 days ago and it\'s getting worse. I\'m really embarrassed to be here but I didn\'t know what else to do." [upset, embarrassed, in visible discomfort]',
+    socrates: [
+      {
+        label: 'Site',
+        descriptor: 'vulval and perianal — multiple painful blisters and ulcers on the labia; some on the perineum',
+        quotes: ['"It\'s all along here — on the lips down there. It looks awful." [gestures to vulval area] – "There are some around the back too."'],
+      },
+      {
+        label: 'Onset',
+        descriptor: 'started with tingling and itching 5 days ago; blisters appeared 4 days ago; now ulcerated',
+        quotes: ['"It started as a tingling, itching feeling about 5 days ago. Then the blisters appeared and now they\'ve burst and it\'s really sore."'],
+      },
+      {
+        label: 'Character',
+        descriptor: 'multiple painful vesicles progressing to shallow ulcers; burning and soreness especially on urination; significant pain',
+        quotes: ['"They started as little blisters and now they\'re raw-looking ulcers. It burns really badly when I go to the toilet." – "It\'s about 8 out of 10 for pain."'],
+      },
+      {
+        label: 'Radiation',
+        descriptor: 'bilateral inguinal lymph nodes — tender and swollen',
+        quotes: ['"I\'ve noticed these lumps in my groin on both sides — they\'re sore to touch." [bilateral tender inguinal lymphadenopathy]'],
+      },
+      {
+        label: 'Associated symptoms',
+        descriptor: 'fever, myalgia, headache, malaise for 3 days — prodromal systemic illness consistent with primary HSV',
+        quotes: ['"I\'ve felt really unwell — feverish, aching all over, headache. Like a bad flu." – "I\'ve barely been able to get out of bed for 3 days."'],
+      },
+      {
+        label: 'Timing',
+        descriptor: 'new sexual contact approximately 8 days ago; lesions appeared 3–5 days after exposure (within HSV incubation period of 2–12 days)',
+        quotes: ['"I was with someone new about 8 days ago. The tingling started a few days after that." – "I didn\'t notice anything on him."'],
+      },
+      {
+        label: 'Exacerbating / relieving',
+        descriptor: 'pain worsened by urination; topical anaesthetic provides temporary relief; paracetamol helps flu symptoms',
+        quotes: ['"Weeing is agony — I\'ve started weeing in the shower to try and dilute it." – "I\'ve been putting Sudocrem on it which helps a tiny bit."'],
+      },
+      {
+        label: 'Severity',
+        descriptor: '8/10 pain; difficulty urinating; unable to work; significant psychological distress',
+        quotes: ['"I\'ve been off placement for 3 days. I can barely urinate." – "I\'m really struggling."'],
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No previous genital ulcers or rashes; no previous STIs', quote: '"Nothing like this has ever happened before." – "I\'ve never had an STI."' },
+      { label: 'No significant past medical history; no immunosuppression', quote: '"I\'m normally completely healthy."' },
+    ],
+    drugHistory: [
+      { label: 'Combined oral contraceptive pill; no regular medications', quote: '"I\'m on the pill. Nothing else."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'New sexual partner 8 days ago — unprotected penetrative vaginal intercourse; met through a dating app; has not been in contact with him since', quote: '"I met him through an app. We only met the once — about 8 days ago. I haven\'t heard from him since." – "We didn\'t use a condom." [regrets this]' },
+      { label: 'Previous partners — 2 in total over the last 2 years; last STI screen was 8 months ago (all clear)', quote: '"I\'ve had 2 partners before this. I had a full screen 8 months ago — everything was clear." [if asked]' },
+      { label: 'Non-smoker; occasional alcohol; no illicit drug use', quote: '"I don\'t smoke. I drink occasionally."' },
+    ],
+    importantNegatives: [
+      'No vaginal discharge ("Nothing unusual.")',
+      'No dyspareunia prior to this episode ("No — this is the first time anything like this has happened.")',
+      'No oral ulcers or cold sores ("Not at the moment." [if asked — may reveal partner had oral herpes if directly asked])',
+      'No recent travel abroad ("No.")',
+      'Not pregnant — on COCP, last period normal ("I\'m on the pill and my last period was normal.")',
+    ],
+    ice: {
+      ideas: '"I looked it up online and I think it might be herpes. I\'m really scared that\'s what it is."',
+      concerns: '"If it is herpes — is it forever? Will I always have this? Will I have to tell every partner for the rest of my life?" [tearful]',
+      expectations: '"I want to know what it is and whether there\'s any treatment that can help with the pain right now."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether the partner had any sores or symptoms — "He had what looked like a cold sore on his lip — but I didn\'t think anything of it."',
+      'Type of sexual contact — "Vaginal sex. And oral sex — he performed oral sex on me."',
+      'Whether she has told anyone — "No — I haven\'t told anyone. I\'m too embarrassed."',
+    ],
+    behaviourNotes: [
+      'Deeply embarrassed and distressed throughout — responds warmly to non-judgemental, matter-of-fact approach',
+      'Tearful when herpes is discussed — fears stigma and lifelong implications; student must address this sensitively',
+      'Asks directly "Is it forever?" — student should explain recurrences are typically milder and less frequent over time; many people have very infrequent episodes',
+      'Asks "Do I have to tell partners?" — student should explain the legal and ethical principle (partner notification) while being supportive',
+      'Reveals oral sex contact if directly asked — this is an important route of HSV-1 genital transmission; examiner may award marks for identifying this',
+      'If student mentions contact tracing: "He\'s blocked me on the app — I don\'t know how to reach him." — student should offer Health Adviser support',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; explains confidentiality; creates a non-judgemental and supportive environment', marks: 1 },
+        { description: 'Acknowledges Bethany\'s embarrassment and thanks her for coming in', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presenting complaint — SOCRATES',
+      items: [
+        { description: 'Characterises the rash: multiple painful vesicles/ulcers on the vulva and perineum — bilateral', marks: 1 },
+        { description: 'Establishes timing: new sexual contact 8 days ago; lesions 4 days ago (within HSV incubation period)', marks: 1 },
+        { description: 'Identifies systemic prodromal illness: fever, myalgia, headache — consistent with primary infection', marks: 1 },
+        { description: 'Identifies bilateral tender inguinal lymphadenopathy', marks: 1 },
+        { description: 'Identifies dysuria and difficulty urinating', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Sexual history',
+      items: [
+        { description: 'Asks about nature of sexual contact with new partner — identifies unprotected vaginal AND oral sex', marks: 1 },
+        { description: 'Asks about previous partners and STI screening history', marks: 1 },
+        { description: 'Asks whether the partner had any visible lesions — cold sore on lip (HSV-1 oral to genital transmission route)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Screening for other STIs and red flags',
+      items: [
+        { description: 'Screens for vaginal discharge, urinary symptoms, and abdominal pain (possible co-infection)', marks: 1 },
+        { description: 'Asks about pregnancy status and contraception', marks: 1 },
+      ],
+    },
+    {
+      domain: 'ICE',
+      items: [
+        { description: 'Explores ICE — acknowledges fears about lifelong herpes and stigma; provides balanced reassurance', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Management plan',
+      items: [
+        { description: 'Explains clinical diagnosis of primary genital herpes and confirms with swab from an active lesion (HSV PCR)', marks: 1 },
+        { description: 'Prescribes oral aciclovir 400 mg TDS or 200 mg 5× daily for 5 days to reduce duration and severity of primary episode', marks: 2 },
+        { description: 'Addresses dysuria: recommends urinating in warm water; topical lidocaine gel to vulva before micturition', marks: 1 },
+        { description: 'Sends full STI screen (gonorrhoea/chlamydia swabs, HIV, syphilis, hepatitis B) given unprotected sex', marks: 1 },
+        { description: 'Offers partner notification support via Health Adviser; advises to avoid sexual contact until lesions fully healed', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Normalises the diagnosis — addresses stigma and provides accurate information about recurrences and suppressive therapy', marks: 1 },
+        { description: 'Active listening; summarising and signposting throughout', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Bethany is a 22-year-old woman presenting with a 4-day history of a painful bilateral vulval and perianal rash following unprotected vaginal and oral sex with a new partner 8 days ago',
+    'The clinical picture is consistent with primary genital herpes: multiple painful vulval ulcers, bilateral tender inguinal lymphadenopathy, and systemic prodrome (fever, myalgia, headache) — hallmarks of first primary HSV infection',
+    'Key epidemiological detail: partner had a visible cold sore on his lip — route of transmission is likely HSV-1 via orogenital contact (HSV-1 now accounts for ~50% of new genital herpes cases in the UK)',
+    'Management: oral aciclovir 400 mg TDS for 5 days to reduce severity and duration; topical lidocaine gel and urinating in warm water for dysuria relief; full STI screen sent',
+    'Partner notification: partner has blocked her on the dating app — Health Adviser support offered for contact tracing',
+    'Counselling provided: herpes is a lifelong infection but recurrences are typically milder and less frequent over time; suppressive therapy available (aciclovir 400 mg BD daily) if recurrences are frequent or distressing; avoid sexual contact until lesions fully healed',
+    'Safety net: return if unable to urinate, systemic symptoms worsen, or lesions not healing within 10–14 days',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the differences between primary and recurrent genital herpes, and how do they affect management?',
+      keyPoints: [
+        'Primary (first episode): severe systemic illness (fever, myalgia, inguinal lymphadenopathy); multiple bilateral lesions; prolonged viral shedding; lasts 2–3 weeks untreated',
+        'Recurrent episodes: milder, often unilateral, shorter duration (5–10 days); triggered by stress, menstruation, UV light, immunosuppression; no systemic prodrome',
+        'Primary HSV: treat with oral aciclovir 200 mg 5× daily or 400 mg TDS for 5–10 days; treatment must start within 5 days of onset or while new lesions appearing',
+        'Recurrent HSV: episodic therapy (aciclovir 800 mg TDS × 2 days) for frequent recurrences; suppressive therapy (aciclovir 400 mg BD daily) if ≥6 recurrences/year or severe psychological impact',
+        'HSV-1 is increasingly responsible for genital herpes (orogenital transmission); recurrences are less frequent for genital HSV-1 than HSV-2',
+      ],
+      source: 'BASHH National Guideline for the Management of Genital Herpes (2014 updated 2020); geekymedics.com',
+    },
+    {
+      question: 'What is the significance of genital herpes in pregnancy?',
+      keyPoints: [
+        'Neonatal herpes: transmission to neonate during vaginal delivery via contact with maternal genital secretions — mortality ~30%, morbidity ~50% in survivors',
+        'Highest risk: primary genital herpes in the third trimester (especially ≥34 weeks); maternal antibodies not yet transferred; viral load highest in primary infection',
+        'Management: primary HSV in third trimester — suppressive aciclovir 400 mg TDS from 36 weeks; elective Caesarean section recommended',
+        'Recurrent herpes in pregnancy: suppressive aciclovir from 36 weeks; vaginal delivery generally acceptable unless active lesions at onset of labour',
+        'Partner with oral herpes: advise against orogenital sex in third trimester (risk of acquiring primary genital HSV at most vulnerable time)',
+      ],
+      source: 'RCOG Green-top Guideline No. 30 (Genital Herpes in Pregnancy, 2014); BASHH Herpes Guideline (2020)',
+    },
+    {
+      question: 'How do you manage a patient with dysuria secondary to primary genital herpes who is unable to urinate?',
+      keyPoints: [
+        'Urinary retention from primary genital herpes: severe vulval oedema and pain cause reflex urethral spasm and dysuria; retention occurs in up to 10–15%',
+        'Non-pharmacological: urinating in a warm bath or shower to dilute urine and reduce contact with ulcers; topical lidocaine 2% gel applied before micturition',
+        'If pharmacological dysuria relief needed: oral analgesia (paracetamol ± ibuprofen); systemic analgesia for severe cases',
+        'Urinary retention (unable to void): urinary catheterisation — suprapubic catheter preferred to avoid contact with infected genital skin and reduce risk of viral ascent',
+        'Admit criteria: urinary retention requiring catheterisation; meningism (herpes meningitis); severe systemic illness; immunosuppression',
+      ],
+      source: 'BASHH National Guideline for the Management of Genital Herpes (2020)',
+    },
+  ],
+};
+
 export const GYNAE_MOCK_EXAMS: MockExamStation[] = [
   ovarianTumourExplanationMockExam,
   domesticViolenceMockExam,
   uterineCancerMockExam,
+  endometriosisMockExam,
+  vaginalRashMockExam,
 ];

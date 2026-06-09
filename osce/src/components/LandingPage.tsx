@@ -72,29 +72,40 @@ export function LandingPage({
                   {specialtyName}
                 </p>
                 <div className="grid gap-2 sm:grid-cols-2">
-                  {exams.map((exam) => (
-                    <button
-                      key={exam.id}
-                      type="button"
-                      onClick={() => onSelectMockExam(exam.id)}
-                      className="rounded-xl border border-[#AFA9EC] bg-white p-4 text-left shadow-sm transition hover:border-[#534AB7] hover:bg-[#EEEDFE] hover:shadow"
-                    >
-                      <div className="mb-1 flex items-center gap-2">
-                        <span className="rounded-full bg-[#534AB7] px-2 py-0.5 text-xs font-bold text-white">
-                          Mock
-                        </span>
-                        {completedMockIds?.has(exam.id) && (
-                          <span className="rounded-full border border-green-300 bg-green-50 px-2 py-0.5 text-xs font-bold text-green-700">
-                            Done
+                  {[...exams].sort((a, b) => {
+                    const aDone = completedMockIds?.has(a.id) ? 1 : 0;
+                    const bDone = completedMockIds?.has(b.id) ? 1 : 0;
+                    return aDone - bDone;
+                  }).map((exam) => {
+                    const done = completedMockIds?.has(exam.id);
+                    return (
+                      <button
+                        key={exam.id}
+                        type="button"
+                        onClick={() => onSelectMockExam(exam.id)}
+                        className={`rounded-xl border p-4 text-left shadow-sm transition hover:shadow ${
+                          done
+                            ? 'border-[#e5e5e4] bg-[#f5f5f4] hover:border-[#d0d0ce] hover:bg-[#efefed]'
+                            : 'border-[#AFA9EC] bg-white hover:border-[#534AB7] hover:bg-[#EEEDFE]'
+                        }`}
+                      >
+                        <div className="mb-1 flex items-center gap-2">
+                          <span className={`rounded-full px-2 py-0.5 text-xs font-bold text-white ${done ? 'bg-[#9e9e9e]' : 'bg-[#534AB7]'}`}>
+                            Mock
                           </span>
-                        )}
-                      </div>
-                      <p className="font-semibold text-[#1a1a1a]">{exam.title}</p>
-                      <p className="mt-0.5 text-xs text-[#6b6b6b]">
-                        Brief · Actor · Mark scheme · {exam.vivaQuestions.length} viva questions
-                      </p>
-                    </button>
-                  ))}
+                          {done && (
+                            <span className="rounded-full border border-green-300 bg-green-50 px-2 py-0.5 text-xs font-bold text-green-700">
+                              Done
+                            </span>
+                          )}
+                        </div>
+                        <p className={`font-semibold ${done ? 'text-[#9e9e9e]' : 'text-[#1a1a1a]'}`}>{exam.title}</p>
+                        <p className="mt-0.5 text-xs text-[#6b6b6b]">
+                          Brief · Actor · Mark scheme · {exam.vivaQuestions.length} viva questions
+                        </p>
+                      </button>
+                    );
+                  })}
                 </div>
               </section>
             ))}

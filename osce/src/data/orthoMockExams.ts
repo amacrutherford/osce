@@ -1194,10 +1194,342 @@ const shoulderRotatorCuffMockExam: MockExamStation = {
   ],
 };
 
+const psoriticArthritisMockExam: MockExamStation = {
+  id: 'ortho_psoriatic_arthritis',
+  title: 'Rheumatology Consultation — Psoriatic Arthritis: Image Interpretation and Management',
+  diagnosis: 'Psoriatic arthritis — polyarticular, with nail psoriasis',
+  specialtyId: 'orthopaedics',
+  candidateBrief: {
+    setting: 'You are an FY1 in a rheumatology outpatient clinic.',
+    scenario:
+      'Marcus Allen, 38, has a 6-year history of plaque psoriasis and has been referred by his GP with a 9-month history of joint pain and swelling. He has had inflammatory markers taken (CRP 34 mg/L, ESR 52 mm/hr). Two images of his nails have been placed on the desk. Please review the images and then speak with Marcus about the diagnosis and management options.',
+    tasks: [
+      'Describe the nail changes visible in the images to the examiner',
+      'Discuss the diagnosis and management plan with Marcus',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Marcus Allen',
+    age: 38,
+    occupation: 'Self-employed builder',
+    openingLine:
+      '"My joints have been getting worse and worse. I\'ve had the skin thing for years but now my fingers and toes are swollen and stiff in the mornings. It\'s affecting my work." [frustrated, rubbing swollen DIP joints]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Joint symptoms — 9 months; asymmetric; mainly DIP and MCP joints of hands and feet; morning stiffness >1 hour; swollen "sausage" right index finger (dactylitis)',
+        quote: '"It\'s mainly my fingers and toes. The stiffness in the morning is awful — it takes over an hour to get going." – "This finger" [points to right index] "has been swollen like a sausage for 2 months now."',
+      },
+      {
+        label: 'Nail changes — pitting, ridging, onycholysis (nail lifting from bed) on examination image; patient aware of nail changes but thought they were part of the psoriasis',
+        quote: '"My nails have been a mess for years. I just thought it was the skin thing." – "They\'re pitted and some are lifting off."',
+      },
+      {
+        label: 'Psoriasis — plaque psoriasis on elbows and lower back for 6 years; managed with topical steroids and emollients',
+        quote: '"I\'ve had the skin patches for 6 years — elbows, lower back mainly. I use creams for it." – "My dermatologist said it was well controlled on the creams."',
+      },
+      {
+        label: 'Functional impact — cannot grip tools properly; losing days of work; significant income concern',
+        quote: '"I can\'t grip properly. I\'m losing money because I can\'t work some days." – "Being self-employed, I can\'t afford to take sick days."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Plaque psoriasis — 6 years; no previous joint problems', quote: '"Just the psoriasis. Nothing else." [if asked]' },
+    ],
+    drugHistory: [
+      { label: 'Topical steroids (betamethasone valerate) and emollients for psoriasis', quote: '"Steroid cream and moisturiser for the skin."' },
+      { label: 'Ibuprofen 400 mg PRN for joint pain — partial relief only', quote: '"I take ibuprofen but it only takes the edge off."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — plaque psoriasis; no family history of arthritis known', quote: '"My dad has the skin thing too." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Smokes 10/day; drinks approximately 14 units/week', quote: '"I smoke about 10 a day. I drink — probably 14 units a week." [if asked]' },
+      { label: 'Self-employed builder; job involves heavy grip and fine motor work', quote: '"I build — so I need my hands. It\'s my livelihood."' },
+    ],
+    importantNegatives: [
+      'No eye symptoms — no uveitis ("My eyes have been fine.")',
+      'No spinal pain or sacroiliac symptoms ("My back psoriasis is there but no back pain.")',
+      'No IBD symptoms — no diarrhoea, rectal bleeding ("No.")',
+      'No recent infection or preceding sore throat before joint onset ("Nothing like that.")',
+      'Negative RF and anti-CCP (provided by examiner if asked — differentiates from RA)',
+    ],
+    ice: {
+      ideas: '"I thought maybe my psoriasis had spread to my joints. I\'ve read a little about that."',
+      concerns: '"I\'m worried about whether I\'ll be able to keep working. I can\'t afford not to."',
+      expectations: '"I want to know what\'s happening and what the treatment options are — especially anything that won\'t make me too tired to work."',
+    },
+    onlyIfDirectlyAsked: [
+      'Eye check-up — "I haven\'t had one in a few years."',
+      'RF and anti-CCP — [Examiner provides]: "RF negative, anti-CCP negative." [confirms sero-negative inflammatory arthritis]',
+    ],
+    behaviourNotes: [
+      'Frustrated by the impact on his income; not distressed but clearly stressed',
+      'Very receptive to information about biologics when the student explains they can treat both skin and joints simultaneously',
+      'Asks "Will the treatment cure it?" — student should explain that PsA is a chronic condition but treatment can achieve remission and prevent joint damage',
+      'Asks about methotrexate — "I\'ve heard that can affect your liver. I like a drink." — student should address this honestly and note alcohol should be minimised on methotrexate',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Image description to examiner',
+      items: [
+        { description: 'Describes nail pitting — multiple punctate depressions on the nail plate surface (most specific nail sign of psoriasis)', marks: 1 },
+        { description: 'Describes onycholysis — separation of the distal nail plate from the nail bed (oil-drop sign if subungual discolouration present)', marks: 1 },
+        { description: 'Correctly identifies these as nail psoriasis changes, not onychomycosis', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History of presenting complaint',
+      items: [
+        { description: 'Establishes inflammatory arthritis features: morning stiffness >1 hour, bilateral involvement, elevated CRP/ESR', marks: 1 },
+        { description: 'Identifies dactylitis ("sausage digit") — pathognomonic feature of psoriatic arthritis', marks: 2 },
+        { description: 'Screens for enthesitis (tendon insertion pain — Achilles, plantar fascia)', marks: 1 },
+        { description: 'Asks about axial involvement — spinal stiffness, sacroiliac pain (SpA component)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Confirming the diagnosis',
+      items: [
+        { description: 'States the likely diagnosis is psoriatic arthritis given: psoriasis + inflammatory seronegative arthritis + nail changes + dactylitis', marks: 1 },
+        { description: 'Differentiates from RA: RF and anti-CCP negative; DIP joint involvement; nail changes; dactylitis — all features more consistent with PsA', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Management discussion',
+      items: [
+        { description: 'Explains that NSAIDs can help symptoms but do not prevent joint damage', marks: 1 },
+        { description: 'Discusses DMARDs: methotrexate first-line; addresses alcohol concern; mentions liver monitoring; alternative options (sulfasalazine, leflunomide)', marks: 1 },
+        { description: 'Explains biologic therapy: TNF inhibitors (adalimumab, etanercept) or IL-17 inhibitors (secukinumab) — treat both skin and joints; used after DMARD failure or severe disease', marks: 1 },
+        { description: 'Refers to rheumatology specialist for DMARD initiation; physiotherapy; occupational therapy for hand function', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Screening',
+      items: [
+        { description: 'Recommends annual ophthalmology review for uveitis screening', marks: 1 },
+        { description: 'Addresses cardiovascular risk: psoriasis and PsA carry increased CV risk; smoking cessation advice; lipid and BP check', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Addresses Marcus\'s occupational concerns; reassures that remission is achievable', marks: 1 },
+        { description: 'Active listening; avoids jargon; summarises and signposts throughout', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Marcus is a 38-year-old builder with 6-year plaque psoriasis presenting with a 9-month history of inflammatory seronegative polyarthritis with DIP and MCP joint involvement, dactylitis (sausage right index finger), morning stiffness >1 hour, and elevated inflammatory markers (CRP 34, ESR 52)',
+    'Nail images show nail pitting (multiple punctate depressions — most specific nail sign of psoriasis) and onycholysis (nail plate separation from bed); these are nail psoriasis changes, not onychomycosis',
+    'Diagnosis: psoriatic arthritis — established psoriasis + seronegative inflammatory arthritis + nail changes + dactylitis (pathognomonic); RF and anti-CCP negative excludes RA',
+    'Management: NSAIDs for symptom relief only; first-line DMARD: methotrexate 15–25 mg weekly + folic acid 5 mg weekly; alcohol minimisation required; LFTs monitored',
+    'Biologic options if DMARD failure: TNF inhibitors (adalimumab, etanercept) or IL-17 inhibitors (secukinumab) — treat both skin disease and arthritis simultaneously; NICE-approved after 2 DMARD failures',
+    'Additional monitoring: annual eye review (uveitis in ~25%); cardiovascular risk assessment (smoking cessation, lipids, BP — psoriasis carries ~50% increased CV risk); occupational therapy for hand splinting and ergonomic tools',
+    'Prognosis: with DMARD therapy, most patients achieve low disease activity or remission; early treatment prevents irreversible joint damage',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the five clinical subtypes of psoriatic arthritis?',
+      keyPoints: [
+        'Oligoarticular asymmetric (most common, ~50%): <5 joints; asymmetric; large and small joints; often includes DIP joints',
+        'Polyarticular symmetric (~25%): >5 joints; resembles RA clinically but RF and anti-CCP negative; can cause joint erosion',
+        'DIP predominant (~5%): isolated distal interphalangeal joint involvement; almost always accompanied by nail psoriasis',
+        'Spondyloarthritis (~5%): sacroiliitis and spinal involvement; similar to ankylosing spondylitis; HLA-B27 associated',
+        'Arthritis mutilans (<5%): most severe form; osteolysis of small bones; "telescoping" digits; opera-glass hand',
+        'Clinical note: dactylitis (whole-digit sausage swelling — tenosynovitis + soft tissue oedema) and enthesitis (tenderness at tendon insertions) are seen across all subtypes and are pathognomonic features of PsA',
+      ],
+      source: 'Moll JM & Wright V (1973); GRAPPA PsA Treatment Recommendations (2021); geekymedics.com',
+    },
+    {
+      question: 'What is the mechanism of action and key monitoring requirements for methotrexate?',
+      keyPoints: [
+        'Mechanism: folate antagonist — inhibits dihydrofolate reductase, reducing DNA synthesis and T-cell activation; anti-inflammatory independent of its anti-proliferative effect at low weekly doses',
+        'Dose: 7.5–25 mg once weekly (oral or SC); co-prescribe folic acid 5 mg once weekly (different day) to reduce side effects',
+        'Monitoring: FBC and LFTs at baseline, fortnightly for 3 months, then 3-monthly; chest X-ray at baseline (exclude pulmonary disease); calculate GFR (renal excretion)',
+        'Hepatotoxicity: risk increased with alcohol (advise maximum 1–2 units/week or abstinence); liver biopsy if cumulative dose >1.5g or persistent LFT elevation',
+        'Contraindications: pregnancy (teratogenic — class X; women must use reliable contraception; discontinue 3+ months before conception); breast-feeding; significant hepatic or renal impairment; active infection',
+      ],
+      source: 'BSR/BHPR Guidelines: Monitoring Methotrexate (2010 updated 2017); NICE NG65 (Psoriatic arthritis, 2017)',
+    },
+  ],
+};
+
+const kneeOaMockExam: MockExamStation = {
+  id: 'ortho_knee_oa_xray',
+  title: 'Orthopaedic Consultation — Knee Osteoarthritis: X-ray Interpretation and Management',
+  diagnosis: 'Severe bilateral knee osteoarthritis — candidacy for total knee replacement',
+  specialtyId: 'orthopaedics',
+  candidateBrief: {
+    setting: 'You are an FY1 in an orthopaedic outpatient clinic.',
+    scenario:
+      'Margaret Thompson, 68, has been referred with a 5-year history of bilateral knee pain that is significantly worsening. She walks with a stick and can only manage 100 metres before stopping in pain. Her BMI is 33. A weight-bearing AP radiograph of both knees has been placed on the desk. Please review the X-ray and then discuss the diagnosis and management with Mrs Thompson.',
+    tasks: [
+      'Describe the X-ray findings to the examiner',
+      'Explain the diagnosis and management options to Mrs Thompson',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Margaret Thompson',
+    age: 68,
+    occupation: 'Retired school dinner lady',
+    openingLine:
+      '"I can\'t carry on like this. My knees are terrible — I can barely get to the shops. I need something done." [walks with a stick, visible knee varus deformity, frustrated]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Pain — bilateral; medial compartment worse; worse on weight bearing, stairs, and getting up from a chair; some rest pain at night',
+        quote: '"Both knees — the inside is the worst. Getting up from a chair is agony." – "I wake up at night sometimes with the pain now."',
+      },
+      {
+        label: 'Stiffness — <30 minutes morning stiffness (consistent with OA, not inflammatory)',
+        quote: '"They\'re stiff in the morning — maybe 15 to 20 minutes. Then they ease off a bit."',
+      },
+      {
+        label: 'Function — only 100 metres before stopping; needs a stick; can no longer use stairs without a rail; isolated at home',
+        quote: '"I use my stick everywhere now. The stairs in my house are becoming a problem." – "I can\'t visit my grandchildren like I used to." [sad]',
+      },
+      {
+        label: 'Previous treatment — physiotherapy, NSAIDs, knee injections ×2 (short-term relief only); none providing adequate long-term improvement',
+        quote: '"I\'ve had physio. I\'ve had injections twice — the second one barely did anything." – "The anti-inflammatories upset my stomach."',
+      },
+      {
+        label: 'Varus deformity — bow-legged appearance bilaterally (medial compartment loading)',
+        quote: '[Examiner describes]: Bilateral varus knee deformity visible on standing examination.',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Hypertension — on amlodipine 5 mg; well controlled', quote: '"I have blood pressure — taking a tablet for it." [if asked]' },
+      { label: 'T2DM — diet-controlled; last HbA1c 48 mmol/mol', quote: '"I have a touch of diabetes — they said I could control it with diet. It\'s been stable." [if asked]' },
+      { label: 'No previous knee surgery', quote: '"I\'ve never had an operation on my knees."' },
+    ],
+    drugHistory: [
+      { label: 'Amlodipine 5 mg OD; paracetamol 1 g QDS regularly; topical diclofenac gel to knees', quote: '"My blood pressure tablet, regular paracetamol, and some gel on the knees."' },
+      { label: 'NSAIDs previously — stopped due to dyspepsia', quote: '"I tried ibuprofen tablets but they really upset my stomach." [if asked]' },
+    ],
+    familyHistory: [
+      { label: 'Mother had knee replacements in her 70s', quote: '"My mum had her knees done when she was in her 70s. She said it was the best thing she ever did." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Lives alone in a first-floor flat; increasingly isolated due to mobility; family support available', quote: '"I live on my own on the first floor — there are stairs to get in." – "My daughter visits twice a week."' },
+      { label: 'Non-smoker; minimal alcohol', quote: '"I don\'t smoke. I have a sherry at Christmas." [if asked]' },
+      { label: 'BMI 33 — has tried to lose weight without sustained success', quote: '"I know I need to lose weight. I\'ve tried but it\'s hard when you can\'t exercise." [if mentioned]' },
+    ],
+    importantNegatives: [
+      'No locking or giving way suggesting meniscal or ligamentous cause ("They sometimes feel weak but they don\'t give way suddenly.")',
+      'No hot swollen joints suggesting acute inflammatory component ("They\'re not hot or swollen — just painful.")',
+      'No fever or weight loss ("No.")',
+      'No knee trauma or previous fractures ("No injuries.")',
+    ],
+    ice: {
+      ideas: '"I know it\'s wear and tear — the joints are just worn out. I think I need new knees."',
+      concerns: '"I\'m worried I\'ll be left housebound. And I\'m not sure about having a big operation at my age."',
+      expectations: '"I want to know if I can have the operation and what the recovery is like."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether she wants a knee replacement — "Yes — I\'ve talked to my daughter and we think it\'s time."',
+      'Surgical anxiety — "I\'m a bit scared of anaesthetic. My husband died on the table 10 years ago." [student should acknowledge this sensitively]',
+    ],
+    behaviourNotes: [
+      'Frustrated but compliant; clearly in pain and wants definitive management',
+      'Visibly reassured when told TKR is appropriate and has good outcomes',
+      'Mentions husband died under anaesthetic — student should acknowledge this fear sensitively without dismissing it',
+      'Asks about recovery time — "How long will I be off my feet?" — student should explain: expect 6–12 weeks for walking independently; physiotherapy essential',
+      'Asks "Will I need both done?" — student should explain staged bilateral (6–12 months apart) is standard; simultaneous bilateral has higher complication risk',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'X-ray description to examiner',
+      items: [
+        { description: 'States: weight-bearing AP radiograph of both knees', marks: 1 },
+        { description: 'Identifies joint space narrowing — predominantly medial compartments bilaterally (varus alignment)', marks: 1 },
+        { description: 'Identifies subchondral sclerosis (increased bone density at articular surfaces)', marks: 1 },
+        { description: 'Identifies osteophytes — bony spurs at joint margins (medial and lateral compartments)', marks: 1 },
+        { description: 'Identifies subchondral cysts (if visible on image description)', marks: 1 },
+        { description: 'Concludes: bilateral severe knee OA with medial compartment predominance and varus deformity', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History and examination',
+      items: [
+        { description: 'Establishes functional limitation: walking distance 100 m, stair difficulty, social isolation', marks: 1 },
+        { description: 'Confirms adequate trial of conservative management: physiotherapy, analgesia, injections — all tried and failed', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Management discussion',
+      items: [
+        { description: 'Explains osteoarthritis in plain language: cartilage wear causing bone-on-bone contact; degenerative not inflammatory', marks: 1 },
+        { description: 'Confirms that Mrs Thompson meets criteria for total knee replacement: functional impairment + failed conservative management + X-ray confirmation of severe OA', marks: 1 },
+        { description: 'Describes total knee replacement: resurfacing of tibial and femoral articular surfaces; cemented prosthesis; expected 90%+ 10-year implant survival', marks: 1 },
+        { description: 'Discusses staged bilateral approach (not simultaneous): right knee first given functional priority; left knee 6–12 months later', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Pre-operative preparation',
+      items: [
+        { description: 'Addresses modifiable risk: weight loss reduces implant wear and anaesthetic risk; physiotherapy to strengthen quadriceps pre-operatively', marks: 1 },
+        { description: 'Acknowledges anaesthetic concern about her husband; reassures about modern anaesthetic safety and pre-operative assessment; offers spinal anaesthetic option', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Complications and recovery',
+      items: [
+        { description: 'Briefly mentions surgical risks: DVT/PE (prophylaxis with LMWH and TED stockings), infection, implant loosening; overall low major complication rate', marks: 1 },
+        { description: 'Explains recovery: mobilising day 1 post-operatively; 6–12 weeks to independent walking; physiotherapy essential; full recovery 3–6 months', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Listens to Margaret\'s concerns about anaesthesia and addresses sensitively', marks: 1 },
+        { description: 'Summarises and checks understanding; offers written information', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Mrs Thompson is a 68-year-old woman with bilateral severe knee osteoarthritis presenting with functional limitation (100 m walking distance, stair difficulty, social isolation) despite adequate conservative management',
+    'X-ray findings: weight-bearing AP both knees — bilateral medial compartment joint space narrowing, subchondral sclerosis, osteophyte formation, and subchondral cyst formation consistent with severe OA; bilateral varus deformity',
+    'Diagnosis confirmed: severe bilateral knee OA (Kellgren-Lawrence Grade III–IV) with failed conservative management — meets criteria for total knee replacement',
+    'Management: total knee arthroplasty (TKA/TKR) — resurfacing of tibial and femoral articular surfaces; cemented prosthesis; 90%+ 10-year survival; staged bilateral approach recommended (right knee first, left 6–12 months later)',
+    'Pre-operative optimisation: weight loss (BMI 33 — target <30); quadriceps strengthening; full pre-operative assessment including ECG, bloods; anaesthetic review given anaesthetic anxiety (spinal anaesthetic offered as option)',
+    'Recovery: mobilising day 1; TED stockings and LMWH for DVT prophylaxis; physiotherapy critical; independent walking 6–12 weeks; full recovery 3–6 months; expected significant pain relief and functional improvement',
+    'Risks discussed: DVT/PE, wound infection, implant loosening; overall complication rate low in a well-prepared patient; benefits substantially outweigh risks in this case',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the four radiological features of osteoarthritis on plain X-ray?',
+      keyPoints: [
+        'Loss of joint space: represents cartilage thinning; asymmetric (medial > lateral in varus knee); weight-bearing views essential to demonstrate true cartilage loss',
+        'Subchondral sclerosis: increased bone density at the articular surface (bone remodelling response to increased loading)',
+        'Osteophytes: bony outgrowths at joint margins from periosteal proliferation; seen at medial and lateral tibial spines, femoral condyles, patella',
+        'Subchondral cysts: fluid-filled defects in the subchondral bone; thought to arise from synovial fluid forced into bone or from bone infarcts',
+        'Mnemonic LOSS: Loss of joint space, Osteophytes, Subchondral sclerosis, Subchondral cysts',
+      ],
+      source: 'OHCM 10th ed., Ch. 12; Kellgren JH & Lawrence JS (1957) — Kellgren-Lawrence grading system; geekymedics.com',
+    },
+    {
+      question: 'What are the non-surgical management options for knee OA and when should surgery be considered?',
+      keyPoints: [
+        'NICE NG226 (2022): core treatments for all patients — therapeutic exercise (land or aquatic), weight loss if BMI >25, patient education; these are first-line regardless of severity',
+        'Analgesia: paracetamol + topical NSAIDs first; oral NSAIDs (lowest dose, shortest duration, with PPI cover); avoid opioids for long-term OA management',
+        'Intra-articular corticosteroid injection: short-term relief (4–12 weeks); maximum 3 per year in the same joint; useful for flares',
+        'Consider hyaluronic acid injection (visco-supplementation): evidence weak; not routinely recommended by NICE but may help some patients',
+        'Surgery: total knee replacement when pain and functional limitation are severe AND conservative management has failed; Oxford (unicompartmental) knee replacement for isolated medial or lateral OA in suitable patients',
+      ],
+      source: 'NICE NG226 (Osteoarthritis in over 16s: diagnosis and management, 2022)',
+    },
+  ],
+};
+
 export const ORTHO_MOCK_EXAMS: MockExamStation[] = [
   nofMockExam,
   kneeInjuryMockExam,
   caudaEquinaMockExam,
   compartmentMockExam,
   shoulderRotatorCuffMockExam,
+  psoriticArthritisMockExam,
+  kneeOaMockExam,
 ];

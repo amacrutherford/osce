@@ -1628,6 +1628,400 @@ const maniaPregnancyMockExam: MockExamStation = {
   ],
 };
 
+const lowMoodDepressionMockExam: MockExamStation = {
+  id: 'psych_low_mood_depression_4ps',
+  title: 'Psychiatric History — Low Mood and Aetiological Factors (4Ps)',
+  diagnosis: 'Major depressive episode — biopsychosocial aetiological formulation using the 4Ps',
+  specialtyId: 'psychiatry',
+  candidateBrief: {
+    setting: 'You are an FY1 in a GP surgery.',
+    scenario:
+      'Arthur Brennan, 72, was referred by his practice nurse following a positive PHQ-9 depression screen (score 18 — moderately severe). Arthur has had a difficult year: his wife of 48 years died 9 months ago and he was recently diagnosed with Parkinson\'s disease. He has no previous psychiatric history. Please take a psychiatric history and at the end of the station be prepared to describe the aetiological factors using the 4Ps model.',
+    tasks: [
+      'Take a focused psychiatric history from Arthur',
+      'Present the aetiological formulation using the 4Ps framework when asked by the examiner',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Arthur Brennan',
+    age: 72,
+    occupation: 'Retired headteacher',
+    openingLine:
+      '"The nurse seemed worried about me. To be honest, I haven\'t been myself since Margaret died. I\'m not sure I need to be here though." [quietly sad; some reluctance to engage initially; eventually opens up]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Low mood — persistent for 8 months; present most of the day, most days; started after wife died',
+        quote: '"I\'ve felt flat since Margaret died. There\'s no joy in anything anymore." – "I wake up at 3 in the morning and just lie there. Feeling empty."',
+      },
+      {
+        label: 'Anhedonia — inability to enjoy things that used to bring pleasure; stopped gardening, which he loved; declined social invitations',
+        quote: '"I used to garden every day — I just can\'t be bothered anymore." – "Friends invite me round but I make excuses."',
+      },
+      {
+        label: 'Sleep — early morning awakening (wakes 3–4 am; cannot get back to sleep); biological symptom of depression',
+        quote: '"I wake up at 3 in the morning without fail. It\'s awful — just lying there with my thoughts." – "I dread the night."',
+      },
+      {
+        label: 'Appetite and weight — poor appetite; lost 6 kg in 3 months; not actively dieting',
+        quote: '"I\'ve lost weight. I don\'t bother cooking for one — I have toast or cereal mostly." – "Margaret was the one who cooked."',
+      },
+      {
+        label: 'Cognition — poor concentration; forgetting things; worried about whether it\'s the Parkinson\'s or something else',
+        quote: '"My memory seems poor — I forget things mid-conversation." – "I\'m not sure if it\'s the depression or the Parkinson\'s." [cognitive symptoms of depression are prominent]',
+      },
+      {
+        label: 'Parkinson\'s diagnosis — received 3 months ago; has tremor in right hand; worried about losing independence',
+        quote: '"They told me I have Parkinson\'s 3 months ago. I\'ve been reading about it." – "I\'m frightened about losing my independence. I always prided myself on it."',
+      },
+      {
+        label: 'Guilt — feels he should have taken Margaret to the GP sooner (she died of ovarian cancer); ruminating',
+        quote: '"I keep thinking I should have made her go to the doctor sooner. If I\'d pushed her earlier..." [guilty rumination] – "I know it probably wouldn\'t have changed things. But my mind keeps going there."',
+      },
+      {
+        label: 'Suicidal ideation — passive; not active; "life doesn\'t feel worth living" but no plans or intent',
+        quote: '"Sometimes I think what\'s the point. But I wouldn\'t do anything — I have my daughter. I couldn\'t do that to her." [passive ideation only; protective factor: daughter]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Parkinson\'s disease — diagnosed 3 months ago; on co-beneldopa', quote: '"The Parkinson\'s — 3 months ago. I\'m on the levodopa drug." [if asked]' },
+      { label: 'No previous mental health history; no previous episodes of depression', quote: '"I\'ve never had depression before. Never been to see a psychiatrist."' },
+    ],
+    drugHistory: [
+      { label: 'Co-beneldopa 62.5 mg (12.5 mg/50 mg) TDS for Parkinson\'s — recently started', quote: '"The Parkinson\'s medication — I only started it recently."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — depression in later life, after retirement; treated with antidepressants', quote: '"My father had something similar in his later years — they put him on antidepressants." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Widowed 9 months ago; lives alone in a house he shared with Margaret; two adult children — daughter nearby, son abroad', quote: '"I\'m on my own now. Margaret and I lived here for 30 years." – "My daughter checks on me most days. My son is in Canada."' },
+      { label: 'Non-smoker; alcohol — increased to 2–3 glasses of wine every evening "to sleep"; previously social drinker only', quote: '"I have a glass of wine. Maybe two or three in the evening — it helps me sleep." [if asked about alcohol — approximately 20+ units/week]' },
+      { label: 'Previously physically active; gardening and walking; now severely reduced activity', quote: '"I used to be very active. Not anymore."' },
+    ],
+    importantNegatives: [
+      'No psychotic features — no hallucinations or delusions ("Nothing like hearing voices." [if asked])',
+      'No manic episodes in the past ("I\'ve never felt the other extreme.")',
+      'No active suicidal intent or plan ("I wouldn\'t do anything — not to my daughter.")',
+      'No cognitive decline on formal testing — MMSE 27/30 (impairment likely functional, not dementia) [if asked about formal testing]',
+    ],
+    ice: {
+      ideas: '"I think it\'s grief — natural after losing Margaret. I\'m not sure it\'s depression."',
+      concerns: '"I\'m worried about the future — with the Parkinson\'s. And I feel guilty that I haven\'t been able to cope better."',
+      expectations: '"I don\'t want to be put on tablets if I don\'t have to. But I know something has to change."',
+    },
+    onlyIfDirectlyAsked: [
+      'Alcohol quantity — "2–3 glasses of wine most evenings. Sometimes more at weekends."',
+      'Suicidal intent — "No — I would never. For my daughter\'s sake."',
+      'Whether he has tried to socialise — "My friends have tried. I just can\'t face it."',
+    ],
+    behaviourNotes: [
+      'Quietly sad throughout; restrained; does not dramatise; this is stoic, understated grief and depression',
+      'Opens up slowly when the student shows genuine empathy and takes time — becomes more forthcoming after the first few questions',
+      'Becomes tearful when Margaret is discussed — student should allow this and acknowledge it before moving on',
+      'Grateful when low mood is validated as depression and grief rather than "weakness" — "I always told my students you have to be strong."',
+      'When asked about suicidal ideation, answer is honest but quickly qualified with his daughter — student should explore this carefully but respectfully',
+      'Mentions the Parkinson\'s several times — student should link this to the aetiological formulation (biological perpetuating and predisposing factor)',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; acknowledges that Arthur may not have expected to be referred; creates a safe space', marks: 1 },
+        { description: 'Uses open question to invite Arthur to describe how he has been feeling', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Core depressive symptoms',
+      items: [
+        { description: 'Elicits persistent low mood — present most of the day, most days, for over 2 weeks', marks: 1 },
+        { description: 'Identifies anhedonia — inability to enjoy gardening and social activities he previously valued', marks: 1 },
+        { description: 'Identifies biological symptoms: early morning awakening (3–4 am), anorexia with weight loss (6 kg in 3 months)', marks: 1 },
+        { description: 'Screens for cognitive symptoms: poor concentration and memory', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Risk assessment',
+      items: [
+        { description: 'Asks directly about suicidal ideation — identifies passive ideation ("what\'s the point") without active intent', marks: 1 },
+        { description: 'Identifies protective factor: daughter — documents this explicitly', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Contextual and psychosocial history',
+      items: [
+        { description: 'Asks about recent significant life events — identifies bereavement (wife 9 months ago) and new diagnosis of Parkinson\'s (3 months ago)', marks: 1 },
+        { description: 'Asks about alcohol — identifies increased intake (20+ units/week; using alcohol to sleep)', marks: 1 },
+        { description: 'Asks about support network and social isolation', marks: 1 },
+        { description: 'Identifies guilty rumination about wife\'s cancer diagnosis', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Past history and family history',
+      items: [
+        { description: 'Confirms no previous psychiatric history; identifies family history of late-life depression (father)', marks: 1 },
+        { description: 'Notes co-beneldopa — checks interaction risk with antidepressants (serotonin risk with certain combinations)', marks: 1 },
+      ],
+    },
+    {
+      domain: '4Ps formulation (presented to examiner)',
+      items: [
+        { description: 'Predisposing: male, older age, family history of depression (father), Parkinson\'s disease (neurobiological — dopamine deficit, frontal circuit dysfunction)', marks: 1 },
+        { description: 'Precipitating: death of wife (bereavement/loss), new Parkinson\'s diagnosis', marks: 1 },
+        { description: 'Perpetuating: social isolation, reduced activity, alcohol use, guilty rumination, Parkinson\'s motor and cognitive symptoms', marks: 1 },
+        { description: 'Protective: daughter nearby, insight, willingness to engage, no active suicidal intent', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — gives Arthur time and space; does not rush through the history', marks: 1 },
+        { description: 'Validates his feelings as depression and grief — not weakness', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Arthur is a 72-year-old retired headteacher presenting with an 8-month history of moderately severe depression (PHQ-9 = 18) following the death of his wife; new Parkinson\'s diagnosis 3 months ago',
+    'Core ICD-11 depressive symptoms present: persistent low mood, anhedonia, early morning wakening, anorexia with 6 kg weight loss, poor concentration, and passive suicidal ideation without active intent',
+    '4Ps aetiological formulation: Predisposing — male sex, older age, family history of depression, Parkinson\'s disease (dopamine circuit dysfunction); Precipitating — bereavement (wife, 9 months), new neurological diagnosis (Parkinson\'s); Perpetuating — social isolation, reduced physical activity, harmful alcohol use (20+ units/week), guilty rumination about wife\'s cancer; Protective — supportive daughter nearby, preserved insight, strong deterrent against active suicidal intent',
+    'Management: address harmful alcohol use (alcohol worsens and perpetuates depression); SSRI antidepressant (sertraline first-line — minimal interaction with co-beneldopa; avoid TCAs due to Parkinson\'s side effects); behavioural activation; IAPT referral for CBT or grief therapy; social prescribing (befriending, activities)',
+    'Risk: passive suicidal ideation only; protective factor of daughter; low immediate risk; requires monitoring and safety net; next appointment within 1–2 weeks',
+    'Special consideration: interaction between antidepressants and co-beneldopa — avoid serotonergic agents (MAOIs, tramadol); SSRIs are generally safe with levodopa; monitor for Parkinson\'s-related cognitive decline',
+  ],
+  vivaQuestions: [
+    {
+      question: 'Describe the 4Ps biopsychosocial formulation model and its clinical utility.',
+      keyPoints: [
+        'Predisposing factors: what made the patient vulnerable? — biological (genetics, medical illness, neurodevelopment), psychological (personality, early attachment, cognitive style), social (adverse childhood, poverty, isolation)',
+        'Precipitating factors: what triggered the current episode? — acute stressors (bereavement, loss, relationship breakdown, medical diagnosis, financial crisis)',
+        'Perpetuating factors: what is maintaining the problem? — rumination, substance use, social isolation, avoidance behaviours, ongoing stressors, lack of treatment',
+        'Protective factors: what is keeping the patient safe or promoting resilience? — social support, insight, employment, physical health, treatment adherence, protective relationships',
+        'Clinical utility: formulation drives a personalised management plan targeting perpetuating factors; identifies therapeutic targets for CBT; communicates complexity to teams; avoids reductive diagnosis-only approach',
+      ],
+      source: 'Engel GL (1977): The need for a new medical model (biopsychosocial); Johnstone L & Dallos R: Formulation in Psychology and Psychotherapy, 2nd ed.',
+    },
+    {
+      question: 'What are the key considerations when treating depression in a patient with Parkinson\'s disease?',
+      keyPoints: [
+        'Depression is highly prevalent in Parkinson\'s (~35–50%): partly reactive, partly neurobiological (dopaminergic, serotonergic, and noradrenergic pathway degeneration)',
+        'First-line antidepressant: SSRIs are commonly used (sertraline, citalopram); generally tolerated; avoid significant QTc-prolonging doses (citalopram >20 mg in PD patients due to cardiac risk)',
+        'Avoid: MAOIs (risk of hypertensive crisis with levodopa); TCAs (anticholinergic side effects worsen cognitive impairment and may worsen motor symptoms); significant serotonin syndrome risk with tramadol',
+        'Optimise dopaminergic therapy: under-treated Parkinson\'s motor symptoms contribute to depression; adjust levodopa dose in consultation with neurologist',
+        'Psychotherapy: CBT effective for depression in PD; should be offered alongside pharmacotherapy; address grief, loss of identity, and fear of progression',
+      ],
+      source: 'NICE NG71 (Parkinson\'s disease in adults, 2017); Seppi K et al.: MDS evidence-based medicine review — Treatment of nonmotor symptoms in PD (2019)',
+    },
+    {
+      question: 'What is the NICE-recommended management ladder for depression in primary care?',
+      keyPoints: [
+        'Stepped care model (NICE CG90/NG222): step 1 — recognition and watchful waiting for mild depression; step 2 — low-intensity CBT (IAPT), guided self-help, group exercise; step 3 — antidepressant (SSRI first-line) and/or high-intensity psychological therapy for moderate-severe depression',
+        'SSRI first-line: sertraline (broad evidence base, fewest drug interactions, preferred in cardiac disease); fluoxetine (long half-life useful in adherence problems); avoid venlafaxine in high CVD risk',
+        'Duration: minimum 6 months after remission for first episode; 2 years for recurrent depression; lifelong consideration after 3+ episodes',
+        'Review at 2 weeks after starting antidepressant: check tolerability and any increase in suicidal ideation (NICE advises close monitoring particularly in under-30s)',
+        'Augmentation for partial response: add lithium, atypical antipsychotic, or consider referral to secondary care psychiatry',
+      ],
+      source: 'NICE CG90 (Depression in adults, 2009 updated 2022); NICE NG222 (Depression in adults, 2022)',
+    },
+  ],
+};
+
+const mseSuicidalMockExam: MockExamStation = {
+  id: 'psych_mse_suicidal_patient',
+  title: 'Mental State Examination — Acutely Suicidal Patient',
+  diagnosis: 'Mental state examination consistent with major depressive episode with active suicidal ideation',
+  specialtyId: 'psychiatry',
+  candidateBrief: {
+    setting: 'You are an FY1 in a psychiatric liaison service.',
+    scenario:
+      'Kirsty Bell, 34, has been referred to the psychiatric liaison team by the A&E registrar after presenting with suicidal ideation. She contacted her GP saying she was having thoughts of ending her life. She is now in a side room in A&E. She is not under the care of secondary mental health services. Please perform a mental state examination.',
+    tasks: [
+      'Perform a systematic mental state examination on Kirsty',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Kirsty Bell',
+    age: 34,
+    occupation: 'Nurse (off sick for 3 months)',
+    openingLine:
+      '"I called the GP because I didn\'t know what else to do. I\'ve been thinking about just not being here anymore. I\'m not sure how to explain it." [sat with arms crossed, flat affect, very little eye contact, speaking quietly]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Appearance and behaviour — dishevelled, pale, wearing same clothes as yesterday; poor eye contact; psychomotor slowing; sits with arms wrapped around herself; avoids eye contact',
+        quote: '[Student observations]: Dishevelled appearance — dark circles under eyes, unwashed hair. Pale. Wearing what appears to be yesterday\'s clothing. Very little spontaneous movement. Avoids eye contact. Cooperative but effortful.',
+      },
+      {
+        label: 'Speech — reduced rate and volume; long latency before answers; monosyllabic unless asked open questions; no pressure or tangentiality',
+        quote: '[Student observes]: Speech rate slowed; volume low. Long pauses before answering. Responds to open questions with more detail than closed ones.',
+      },
+      {
+        label: 'Mood — subjective: "empty" and "numb"; objective: flat, congruent with depressed presentation; affect: restricted range',
+        quote: '"I feel empty. Like nothing matters." – "I haven\'t cried for a while actually. I wish I could — it might be a release."',
+      },
+      {
+        label: 'Thought form — normal; linear; no flight of ideas, loosening of associations, or thought disorder',
+        quote: '[Student observes]: Thinking is coherent and sequential. No tangentiality or circumstantiality. No thought disorder.',
+      },
+      {
+        label: 'Thought content — suicidal ideation: frequent, intrusive thoughts of self-harm or death; formed plan to overdose on medications at home; has the tablets; no suicide note written yet',
+        quote: '"I keep thinking about it. Every day." – "I\'ve thought about taking my tablets — I have a lot of them at home." – "I haven\'t written anything. I\'m not sure why I called the GP — maybe because part of me doesn\'t want to."',
+      },
+      {
+        label: 'Perceptions — no hallucinations; no command hallucinations instructing self-harm',
+        quote: '"No — I\'m not hearing things. Nothing like that." [if asked directly]',
+      },
+      {
+        label: 'Cognition — alert; orientated to time, place and person; serial 7s intact; recall intact; no evidence of cognitive impairment',
+        quote: '[Student observations]: Alert; oriented in all domains. Concentration somewhat reduced but she can complete serial 7s to 72. Recall 3/3 objects at 5 minutes.',
+      },
+      {
+        label: 'Insight — full insight: acknowledges she has depression and that her thoughts are symptoms of illness, not rational decisions; this prompted the call to GP',
+        quote: '"I know it\'s not rational. I know it\'s the illness talking. But it doesn\'t make it less real." – "That\'s why I called — because part of me knows something is wrong."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Previous depressive episode 5 years ago — treated with sertraline, discharged after 18 months; no previous self-harm or suicide attempts', quote: '"I had depression before — 5 years ago. I was on sertraline. I thought I was better."' },
+      { label: 'Off sick from nursing for 3 months — burnout and deterioration in mental health precipitated by a traumatic patient death on her ward', quote: '"I\'ve been off work for 3 months. A patient I was caring for died badly. I couldn\'t stop thinking about it." [if asked why off work]' },
+    ],
+    drugHistory: [
+      { label: 'Currently on no psychiatric medications — GP stopped sertraline 8 months ago at her request ("I thought I was better")', quote: '"I stopped the sertraline 8 months ago — I thought I was fine."' },
+      { label: 'Access to medications: has a supply of older prescribed medications at home (amitriptyline from a previous GP prescription — she believes about 50 tablets)', quote: '"I\'ve got old medication at home. I know I shouldn\'t." [only if asked about access to means]' },
+    ],
+    familyHistory: [
+      { label: 'Mother — recurrent depression; maternal uncle — died by suicide in his 50s', quote: '"My mum has always struggled with depression." – "My uncle — he took his own life about 10 years ago." [if asked about family history of mental illness and suicide]' },
+    ],
+    socialHistory: [
+      { label: 'Lives alone since separation 6 months ago; no children; close friend but has not told anyone how bad things are', quote: '"I live on my own since my partner left." – "My friend Sarah knows I\'m not great, but she doesn\'t know about the thoughts."' },
+      { label: 'Does not drink alcohol; non-smoker', quote: '"I don\'t drink." [if asked]' },
+    ],
+    importantNegatives: [
+      'No psychotic features — no hallucinations, no command voices, no delusions ("Nothing like that.")',
+      'No manic episodes in history ("No — I\'ve always been the low type, not the high type.")',
+      'No recent illicit drug use ("No.")',
+      'No self-harm in the past ("I\'ve never self-harmed. But the thoughts of suicide are new — this bad." [if asked about NSSI])',
+    ],
+    ice: {
+      ideas: '"I know I\'m not well. I think I\'ve been building to this for months."',
+      concerns: '"I\'m scared of what I might do. That\'s why I called."',
+      expectations: '"I don\'t know what I want. Part of me wants help. Part of me just wants it to stop."',
+    },
+    onlyIfDirectlyAsked: [
+      'Access to means — "I have old amitriptyline at home — about 50 tablets I think."',
+      'Suicide timeline — "I\'ve been thinking about it for 3–4 weeks. Today felt like it might happen."',
+      'Protective factors — "I have a friend Sarah. And I suppose the fact I called the GP."',
+    ],
+    behaviourNotes: [
+      'Flat affect and psychomotor slowing throughout; answers are honest but effortful; not hostile',
+      'When asked about suicidal ideation, responds honestly — has a plan (overdose on amitriptyline) and access to means; this elevates risk significantly',
+      'The disclosure of the amitriptyline stockpile should trigger immediate action: student should note this and plan to arrange removal of means',
+      'If the student asks about what stopped her acting on the thoughts: "Part of me doesn\'t want to die. I just want it to stop." — this ambivalence is protective',
+      'Responds to empathy positively: when student acknowledges how much she is suffering, Kirsty becomes slightly less guarded',
+      'Ask "What happens next?" at the end — student should explain: we need to ensure her safety; cannot leave without a safety plan; likely admission',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Introduction and consent',
+      items: [
+        { description: 'Introduces themselves; explains the purpose of the MSE assessment; creates a safe, non-judgemental atmosphere', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Appearance and behaviour',
+      items: [
+        { description: 'Describes appearance: dishevelled, pale, poor self-care', marks: 1 },
+        { description: 'Describes behaviour: psychomotor slowing, poor eye contact, arms folded (closed body language), cooperative but effortful', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Speech',
+      items: [
+        { description: 'Describes speech: reduced rate and volume; long latency; monosyllabic responses; no pressure or tangentiality', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Mood and affect',
+      items: [
+        { description: 'Documents subjective mood in patient\'s own words: "empty", "numb"', marks: 1 },
+        { description: 'Documents objective mood (observed): flat, congruent with depressed content; restricted affect range', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Thought form and content',
+      items: [
+        { description: 'Describes thought form: linear, coherent, no formal thought disorder', marks: 1 },
+        { description: 'Elicits suicidal ideation including: frequency, nature (intrusive), specific plan (overdose on amitriptyline), and access to means (50 tablets at home)', marks: 3 },
+      ],
+    },
+    {
+      domain: 'Perceptions',
+      items: [
+        { description: 'Screens for auditory and visual hallucinations; specifically asks about command hallucinations instructing self-harm — none present', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Cognition',
+      items: [
+        { description: 'Assesses orientation (time, place, person) and brief concentration (serial 7s); confirms no cognitive impairment', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Insight',
+      items: [
+        { description: 'Correctly assesses insight as preserved: Kirsty recognises she is unwell and that her ideation is a symptom — this is what prompted her to call the GP', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Risk formulation',
+      items: [
+        { description: 'Identifies high-risk features: specific plan, access to means (lethal medication), social isolation, family history of suicide, previous episode, off sick from work', marks: 2 },
+        { description: 'Identifies protective factors: preserved insight, called GP herself (ambivalence), close friend, partial wish to survive', marks: 1 },
+        { description: 'Identifies action required: immediate removal of means (amitriptyline); urgent psychiatric review; likely inpatient admission or crisis team intensive support', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Maintains empathic, non-judgemental tone throughout; acknowledges the courage it took to come in', marks: 1 },
+        { description: 'Does not communicate alarm at suicidal ideation disclosure; continues calmly and systematically', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Kirsty Bell is a 34-year-old nurse presenting with an MSE consistent with severe depressive episode with active suicidal ideation and a specific plan',
+    'Appearance and behaviour: dishevelled, psychomotor slowing, poor eye contact, cooperative; Speech: slowed, low volume, long latency; Mood: subjectively "empty and numb", objectively flat, restricted affect, congruent with depressed content',
+    'Thought form: coherent, no disorder; Thought content: active suicidal ideation (intrusive, daily), SPECIFIC PLAN (overdose on amitriptyline), ACCESS TO MEANS (~50 amitriptyline tablets at home); Perceptions: no hallucinations',
+    'Cognition: oriented, concentration mildly reduced; Insight: full — recognises her thoughts as symptoms of illness, prompted help-seeking',
+    'Risk formulation — HIGH RISK: specific lethal plan + access to means + social isolation + family history of suicide (uncle) + previous depression + occupational stressor (burnout) + off sick and no psychiatric support; Protective: preserved insight, ambivalence (called GP herself), friend Sarah',
+    'Immediate management: DO NOT allow Kirsty to go home unsupported; arrange immediate removal of amitriptyline from her home (friend or family member to retrieve tonight); urgent Consultant Psychiatrist review for informal or Section 2 admission decision; crisis team referral if no bed available; safety plan',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What features of a mental state examination increase acute suicide risk?',
+      keyPoints: [
+        'Specific plan: patient has identified a method (overdose, hanging, jumping) — vague ideation is lower risk than a specific formed plan',
+        'Access to means: tablets at home, access to firearms, height — means restriction is an evidence-based suicide prevention strategy',
+        'Command hallucinations: voices instructing self-harm significantly elevate risk; must always be asked about',
+        'Hopelessness: stronger predictor of completed suicide than severity of depression; Beck Hopelessness Scale score >9 predicts 91% of subsequent suicides',
+        'Psychomotor agitation: paradoxically increases risk in depression — associated with impulsive action; more dangerous than retarded depression in acute risk assessment',
+      ],
+      source: 'NICE NG225 (Self-harm and suicide: assessment, management and preventing recurrence, 2022); Beck AT: Hopelessness Scale',
+    },
+    {
+      question: 'What is the significance of access to lethal means and how should it be addressed?',
+      keyPoints: [
+        'Means restriction: one of the most effective suicide prevention strategies; removing access to lethal means gives time for crisis to resolve (method substitution is not complete)',
+        'Tricyclic antidepressants (e.g. amitriptyline): highly cardiotoxic in overdose; fatal dose much lower than SSRIs; maximum prescription should be 1 week\'s supply in at-risk patients',
+        'Action: ask about means as part of every risk assessment; arrange removal of stored medications by a family member or trusted person before discharge; recommend safe storage or disposal',
+        'SSRIs are significantly safer in overdose than TCAs — if antidepressant is needed in a high-risk patient, SSRI is the appropriate choice rather than resuming amitriptyline',
+        'Hospital responsibility: if the patient is to be discharged, a clear safety plan including means restriction must be documented; failure to address known means is a clinical and medicolegal risk',
+      ],
+      source: 'NICE NG225 (2022); Mann JJ et al.: Suicide prevention strategies (JAMA 2005)',
+    },
+  ],
+};
+
 export const PSYCH_MOCK_EXAMS: MockExamStation[] = [
   alcoholAnxietyMockExam,
   lithiumCounsellingMockExam,
@@ -1635,4 +2029,6 @@ export const PSYCH_MOCK_EXAMS: MockExamStation[] = [
   capacityAssessmentMockExam,
   suicideRiskMockExam,
   maniaPregnancyMockExam,
+  lowMoodDepressionMockExam,
+  mseSuicidalMockExam,
 ];

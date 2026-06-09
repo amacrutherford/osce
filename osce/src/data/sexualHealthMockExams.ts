@@ -456,4 +456,183 @@ const postCoitalBleedingMockExam: MockExamStation = {
   ],
 };
 
-export const SEXUAL_HEALTH_MOCK_EXAMS: MockExamStation[] = [primarySyphilisMockExam, postCoitalBleedingMockExam];
+const hpvResultMockExam: MockExamStation = {
+  id: 'sexual_health_hpv_positive_result',
+  title: 'Sexual Health Consultation — Explaining a Positive HPV Cervical Screening Result',
+  diagnosis: 'HPV-positive cervical screening result with low-grade dyskaryosis — referral for colposcopy',
+  specialtyId: 'sexual-health',
+  candidateBrief: {
+    setting: 'You are an FY1 in a GP surgery.',
+    scenario:
+      'Laura Adams, 27, has attended to discuss the results of her recent cervical smear. Her result letter has been placed on the desk: "HPV positive; low-grade dyskaryosis (CIN1 equivalent) — referred for colposcopy." Laura is anxious and has been googling.',
+    tasks: [
+      'Explain the cervical screening result to Laura',
+      'Discuss the colposcopy referral and address her concerns',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Laura Adams',
+    age: 27,
+    occupation: 'Marketing executive',
+    openingLine:
+      '"I got this letter and I\'ve been panicking. It says I have HPV and something about cells changing. I\'ve been googling and now I\'m terrified I have cervical cancer." [anxious, clutching the letter]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Understanding — has received the letter; understands HPV is a virus but thinks it automatically means cancer; unaware of the difference between HPV, CIN, and cervical cancer',
+        quote: '"I know HPV is a virus. But the letter says \'abnormal cells\' — I thought that meant cancer." – "I don\'t understand what CIN1 means."',
+      },
+      {
+        label: 'Concerns — terrified the diagnosis is cancer; embarrassed about the HPV diagnosis (thinks it means she\'s been "promiscuous")',
+        quote: '"Does everyone who has HPV get cervical cancer?" – "I\'m also embarrassed — does this mean I got it from being with lots of people? My partner doesn\'t know I\'ve had previous partners."',
+      },
+      {
+        label: 'Gynaecological history — this is her first smear (at 25; delayed 2 years due to anxiety about the test); regular periods; no postcoital bleeding; no abnormal discharge',
+        quote: '"This was my first smear. I put it off — I was anxious about it." – "My periods are regular. No bleeding between periods or after sex."',
+      },
+      {
+        label: 'Sexual history — current partner for 18 months; two previous partners; last full STI screen 18 months ago (all clear)',
+        quote: '"I\'ve been with my current partner for 18 months. Two partners before that." – "I had a screen 18 months ago — all clear."',
+      },
+      {
+        label: 'HPV vaccination status — received the school programme at age 13; believes she had 3 doses',
+        quote: '"I had the jab at school — I think I had all of them." [if asked]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No significant past medical history; no immunosuppression', quote: '"No health problems."' },
+    ],
+    drugHistory: [
+      { label: 'Combined oral contraceptive pill', quote: '"I\'m on the pill."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'No family history of cervical or gynaecological cancer', quote: '"No — nobody in my family has had cancer as far as I know." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Non-smoker; occasional alcohol; lives with partner', quote: '"I don\'t smoke. I drink occasionally." [if asked]' },
+    ],
+    importantNegatives: [
+      'No postcoital bleeding ("No — nothing like that.")',
+      'No intermenstrual bleeding ("No.")',
+      'No pelvic pain or discharge ("No.")',
+      'No weight loss or systemic symptoms ("No.")',
+    ],
+    ice: {
+      ideas: '"I think this means I have cancer or am about to get it. I googled CIN and it said it can turn into cancer."',
+      concerns: '"I\'m terrified. And embarrassed. Do I have to tell my partner? And will it affect my ability to have children?"',
+      expectations: '"I want to know exactly what the result means, what happens at colposcopy, and whether I\'m going to be okay."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether she has told her partner — "Not yet. I\'m scared of how he\'ll react."',
+      'Whether HPV can be treated — "I\'ve seen things online about treatments for HPV."',
+      'Fertility concern — "Will this affect my ability to have children in the future?"',
+    ],
+    behaviourNotes: [
+      'Anxious and slightly tearful throughout; calms significantly once the student explains that HPV is very common and does not automatically mean cancer',
+      'The stigma concern (HPV = promiscuity) is important to address early — if ignored, Laura remains embarrassed and partially disengaged',
+      'Asks "Will my partner have HPV too?" — student should explain partner likely already has HPV; most people clear it; his risk is low but if concerns, GP review',
+      'Asks "What happens at colposcopy?" — student should explain clearly: examination of the cervix with a microscope; biopsies if needed; the procedure is not painful like a smear',
+      'Asks "Will the cells definitely become cancer?" — student should explain the vast majority of CIN1 regresses spontaneously; colposcopy is for monitoring and treatment if needed',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; acknowledges Laura\'s anxiety about the result before proceeding', marks: 1 },
+        { description: 'Checks what Laura already understands and what she has read before correcting any misconceptions', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explaining HPV',
+      items: [
+        { description: 'Explains HPV in plain language: a very common virus; most sexually active people encounter HPV at some point in their lives; usually cleared by the immune system', marks: 1 },
+        { description: 'Explains that HPV is NOT a sign of promiscuity or infidelity — it can be acquired from any sexual contact; dormant for years before detection', marks: 1 },
+        { description: 'Explains that having HPV does NOT mean she has or will get cervical cancer — the vast majority of HPV infections resolve without any progression', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explaining the result',
+      items: [
+        { description: 'Explains the NHS cervical screening pathway: HPV test first; only if HPV positive is cytology assessed', marks: 1 },
+        { description: 'Explains CIN1 (low-grade dyskaryosis): mild cell changes on the cervical surface; not cancer; not even pre-cancer in the full sense — most CIN1 regresses without treatment', marks: 2 },
+        { description: 'Explains why colposcopy is needed: a more detailed examination of the cervix to assess the extent of any changes and decide whether monitoring or treatment is needed', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explaining colposcopy',
+      items: [
+        { description: 'Describes colposcopy: speculum examination + microscope (colposcope); acetic acid and Lugol\'s iodine applied to highlight abnormal cells; biopsy taken if needed', marks: 1 },
+        { description: 'Addresses anxiety about the procedure: not significantly more painful than a smear; takes 15–30 minutes; patient will receive results within 2–4 weeks', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Addressing concerns',
+      items: [
+        { description: 'Addresses fertility concern: CIN1 monitoring and treatment (LLETZ if needed) does not significantly affect fertility; cervical stenosis is a rare complication', marks: 1 },
+        { description: 'Addresses partner concern: HPV is not reportable; no obligation to inform partner but student should offer guidance sensitively', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing and safety net',
+      items: [
+        { description: 'Checks understanding; confirms colposcopy appointment will be sent by post; continues regular smear screening after treatment', marks: 1 },
+        { description: 'Advises to return if new symptoms develop: postcoital bleeding, abnormal discharge, pelvic pain', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Addresses the stigma concern directly and empathetically without dismissing it', marks: 1 },
+        { description: 'Active listening; clear language; checks understanding at each stage', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Laura is a 27-year-old attending to discuss her first cervical screening result: HPV positive with low-grade dyskaryosis (CIN1 equivalent) — she is anxious and has significant misconceptions from online research',
+    'HPV explained: very common sexually transmitted virus; the majority of sexually active people are exposed; most clear it without knowing; dormant for years; NOT a marker of promiscuity or infidelity',
+    'Result explained: HPV positive → cytology assessed → low-grade dyskaryosis (CIN1) = mild surface cell changes; NOT cancer; NOT inevitable pre-cancer; approximately 60% of CIN1 regresses spontaneously without treatment',
+    'Colposcopy referral: NHSCSP protocol mandates colposcopy for HPV positive + any cytological abnormality; purpose is careful examination to assess and stage changes; biopsy if needed; not significantly more painful than a smear',
+    'Fertility: LLETZ (if required for CIN2/3) has a small risk of cervical weakness in subsequent pregnancies; CIN1 monitoring rarely requires treatment — fertility impact very unlikely in her case',
+    'Partner: HPV is common; partner likely already exposed; no formal partner notification protocol for HPV; advised to discuss with GP if concern; HPV vaccination no longer prevents established infection',
+    'Safety net: await colposcopy appointment; return if postcoital bleeding, IMB, discharge, or pelvic pain develop',
+  ],
+  vivaQuestions: [
+    {
+      question: 'Describe the NHS Cervical Screening Programme pathway for an HPV-positive result.',
+      keyPoints: [
+        'Primary HPV testing: introduced nationally in England in 2019; all samples tested for high-risk HPV first (HPV 16, 18, and 12 other high-risk types)',
+        'If HPV NEGATIVE: routine recall — 3 years (25–49) or 5 years (50–64); very low risk of cervical cancer in next recall interval',
+        'If HPV POSITIVE: cytology assessed from the same sample; if cytology NORMAL → repeat HPV test in 12 months; if cytology ABNORMAL (any grade) → refer for colposcopy',
+        'CIN grading: CIN1 = low grade (mild dysplasia, involves <1/3 epithelial depth); CIN2 = moderate (1/2–2/3); CIN3 = severe/carcinoma in situ (>2/3 — includes CIS); cervical carcinoma = basement membrane breached',
+        'HPV 16 and 18 account for approximately 70% of cervical cancers; Gardasil-9 (school programme, age 12–13) covers HPV 6, 11, 16, 18, 31, 33, 45, 52, 58',
+      ],
+      source: 'PHE: NHS Cervical Screening Programme (NHSCSP) Publication No. 20; NICE NG12 (2023)',
+    },
+    {
+      question: 'What is LLETZ and when is it indicated in the colposcopy pathway?',
+      keyPoints: [
+        'LLETZ (large loop excision of the transformation zone): wire loop electrode excises the transformation zone under local anaesthetic; outpatient procedure in colposcopy clinic',
+        'Indications: CIN2 or CIN3 on colposcopy biopsy (high-grade changes); CIN2/3 persisting at 12-month follow-up; some cases of CIN1 persisting at 24 months',
+        'Provides both diagnosis (histology from excised tissue) and treatment in a single procedure',
+        'Complications: bleeding (primary and secondary); cervical stenosis; theoretical risk of preterm birth in future pregnancy (RCOG 2016 — risk small, greater with repeat procedures)',
+        'Post-LLETZ: routine HPV test at 6 months; if HPV negative → return to 3-yearly screening; if HPV positive → repeat colposcopy',
+      ],
+      source: 'BSCCP/RCOG Guidelines: Colposcopy and Programme Management (3rd ed., 2020); NICE DG30 (HPV testing in colposcopy, 2016)',
+    },
+    {
+      question: 'How should you address a patient who is concerned that an HPV diagnosis reflects infidelity?',
+      keyPoints: [
+        'HPV can remain latent for months to years before detection — a positive test does not indicate recent acquisition; it does not prove infidelity',
+        'HPV is extraordinarily common: up to 80% of sexually active adults will encounter high-risk HPV at some point; the majority clear it asymptomatically',
+        'There is no reliable way to determine when or from whom HPV was acquired; cervical screening cannot date infection',
+        'Do not speculate about the source of infection and do not encourage accusations — the conversation should focus on what the result means for the patient\'s health',
+        'If the patient is in a long-term relationship, the partner likely already has HPV; male partners cannot be routinely screened (no licensed HPV test for males in the UK); female partners should ensure their cervical screening is up to date',
+      ],
+      source: 'BASHH HPV patient information leaflet; NHSCSP patient guidance (2023)',
+    },
+  ],
+};
+
+export const SEXUAL_HEALTH_MOCK_EXAMS: MockExamStation[] = [primarySyphilisMockExam, postCoitalBleedingMockExam, hpvResultMockExam];

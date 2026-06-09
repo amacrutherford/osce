@@ -462,4 +462,183 @@ const eolRefusedTreatmentMockExam: MockExamStation = {
   ],
 };
 
-export const PALLIATIVE_MOCK_EXAMS: MockExamStation[] = [endOfLifeStrokeMockExam, eolRefusedTreatmentMockExam];
+const mndEolMockExam: MockExamStation = {
+  id: 'palliative_mnd_eol_patient',
+  title: 'End-of-Life Consultation — Motor Neurone Disease: Symptoms and Decision-Making',
+  diagnosis: 'Motor neurone disease — advance care planning and symptom management consultation',
+  specialtyId: 'palliative',
+  candidateBrief: {
+    setting: 'You are an FY1 on the neurology ward.',
+    scenario:
+      'Graham Scott, 61, was diagnosed with ALS/MND 8 months ago. He is admitted for a planned review. His swallowing has deteriorated and he has increasing dyspnoea on exertion. He is aware of his diagnosis and prognosis but wants to understand what decisions he needs to make and what symptoms can be managed. His wife has stepped out of the room at his request so he can speak frankly.',
+    tasks: [
+      'Speak with Graham about end-of-life decision-making and how his symptoms can be managed',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Graham Scott',
+    age: 61,
+    occupation: 'Retired civil engineer',
+    openingLine:
+      '"I want to talk about what comes next. My wife finds it difficult — that\'s why I asked her to step out. But I need to know what decisions I should be making now, while I still can. And what you can do about the swallowing and the breathing." [calm, thoughtful, clearly has reflected on this]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Swallowing — dysphagia to solids for 3 months, now also to liquids; coughing and choking on thin liquids; concern about aspiration',
+        quote: '"Swallowing has got much worse. I choke on thin drinks now — water is the worst. I\'m frightened of choking." – "I\'ve lost about 4 kg in the last 3 months."',
+      },
+      {
+        label: 'Breathing — dyspnoea on exertion; some morning headaches; patient suspects early nocturnal hypoventilation',
+        quote: '"I get breathless going up the stairs now. And I wake up with headaches most mornings — I read that\'s a sign the breathing isn\'t right at night." – "I\'m not panicking yet but I know what it means."',
+      },
+      {
+        label: 'Communication — speech still intelligible but slower and effortful; concerned about losing voice',
+        quote: '"I can still speak but it takes more effort. I want to make recordings for my grandchildren while I still can." – "I know eventually I may not be able to speak at all."',
+      },
+      {
+        label: 'Advance care planning — wants to discuss: decisions about PEG tube, NIV, resuscitation, and place of death; previously watched his father die in ICU "attached to machines" — does NOT want that',
+        quote: '"I watched my dad die in intensive care — machines everywhere, no dignity. I don\'t want that." – "I want to make my wishes clear now. I have capacity. I want it all written down." – "I\'d like to die at home if possible."',
+      },
+      {
+        label: 'Current emotional state — realistic and pragmatic; occasional low mood but not clinically depressed; has spoken to a MND specialist nurse',
+        quote: '"I\'m not in denial. I\'ve read about it. I\'ve spoken to the specialist nurse." – "I have low moments but overall I\'m okay — I want to get things sorted." [composed]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'ALS/MND — diagnosed 8 months ago; predominantly bulbar onset', quote: '"The neurologist said it\'s the type that started with the swallowing and speech."' },
+      { label: 'Hypertension — on amlodipine; well controlled', quote: '"Just my blood pressure tablets." [if asked]' },
+    ],
+    drugHistory: [
+      { label: 'Amlodipine 5 mg OD; riluzole 50 mg BD', quote: '"The riluzole and the blood pressure tablet."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Married 35 years; two adult children; wife is his primary carer; lives in own home', quote: '"My wife\'s been incredible. We\'ve been married 35 years." – "My son and daughter are nearby." [if asked]' },
+      { label: 'Non-smoker; no alcohol (stopped at diagnosis)', quote: '"I stopped drinking when I was diagnosed. I don\'t smoke." [if asked]' },
+    ],
+    importantNegatives: [
+      'No acute infection or aspiration pneumonia currently ("I\'ve been careful — taking thickened fluids and sitting upright.")',
+      'No cognitive impairment — executive function and memory intact ("My mind is clear. That\'s one thing I\'m grateful for.")',
+      'No suicidal ideation — distinguishes from existential suffering ("I\'m not looking to end things early. I just want a good death — at home, comfortable.")',
+    ],
+    ice: {
+      ideas: '"I know what\'s going to happen. I just want to control what I can control."',
+      concerns: '"I\'m frightened of choking to death. And of being put on a machine against my wishes. And of losing my ability to speak before I\'ve said everything I need to say."',
+      expectations: '"I want to make decisions now about the tube feeding, the breathing support, and what happens at the end. And I want someone to tell me what to do about the symptoms."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether he has a PEG yet — "No. I\'ve been putting it off. I want to know more about it before I decide."',
+      'Whether he has an ADRT — "No — I don\'t have one yet. That\'s part of why I wanted to talk today."',
+      'Whether he has an LPA — "My wife and I have already sorted the financial one. We need to do the health one."',
+    ],
+    behaviourNotes: [
+      'Calm, articulate, and autonomous; this is not a breaking bad news station — Graham already knows his diagnosis and prognosis',
+      'Responds well to a student who treats him as an equal and respects his expertise on his own condition',
+      'Becomes quietly emotional when talking about his grandchildren — student should acknowledge this gently',
+      'Very focused on getting the ADRT and LPA completed — student should confirm these need to be done while he has full capacity',
+      'Asks specifically about whether PEG tube prevents aspiration — student should explain it does NOT prevent aspiration pneumonia but maintains nutrition and quality of life',
+      'Asks about terminal breathlessness — student should explain low-dose opioids (morphine) are effective and do not hasten death',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; acknowledges Graham\'s request to speak frankly; creates a collaborative atmosphere', marks: 1 },
+        { description: 'Checks what Graham already understands about his current trajectory before adding information', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Symptom management — dysphagia',
+      items: [
+        { description: 'Explains SLT assessment for modified texture diet and thickened fluids; identifies aspiration risk', marks: 1 },
+        { description: 'Discusses PEG tube: nutritional support; does NOT prevent aspiration pneumonia; quality of life benefit; ideally placed while FVC >50%; explains the procedure', marks: 2 },
+        { description: 'Respects Graham\'s autonomy to decide on PEG — presents it as his choice, not a recommendation', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Symptom management — breathlessness',
+      items: [
+        { description: 'Explains NIV (BiPAP): indicated when FVC <80% or symptomatic nocturnal hypoventilation; relieves dyspnoea and morning headaches; extends survival; explains the mask and how it works', marks: 1 },
+        { description: 'Explains that low-dose opioids (morphine 2.5–5 mg oral) are effective for breathlessness and do NOT hasten death — addresses common fear', marks: 2 },
+      ],
+    },
+    {
+      domain: 'Communication support',
+      items: [
+        { description: 'Refers Graham to SLT for augmentative and alternative communication (AAC) devices — eye-gaze communication technology for when speech is lost', marks: 1 },
+        { description: 'Supports his wish to make voice recordings for his grandchildren — offers SLT-facilitated voice banking', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Advance care planning',
+      items: [
+        { description: 'Explains ADRT: legally binding refusal of specific treatments (CPR, ventilation) — must be in writing, signed, witnessed, and state it applies even if life is at risk', marks: 1 },
+        { description: 'Explains Health and Welfare LPA: allows Graham\'s wife (or nominated attorney) to make decisions if he loses capacity — strongly encouraged while he has capacity', marks: 1 },
+        { description: 'Discusses preferred place of death — supports home death wish; explains community palliative care team, Marie Curie nursing, and hospice as options', marks: 1 },
+        { description: 'Introduces Do Not Attempt CPR (DNACPR/ReSPECT form): explains in the context of his stated wishes; documents clearly', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing',
+      items: [
+        { description: 'Summarises the plan; offers to involve Graham\'s wife in a subsequent meeting; provides MND Association contacts', marks: 1 },
+        { description: 'Acknowledges what Graham is doing as courageous and important — validates his approach', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Maintains a tone of partnership throughout — not paternalistic', marks: 1 },
+        { description: 'Active listening; allows Graham to lead the pace; does not rush', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Graham is a 61-year-old with bulbar-onset ALS/MND (8 months) attending for planned review; he is cognitively intact and has specifically requested a frank discussion about advance care planning and symptom management',
+    'Current symptoms: progressive dysphagia (choking on thin liquids; 4 kg weight loss) and early respiratory compromise (dyspnoea on exertion, morning headaches suggesting nocturnal hypoventilation)',
+    'Dysphagia management: SLT review; modified diet (IDDSI framework); thickened fluids; PEG feeding discussed — maintains nutrition, does NOT prevent aspiration; ideally placed at FVC >50%; Graham\'s autonomous decision',
+    'Respiratory management: lung function (FVC) to be checked; NIV (BiPAP) strongly indicated given symptoms of nocturnal hypoventilation — extends survival and improves QoL; low-dose morphine for breathlessness will NOT hasten death',
+    'Communication: SLT referral for AAC device (eye-gaze technology); voice banking while speech is still intelligible',
+    'Advance care planning: ADRT to document refusal of CPR and invasive ventilation — must be completed while Graham has capacity; Health and Welfare LPA to be established with wife as attorney; DNACPR discussion and documentation; preferred place of death: home with community palliative care and Marie Curie nursing support',
+    'Graham\'s wishes respected throughout — the plan centres on maintaining dignity, quality of life, and autonomous decision-making',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What is a ReSPECT form and how does it differ from a DNACPR order?',
+      keyPoints: [
+        'ReSPECT (Recommended Summary Plan for Emergency Care and Treatment): replaces DNACPR in many UK trusts; a broader document that captures patient preferences for emergency care — not just CPR',
+        'Includes: patient\'s wishes and priorities; agreed clinical decisions about CPR (DNACPR); decisions about other emergency interventions (intubation, dialysis, IV fluids)',
+        'DNACPR: a clinical decision not to attempt CPR if the patient has a cardiac arrest; does not affect other aspects of care; must be explained to the patient as it is a decision affecting them',
+        'ReSPECT travels with the patient across care settings (community, hospice, acute hospital) — improves care continuity and prevents unwanted resuscitation attempts',
+        'Both documents are signed by the responsible clinician; should ideally be completed following patient discussion; a DNACPR can be put in place without patient consent only if CPR would be futile (but best practice is to inform the patient)',
+      ],
+      source: 'Resuscitation Council UK: Decisions relating to cardiopulmonary resuscitation (2016); NICE NG31 (End of life care, 2015)',
+    },
+    {
+      question: 'What are the indications for PEG tube insertion in MND and what does the evidence say?',
+      keyPoints: [
+        'Indication: dysphagia causing inability to maintain adequate nutrition/hydration; significant weight loss (>10% body weight); aspiration risk on oral intake',
+        'Timing: ideally placed while FVC >50% (respiratory reserve for sedation/procedure); once FVC <50%, anaesthetic risk for the procedure increases substantially',
+        'Evidence: PEG maintains nutritional status and may prolong survival (RCT evidence limited but observational evidence supports); does NOT prevent aspiration pneumonia (gastric reflux can still cause aspiration)',
+        'Radiologically inserted gastrostomy (RIG): alternative if FVC <50%; uses fluoroscopy, lighter sedation; lower procedural risk',
+        'Patient autonomy: some patients with MND decline PEG — this is a valid autonomous decision; the team must respect it and ensure comfort eating continues with appropriate SLT support',
+      ],
+      source: 'NICE NG42 (Motor neurone disease: assessment and management, 2016); ESPEN guidelines on clinical nutrition in neurology (2018)',
+    },
+    {
+      question: 'How do you manage terminal breathlessness in palliative care?',
+      keyPoints: [
+        'Low-dose opioids (morphine): first-line for breathlessness in palliative care; 2.5–5 mg oral morphine every 4 hours (opioid-naive patients); reduce respiratory drive and perceived air hunger without respiratory depression at palliative doses',
+        'Do NOT hasten death: palliative doses of opioids titrated to symptom control do not shorten life — this is supported by the doctrine of double effect and evidence; important to reassure patients and families',
+        'Anxiolytics: low-dose midazolam or lorazepam for panic component of breathlessness; often used alongside opioids in the terminal phase',
+        'Non-pharmacological: positioning (upright), fan (facial airflow reduces sensation of breathlessness via trigeminal nerve cooling), open window, relaxation techniques',
+        'Subcutaneous infusion (syringe driver): used in the terminal phase when oral medications no longer feasible; morphine + midazolam + glycopyrronium (for secretions) is a typical combination',
+      ],
+      source: 'NICE NG31 (Care of dying adults in the last days of life, 2015); Jennings AL et al. Cochrane Review — Opioids for dyspnoea in MND (2001)',
+    },
+  ],
+};
+
+export const PALLIATIVE_MOCK_EXAMS: MockExamStation[] = [endOfLifeStrokeMockExam, eolRefusedTreatmentMockExam, mndEolMockExam];

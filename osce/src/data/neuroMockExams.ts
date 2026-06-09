@@ -1655,6 +1655,364 @@ const lowerLimbNeuroMockExam: MockExamStation = {
   ],
 };
 
+const cerebellumExamMockExam: MockExamStation = {
+  id: 'neuro_cerebellar_exam_normal',
+  title: 'Neurological Examination — Cerebellar System (Normal Examination)',
+  diagnosis: 'Normal cerebellar examination — differential diagnosis of unsteadiness and ataxia',
+  specialtyId: 'neurology',
+  candidateBrief: {
+    setting: 'You are an FY1 in a neurology outpatient clinic.',
+    scenario:
+      'Robert Stafford, 52, has been referred by his GP with a 4-month history of intermittent unsteadiness on his feet. His examination today is normal. Please perform a cerebellar examination. At the end of the station, the examiner will ask you questions about causes of unsteadiness.',
+    tasks: [
+      'Perform a systematic cerebellar examination on the patient',
+      'Respond to the examiner\'s questions about the differential diagnosis',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Robert Stafford',
+    age: 52,
+    occupation: 'Secondary school maths teacher',
+    openingLine:
+      '"Come in. I\'ve been asked to co-operate with whatever tests you need to do." [cooperative, no visible abnormality, normal gait entering the room]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Gait — normal tandem gait; normal broad gait; no Romberg sign; all cerebellar signs absent',
+        quote: '[Examiner]: Gait is normal. Tandem gait (heel-to-toe) is performed without difficulty. No truncal ataxia or widened base.',
+      },
+      {
+        label: 'Nystagmus — ABSENT; full eye movements; no gaze-evoked nystagmus',
+        quote: '[Examiner]: Eye movements are full in all directions. No nystagmus on lateral gaze. No internuclear ophthalmoplegia.',
+      },
+      {
+        label: 'Speech — normal fluency and articulation; no dysarthria or scanning speech',
+        quote: '[Examiner]: Speech is normal. No dysarthria. No scanning or staccato speech pattern.',
+      },
+      {
+        label: 'Coordination — finger-nose: accurate, no past-pointing or intention tremor; heel-shin: normal; no dysdiadochokinesia',
+        quote: '[Examiner]: Finger-nose test: no past-pointing; no tremor; accurate. Rapid alternating movements: normal (no dysdiadochokinesia). Heel-shin test: smooth and accurate.',
+      },
+      {
+        label: 'Tone — normal; no hypotonia',
+        quote: '[Examiner]: Tone is normal throughout all four limbs.',
+      },
+      {
+        label: 'Romberg test — NEGATIVE (steady with eyes closed)',
+        quote: '[Examiner]: Romberg test negative — patient stands steadily with eyes open and eyes closed. No significant sway on eye closure.',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Intermittent unsteadiness for 4 months — mild, worse on uneven surfaces and in the dark', quote: '"It comes and goes. I notice it most when I\'m walking on rough ground or when it\'s dark." [if asked]' },
+      { label: 'Moderate alcohol intake — 18–20 units per week', quote: '"I probably drink more than I should — maybe 3 or 4 glasses of wine most evenings." [if specifically asked about alcohol]' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications', quote: '"Nothing regular."' },
+    ],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Moderate to heavy alcohol intake; stressful job; not a smoker', quote: '"Teaching is stressful. I wind down with a drink." [if asked]' },
+    ],
+    importantNegatives: [
+      'No falls or injuries from unsteadiness ("I\'ve only nearly tripped — nothing serious.")',
+      'No diplopia, no dysarthria, no headache ("No.")',
+      'No bladder or bowel symptoms ("No.")',
+    ],
+    ice: {
+      ideas: '"I\'m not sure what\'s causing it. I thought it might be inner ear trouble."',
+      concerns: '"I\'m a bit worried it might be something sinister — like MS or something."',
+      expectations: '"I\'d like to know what the tests show and whether there\'s anything to worry about."',
+    },
+    onlyIfDirectlyAsked: [
+      'Alcohol units — "Probably 18–20 units a week. Sometimes more."',
+      'Whether symptoms are progressive — "I don\'t think it\'s getting worse. Some days are better than others."',
+    ],
+    behaviourNotes: [
+      'Normal actor throughout — fully co-operative; demonstrates all tasks correctly with normal results',
+      'If the examiner asks student "what did you find?" — student should clearly state all signs are normal (DANISH features absent)',
+      'During examiner viva, student should discuss causes of unsteadiness including cerebellar, vestibular, sensory/dorsal column, and multifactorial',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Introduction and consent',
+      items: [
+        { description: 'Introduces themselves; explains what the examination involves; gains consent', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Gait assessment',
+      items: [
+        { description: 'Observes normal gait entering the room and asks patient to walk across the room', marks: 1 },
+        { description: 'Performs tandem (heel-to-toe) gait test — identifies normal result', marks: 1 },
+        { description: 'Performs Romberg test correctly (feet together, arms folded, eyes open then closed) — negative', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Eye movements and nystagmus',
+      items: [
+        { description: 'Tests eye movements in all directions (H pattern); correctly identifies no nystagmus', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Speech',
+      items: [
+        { description: 'Assesses speech for dysarthria — asks patient to repeat a phrase; identifies normal articulation', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Upper limb coordination',
+      items: [
+        { description: 'Performs finger-nose test bilaterally — no past-pointing or intention tremor identified', marks: 1 },
+        { description: 'Tests rapid alternating movements (dysdiadochokinesia) — normal bilaterally', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Lower limb coordination',
+      items: [
+        { description: 'Performs heel-shin test — smooth and accurate bilaterally', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Tone',
+      items: [
+        { description: 'Assesses limb tone — normal; no hypotonia', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Presentation to examiner',
+      items: [
+        { description: 'Clearly presents findings: "The cerebellar examination is normal — gait, coordination, speech, and eye movements are all intact; Romberg is negative"', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Examiner viva — differential diagnosis of unsteadiness',
+      items: [
+        { description: 'Names at least 3 categories of unsteadiness: cerebellar (ataxia with DANISH), vestibular (vertigo, nystagmus), sensory (Romberg positive, dorsal column), and multifactorial (elderly)', marks: 2 },
+        { description: 'Correctly distinguishes Romberg positive (sensory ataxia — falls on eye closure) from cerebellar ataxia (falls with eyes open)', marks: 1 },
+        { description: 'Names common causes of cerebellar ataxia: alcohol (most common UK), MS, stroke (PICA), medication (phenytoin), paraneoplastic, Friedreich\'s ataxia', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Mr Stafford underwent a full cerebellar examination; all findings were normal: gait was steady and tandem gait was performed without difficulty; Romberg test was negative',
+    'Eye movements were full; no nystagmus on lateral or primary gaze; speech was clear with no dysarthria or scanning quality',
+    'Upper limb coordination: finger-nose test accurate bilaterally with no intention tremor or past-pointing; rapid alternating movements normal (no dysdiadochokinesia)',
+    'Lower limb coordination: heel-shin test smooth and accurate bilaterally; tone normal throughout',
+    'Summary: the cerebellar examination is entirely normal — a normal DANISH screen (Dysdiadochokinesia, Ataxia, Nystagmus, Intention tremor, Slurred speech, Hypotonia) excludes acute cerebellar pathology today',
+    'Differential for his unsteadiness: given normal cerebellar exam and negative Romberg, the most likely differential is benign positional vertigo (vestibular), medication-related, or early multifactorial unsteadiness; history of moderately elevated alcohol intake should prompt consideration of alcohol-related cerebellar disease (vermian atrophy)',
+    'Investigations to consider: MRI brain and posterior fossa (exclude structural cause — tumour, MS, stroke); formal audiometry; medication review; thyroid function',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the causes of cerebellar ataxia and how do you classify them?',
+      keyPoints: [
+        'Acute onset (<72 hours): stroke (PICA/AICA territory), MS relapse, Wernicke\'s encephalopathy, acute alcohol toxicity, drug toxicity (phenytoin, carbamazepine), cerebellar abscess',
+        'Subacute (days to weeks): paraneoplastic cerebellar degeneration (anti-Yo/Hu; occult ovarian, breast, lung), Miller Fisher syndrome, autoimmune (anti-GAD)',
+        'Chronic progressive: alcohol-related cerebellar degeneration (most common UK — vermis affected preferentially); hereditary ataxias (Friedreich\'s — GAA repeat, SCA1/2/3); hypothyroidism; normal pressure hydrocephalus',
+        'DANISH mnemonic: Dysdiadochokinesia, Ataxia (gait), Nystagmus (gaze-evoked), Intention tremor, Slurred speech (scanning), Hypotonia; all ipsilateral to the lesion',
+        'Alcohol causes vermian atrophy: predominantly truncal ataxia and gait ataxia with relatively preserved limb coordination — characteristic pattern',
+      ],
+      source: 'OHCM 10th ed., Ch. 6; geekymedics.com Cerebellar Examination',
+    },
+    {
+      question: 'How do you differentiate cerebellar ataxia from sensory ataxia clinically?',
+      keyPoints: [
+        'Cerebellar ataxia: falls/unsteady with eyes OPEN; Romberg negative (falls on both eyes open and closed); broad-based gait; past-pointing; intention tremor; scanning speech; signs ipsilateral to lesion',
+        'Sensory ataxia (dorsal column): Romberg POSITIVE — stable with eyes open, falls when eyes closed (relies on visual compensation); high-stepping stamping gait; loss of proprioception and vibration sense',
+        'Vestibular ataxia: Romberg positive; falls in one direction; associated with vertigo and nystagmus (fast phase away from lesion in peripheral vestibular disease)',
+        'Key distinguishing point: if the patient sways/falls with eyes open → cerebellar; if only falls with eyes closed → sensory or vestibular',
+        'Causes of sensory ataxia: subacute combined degeneration (B12), tabes dorsalis, Friedreich\'s, peripheral neuropathy, Guillain-Barré',
+      ],
+      source: 'OHCM 10th ed., Ch. 6; geekymedics.com',
+    },
+  ],
+};
+
+const mndRelativeMockExam: MockExamStation = {
+  id: 'neuro_mnd_relative_communication',
+  title: 'Communication — Motor Neurone Disease: Speaking to a Relative',
+  diagnosis: 'Motor neurone disease (ALS) — communication with a relative about diagnosis, prognosis, and palliative care',
+  specialtyId: 'neurology',
+  candidateBrief: {
+    setting: 'You are an FY1 on the neurology ward.',
+    scenario:
+      'Thomas Harding, 62, was admitted last week with progressive limb weakness and dysarthria. He has today been given a diagnosis of amyotrophic lateral sclerosis (ALS/MND) by the consultant neurologist. Mr Harding has consented for his diagnosis to be shared with his wife, Patricia, 60, who has come in to speak with a member of the team. Please speak with Patricia.',
+    tasks: [
+      'Speak with Patricia about her husband\'s diagnosis, prognosis, and the support available',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Patricia Harding',
+    age: 60,
+    occupation: 'Retired nurse (Thomas\'s wife)',
+    openingLine:
+      '"I know Thomas was being tested but I\'m not sure they\'ve told me the full picture. The consultant used a lot of medical words. Can you explain it to me?" [anxious, tearful when diagnosis is confirmed, composed but frightened]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Patricia\'s understanding — knows Thomas has been having weakness and slurred speech; not sure of the diagnosis; has heard of MND and is frightened',
+        quote: '"They said something about motor neurones. I\'ve heard of motor neurone disease. Is that what he has?" [tearful] – "I\'m a retired nurse — I know what that means. I just need to hear it properly."',
+      },
+      {
+        label: 'Shock and grief — even as a nurse, the personal reality is devastating; needs time to process',
+        quote: '"I know what it means professionally. But he\'s my husband." [tearful pause] "How long does he have?"',
+      },
+      {
+        label: 'Questions about symptoms — worried about choking, breathlessness, communication',
+        quote: '"Is he going to lose his voice completely? I\'ve heard people lose the ability to swallow." – "He\'s already slurring. Is it going to get worse quickly?"',
+      },
+      {
+        label: 'Questions about treatment — asks if anything can slow it down; has read about riluzole',
+        quote: '"I\'ve read about a drug — riluzole. Is he going to get that? Is there nothing else?" – "What about clinical trials?"',
+      },
+      {
+        label: 'Practical questions — worried about who will look after him; her own health; caring role',
+        quote: '"I want to look after him at home as long as possible. But I had a back operation 2 years ago." – "Is there support for us? Who organises it all?"',
+      },
+      {
+        label: 'Questions about decision-making — asks about what happens at the end',
+        quote: '"Should we be thinking about a will? He mentioned he might want to think about a \'living will\' or something like that." – "What are his choices about what happens at the end?"',
+      },
+    ],
+    pastMedicalHistory: [],
+    drugHistory: [],
+    familyHistory: [],
+    socialHistory: [
+      { label: 'Retired; lives with Thomas in their own home; two adult children (son in Leeds, daughter lives nearby)', quote: '"Our daughter is nearby — she\'s been wonderful. Our son is in Leeds." [if asked about support network]' },
+    ],
+    importantNegatives: [],
+    ice: {
+      ideas: '"I\'m trying to hold it together. I think I always suspected something like this — he\'s been deteriorating for months."',
+      concerns: '"I\'m terrified he\'s going to suffer. And I\'m scared of not being able to cope."',
+      expectations: '"I want to know what to expect, what help is available, and that he won\'t be alone or in pain at the end."',
+    },
+    onlyIfDirectlyAsked: [
+      'Thomas\'s wishes about end of life — "He has mentioned he doesn\'t want to be put on a machine if there\'s no hope. He\'s mentioned that before his dad died in ICU."',
+      'Whether Thomas has a health and welfare LPA — "Not yet. He\'s always meant to sort it."',
+    ],
+    behaviourNotes: [
+      'Tearful but composed initially; becomes more openly tearful when prognosis is confirmed',
+      'As a retired nurse, she understands the medical language but needs to hear it clearly in the context of her husband — do not underestimate her, but do not use jargon without explanation',
+      'Responds well to having her feelings acknowledged before factual information is given',
+      'Asks directly "How long?" — student should give an honest answer about the wide variation in prognosis without being blunt or cruel (median survival ~2–5 years from symptom onset; some live 10+ years)',
+      'When riluzole is discussed, she is reassured that something slows progression slightly',
+      'Responds to the ADRT/LPA discussion positively — "Good. He should do that while he can still express himself."',
+      'At the end: "Thank you for not making me feel rushed." — rewards a calm, unhurried consultation',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; offers a private space; has tissues available; asks what Patricia already knows', marks: 1 },
+        { description: 'Checks Thomas has consented for his diagnosis to be shared before disclosing any clinical information', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Breaking the diagnosis',
+      items: [
+        { description: 'Gives a warning shot before confirming the diagnosis — "I need to share some difficult news with you"', marks: 1 },
+        { description: 'Confirms the diagnosis of motor neurone disease (MND/ALS) in clear plain language; pauses for Patricia to absorb the information', marks: 2 },
+        { description: 'Acknowledges Patricia\'s distress and allows silence before continuing', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explaining MND',
+      items: [
+        { description: 'Explains MND in plain language: progressive degeneration of motor neurones causing weakness of limbs, swallowing, and breathing', marks: 1 },
+        { description: 'Explains that cognitive function is usually preserved in ALS (though some patients develop frontotemporal dementia)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Prognosis',
+      items: [
+        { description: 'Gives honest prognosis: wide variation; median survival 2–5 years from symptom onset; some patients live longer; progression rate predicts outcome better than any single test', marks: 1 },
+        { description: 'Avoids giving specific timelines; acknowledges uncertainty while being honest', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Treatment and MDT support',
+      items: [
+        { description: 'Explains riluzole: only licensed disease-modifying drug; modest effect (extends survival by approximately 3 months); still used and worthwhile', marks: 1 },
+        { description: 'Describes the MND MDT: neurologist, specialist nurse, physiotherapy, speech and language therapy (AAC devices for communication), OT, respiratory physician, palliative care', marks: 1 },
+        { description: 'Mentions PEG (percutaneous endoscopic gastrostomy) for nutritional support when swallowing becomes unsafe; NIV (non-invasive ventilation) for breathlessness', marks: 1 },
+      ],
+    },
+    {
+      domain: 'End-of-life planning',
+      items: [
+        { description: 'Raises ADRT (Advance Decision to Refuse Treatment): explains Thomas can document his wishes about ventilation and resuscitation while he has capacity', marks: 1 },
+        { description: 'Mentions Lasting Power of Attorney (Health and Welfare LPA) — encourages completion while Thomas can participate', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Support for Patricia as carer',
+      items: [
+        { description: 'Acknowledges Patricia\'s caring role and her own health concerns; offers carer\'s assessment; refers to social services and MND Association', marks: 1 },
+        { description: 'Provides MND Association contact details; advises she can access them independently', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing',
+      items: [
+        { description: 'Checks understanding; offers to answer further questions; confirms the consultant will meet with both Thomas and Patricia together', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — allows Patricia to lead the pace; does not rush through information', marks: 1 },
+        { description: 'Empathy and compassion maintained throughout without becoming detached or clinical', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Patricia Harding is the wife of Thomas, 62, newly diagnosed with ALS/MND; she attended as his nominated relative for a consultation following his consent to share the diagnosis',
+    'The diagnosis was confirmed clearly in plain language after checking Patricia\'s prior understanding and providing a warning shot; her distress was acknowledged before continuing',
+    'MND explained: progressive degeneration of upper and lower motor neurones causing weakness of limbs, speech (dysarthria), swallowing (dysphagia), and eventually breathing (respiratory failure); cognitive function typically preserved in ALS',
+    'Prognosis: honest but compassionate — median survival 2–5 years from symptom onset; significant individual variation; bulbar onset (speech and swallowing first, as in Thomas) carries a slightly worse prognosis than limb onset',
+    'Treatment: riluzole (only licensed disease-modifying drug — modest 3-month survival benefit); MDT approach: SLT for communication (AAC devices), dietitian/PEG for swallowing, NIV for respiratory support, OT and physio for function',
+    'Advance planning raised while Thomas has capacity: ADRT to document wishes on ventilation and CPR; LPA (Health and Welfare) strongly encouraged; palliative care team to be introduced early',
+    'Patricia offered carer\'s assessment via social services; MND Association details provided; follow-up joint meeting with consultant and Thomas arranged',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the clinical features of ALS and how do you distinguish upper from lower motor neurone involvement?',
+      keyPoints: [
+        'ALS (amyotrophic lateral sclerosis): the most common form of MND (~85%); affects both UMN and LMN simultaneously in the same patient — this combination is pathognomonic',
+        'UMN signs: spasticity, hyperreflexia, Babinski (upgoing plantar), pseudobulbar palsy (spastic dysarthria, brisk jaw jerk, emotional lability)',
+        'LMN signs: wasting, fasciculations, hyporeflexia/areflexia, bulbar palsy (flaccid dysarthria, fasciculating tongue, absent gag)',
+        'Co-existing UMN and LMN signs in the same limb without sensory involvement is the diagnostic hallmark of MND/ALS',
+        'Sensory sparing: sensory examination is normal in ALS — sensory involvement suggests another diagnosis (multifocal motor neuropathy, cervical myelopathy)',
+      ],
+      source: 'OHCM 10th ed., Ch. 6; NICE NG42 (Motor neurone disease: assessment and management, 2016)',
+    },
+    {
+      question: 'What is riluzole, how does it work, and what is the role of non-invasive ventilation in MND?',
+      keyPoints: [
+        'Riluzole: glutamate antagonist; reduces excitotoxic neuronal death; the only licensed disease-modifying drug for ALS; extends median survival by approximately 3 months',
+        'Indication: patients with probable or definite ALS; not clearly effective in bulbar-onset ALS or late disease; monitor LFTs (hepatotoxicity)',
+        'Non-invasive ventilation (NIV/BiPAP): indicated when FVC falls below 80% or when symptomatic nocturnal hypoventilation occurs (morning headache, poor sleep, orthopnoea)',
+        'NIV improves quality of life and extends survival by approximately 7 months in patients with good bulbar function; less effective in severe bulbar disease (mask fit issues, secretion problems)',
+        'Advance care planning for ventilation: patient must make an informed decision about long-term invasive ventilation (tracheostomy) vs. NIV only — ADRT essential to document preferences before losing capacity',
+      ],
+      source: 'NICE NG42 (Motor neurone disease: assessment and management, 2016)',
+    },
+    {
+      question: 'What is an Advance Decision to Refuse Treatment (ADRT) and when should it be discussed in MND?',
+      keyPoints: [
+        'ADRT: a legally binding document (Mental Capacity Act 2005) allowing a capacitous adult to refuse specific treatments in advance should they later lack capacity',
+        'Must be in writing, signed by the patient and a witness; must state the treatment being refused and the specific circumstances; must include a statement that it applies "even if life is at risk" if refusing life-sustaining treatment',
+        'Discuss early in MND — ideally at the time of diagnosis or shortly after — while the patient retains full capacity and can express complex preferences',
+        'Common decisions in MND: refusal of invasive mechanical ventilation (tracheostomy), CPR, artificial nutrition via PEG (though this is often accepted for comfort); preferences about place of death',
+        'Complement ADRT with Health and Welfare LPA: allows an attorney to make decisions if the ADRT does not cover all circumstances; should be registered while the patient can participate',
+      ],
+      source: 'Mental Capacity Act 2005; NICE NG42 (2016); MND Association: Advance Care Planning in MND',
+    },
+  ],
+};
+
 export const NEURO_MOCK_EXAMS: MockExamStation[] = [
   seizureMockExam,
   headacheMockExam,
@@ -1663,4 +2021,6 @@ export const NEURO_MOCK_EXAMS: MockExamStation[] = [
   parkinsonsExaminationMockExam,
   serotoninSyndromeMockExam,
   lowerLimbNeuroMockExam,
+  cerebellumExamMockExam,
+  mndRelativeMockExam,
 ];

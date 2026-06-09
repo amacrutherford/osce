@@ -744,4 +744,378 @@ const gpBloatingTwoWeekWaitMockExam: MockExamStation = {
 };
 
 
-export const GP_MOCK_EXAMS: MockExamStation[] = [weightLossCounsellingMockExam, raArthritisMockExam, gpBloatingTwoWeekWaitMockExam];
+const gpMotivationalInterviewingMockExam: MockExamStation = {
+  id: 'gp_chronic_disease_motivational',
+  title: 'GP Consultation — Motivational Interviewing for Chronic Disease',
+  diagnosis: 'Type 2 diabetes mellitus with hypertension and active smoking — lifestyle modification review',
+  specialtyId: 'general-practice',
+  candidateBrief: {
+    setting: 'You are an FY1 in a GP surgery.',
+    scenario:
+      'Derek Mills, 58, has attended for his annual chronic disease review. He has type 2 diabetes (HbA1c 74 mmol/mol — above target), hypertension (BP 156/94 on amlodipine 10 mg), and continues to smoke 20 cigarettes per day despite previous advice. His BMI is 31. Derek is aware his numbers are not good but has not made significant lifestyle changes.',
+    tasks: [
+      'Conduct a motivational interviewing-style consultation to explore Derek\'s readiness to change and agree on a management plan',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Derek Mills',
+    age: 58,
+    occupation: 'HGV driver (recently signed off from work due to poor diabetes control)',
+    openingLine:
+      '"I know what you\'re going to say. The numbers aren\'t great. To be honest, I\'ve been struggling — it\'s been a difficult year." [slightly defensive, but not hostile; tired]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Derek\'s circumstances — wife left 8 months ago; living alone; work suspended due to poor diabetes control (DVLA fitness requirements); feeling low',
+        quote: '"My wife left about 8 months ago. And then work stopped me driving because of the diabetes results. I feel like everything\'s falling apart." [only if student asks about what\'s been difficult this year]',
+      },
+      {
+        label: 'Smoking — 20/day for 35 years; has tried to stop twice before (NRT patches, cold turkey); finds smoking his main coping mechanism since wife left',
+        quote: '"I know I should stop. I\'ve tried twice. But honestly, with everything going on — it\'s the only thing that helps me calm down." – "I had a month off a few years ago with patches. Then I went back to it after a stressful period at work."',
+      },
+      {
+        label: 'Diet — mostly convenience food since living alone; rarely cooks; high carbohydrate intake; skips breakfast',
+        quote: '"I don\'t really cook. I just grab whatever\'s easy — sandwiches, pies, that sort of thing." – "I\'ve put on a bit of weight. I know."',
+      },
+      {
+        label: 'Exercise — none; used to walk the dog but wife took the dog; sedentary since separation',
+        quote: '"I used to walk the dog but she took him with her. I don\'t really get out much now." – "I\'m not much of a gym person."',
+      },
+      {
+        label: 'Alcohol — 3–4 pints most evenings at the local pub ("to get out of the house")',
+        quote: '"I go down the pub most evenings — it gets me out of the house. I\'d say 3 or 4 pints most nights." [about 30–40 units/week — over safe limit; admits this if asked]',
+      },
+      {
+        label: 'Readiness to change — ambivalent; contemplation stage; sees barriers (loneliness, stress, no practical cooking skills) but acknowledges the risks',
+        quote: '"I know it\'s bad. I\'m not stupid." – "But what am I supposed to do? Sit at home and eat salad on my own?" – "I do want to get my licence back — that\'s the main thing."',
+      },
+      {
+        label: 'Motivation — wants to get his HGV licence back (requires DVLA compliance with diabetes targets); does not want to end up on insulin',
+        quote: '"The main thing is the driving. That\'s my job — I can\'t do anything without my licence." – "My dad ended up on insulin injections and it was terrible. I don\'t want that."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Type 2 diabetes — diagnosed 6 years ago; on metformin 1 g BD and gliclazide 80 mg BD', quote: '"I\'ve had diabetes for 6 years. I\'m on the metformin and the other one — gliclazide."' },
+      { label: 'Hypertension — on amlodipine 10 mg OD; poorly controlled', quote: '"I\'m on blood pressure tablets too — the pink ones."' },
+      { label: 'No previous cardiovascular events; no known diabetic complications', quote: '"I\'ve not had a heart attack or anything like that." [if asked]' },
+    ],
+    drugHistory: [
+      { label: 'Metformin 1 g BD; gliclazide 80 mg BD; amlodipine 10 mg OD', quote: '"I take them most days. Sometimes I forget." [non-adherence — if asked directly]' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father — type 2 diabetes, progressed to insulin; died from MI aged 64', quote: '"My dad had diabetes and ended up on insulin. He died of a heart attack at 64." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Smokes 20/day — 35 pack-year history; alcohol 30–40 units/week (excess)', quote: 'Already above in HPC.' },
+      { label: 'Lives alone since separation; limited social support; no children', quote: '"I\'m on my own now. No kids." [if asked]' },
+    ],
+    importantNegatives: [
+      'No chest pain or exertional dyspnoea ("Nothing like that — not yet.")',
+      'No peripheral neuropathy symptoms ("My feet are okay so far.")',
+      'No visual symptoms ("I went to the eye clinic — they said it was fine.")',
+      'No polyuria or polydipsia ("Not particularly — maybe a bit thirsty.")',
+    ],
+    ice: {
+      ideas: '"I know it\'s the lifestyle — I\'m not in denial. I just don\'t know how to change it when everything else is falling apart."',
+      concerns: '"I\'m worried about ending up on insulin like my dad. And I need my licence back — that\'s my livelihood."',
+      expectations: '"I suppose I came here today because I know I need to do something. I\'m just not sure what or where to start."',
+    },
+    onlyIfDirectlyAsked: [
+      'Medication adherence — "I miss a few here and there. Mostly I take them."',
+      'Alcohol units — "About 3 or 4 pints a night at the pub — more at weekends."',
+      'Previous smoking cessation support — "I tried patches once. And once just cold turkey. Never tried the other options."',
+    ],
+    behaviourNotes: [
+      'Starts slightly defensive but becomes more engaged when the student uses open questions and reflects his ambivalence back to him',
+      'Responds well to being asked about what matters most to him (the licence, avoiding insulin)',
+      'Becomes more open when asked about his personal circumstances (separation, loss of dog, loneliness) — student should acknowledge this compassionately',
+      'If student lectures or tells him what to do without exploring his views first, Derek shuts down: "I\'ve heard it all before."',
+      'When asked what he thinks might help, he suggests: "Maybe if I started cooking properly. And the smoking — I\'d consider those patches again. Or the other options — what else is there?"',
+      'If student explores the RULER/FRAMES/motivational techniques, Derek engages positively — "Nobody\'s asked me what I actually want before. They just tell me the numbers are bad."',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; thanks Derek for attending; establishes a collaborative agenda for the appointment', marks: 1 },
+        { description: 'Uses open question to explore Derek\'s perspective before diving into clinical numbers', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Exploring context and circumstances',
+      items: [
+        { description: 'Asks about what has been going on in Derek\'s life — identifies separation, loss of job, social isolation, and alcohol increase', marks: 2 },
+        { description: 'Explores Derek\'s personal motivations — identifies HGV licence and avoiding insulin as key drivers for change', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Motivational interviewing techniques',
+      items: [
+        { description: 'Uses reflective listening — reflects Derek\'s ambivalence back to him without judgment', marks: 1 },
+        { description: 'Asks a scaled readiness question (e.g. "On a scale of 1–10, how ready do you feel to make changes?")', marks: 1 },
+        { description: 'Explores importance and confidence — "How important is it to you to get your licence back?" and "How confident do you feel about making changes?"', marks: 1 },
+        { description: 'Elicits change talk from Derek rather than prescribing — asks what he thinks might help', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Lifestyle review',
+      items: [
+        { description: 'Asks about smoking: quantifies pack history; asks about previous quit attempts; identifies current cessation stage', marks: 1 },
+        { description: 'Asks about alcohol — quantifies units (identifies harmful level, >14 units/week for women, >14 for men); explains relationship to diabetes control', marks: 1 },
+        { description: 'Asks about diet and physical activity; explores practical barriers (living alone, not cooking)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Agreeing a management plan',
+      items: [
+        { description: 'Agrees one or two SMART goals with Derek rather than prescribing a long list of changes', marks: 1 },
+        { description: 'Discusses smoking cessation options: varenicline (Champix) or combination NRT; refers to NHS Stop Smoking service', marks: 1 },
+        { description: 'Reviews medications: considers adding ramipril (ACE inhibitor) for BP and renal protection in T2DM; considers referral for SGLT2 inhibitor (empagliflozin) for CV and renal benefit', marks: 1 },
+        { description: 'Addresses alcohol — sensitively raises harm and links to diabetes control; suggests alcohol brief intervention referral', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing the consultation',
+      items: [
+        { description: 'Summarises agreed goals; arranges follow-up appointment; provides written information', marks: 1 },
+        { description: 'Acknowledges the emotional context of Derek\'s situation and offers mental health support (IAPT referral, low mood screen)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening — does not lecture; draws out Derek\'s own motivation throughout', marks: 1 },
+        { description: 'Avoids ambush or overwhelming Derek with multiple changes at once', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Derek is a 58-year-old HGV driver attending his annual chronic disease review; poorly controlled T2DM (HbA1c 74), uncontrolled hypertension (BP 156/94), smoking 20/day, BMI 31',
+    'Key contextual findings: marital separation 8 months ago, job suspension (DVLA requirements), social isolation, harmful alcohol use (~30–40 units/week), and sedentary lifestyle — all contributing to poor control',
+    'Using motivational interviewing, Derek\'s primary motivators identified: regaining his HGV licence (DVLA compliance requires HbA1c <75 or ≤108 on insulin) and avoiding insulin',
+    'Derek is at contemplation stage of change — acknowledges the need to change but currently feels overwhelmed; a single focused goal agreed (smoking cessation as first step, with varenicline and NHS Stop Smoking referral)',
+    'Medication review: add ramipril for BP control and nephroprotection; consider SGLT2 inhibitor (empagliflozin/dapagliflozin) for T2DM with high cardiovascular risk — additional HbA1c reduction and BP benefit',
+    'Alcohol use discussed sensitively — brief intervention offered; AUDIT score to be completed; referral to alcohol support if willing',
+    'Mood screen offered (PHQ-9) given social isolation and low mood; IAPT self-referral discussed; follow-up in 4–6 weeks',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the stages of change (Prochaska and DiClemente) and how does motivational interviewing apply to each stage?',
+      keyPoints: [
+        'Pre-contemplation: not considering change; provide non-judgemental information; plant seeds without confrontation',
+        'Contemplation: ambivalent — weighing pros and cons; explore ambivalence; reflect discrepancy between current behaviour and goals (the "righting reflex" should be avoided)',
+        'Preparation: intending to change soon; help identify specific strategies; strengthen commitment',
+        'Action: actively making changes; reinforce self-efficacy; problem-solve obstacles',
+        'Maintenance: sustaining change; anticipate relapse triggers; relapse is part of the cycle not failure',
+        'Key MI spirit: PACE — Partnership, Acceptance, Compassion, Evocation; avoid the "righting reflex" (telling the patient what to do)',
+      ],
+      source: 'Prochaska JO & DiClemente CC (1983); Miller WR & Rollnick S: Motivational Interviewing, 3rd ed. (2013); NICE PH49 (Behaviour change, 2014)',
+    },
+    {
+      question: 'What are the DVLA driving licence requirements for a patient with type 2 diabetes on insulin?',
+      keyPoints: [
+        'Group 1 licence (cars/motorcycles): permitted to drive on insulin if no hypoglycaemia unawareness; must monitor blood glucose before and every 2 hours while driving; must not drive if BM <5.0 mmol/L',
+        'Group 2 licence (LGV/HGV/bus): until 2011 insulin-treated drivers were barred; now permitted under strict criteria — no severe hypoglycaemia in past 12 months, minimum 3 months on insulin before reapplication, adequate awareness, glucose monitoring',
+        'HbA1c requirement for Group 2 licensing: there is no absolute HbA1c cut-off in DVLA guidance, but the overall control and hypoglycaemia risk are assessed',
+        'Duty to notify DVLA: insulin-treated Group 2 drivers must notify DVLA and apply for medical driving entitlement via D2/D4 forms; requires specialist assessment',
+        'If HbA1c is above target but still on oral agents only: no DVLA restriction; however poor control increases hypoglycaemia risk and cardiovascular risk',
+      ],
+      source: 'DVLA Assessing Fitness to Drive: a guide for medical professionals (2023); Diabetes UK — Driving and Diabetes',
+    },
+    {
+      question: 'What are the NICE-recommended antihypertensive targets and drug choices in type 2 diabetes?',
+      keyPoints: [
+        'BP target in T2DM: <140/90 mmHg clinic BP (NICE NG28); <130/80 if end-organ damage (retinopathy, nephropathy, cardiovascular disease)',
+        'First-line antihypertensive in T2DM: ACE inhibitor (e.g. ramipril) or ARB — nephroprotective; reduces progression of microalbuminuria to macroalbuminuria',
+        'Second-line: add calcium channel blocker (e.g. amlodipine) — already on this',
+        'Third-line: add thiazide-like diuretic (indapamide) or consider spironolactone if K+ normal',
+        'SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin): reduce HbA1c, systolic BP, and body weight; significant cardiovascular mortality and renal protection benefit in T2DM with established CVD or high-risk — NICE NG28 recommends adding if HbA1c above target',
+      ],
+      source: 'NICE NG28 (Type 2 diabetes in adults, 2015 updated 2022)',
+    },
+  ],
+};
+
+const pcosLifestyleMockExam: MockExamStation = {
+  id: 'gp_pcos_lifestyle',
+  title: 'GP Consultation — PCOS: Weight Management and Lifestyle Advice',
+  diagnosis: 'Polycystic ovary syndrome (PCOS) — lifestyle management and treatment options',
+  specialtyId: 'general-practice',
+  candidateBrief: {
+    setting: 'You are an FY1 in a GP surgery.',
+    scenario:
+      'Jade Robinson, 24, has been referred by the practice nurse following a PCOS diagnosis made 3 months ago after investigation for irregular periods. She is attending today for a lifestyle and management consultation. Her BMI is 29 (overweight). She is not currently trying for a baby but may want children in the future.',
+    tasks: [
+      'Discuss the management of PCOS and provide lifestyle advice to Jade',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Jade Robinson',
+    age: 24,
+    occupation: 'Retail assistant',
+    openingLine:
+      '"I got told I have polycystic ovaries 3 months ago. They gave me some leaflets but I\'m still confused about what it actually means and what I\'m supposed to do about it." [anxious, slightly overwhelmed]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Presenting issues — irregular periods (cycles 45–90 days); excess facial hair (chin and upper lip for 2 years); mild acne; weight gain of 8 kg over 2 years despite attempts to diet',
+        quote: '"My periods are all over the place — sometimes I go 2–3 months without one." – "I\'ve grown this hair on my chin and lip — I have to shave it off. It\'s really embarrassing." – "I\'ve put on weight despite trying to diet."',
+      },
+      {
+        label: 'Concerns about fertility — aware PCOS can affect getting pregnant; not trying to conceive now but worried for the future',
+        quote: '"I know polycystic ovaries can affect having kids. I\'m not ready now, but I\'ve always wanted children eventually. I\'m really worried about whether I\'ll be able to."',
+      },
+      {
+        label: 'Mood — feeling low and self-conscious about hair growth and weight; not clinically depressed but struggling with self-image',
+        quote: '"I feel a bit down about it — I hate the hair thing and the weight. I cover up a lot." – "I wouldn\'t say I\'m depressed but I\'m not happy with how I look." [only if asked about mood]',
+      },
+      {
+        label: 'Understanding of PCOS — limited; knows the ovaries look different on scan but does not understand why it causes the symptoms she has',
+        quote: '"The nurse said my ovaries have cysts on them. I\'m not really sure why that causes the hair and the periods thing though."',
+      },
+      {
+        label: 'Diet and exercise — high refined carbohydrate diet; sedentary job; tries to eat less but struggles with hunger; no structured exercise',
+        quote: '"I eat fairly normally I think — sandwiches, pasta. I\'m not a huge snacker." – "I don\'t really exercise — my job is on my feet but I\'m not doing sport or anything."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'PCOS — diagnosed 3 months ago; no other significant medical history', quote: '"Just the PCOS." – "I\'ve always been a bit irregular with my periods — since they started."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; not on OCP or any hormonal treatment', quote: '"I\'m not on anything at the moment. They mentioned the pill but I haven\'t started it."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Mother — type 2 diabetes (onset age 42)', quote: '"My mum got diabetes in her 40s." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Non-smoker; minimal alcohol (2–3 units per week)', quote: '"I don\'t smoke. I\'ll have a drink occasionally."' },
+      { label: 'Lives with parents; no current partner', quote: '"I live at home with my parents." [if asked]' },
+    ],
+    importantNegatives: [
+      'No acanthosis nigricans mentioned ("I haven\'t noticed any dark skin patches.")',
+      'No symptoms of diabetes — no polyuria, polydipsia, or fatigue ("I\'m a bit tired but nothing major.")',
+      'No galactorrhoea or headache ("No.")',
+      'Not pregnant — no recent sexual activity ("No.")',
+    ],
+    ice: {
+      ideas: '"I think PCOS is just something you have to live with. I\'m not sure there\'s much that can be done."',
+      concerns: '"I\'m most worried about having children in the future and about the hair and weight not getting better."',
+      expectations: '"I just want to know what I can actually do about it. What will actually help?"',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether she has had a fasting glucose or HbA1c checked — "They did blood tests when they diagnosed me — she said my sugar was okay but on the borderline."',
+      'Impact on sex life or relationships — "I\'ve been avoiding relationships because I feel so self-conscious about the hair."',
+      'Whether she is interested in the combined pill — "Yes, I\'d be open to it if it would help the hair and periods."',
+    ],
+    behaviourNotes: [
+      'Anxious but engaged; genuinely wants to understand her condition and what she can do',
+      'Responds well to explanations that connect the biology to the symptoms ("the high insulin drives the testosterone which causes the hair")',
+      'Becomes visibly relieved when told that weight loss of even 5–10% can significantly improve symptoms and fertility',
+      'Asks "Will I definitely be able to have kids?" — student should acknowledge the concern, explain that PCOS is the most common cause of anovulatory subfertility but is treatable; most women with PCOS can conceive with appropriate support',
+      'Asks about the hair — student should mention COCP (anti-androgenic), eflornithine cream, and cosmetic options (laser hair removal)',
+      'Ask about "the pill" — should explain anti-androgenic COCP (e.g. co-cyprindiol/Dianette or Yasmin/Lucette) for hirsutism and cycle regulation',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening and exploring understanding',
+      items: [
+        { description: 'Introduces themselves; explores what Jade already knows about PCOS before providing information', marks: 1 },
+        { description: 'Explains PCOS in plain language: hormonal imbalance causing excess androgens + irregular ovulation + polycystic ovaries on scan', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Exploring concerns',
+      items: [
+        { description: 'Explores ICE — identifies concern about fertility and self-image (hirsutism and weight)', marks: 1 },
+        { description: 'Addresses fertility concern: PCOS is the most common cause of anovulatory subfertility but most women can conceive; weight loss improves ovulatory function', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Lifestyle advice — weight management',
+      items: [
+        { description: 'Explains that even 5–10% body weight loss can restore regular ovulation and reduce androgen levels in PCOS', marks: 2 },
+        { description: 'Advises on dietary changes: reduce refined carbohydrates (high GI foods); Mediterranean-style diet; regular meals to manage insulin peaks', marks: 1 },
+        { description: 'Recommends at least 150 minutes of moderate exercise per week (NICE PH53); refers to NHS exercise on prescription or dietitian if available', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Pharmacological management',
+      items: [
+        { description: 'Discusses combined oral contraceptive pill for cycle regulation and symptom control — mentions anti-androgenic options (e.g. Yasmin/Lucette) for hirsutism', marks: 1 },
+        { description: 'Discusses metformin: reduces insulin resistance; improves cycle regularity; often used alongside lifestyle changes in PCOS', marks: 1 },
+        { description: 'Addresses hirsutism: anti-androgenic COCP; eflornithine cream (topical, slows hair growth); cosmetic options', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Long-term risk screening',
+      items: [
+        { description: 'Explains long-term metabolic risks: T2DM risk (especially given family history); cardiovascular risk; endometrial hyperplasia from prolonged anovulation', marks: 1 },
+        { description: 'Recommends annual fasting glucose/HbA1c and lipid profile; progestin-induced withdrawal bleed or endometrial protection if amenorrhoeic >3 months', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Closing and follow-up',
+      items: [
+        { description: 'Checks understanding; provides written resources (Verity PCOS charity); arranges follow-up in 3 months', marks: 1 },
+        { description: 'Offers psychological support or self-referral to IAPT if mood is affected by self-image concerns', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Active listening; avoids stigmatising language around weight', marks: 1 },
+        { description: 'Summarising and signposting; checks Jade\'s understanding at key points', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Jade is a 24-year-old with recently diagnosed PCOS presenting for lifestyle and management advice; BMI 29; main concerns are fertility, hirsutism, and weight gain',
+    'PCOS explained: androgen excess from elevated LH:FSH ratio → irregular ovulation + hirsutism + acne; insulin resistance contributes to hyperandrogenism and weight gain (vicious cycle)',
+    'Key lifestyle message: weight loss of 5–10% restores ovulation in ~55–60% of women and reduces androgen levels — the single most effective intervention in overweight PCOS',
+    'Dietary advice: low-GI Mediterranean-style diet; reduce refined carbohydrates; regular structured meals; refer to dietitian',
+    'Exercise: 150 min/week moderate intensity; improves insulin sensitivity independent of weight loss',
+    'Pharmacological: anti-androgenic COCP (Yasmin/co-cyprindiol) for hirsutism, acne, cycle regulation; metformin for insulin resistance; eflornithine cream for facial hair',
+    'Long-term monitoring: annual HbA1c (family history of T2DM), lipids; endometrial protection if >3 months without a bleed; psychological support for body image concerns',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the Rotterdam diagnostic criteria for PCOS?',
+      keyPoints: [
+        'Rotterdam 2003 consensus (requires 2 of 3 criteria): (1) oligo/anovulation; (2) clinical or biochemical hyperandrogenism; (3) polycystic ovaries on USS (≥12 follicles 2–9 mm in one ovary OR ovarian volume >10 mL)',
+        'Exclude other causes of hyperandrogenism before diagnosing PCOS: congenital adrenal hyperplasia (17-OHP), Cushing\'s syndrome, androgen-secreting tumours, hyperprolactinaemia, thyroid disease',
+        'Blood tests: LH:FSH ratio elevated (typically >2:1 but not required for diagnosis); raised total/free testosterone; fasting insulin or HOMA-IR; fasting glucose; lipids; AMH (elevated in PCOS)',
+        'TVS: polycystic ovary morphology is a feature, not a requirement — the diagnosis can be made without USS if other criteria are met',
+        'Prevalence: 8–13% of women of reproductive age worldwide; underdiagnosed and often presents in adolescence',
+      ],
+      source: 'Rotterdam ESHRE/ASRM Consensus (2004); NICE CG156 (Fertility problems: assessment and treatment, 2013 updated 2017)',
+    },
+    {
+      question: 'What are the long-term metabolic risks of PCOS and how should they be monitored?',
+      keyPoints: [
+        'Type 2 diabetes: 3–7× increased risk; lifetime risk ~40%; insulin resistance is the primary driver; fasting glucose or HbA1c annually; OGTT if borderline',
+        'Cardiovascular risk: dyslipidaemia (raised LDL, low HDL, raised triglycerides); hypertension; metabolic syndrome in up to 30%; annual lipid profile',
+        'Endometrial hyperplasia and carcinoma: chronic anovulation → unopposed oestrogen → endometrial thickening; recommend a progestogen-induced bleed or COCP if amenorrhoeic >3–6 months',
+        'Mental health: anxiety and depression occur in 40–50% of women with PCOS; significantly higher rates of disordered eating; assess mood at every annual review',
+        'Obstructive sleep apnoea: increased risk especially if obese; screen with Epworth Sleepiness Scale; refer if suspected',
+      ],
+      source: 'NICE CG156; Teede HJ et al. International evidence-based guideline for PCOS (2018) — Monash University',
+    },
+    {
+      question: 'How is infertility managed in PCOS?',
+      keyPoints: [
+        'First-line: lifestyle modification (weight loss 5–10% restores ovulation in up to 60% of overweight women); reduce BMI before pharmacological treatment',
+        'Oral ovulation induction: letrozole (aromatase inhibitor — now preferred over clomifene in NICE NG156) or clomifene citrate 50–150 mg days 2–6; monitor with USS to prevent OHSS',
+        'Metformin: improves insulin sensitivity and ovulatory function; used alongside lifestyle measures or ovulation induction; particularly in women with insulin resistance',
+        'Gonadotrophin injections: second-line for clomifene/letrozole-resistant PCOS; risk of OHSS and multiple pregnancy — low-dose step-up protocol',
+        'Laparoscopic ovarian drilling (LOD): surgical puncture of ovarian cortex; reduces androgen-producing stromal tissue; reserved for clomifene-resistant PCOS; avoids OHSS risk; similar outcomes to gonadotrophins',
+      ],
+      source: 'NICE NG156 (Fertility problems, 2017); RCOG Scientific Advisory Committee Opinion (2022)',
+    },
+  ],
+};
+
+export const GP_MOCK_EXAMS: MockExamStation[] = [weightLossCounsellingMockExam, raArthritisMockExam, gpBloatingTwoWeekWaitMockExam, gpMotivationalInterviewingMockExam, pcosLifestyleMockExam];

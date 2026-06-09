@@ -67,7 +67,7 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
     { id: 'brief', label: 'Candidate Brief' },
     { id: 'actor', label: 'Patient Script' },
     { id: 'markscheme', label: 'Mark Scheme' },
-    { id: 'viva', label: 'Viva Questions' },
+    { id: 'viva', label: 'Diagnosis & Viva Questions' },
   ];
 
   const totalMarks = exam.markScheme.reduce(
@@ -140,9 +140,6 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Mock OSCE Station</p>
             <h2 className="text-lg font-bold text-[#1a1a1a]">{exam.title}</h2>
-            <p className="mt-0.5 text-xs text-[#6b6b6b]">
-              <span className="font-medium text-[#534AB7]">Dx:</span> {exam.diagnosis}
-            </p>
           </div>
           <button
             type="button"
@@ -425,6 +422,13 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
 
       {activeTab === 'viva' && (
         <div className="space-y-3">
+          <div className="rounded-2xl border border-[#534AB7] bg-[#534AB7] p-4">
+            <p className="mb-0.5 text-xs font-semibold uppercase tracking-wide text-[#c5c2f0]">
+              Diagnosis
+            </p>
+            <p className="text-base font-bold text-white">{exam.diagnosis}</p>
+          </div>
+
           <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
             <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
               Expected Presentation of Findings

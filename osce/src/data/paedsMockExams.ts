@@ -1468,6 +1468,500 @@ const antivaxMeningitisMockExam: MockExamStation = {
   ],
 };
 
+const otitisMediaMockExam: MockExamStation = {
+  id: 'paeds_otitis_media_parent',
+  title: 'Paediatric Consultation — Acute Otitis Media: Explanation and Management',
+  diagnosis: 'Acute otitis media — watchful waiting approach in a 3-year-old',
+  specialtyId: 'paediatrics',
+  candidateBrief: {
+    setting: 'You are an FY1 in the paediatric assessment unit.',
+    scenario:
+      'Jane Morris, 34, has brought her 3-year-old son Oliver to the assessment unit with a 2-day history of right ear pain and fever. A photograph of the right tympanic membrane taken by the ANP is displayed on the desk — it shows a red, bulging tympanic membrane with loss of the light reflex. Please review the image and then speak with Mrs Morris about the diagnosis and management.',
+    tasks: [
+      'Describe the otoscopy image findings to the examiner',
+      'Explain the diagnosis and management to Mrs Morris',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Jane Morris',
+    age: 34,
+    occupation: 'NHS administrator (Oliver\'s mother)',
+    openingLine:
+      '"He\'s been tugging at his ear and screaming with pain since yesterday. He had a fever of 39 degrees last night. He\'s been inconsolable." [tired, worried, holding Oliver who is irritable]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Ear pain — right ear; tugging and holding ear for 2 days; inconsolable periods of crying',
+        quote: '"He keeps pulling at his right ear and screaming. He\'s not been himself at all." – "He won\'t let us near his ear."',
+      },
+      {
+        label: 'Fever — 39°C at home last night; currently 38.6°C on admission; no rigors; alert though irritable',
+        quote: '"His temperature was 39 at home. He feels hot now too." – "He\'s grumpy but he\'s awake and knows what\'s going on."',
+      },
+      {
+        label: 'Preceding URTI — runny nose and mild cough for 5 days before the ear pain started',
+        quote: '"He had a cold for about 5 days before the ear thing started. Runny nose, bit of a cough."',
+      },
+      {
+        label: 'Feeding — reduced but still drinking; not vomiting; nappies normal',
+        quote: '"He\'s not eating much but he\'s drinking. No vomiting. Nappies are normal." [no dehydration signs]',
+      },
+      {
+        label: 'No hearing concerns currently; no discharge from ear; this is the first episode',
+        quote: '"There\'s no gunk coming out of his ear." – "He\'s never had this before." – "His hearing seemed fine before this week."',
+      },
+      {
+        label: 'Paracetamol and ibuprofen — alternating at home; providing partial relief',
+        quote: '"I\'ve been alternating Calpol and Nurofen. It helps a bit when it kicks in but wears off quickly."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No previous ear infections; no significant medical history; all vaccines up to date', quote: '"He\'s been healthy — never had an ear infection before." – "All his jabs are done."' },
+    ],
+    drugHistory: [
+      { label: 'No regular medications; paracetamol and ibuprofen PRN', quote: '"Just the paracetamol and Nurofen I\'ve been giving him."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father had grommets as a child', quote: '"His dad had grommets when he was little." [if asked]' },
+    ],
+    socialHistory: [
+      { label: 'Attends nursery 3 days a week; lives with both parents; non-smoking household; breastfed for 6 months', quote: '"He goes to nursery. We don\'t smoke in the house." [if asked]' },
+    ],
+    importantNegatives: [
+      'No ear discharge — tympanic membrane has not perforated ("No yellow or bloody gunk.")',
+      'No stiff neck or photophobia ("He can move his neck fine — I checked.")',
+      'No mastoid tenderness or swelling behind the ear ("I haven\'t noticed any swelling behind his ear.")',
+      'No rash ("No.")',
+      'No preceding overseas travel or recent swimming ("No.")',
+    ],
+    ice: {
+      ideas: '"I think it\'s an ear infection — my husband had loads as a child."',
+      concerns: '"I\'m worried about his hearing being affected. And I want something that will actually help the pain."',
+      expectations: '"I\'d like antibiotics — I don\'t want him to suffer. Is there anything to make it better faster?"',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether Oliver is vaccinated against pneumococcus — "Yes — all his vaccines are up to date."',
+      'Smoking in the household — "Neither of us smokes. We don\'t even smoke outside if he\'s around."',
+    ],
+    behaviourNotes: [
+      'Tired and anxious mother; expects antibiotics; initially frustrated when watchful waiting is recommended',
+      'Becomes reassured when given a clear explanation of why antibiotics are not routinely needed and a clear safety net',
+      'Asks "What if he gets worse?" — student should give specific safety net advice: what to watch for, when to return, when to seek emergency care',
+      'Asks "Could it affect his hearing?" — student should explain most cases resolve without hearing damage; if recurrent episodes, refer for hearing assessment',
+      'Responds well to being given written information and the "back-up prescription" option if symptoms not improving after 48 hours',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Image description to examiner',
+      items: [
+        { description: 'Identifies: red, erythematous tympanic membrane', marks: 1 },
+        { description: 'Identifies: bulging tympanic membrane — loss of normal concave shape', marks: 1 },
+        { description: 'Identifies: loss or obscuring of the light reflex', marks: 1 },
+        { description: 'Concludes: findings consistent with acute otitis media — not otitis media with effusion (glue ear) which would show a dull, retracted TM with effusion', marks: 1 },
+      ],
+    },
+    {
+      domain: 'History',
+      items: [
+        { description: 'Establishes key AOM features: ear pain, fever, preceded by URTI, age 3', marks: 1 },
+        { description: 'Screens for red flags: mastoid swelling/tenderness (mastoiditis), neck stiffness, photophobia (meningitis), ear discharge', marks: 1 },
+        { description: 'Asks about previous episodes and hearing concerns', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explanation and management',
+      items: [
+        { description: 'Explains AOM clearly to Mrs Morris: bacterial/viral infection behind the eardrum following a cold; very common in young children', marks: 1 },
+        { description: 'Explains NICE guidance on watchful waiting: most AOM resolves spontaneously in 2–3 days without antibiotics; antibiotics do not significantly reduce pain or speed recovery for mild-to-moderate cases', marks: 2 },
+        { description: 'Prescribes regular analgesia: paracetamol and ibuprofen alternated every 4–6 hours for pain relief — the most effective symptomatic treatment', marks: 1 },
+        { description: 'Offers back-up (delayed) antibiotic prescription: amoxicillin 125 mg/5 mL TDS for 5 days — to use if symptoms are not improving or worsening after 48 hours', marks: 1 },
+        { description: 'Discusses safety netting: return if fever persisting >5 days, mastoid pain/swelling, significant deterioration, or ear discharge (possible perforation)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Addressing concerns',
+      items: [
+        { description: 'Addresses hearing concern: AOM does not usually cause permanent hearing loss; explains that recurrent AOM may warrant audiological assessment', marks: 1 },
+        { description: 'Explains risk factors for recurrence: nursery attendance, smoking exposure, dummy use, bottle feeding', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Acknowledges Mrs Morris\'s request for antibiotics; validates her concern without dismissing it; explains the evidence clearly', marks: 1 },
+        { description: 'Active listening; provides written safety net advice (Healthychildren-equivalent leaflet)', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Oliver is a 3-year-old with a 2-day history of right ear pain, fever (39°C), and irritability following a 5-day URTI; this is his first episode of otitis media',
+    'Otoscopy image: red, bulging right tympanic membrane with loss of the light reflex — consistent with acute otitis media; no discharge (TM intact)',
+    'Red flags excluded: no mastoid tenderness, no neck stiffness, no photophobia, no rash — meningitis and mastoiditis unlikely',
+    'Management: watchful waiting per NICE NG91 — most AOM in children >2 years resolves within 2–3 days without antibiotics; antibiotics reduce duration by only ~12 hours and increase side effect risk',
+    'Analgesia: regular paracetamol 15 mg/kg/dose and ibuprofen 10 mg/kg/dose alternating every 4–6 hours — this provides the most effective symptom relief',
+    'Back-up prescription given: amoxicillin 125 mg/5 mL TDS 5 days — to start if no improvement or worsening after 48 hours, or if Mrs Morris is very concerned',
+    'Safety net: return or seek emergency care if: fever >5 days, mastoid swelling/pain, ear discharge, marked deterioration, or concern about meningitis',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the NICE guidelines on antibiotic prescribing in acute otitis media in children?',
+      keyPoints: [
+        'NICE NG91 (2023): do not routinely offer antibiotics for AOM in children >2 years with mild-to-moderate symptoms — watchful waiting for 3–7 days is recommended',
+        'Immediate antibiotics should be offered if: child <2 years with bilateral AOM; otorrhoea (ear discharge); systemically very unwell; high risk of serious complications (immunocompromised, anatomical abnormalities of ear)',
+        'Back-up (delayed) prescription strategy: provides a safety net for parents; reduces antibiotic use by up to 70%; no worse outcomes than immediate prescribing for uncomplicated AOM',
+        'If antibiotics needed: amoxicillin is first-line (5-day course); erythromycin or co-amoxiclav if penicillin allergy',
+        'Antibiotic benefit is modest: reduces duration by ~12 hours; does not reduce complication rate; associated with diarrhoea and rash',
+      ],
+      source: 'NICE NG91 (Otitis media — acute: antimicrobial prescribing, 2018 updated 2023)',
+    },
+    {
+      question: 'What are the complications of acute otitis media and how do you recognise mastoiditis?',
+      keyPoints: [
+        'Common complication: tympanic membrane perforation — usually heals spontaneously; if persistent (>3 months), refer ENT',
+        'Hearing loss: conductive hearing loss during AOM (fluid in middle ear); usually resolves; recurrent AOM can cause OME (glue ear) with prolonged conductive loss',
+        'Mastoiditis: most serious local complication; post-auricular swelling, erythema, tenderness; protrusion of pinna anteriorly; fever; — urgent ENT referral and IV antibiotics; may require cortical mastoidectomy',
+        'Intracranial spread (rare): meningitis, epidural abscess, sigmoid sinus thrombosis, brain abscess — suspect if severe headache, meningism, altered consciousness',
+        'Facial nerve palsy (rare): from inflammation or abscess tracking through the facial canal',
+      ],
+      source: 'NICE NG91 (2023); OHCM 10th ed., Ch. 8; geekymedics.com ENT',
+    },
+  ],
+};
+
+const breathHoldingMockExam: MockExamStation = {
+  id: 'paeds_breath_holding_spell',
+  title: 'Paediatric History — Breath-Holding Spell',
+  diagnosis: 'Cyanotic breath-holding spell — benign; not epilepsy',
+  specialtyId: 'paediatrics',
+  candidateBrief: {
+    setting: 'You are an FY1 in the paediatric assessment unit.',
+    scenario:
+      'Rebecca Johnson, 27, has brought in her 18-month-old daughter Lily after an episode this afternoon which she describes as "a seizure". Lily appears well and alert on examination. Please take a focused paediatric history from Mrs Johnson and explain your diagnosis.',
+    tasks: [
+      'Take a focused paediatric history from Mrs Johnson about the episode',
+      'Explain your working diagnosis and reassure Mrs Johnson appropriately',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Rebecca Johnson',
+    age: 27,
+    occupation: 'Hairdresser (Lily\'s mother)',
+    openingLine:
+      '"She went completely blue and stiff and I thought she was having a seizure. I didn\'t know what to do. I was absolutely terrified." [shaking, tearful, holding Lily who is now running around happily]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'Trigger — Lily fell and bumped her head on the coffee table; began crying loudly, then stopped breathing mid-cry',
+        quote: '"She fell and bumped her head. She started crying really hard and then... she just stopped. Completely silent. And then she went blue."',
+      },
+      {
+        label: 'The episode — after the bump, Lily cried for 5–10 seconds, then held her breath; went limp then stiff; turned blue (cyanosis); lost consciousness briefly for approximately 30 seconds; then she resumed breathing and recovered rapidly',
+        quote: '"She went silent — like she\'d forgotten to breathe. Then her lips went blue. Then she went all stiff. Then she just... collapsed. I thought she was dead." – "She was out for maybe 30 seconds — then she was back. Breathing. Crying again. Then fine."',
+      },
+      {
+        label: 'Recovery — rapid and complete; Lily was back to normal within 1–2 minutes; no post-ictal drowsiness',
+        quote: '"She was back to normal within about a minute or two. Running around. No drowsiness. She\'s been completely fine since." [points to Lily happily playing]',
+      },
+      {
+        label: 'Previous episodes — one similar episode 3 months ago when Lily was frustrated at not being able to open a toy; same pattern (cry → apnoea → cyanosis → brief LOC → rapid recovery)',
+        quote: '"This has happened once before — about 3 months ago. She got frustrated with a toy and the same thing happened." – "That time I thought she was just being dramatic — but this was exactly the same."',
+      },
+      {
+        label: 'No prodrome of aura, tonic-clonic limb movements, post-ictal sleep, or incontinence',
+        quote: '"No shaking. She just went stiff for a moment — not jerking." – "She didn\'t wet herself." – "She was fine straight away — not sleepy."',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'Term delivery; normal birth; no neonatal admission; fully vaccinated', quote: '"She was born on time. Normal birth. No problems." – "Her jabs are all done."' },
+      { label: 'Mild iron-deficiency anaemia — diagnosed 3 months ago; currently on oral iron drops', quote: '"She was found to have low iron 3 months ago. She\'s been on iron drops."' },
+    ],
+    drugHistory: [
+      { label: 'Oral iron drops (ferrous sulfate) — started 3 months ago', quote: '"The iron drops. That\'s it."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Father had "fainting spells as a toddler" — described by his mother as breath-holding', quote: '"My husband\'s mum says he used to do something similar when he was a toddler — she described it as \'going blue when he cried\'." [if asked about family history]' },
+    ],
+    socialHistory: [
+      { label: 'Lives with Mum and Dad; no smoking in the household; first child', quote: '"We don\'t smoke. She\'s our first." [if asked]' },
+    ],
+    importantNegatives: [
+      'No tonic-clonic limb movements (rhythmic jerking) during the episode ("She went stiff but she didn\'t jerk her arms and legs.")',
+      'No post-ictal drowsiness or confusion ("She was completely fine within 2 minutes — not sleepy at all.")',
+      'No fever during or before the episode ("No — no temperature.")',
+      'No developmental regression or behavioural change ("She\'s completely normal.")',
+      'No family history of epilepsy ("No epilepsy in the family." [if asked — breath-holding family history is there])',
+    ],
+    ice: {
+      ideas: '"I thought it was a seizure. It looked exactly like what I\'ve seen on TV."',
+      concerns: '"I\'m terrified it\'s epilepsy. I don\'t want her to have epilepsy." [tearful]',
+      expectations: '"I want someone to tell me what happened and whether she\'s going to be okay."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether there was a clear trigger — "Yes — she bumped her head and got a fright."',
+      'Duration of unconsciousness — "About 30 seconds — maybe less. It felt like forever."',
+      'Colour during episode — "Blue — she went blue around her mouth."',
+    ],
+    behaviourNotes: [
+      'Frightened and tearful at the start; visibly relieved when the diagnosis is explained clearly',
+      'Asks "Is it epilepsy?" — student should clearly state no; explain the mechanism confidently',
+      'Asks "Will this keep happening?" — student should explain: episodes typically peak between 1–3 years and almost always resolve spontaneously by age 5–6',
+      'Ask "What should I do if it happens again?" — student should provide clear first aid advice: stay calm, place child on their side (recovery position), do not put anything in the mouth, do not restrain — the child will resume breathing spontaneously',
+      'If student correctly identifies iron deficiency as a contributing factor: Mrs Johnson is genuinely surprised and reassured that continuing iron supplements may reduce frequency',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; acknowledges how frightening the event was for Mrs Johnson before starting the history', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Characterising the episode',
+      items: [
+        { description: 'Identifies precipitating trigger: injury (pain/fright) or frustration — an identifiable precipitant is essential for breath-holding spell diagnosis', marks: 2 },
+        { description: 'Establishes sequence: vigorous crying → expiratory apnoea → cyanosis → loss of consciousness (brief)', marks: 2 },
+        { description: 'Confirms rapid and complete recovery with no post-ictal phase (key differentiator from epilepsy)', marks: 2 },
+        { description: 'Asks about limb movements — confirms no tonic-clonic jerking (may have brief posturing from cerebral hypoperfusion but not rhythmic jerking)', marks: 1 },
+        { description: 'Asks about duration of unconsciousness — brief (<60 seconds)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Red flags and differential screening',
+      items: [
+        { description: 'Screens for fever — if febrile, consider febrile convulsion as differential', marks: 1 },
+        { description: 'Asks about developmental history and regression — normal development excludes underlying neurological disorder', marks: 1 },
+        { description: 'Asks about family history of epilepsy and breath-holding spells', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Iron deficiency association',
+      items: [
+        { description: 'Asks about iron deficiency anaemia — identifies Lily is already on iron drops; explains iron deficiency increases frequency of breath-holding spells', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explanation to Mrs Johnson',
+      items: [
+        { description: 'Clearly explains that this is NOT epilepsy — a breath-holding spell, not a seizure; explains the mechanism', marks: 2 },
+        { description: 'Explains prognosis: episodes peak between 6 months and 3 years; almost all children outgrow them by age 5–6', marks: 1 },
+        { description: 'Provides first-aid advice for future episodes: stay calm; place Lily on her side; she will resume breathing spontaneously; do not restrain or put anything in her mouth', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Reassures effectively without dismissing Mrs Johnson\'s terror — validates that it looked genuinely alarming', marks: 1 },
+        { description: 'Active listening; summarises and checks understanding; offers written information', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Lily is an 18-month-old girl presenting after a witnessed episode following head trauma: clear trigger (pain/fright) → vigorous crying → expiratory apnoea → cyanosis → brief loss of consciousness <30 seconds → rapid complete recovery with no post-ictal drowsiness',
+    'The clinical picture is diagnostic of a cyanotic breath-holding spell (reflex anoxic/expiratory apnoea): identifiable trigger, cry first then apnoea and cyanosis, brief loss of consciousness, and rapid return to baseline without post-ictal phase',
+    'Features against epilepsy: there was an identifiable precipitant; she cried first (epileptic seizures are not triggered by pain/emotion in this way); no tonic-clonic jerking; no post-ictal drowsiness; recovery in under 2 minutes',
+    'Risk factors identified: iron deficiency anaemia (currently on iron drops) — iron deficiency is associated with increased frequency of breath-holding spells; ensure iron supplementation is continued and levels rechecked',
+    'Positive family history of breath-holding spells (father had similar episodes as a toddler) — autosomal dominant predisposition',
+    'Management: no pharmacological treatment needed; first-aid education (recovery position, do not restrain, no mouth intervention); reassure that episodes resolve by age 5–6 in virtually all children; ensure iron supplementation continued',
+    'Safety net: if episodes become associated with prolonged unconsciousness (>1 minute), jerking, incontinence, or failure to recover quickly — refer to paediatric neurology',
+  ],
+  vivaQuestions: [
+    {
+      question: 'How do you differentiate a breath-holding spell from an epileptic seizure?',
+      keyPoints: [
+        'Breath-holding spell: identifiable trigger (pain, fright, frustration); starts with crying or gasp; apnoea then cyanosis (cyanotic type) or sudden pallor (pallid type); brief LOC <60 seconds; rapid complete recovery, no post-ictal drowsiness',
+        'Epileptic seizure: no precipitant or an internal trigger; apnoea/colour change occurs after (not before) jerking; tonic-clonic limb movements; post-ictal drowsiness (minutes to hours); may have incontinence; can occur from sleep',
+        'Cyanotic BHS: vagally-mediated reflex breath-holding; most common type; follows frustration or pain',
+        'Pallid BHS (reflex anoxic seizure): follows sudden unexpected fright or minor head trauma; profound pallor (not cyanosis); cardiac asystole from vagal overdrive; brief tonic stiffening from cerebral hypoperfusion',
+        'EEG: not indicated for typical breath-holding spells; only if clinical uncertainty or atypical features',
+      ],
+      source: 'NICE NG217 (Epilepsies in children, young people and adults, 2022); OHCM 10th ed.; geekymedics.com',
+    },
+    {
+      question: 'What is the role of iron deficiency in breath-holding spells and how should it be managed?',
+      keyPoints: [
+        'Iron deficiency is significantly associated with breath-holding spells — prevalence of iron deficiency anaemia in children with BHS is 65–75% vs ~20% in controls',
+        'Proposed mechanism: iron deficiency impairs autonomic nervous system function and catecholamine metabolism, increasing vagal sensitivity and predisposing to reflex apnoea',
+        'Treatment with iron supplementation reduces the frequency of breath-holding spells in iron-deficient children — randomised controlled trial evidence supports this (Mocan et al.)',
+        'Check serum ferritin and FBC in all children with breath-holding spells; treat iron deficiency with oral ferrous sulfate drops/syrup',
+        'Dietary advice: encourage iron-rich foods (red meat, fortified cereals, green vegetables); vitamin C with iron source to enhance absorption; avoid excessive cow\'s milk (displaces iron-rich foods)',
+      ],
+      source: 'Mocan H et al. Arch Dis Child (1999); NICE NG204 (Iron deficiency anaemia, 2021); geekymedics.com',
+    },
+  ],
+};
+
+const febrileConvulsionMockExam: MockExamStation = {
+  id: 'paeds_febrile_convulsion',
+  title: 'Paediatric History — Febrile Convulsion',
+  diagnosis: 'Simple febrile seizure — reassure and educate parents',
+  specialtyId: 'paediatrics',
+  candidateBrief: {
+    setting: 'You are an FY1 in the paediatric assessment unit.',
+    scenario:
+      'David and Sarah Coleman have brought in their 2-year-old son Noah after a seizure at home 90 minutes ago. Noah was febrile (T 39.2°C) and had a generalised convulsion lasting approximately 2 minutes. He is now alert, smiling, and has a temperature of 38.4°C. Please take a history from the parents and explain your management and plan.',
+    tasks: [
+      'Take a focused history of the seizure and its context from Noah\'s parents',
+      'Explain the diagnosis and management to Mr and Mrs Coleman',
+    ],
+    timeAllowed: 10,
+  },
+  actorInstructions: {
+    patientName: 'Sarah Coleman',
+    age: 31,
+    occupation: 'Graphic designer (Noah\'s mother; David — the father — is also present)',
+    openingLine:
+      '"He shook all over for about 2 minutes and his eyes rolled back. I\'ve never been so terrified in my life. Is he going to be okay? Is it epilepsy?" [anxious, tearful; David is standing close and looking frightened]',
+    historyOfPresentingComplaint: [
+      {
+        label: 'The convulsion — generalised tonic-clonic; all four limbs; lasted approximately 2 minutes; eyes deviated upward; no focal onset or focal deficit afterwards',
+        quote: '"All four limbs were shaking. His eyes rolled back. It lasted about 2 minutes — though it felt like forever." – "It was symmetrical — both sides equal."',
+      },
+      {
+        label: 'Fever — Noah had a temperature of 38.5°C in the morning; by the time of the seizure it was 39.2°C; had viral URTI symptoms (runny nose, mild cough) for 2 days',
+        quote: '"He\'s had a runny nose and cough for 2 days. We took his temperature this morning and it was 38.5. Then this afternoon the seizure happened." [no obvious source for the fever otherwise]',
+      },
+      {
+        label: 'Post-ictal — brief drowsiness for 10 minutes after seizure; now alert, smiling, and back to baseline',
+        quote: '"He was drowsy for about 10 minutes afterwards. Then he woke up and he was back to himself." [points to Noah who is smiling and reaching for toys]',
+      },
+      {
+        label: 'Duration and number of seizures — one seizure; lasted approximately 2 minutes; fully stopped spontaneously',
+        quote: '"Just the one seizure. It stopped on its own — before the ambulance got there." – "About 2 minutes."',
+      },
+      {
+        label: 'No evidence of meningitis or encephalitis — neck flexible, no photophobia, no rash, alert and interactive now',
+        quote: '"He can move his neck. He\'s not bothered by the light." – "He\'s alert now — he recognised us straight away when he woke up." [if asked]',
+      },
+    ],
+    pastMedicalHistory: [
+      { label: 'No previous seizures; no previous febrile convulsions; healthy; all vaccinations up to date', quote: '"He\'s never had a fit before. Healthy boy — all his jabs are done."' },
+    ],
+    drugHistory: [
+      { label: 'Paracetamol syrup given for fever; no regular medications', quote: '"Just the Calpol we gave him for the temperature." – "Nothing else."' },
+      { label: 'No known drug allergies', quote: '"No allergies."' },
+    ],
+    familyHistory: [
+      { label: 'Sarah\'s sister had febrile convulsions as a child — outgrew by age 5', quote: '"My sister had febrile fits as a child. My mum said she grew out of them." [if asked about family history]' },
+    ],
+    socialHistory: [
+      { label: 'Lives with both parents; non-smoking household; attends childminder', quote: '"We don\'t smoke. He goes to a childminder 3 days a week." [if asked]' },
+    ],
+    importantNegatives: [
+      'No neck stiffness or photophobia ("He can move his neck fine." – "He\'s not bothered by the light.")',
+      'No non-blanching rash — blanching erythematous rash from viral illness only ("Just a mild redness on his chest — it disappears when I press it.")',
+      'No focal neurological deficit after the seizure ("He seems completely normal.")',
+      'No prolonged post-ictal state ("He was only drowsy for 10 minutes — then totally back to himself.")',
+      'No aura or focal onset to the seizure ("It was both sides from the start.")',
+    ],
+    ice: {
+      ideas: '"I know it was probably a febrile fit. But I\'m not sure. I\'m scared it could be epilepsy or meningitis."',
+      concerns: '"If it\'s epilepsy he\'ll be on medication for life. And meningitis — I panicked about meningitis."',
+      expectations: '"We want to know if he\'s okay and what we should do if it happens again."',
+    },
+    onlyIfDirectlyAsked: [
+      'Whether Noah was febrile immediately before the convulsion — "Yes — we\'d just taken his temperature and it had gone up."',
+      'Whether there was any focal deviation — "His eyes did roll back — but both sides were equal."',
+    ],
+    behaviourNotes: [
+      'Both parents are frightened; mother tearful; father quiet but clearly shaken',
+      'Visibly relieved when the student explains this is a simple febrile seizure — not meningitis and not epilepsy',
+      'Asks "Will it happen again?" — student should give the accurate recurrence risk (~30–35% risk of at least one more febrile seizure, usually at same temperature threshold) and explain it is not harmful',
+      'Asks "Should we give him his temperature down faster next time?" — student should clarify antipyretics do NOT prevent febrile seizures (common misconception)',
+      'Asks "What do we do if it happens again?" — student should teach recovery position, timing, calling 999 if >5 minutes; do not put anything in his mouth',
+    ],
+  },
+  markScheme: [
+    {
+      domain: 'Opening the consultation',
+      items: [
+        { description: 'Introduces themselves; acknowledges how terrifying the event was for both parents', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Characterising the seizure',
+      items: [
+        { description: 'Establishes onset, duration, and character: generalised (both sides), tonic-clonic, lasting ~2 minutes', marks: 1 },
+        { description: 'Confirms no focal onset — no asymmetry to movements; no focal deficit post-ictally', marks: 1 },
+        { description: 'Confirms seizure occurred in the context of fever (temperature >38°C) with identifiable viral URTI', marks: 1 },
+        { description: 'Confirms single seizure episode, <15 minutes, with rapid return to baseline (no prolonged post-ictal state)', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Screening for serious alternatives',
+      items: [
+        { description: 'Screens for meningitis/encephalitis: neck stiffness, photophobia, rash, prolonged impaired consciousness, developmental regression', marks: 2 },
+        { description: 'Screens for complex febrile seizure features: duration >15 minutes; focal onset; more than one seizure in 24 hours; age <6 months', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Background history',
+      items: [
+        { description: 'Asks about previous febrile seizures and epilepsy history; family history of febrile convulsions', marks: 1 },
+        { description: 'Asks about vaccination history and developmental history — all normal', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Explanation',
+      items: [
+        { description: 'Explains simple febrile seizure clearly: a seizure triggered by a fever; NOT epilepsy; NOT caused by meningitis; benign condition', marks: 2 },
+        { description: 'Explains recurrence risk accurately: ~30–35% risk of at least one further febrile seizure; does NOT increase epilepsy risk significantly in uncomplicated cases', marks: 1 },
+        { description: 'Clarifies common misconception: antipyretics (paracetamol/ibuprofen) do NOT prevent febrile seizures', marks: 1 },
+      ],
+    },
+    {
+      domain: 'First aid and safety net',
+      items: [
+        { description: 'Teaches first aid: place in recovery position; do NOT put anything in mouth; time the seizure; call 999 if >5 minutes', marks: 1 },
+        { description: 'Safety net: return if seizure recurs or if Noah develops rash, neck stiffness, marked drowsiness, or fails to return to baseline', marks: 1 },
+      ],
+    },
+    {
+      domain: 'Key communication skills',
+      items: [
+        { description: 'Reassures confidently without minimising the fear; validates parents\' response', marks: 1 },
+        { description: 'Active listening; checks understanding; provides written information', marks: 1 },
+      ],
+    },
+  ],
+  expectedPresentation: [
+    'Noah is a 2-year-old presenting 90 minutes after a 2-minute generalised tonic-clonic seizure in the context of a fever (39.2°C) secondary to a viral URTI; fully alert and back to baseline now',
+    'The episode meets all criteria for a simple febrile seizure: generalised (not focal); single episode; duration <15 minutes; occurred in context of fever; rapid return to baseline; age 6 months to 6 years',
+    'Meningitis and encephalitis excluded clinically: no neck stiffness, no photophobia, no non-blanching rash, no prolonged post-ictal impairment, currently alert and interactive',
+    'Family history positive (maternal aunt had febrile convulsions) — consistent with the known familial predisposition (autosomal dominant with variable penetrance)',
+    'Management: no antiepileptic drugs needed for simple febrile seizures; continue regular paracetamol and ibuprofen for fever comfort (does NOT prevent recurrence); treat underlying URTI supportively',
+    'Education: recurrence risk ~30–35%; does not cause epilepsy or brain damage; first-aid instructions (recovery position, do not restrain, time it, call 999 if >5 minutes)',
+    'Discharge plan: observe in the department for 1–2 hours while fever settles; discharge with written safety-net leaflet; GP follow-up; no urgent neurology referral required for simple febrile seizure',
+  ],
+  vivaQuestions: [
+    {
+      question: 'What are the features that distinguish a simple from a complex febrile seizure?',
+      keyPoints: [
+        'Simple febrile seizure: generalised (both hemispheres from onset); single episode in 24 hours; lasts <15 minutes; no focal neurological deficit post-ictally; occurs in a child aged 6 months to 6 years',
+        'Complex febrile seizure: any one of — focal onset or asymmetric; duration >15 minutes (febrile status epilepticus); more than one seizure in 24 hours; residual focal neurological deficit (Todd\'s paresis)',
+        'Complex febrile seizures warrant neuroimaging (MRI head) and EEG to exclude structural lesion or encephalitis; also consider lumbar puncture if meningitis remains a concern',
+        'Febrile status epilepticus (FSE, >30 minutes): treat as for any status epilepticus — benzodiazepine rescue therapy (buccal midazolam or rectal diazepam); IV lorazepam if IV access; IV phenytoin if second-line needed',
+        'Risk of subsequent epilepsy: after simple febrile seizure, risk is ~1-2% (only slightly above general population); after complex febrile seizure, risk rises to ~5-10%',
+      ],
+      source: 'NICE NG217 (Epilepsies in children, 2022); RCPCH position statement on febrile seizures (2011)',
+    },
+    {
+      question: 'What is the recurrence risk after a febrile seizure and what factors increase the risk?',
+      keyPoints: [
+        'Overall recurrence risk after first febrile seizure: approximately 30–35%; risk of having 3 or more episodes: ~10%',
+        'Risk factors that increase recurrence: age <18 months at first seizure; family history of febrile seizures in a first-degree relative; seizure occurring at relatively low temperature (<38.5°C); short interval between fever onset and seizure',
+        'Antipyretics do NOT prevent recurrence — randomised controlled trials show no reduction in febrile seizure recurrence with regular paracetamol or ibuprofen',
+        'Intermittent diazepam at onset of fever: can reduce recurrence in high-risk children but causes sedation and tolerance — not routinely recommended (NICE NG217)',
+        'Most children outgrow febrile seizures by age 5–6 years; the vast majority have no long-term sequelae',
+      ],
+      source: 'NICE NG217 (2022); Berg AT & Shinnar S, Neurology 1996; geekymedics.com',
+    },
+  ],
+};
+
 export const PAEDS_MOCK_EXAMS: MockExamStation[] = [
   paedsMigraineHistoryMockExam,
   paedsCannulaCounsellingMockExam,
@@ -1476,4 +1970,7 @@ export const PAEDS_MOCK_EXAMS: MockExamStation[] = [
   skeletalSurveyConflictMockExam,
   paedsAsthmaMockExam,
   antivaxMeningitisMockExam,
+  otitisMediaMockExam,
+  breathHoldingMockExam,
+  febrileConvulsionMockExam,
 ];
