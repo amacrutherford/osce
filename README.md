@@ -2,6 +2,8 @@
 
 Free revision tool for UK medical students preparing for OSCEs. Work through examination steps, see the questions an examiner might ask, and practice with full mock stations.
 
+Don't have a pal to practice with? Export the mock stations as a prompt so you can use your favourite AI Chatbot to fill in as the patient/examiner. 
+
 **Live:** https://amacrutherford.github.io/osce
 
 ## Features
