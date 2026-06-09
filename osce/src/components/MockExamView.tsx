@@ -14,13 +14,13 @@ interface MockExamViewProps {
 function HistorySection({ title, items }: { title: string; items: HistoryItem[] }) {
   if (items.length === 0) return null;
   return (
-    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">{title}</p>
+    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">{title}</p>
       <div className="space-y-2">
         {items.map((item, i) => (
-          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3">
-            <p className="mb-1 text-xs font-semibold text-[#1a1a1a]">{item.label}</p>
-            <p className="text-sm italic leading-relaxed text-[#4a4a4a]">{item.quote}</p>
+          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3 dark:border-zinc-700">
+            <p className="mb-1 text-xs font-semibold text-[#1a1a1a] dark:text-zinc-100">{item.label}</p>
+            <p className="text-sm italic leading-relaxed text-[#4a4a4a] dark:text-zinc-300">{item.quote}</p>
           </div>
         ))}
       </div>
@@ -30,21 +30,21 @@ function HistorySection({ title, items }: { title: string; items: HistoryItem[] 
 
 function SocratesSection({ items }: { items: SocratesItem[] }) {
   return (
-    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+    <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">
         History of Presenting Complaint
       </p>
       <div className="space-y-3">
         {items.map((item, i) => (
-          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3">
+          <div key={i} className="rounded-xl border border-[#f0f0f0] p-3 dark:border-zinc-700">
             <div className="mb-1.5 flex flex-wrap items-baseline gap-x-2">
-              <span className="text-xs font-bold uppercase tracking-wide text-[#534AB7]">
+              <span className="text-xs font-bold uppercase tracking-wide text-[#534AB7] dark:text-[#a5a0e8]">
                 {item.label}:
               </span>
-              <span className="text-sm font-semibold text-[#1a1a1a]">{item.descriptor}</span>
+              <span className="text-sm font-semibold text-[#1a1a1a] dark:text-zinc-100">{item.descriptor}</span>
             </div>
             {item.quotes.map((q, qi) => (
-              <p key={qi} className="text-sm italic leading-relaxed text-[#4a4a4a]">
+              <p key={qi} className="text-sm italic leading-relaxed text-[#4a4a4a] dark:text-zinc-300">
                 {q}
               </p>
             ))}
@@ -135,18 +135,18 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
           <button
             type="button"
             onClick={onBack}
-            className="flex items-center gap-1.5 rounded-lg border border-[#e5e5e4] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
+            className="flex items-center gap-1.5 rounded-lg border border-[#e5e5e4] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
           >
             <span aria-hidden="true">←</span> Back
           </button>
           <div className="flex-1">
-            <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Mock OSCE Station</p>
-            <h2 className="text-lg font-bold text-[#1a1a1a]">{exam.title}</h2>
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">Mock OSCE Station</p>
+            <h2 className="text-lg font-bold text-[#1a1a1a] dark:text-zinc-100">{exam.title}</h2>
           </div>
           <button
             type="button"
             onClick={exportPrompt}
-            className="flex items-center gap-1.5 rounded-lg border border-[#AFA9EC] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE]"
+            className="flex items-center gap-1.5 rounded-lg border border-[#AFA9EC] bg-white px-3 py-1.5 text-sm font-medium text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
           >
             Export Prompt
           </button>
@@ -158,8 +158,8 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             onClick={onToggleCompleted}
             className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-sm font-semibold transition ${
               isCompleted
-                ? 'border-green-300 bg-green-50 text-green-700 hover:bg-green-100'
-                : 'border-[#AFA9EC] bg-white text-[#3C3489] hover:bg-[#EEEDFE]'
+                ? 'border-green-300 bg-green-50 text-green-700 hover:bg-green-100 dark:border-green-700 dark:bg-green-950/50 dark:text-green-400'
+                : 'border-[#AFA9EC] bg-white text-[#3C3489] hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700'
             }`}
           >
             {isCompleted ? '✓ Completed' : 'Mark as done'}
@@ -167,26 +167,29 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
         </div>
       </div>
 
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            onClick={() => setActiveTab(tab.id)}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-              activeTab === tab.id
-                ? 'bg-[#534AB7] text-white'
-                : 'border border-[#AFA9EC] bg-white text-[#3C3489] hover:bg-[#EEEDFE]'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      {/* Tab row — tabs wrap freely; ? button stays pinned right */}
+      <div className="mb-4 flex items-start gap-2">
+        <div className="flex flex-1 flex-wrap gap-2">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTab(tab.id)}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                activeTab === tab.id
+                  ? 'bg-[#534AB7] text-white'
+                  : 'border border-[#AFA9EC] bg-white text-[#3C3489] hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
         {activeTab === 'viva' && (
           <button
             type="button"
             onClick={() => setShowFeedback(true)}
-            className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-[#AFA9EC] bg-white text-sm font-bold text-[#3C3489] transition hover:bg-[#EEEDFE]"
+            className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#AFA9EC] bg-white text-sm font-bold text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
             aria-label="Send feedback"
           >
             ?
@@ -196,33 +199,33 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
 
       {showFeedback && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl dark:bg-zinc-900">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-bold text-[#1a1a1a]">Send Feedback</h3>
+              <h3 className="font-bold text-[#1a1a1a] dark:text-zinc-100">Send Feedback</h3>
               <button
                 type="button"
                 onClick={() => { setShowFeedback(false); setFeedbackText(''); }}
-                className="text-[#6b6b6b] hover:text-[#1a1a1a]"
+                className="text-[#6b6b6b] hover:text-[#1a1a1a] dark:text-zinc-400 dark:hover:text-zinc-100"
                 aria-label="Close"
               >
                 ✕
               </button>
             </div>
-            <p className="mb-3 text-sm text-[#6b6b6b]">
-              Spotted an error or have a suggestion for <span className="font-medium text-[#1a1a1a]">{exam.title}</span>?
+            <p className="mb-3 text-sm text-[#6b6b6b] dark:text-zinc-400">
+              Spotted an error or have a suggestion for <span className="font-medium text-[#1a1a1a] dark:text-zinc-100">{exam.title}</span>?
             </p>
             <textarea
               value={feedbackText}
               onChange={(e) => setFeedbackText(e.target.value)}
               placeholder="Describe the issue or suggestion..."
               rows={5}
-              className="w-full rounded-xl border border-[#e5e5e4] p-3 text-sm text-[#1a1a1a] outline-none focus:border-[#534AB7]"
+              className="w-full rounded-xl border border-[#e5e5e4] p-3 text-sm text-[#1a1a1a] outline-none focus:border-[#534AB7] dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder:text-zinc-500"
             />
             <div className="mt-4 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => { setShowFeedback(false); setFeedbackText(''); }}
-                className="rounded-lg border border-[#e5e5e4] px-4 py-2 text-sm font-medium text-[#6b6b6b] transition hover:bg-[#f5f5f4]"
+                className="rounded-lg border border-[#e5e5e4] px-4 py-2 text-sm font-medium text-[#6b6b6b] transition hover:bg-[#f5f5f4] dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800"
               >
                 Cancel
               </button>
@@ -240,9 +243,9 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
 
       {activeTab === 'brief' && (
         <div className="space-y-4">
-          <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6">
+          <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6 dark:border-zinc-700 dark:from-[#1e1b4b] dark:via-zinc-900 dark:to-zinc-900">
             <div className="mb-4 flex items-start justify-between gap-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[#534AB7]">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#534AB7] dark:text-[#a5a0e8]">
                 Candidate Instructions
               </p>
               <span className="shrink-0 rounded-full bg-[#534AB7] px-3 py-1 text-xs font-bold text-white">
@@ -250,19 +253,19 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
               </span>
             </div>
 
-            <div className="mb-4 rounded-xl border border-[#d0cff0] bg-white p-4">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Setting</p>
-              <p className="text-sm text-[#1a1a1a]">{exam.candidateBrief.setting}</p>
+            <div className="mb-4 rounded-xl border border-[#d0cff0] bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">Setting</p>
+              <p className="text-sm text-[#1a1a1a] dark:text-zinc-100">{exam.candidateBrief.setting}</p>
             </div>
 
-            <div className="mb-4 rounded-xl border border-[#d0cff0] bg-white p-4">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Scenario</p>
-              <p className="text-sm leading-relaxed text-[#1a1a1a]">{exam.candidateBrief.scenario}</p>
+            <div className="mb-4 rounded-xl border border-[#d0cff0] bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">Scenario</p>
+              <p className="text-sm leading-relaxed text-[#1a1a1a] dark:text-zinc-100">{exam.candidateBrief.scenario}</p>
             </div>
 
             {exam.imageUrl && (
-              <div className="mb-4 overflow-hidden rounded-xl border border-[#d0cff0] bg-white">
-                <p className="border-b border-[#d0cff0] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+              <div className="mb-4 overflow-hidden rounded-xl border border-[#d0cff0] bg-white dark:border-zinc-700 dark:bg-zinc-900">
+                <p className="border-b border-[#d0cff0] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:border-zinc-700 dark:text-zinc-400">
                   Reference Diagram
                 </p>
                 <img
@@ -273,11 +276,11 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
               </div>
             )}
 
-            <div className="rounded-xl border border-[#d0cff0] bg-white p-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Your Tasks</p>
+            <div className="rounded-xl border border-[#d0cff0] bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">Your Tasks</p>
               <ol className="space-y-2">
                 {exam.candidateBrief.tasks.map((task, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-[#1a1a1a]">
+                  <li key={i} className="flex gap-3 text-sm text-[#1a1a1a] dark:text-zinc-100">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#534AB7] text-xs font-bold text-white">
                       {i + 1}
                     </span>
@@ -292,33 +295,29 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
 
       {activeTab === 'actor' && (
         <div className="space-y-4">
-          {/* Key details */}
-          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-6">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-6 dark:border-zinc-700 dark:bg-zinc-900">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">
               Key Details
             </p>
-            <h3 className="text-lg font-bold text-[#1a1a1a]">
+            <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-zinc-100">
               {actor.patientName}, {actor.age}
             </h3>
-            <p className="text-sm text-[#6b6b6b]">{actor.occupation}</p>
+            <p className="text-sm text-[#6b6b6b] dark:text-zinc-400">{actor.occupation}</p>
           </div>
 
-          {/* Opening line */}
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/30">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
               Presenting Complaint
             </p>
-            <p className="text-sm italic leading-relaxed text-amber-900">
+            <p className="text-sm italic leading-relaxed text-amber-900 dark:text-amber-200">
               {actor.openingLine}
             </p>
           </div>
 
-          {/* SOCRATES (symptom-based stations) */}
           {actor.socrates && actor.socrates.length > 0 && (
             <SocratesSection items={actor.socrates} />
           )}
 
-          {/* History of presenting complaint (non-SOCRATES) */}
           {actor.historyOfPresentingComplaint && actor.historyOfPresentingComplaint.length > 0 && (
             <HistorySection
               title="History of Presenting Complaint"
@@ -326,28 +325,20 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             />
           )}
 
-          {/* Past medical history */}
           <HistorySection title="Past Medical and Surgical History" items={actor.pastMedicalHistory} />
-
-          {/* Drug history */}
           <HistorySection title="Drug History" items={actor.drugHistory} />
-
-          {/* Family history */}
           <HistorySection title="Family History" items={actor.familyHistory} />
-
-          {/* Social history */}
           <HistorySection title="Social History" items={actor.socialHistory} />
 
-          {/* Important negatives */}
           {actor.importantNegatives.length > 0 && (
-            <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+            <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">
                 Other History / Important Negatives
               </p>
               <ul className="space-y-1.5">
                 {actor.importantNegatives.map((item, i) => (
-                  <li key={i} className="text-sm text-[#1a1a1a]">
-                    <span className="mr-1.5 font-semibold text-[#6b6b6b]">—</span>
+                  <li key={i} className="text-sm text-[#1a1a1a] dark:text-zinc-100">
+                    <span className="mr-1.5 font-semibold text-[#6b6b6b] dark:text-zinc-400">—</span>
                     {item}
                   </li>
                 ))}
@@ -355,37 +346,35 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             </div>
           )}
 
-          {/* ICE */}
-          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
+          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5 dark:border-zinc-700 dark:bg-[#1e1b4b]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">
               ICE — only reveal if asked
             </p>
             <div className="space-y-2">
               <div>
-                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Ideas</p>
-                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.ideas}</p>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7] dark:text-[#a5a0e8]">Ideas</p>
+                <p className="text-sm italic text-[#1a1a1a] dark:text-zinc-200">{actor.ice.ideas}</p>
               </div>
               <div>
-                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Concerns</p>
-                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.concerns}</p>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7] dark:text-[#a5a0e8]">Concerns</p>
+                <p className="text-sm italic text-[#1a1a1a] dark:text-zinc-200">{actor.ice.concerns}</p>
               </div>
               <div>
-                <p className="mb-0.5 text-xs font-semibold text-[#534AB7]">Expectations</p>
-                <p className="text-sm italic text-[#1a1a1a]">{actor.ice.expectations}</p>
+                <p className="mb-0.5 text-xs font-semibold text-[#534AB7] dark:text-[#a5a0e8]">Expectations</p>
+                <p className="text-sm italic text-[#1a1a1a] dark:text-zinc-200">{actor.ice.expectations}</p>
               </div>
             </div>
           </div>
 
-          {/* Only if directly asked */}
           {actor.onlyIfDirectlyAsked.length > 0 && (
-            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-orange-700">
+            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-800 dark:bg-orange-950/30">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-orange-700 dark:text-orange-400">
                 Only Reveal if Directly Asked
               </p>
               <ul className="space-y-1">
                 {actor.onlyIfDirectlyAsked.map((item, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-orange-900">
-                    <span className="mt-0.5 shrink-0 text-orange-500">•</span>
+                  <li key={i} className="flex gap-2 text-sm text-orange-900 dark:text-orange-200">
+                    <span className="mt-0.5 shrink-0 text-orange-500 dark:text-orange-400">•</span>
                     {item}
                   </li>
                 ))}
@@ -393,15 +382,14 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             </div>
           )}
 
-          {/* Behaviour notes */}
-          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">
               Behaviour Notes
             </p>
             <ul className="space-y-1">
               {actor.behaviourNotes.map((note, i) => (
-                <li key={i} className="flex gap-2 text-sm text-[#1a1a1a]">
-                  <span className="mt-0.5 shrink-0 text-[#534AB7]">•</span>
+                <li key={i} className="flex gap-2 text-sm text-[#1a1a1a] dark:text-zinc-100">
+                  <span className="mt-0.5 shrink-0 text-[#534AB7] dark:text-[#a5a0e8]">•</span>
                   {note}
                 </li>
               ))}
@@ -412,8 +400,8 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
 
       {activeTab === 'markscheme' && (
         <div className="space-y-3">
-          <div className="flex items-center justify-between rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] px-5 py-3">
-            <p className="text-sm font-semibold text-[#3C3489]">Your score</p>
+          <div className="flex items-center justify-between rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] px-5 py-3 dark:border-zinc-700 dark:bg-[#1e1b4b]">
+            <p className="text-sm font-semibold text-[#3C3489] dark:text-[#a5a0e8]">Your score</p>
             <span className="rounded-full bg-[#534AB7] px-3 py-1 text-sm font-bold text-white">
               {scoredMarks} / {totalMarks} marks
             </span>
@@ -427,22 +415,22 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             );
             const isExpanded = expandedDomains.has(domainIndex);
             return (
-              <div key={domainIndex} className="overflow-hidden rounded-2xl border border-[#e5e5e4] bg-white">
+              <div key={domainIndex} className="overflow-hidden rounded-2xl border border-[#e5e5e4] bg-white dark:border-zinc-700 dark:bg-zinc-900">
                 <button
                   type="button"
                   onClick={() => toggleDomain(domainIndex)}
-                  className="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-[#f9f9f8]"
+                  className="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-[#f9f9f8] dark:hover:bg-zinc-800"
                 >
-                  <p className="font-semibold text-[#1a1a1a]">{domain.domain}</p>
+                  <p className="font-semibold text-[#1a1a1a] dark:text-zinc-100">{domain.domain}</p>
                   <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-[#EEEDFE] px-2.5 py-0.5 text-xs font-bold text-[#534AB7]">
+                    <span className="rounded-full bg-[#EEEDFE] px-2.5 py-0.5 text-xs font-bold text-[#534AB7] dark:bg-[#1e1b4b] dark:text-[#a5a0e8]">
                       {domainScored} / {domainTotal} mark{domainTotal !== 1 ? 's' : ''}
                     </span>
-                    <span className="text-[#6b6b6b]">{isExpanded ? '▲' : '▼'}</span>
+                    <span className="text-[#6b6b6b] dark:text-zinc-400">{isExpanded ? '▲' : '▼'}</span>
                   </div>
                 </button>
                 {isExpanded && (
-                  <div className="border-t border-[#e5e5e4] pb-2 pt-1">
+                  <div className="border-t border-[#e5e5e4] pb-2 pt-1 dark:border-zinc-700">
                     {domain.items.map((item, itemIndex) => {
                       const key = `${domainIndex}-${itemIndex}`;
                       const ticked = tickedItems.has(key);
@@ -450,8 +438,8 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
                         <label
                           key={itemIndex}
                           className={`flex cursor-pointer items-start gap-3 px-5 py-2.5 transition ${
-                            ticked ? 'bg-green-50' : 'hover:bg-[#f9f9f8]'
-                          } ${itemIndex < domain.items.length - 1 ? 'border-b border-[#f0f0f0]' : ''}`}
+                            ticked ? 'bg-green-50 dark:bg-green-950/30' : 'hover:bg-[#f9f9f8] dark:hover:bg-zinc-800'
+                          } ${itemIndex < domain.items.length - 1 ? 'border-b border-[#f0f0f0] dark:border-zinc-700' : ''}`}
                         >
                           <input
                             type="checkbox"
@@ -459,10 +447,10 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
                             onChange={() => toggleTick(domainIndex, itemIndex)}
                             className="mt-0.5 h-4 w-4 shrink-0 accent-[#534AB7]"
                           />
-                          <span className={`flex-1 text-sm text-[#1a1a1a] ${ticked ? 'line-through text-[#6b6b6b]' : ''}`}>
+                          <span className={`flex-1 text-sm ${ticked ? 'text-[#6b6b6b] line-through dark:text-zinc-500' : 'text-[#1a1a1a] dark:text-zinc-100'}`}>
                             {item.description}
                           </span>
-                          <span className={`shrink-0 text-sm font-semibold whitespace-nowrap ${ticked ? 'text-green-600' : 'text-[#534AB7]'}`}>
+                          <span className={`shrink-0 whitespace-nowrap text-sm font-semibold ${ticked ? 'text-green-600 dark:text-green-400' : 'text-[#534AB7] dark:text-[#a5a0e8]'}`}>
                             {item.marks} mark{item.marks !== 1 ? 's' : ''}
                           </span>
                         </label>
@@ -485,16 +473,16 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             <p className="text-base font-bold text-white">{exam.diagnosis}</p>
           </div>
 
-          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
+          <div className="rounded-2xl border border-[#AFA9EC] bg-[#EEEDFE] p-5 dark:border-zinc-700 dark:bg-[#1e1b4b]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">
               Expected Presentation of Findings
             </p>
-            <p className="mb-3 text-xs text-[#6b6b6b]">
+            <p className="mb-3 text-xs text-[#6b6b6b] dark:text-zinc-400">
               A good candidate should cover these points when presenting their findings to the examiner.
             </p>
             <ol className="space-y-2">
               {exam.expectedPresentation.map((point, i) => (
-                <li key={i} className="flex gap-3 text-sm text-[#1a1a1a]">
+                <li key={i} className="flex gap-3 text-sm text-[#1a1a1a] dark:text-zinc-100">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#534AB7] text-xs font-bold text-white">
                     {i + 1}
                   </span>
@@ -504,39 +492,39 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             </ol>
           </div>
 
-          <p className="text-sm text-[#6b6b6b]">
+          <p className="text-sm text-[#6b6b6b] dark:text-zinc-400">
             The examiner will then ask these questions. Tap a question to reveal the model answer.
           </p>
           {exam.vivaQuestions.map((q, index) => {
             const isExpanded = expandedViva.has(index);
             return (
-              <div key={index} className="overflow-hidden rounded-2xl border border-[#e5e5e4] bg-white">
+              <div key={index} className="overflow-hidden rounded-2xl border border-[#e5e5e4] bg-white dark:border-zinc-700 dark:bg-zinc-900">
                 <button
                   type="button"
                   onClick={() => toggleViva(index)}
-                  className="flex w-full items-start gap-3 px-5 py-4 text-left transition hover:bg-[#f9f9f8]"
+                  className="flex w-full items-start gap-3 px-5 py-4 text-left transition hover:bg-[#f9f9f8] dark:hover:bg-zinc-800"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#534AB7] text-xs font-bold text-white">
                     {index + 1}
                   </span>
-                  <p className="flex-1 font-medium text-[#1a1a1a]">{q.question}</p>
-                  <span className="shrink-0 text-sm text-[#6b6b6b]">{isExpanded ? '▲' : '▼'}</span>
+                  <p className="flex-1 font-medium text-[#1a1a1a] dark:text-zinc-100">{q.question}</p>
+                  <span className="shrink-0 text-sm text-[#6b6b6b] dark:text-zinc-400">{isExpanded ? '▲' : '▼'}</span>
                 </button>
                 {isExpanded && (
-                  <div className="border-t border-[#e5e5e4] bg-[#f9f9f8] px-5 pb-5 pt-4">
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#3C3489]">
+                  <div className="border-t border-[#e5e5e4] bg-[#f9f9f8] px-5 pb-5 pt-4 dark:border-zinc-700 dark:bg-zinc-800">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">
                       Model Answer
                     </p>
                     <ul className="space-y-2">
                       {q.keyPoints.map((point, i) => (
-                        <li key={i} className="flex gap-2 text-sm text-[#1a1a1a]">
+                        <li key={i} className="flex gap-2 text-sm text-[#1a1a1a] dark:text-zinc-100">
                           <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#534AB7]" />
                           {point}
                         </li>
                       ))}
                     </ul>
                     {q.source && (
-                      <p className="mt-3 text-xs text-[#6b6b6b]">
+                      <p className="mt-3 text-xs text-[#6b6b6b] dark:text-zinc-400">
                         <span className="font-medium">Source:</span> {q.source}
                       </p>
                     )}

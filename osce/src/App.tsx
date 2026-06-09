@@ -73,6 +73,17 @@ function readInitialExamId(): string {
 }
 
 function App() {
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    const stored = localStorage.getItem('osce-dark-mode');
+    if (stored !== null) return stored === 'true';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('osce-dark-mode', String(darkMode));
+  }, [darkMode]);
+
   const [selectedExamId, setSelectedExamId] = useState<string>(readInitialExamId);
   const [selectedMockExamId, setSelectedMockExamId] = useState<string | null>(readInitialMockExamId);
   const [completedMockIds, setCompletedMockIds] = useState<Set<string>>(readCompletedMocks);
@@ -291,9 +302,9 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9F9F8] text-[#1a1a1a]">
+    <div className="min-h-screen text-[#1a1a1a] dark:text-zinc-100">
       {showShortcuts && <KeyboardShortcutsModal onClose={() => setShowShortcuts(false)} />}
-      <header className="sticky top-0 z-10 border-b border-[#e5e5e4] bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-[#e5e5e4] bg-white/95 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/95">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-6">
           <div>
             <h1
@@ -303,48 +314,58 @@ function App() {
               OSCE Oracle
             </h1>
             {!onLanding && !activeMockExam && (
-              <p className="text-sm text-[#6b6b6b]">
+              <p className="text-sm text-[#6b6b6b] dark:text-zinc-400">
                 <button
                   type="button"
                   onClick={() => goToLanding(activeExam.specialtyId)}
-                  className="font-medium text-[#534AB7] transition hover:underline"
+                  className="font-medium text-[#534AB7] transition hover:underline dark:text-[#a5a0e8]"
                 >
                   {SPECIALTIES.find((s) => s.id === activeExam.specialtyId)?.name}
                 </button>
-                <span className="mx-1.5 text-[#d0cff0]">›</span>
+                <span className="mx-1.5 text-[#d0cff0] dark:text-zinc-600">›</span>
                 {activeExam.title}
               </p>
             )}
             {!onLanding && activeMockExam && (
-              <p className="text-sm text-[#6b6b6b]">
+              <p className="text-sm text-[#6b6b6b] dark:text-zinc-400">
                 <button
                   type="button"
                   onClick={() => goToLanding(activeMockExam.specialtyId)}
-                  className="font-medium text-[#534AB7] transition hover:underline"
+                  className="font-medium text-[#534AB7] transition hover:underline dark:text-[#a5a0e8]"
                 >
                   {SPECIALTIES.find((s) => s.id === activeMockExam.specialtyId)?.name}
                 </button>
-                <span className="mx-1.5 text-[#d0cff0]">›</span>
+                <span className="mx-1.5 text-[#d0cff0] dark:text-zinc-600">›</span>
                 Mock: {activeMockExam.title}
               </p>
             )}
           </div>
           <div className="flex items-center gap-2">
-            <a
-              href="https://buymeacoffee.com/amacrutherford"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-lg border border-[#f7c94a] bg-[#ffdd57] px-3 py-1.5 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#f7c94a]"
+            {onLanding && (
+              <a
+                href="https://buymeacoffee.com/amacrutherford"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg border border-[#f7c94a] bg-[#ffdd57] px-3 py-1.5 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#f7c94a]"
+              >
+                Support ☕️
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={() => setDarkMode((d) => !d)}
+              aria-label="Toggle dark mode"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#e5e5e4] bg-white text-base transition hover:bg-[#f5f5f4] dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
             >
-              Support ☕️
-            </a>
+              {darkMode ? '☀️' : '🌙'}
+            </button>
           {!onLanding && (
             <>
               <button
                 type="button"
                 onClick={() => setShowShortcuts(true)}
                 aria-label="Keyboard shortcuts"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#AFA9EC] bg-white text-[#3C3489] transition hover:bg-[#EEEDFE]"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#AFA9EC] bg-white text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
               >
                 <svg className="h-4 w-4" viewBox="0 0 20 14" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                   <rect x="1" y="1" width="18" height="12" rx="2.5" />
@@ -361,7 +382,7 @@ function App() {
                   <rect x="7" y="10.5" width="6" height="1.5" rx="0.3" fill="currentColor" stroke="none" />
                 </svg>
               </button>
-              <ModeToggle mode={mode} onChange={setMode} />
+              {!activeMockExam && <ModeToggle mode={mode} onChange={setMode} />}
               {!activeMockExam && mode === 'exam' && <ExamTimer />}
               <div className="flex-1 min-w-0">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
@@ -400,7 +421,7 @@ function App() {
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                     activeTab === tab.id
                       ? 'bg-[#534AB7] text-white'
-                      : 'border border-[#AFA9EC] bg-white text-[#3C3489]'
+                      : 'border border-[#AFA9EC] bg-white text-[#3C3489] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8]'
                   }`}
                 >
                   {tab.label}
@@ -421,12 +442,12 @@ function App() {
 
             {activeTab === 'overview' && (
               <section className="mt-4 space-y-5">
-                <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">
+                <div className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-br from-[#EEEDFE] via-white to-[#f2f0ff] p-6 dark:border-zinc-700 dark:from-[#1e1b4b] dark:via-zinc-900 dark:to-zinc-900">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">
                     {SPECIALTIES.find((s) => s.id === activeExam.specialtyId)?.name}
                   </p>
-                  <h2 className="mt-1 text-2xl font-bold text-[#1a1a1a]">{activeExam.title}</h2>
-                  <p className="mt-2 max-w-2xl text-sm text-[#4a4a4a]">{activeExam.description}</p>
+                  <h2 className="mt-1 text-2xl font-bold text-[#1a1a1a] dark:text-zinc-100">{activeExam.title}</h2>
+                  <p className="mt-2 max-w-2xl text-sm text-[#4a4a4a] dark:text-zinc-300">{activeExam.description}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <button
                       type="button"
@@ -441,7 +462,7 @@ function App() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('summary')}
-                      className="rounded-xl border border-[#AFA9EC] bg-white px-5 py-2.5 text-sm font-semibold text-[#3C3489] transition hover:bg-[#EEEDFE]"
+                      className="rounded-xl border border-[#AFA9EC] bg-white px-5 py-2.5 text-sm font-semibold text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
                     >
                       High-Yield Summary
                     </button>
@@ -460,8 +481,8 @@ function App() {
                   </div>
                 )}
 
-                <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
-                  <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#3C3489]">
+                <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">
                     {steps.length} Steps
                   </p>
                   <ol className="space-y-1">
@@ -473,14 +494,14 @@ function App() {
                             setSelectedStepId(step.id);
                             setActiveTab('guide');
                           }}
-                          className="flex w-full items-center gap-3 rounded-lg p-2 text-left transition hover:bg-[#f5f5f5]"
+                          className="flex w-full items-center gap-3 rounded-lg p-2 text-left transition hover:bg-[#f5f5f5] dark:hover:bg-zinc-800"
                         >
-                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EEEDFE] text-xs font-bold text-[#534AB7]">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EEEDFE] text-xs font-bold text-[#534AB7] dark:bg-[#1e1b4b] dark:text-[#a5a0e8]">
                             {step.stepNumber}
                           </span>
                           <div>
-                            <p className="text-sm font-medium text-[#1a1a1a]">{step.title}</p>
-                            <p className="text-xs text-[#6b6b6b]">{countExaminerQuestions(step)} questions</p>
+                            <p className="text-sm font-medium text-[#1a1a1a] dark:text-zinc-100">{step.title}</p>
+                            <p className="text-xs text-[#6b6b6b] dark:text-zinc-400">{countExaminerQuestions(step)} questions</p>
                           </div>
                         </button>
                       </li>
@@ -579,6 +600,20 @@ function App() {
           </>
         )}
       </main>
+
+      <footer className="mt-8 border-t border-[#e5e5e4] py-6 text-center text-xs text-[#9b9b9b] dark:border-zinc-700 dark:text-zinc-500">
+        <a
+          href="https://github.com/amacrutherford/osce"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 transition hover:text-[#534AB7] dark:hover:text-[#a5a0e8]"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          GitHub — amacrutherford/osce
+        </a>
+      </footer>
     </div>
   );
 }

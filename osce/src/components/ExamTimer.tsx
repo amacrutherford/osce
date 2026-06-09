@@ -77,13 +77,13 @@ export function ExamTimer() {
     <div
       className={`flex items-center gap-2 rounded-xl border px-3 py-1.5 ${
         isFinished
-          ? 'border-red-300 bg-red-50'
+          ? 'border-red-300 bg-red-50 dark:border-red-800 dark:bg-red-950/50'
           : isWarning
-            ? 'border-amber-300 bg-amber-50'
-            : 'border-[#AFA9EC] bg-white'
+            ? 'border-amber-300 bg-amber-50 dark:border-amber-700 dark:bg-amber-950/50'
+            : 'border-[#AFA9EC] bg-white dark:border-zinc-700 dark:bg-zinc-800'
       }`}
     >
-      <span className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b]">Timer</span>
+      <span className="text-xs font-semibold uppercase tracking-wide text-[#6b6b6b] dark:text-zinc-400">Timer</span>
       {editing ? (
         <input
           ref={inputRef}
@@ -91,7 +91,7 @@ export function ExamTimer() {
           onChange={(e) => setEditValue(e.target.value)}
           onBlur={commitEdit}
           onKeyDown={handleKeyDown}
-          className="w-16 bg-transparent font-mono text-base font-bold tabular-nums text-[#534AB7] outline-none"
+          className="w-16 bg-transparent font-mono text-base font-bold tabular-nums text-[#534AB7] outline-none dark:text-[#a5a0e8]"
         />
       ) : (
         <span
@@ -99,12 +99,12 @@ export function ExamTimer() {
           title={running ? undefined : 'Click to set time'}
           className={`font-mono text-base font-bold tabular-nums ${
             isFinished
-              ? 'text-red-600'
+              ? 'text-red-600 dark:text-red-400'
               : isWarning
-                ? 'text-amber-600'
+                ? 'text-amber-600 dark:text-amber-400'
                 : running
-                  ? 'text-[#1a1a1a]'
-                  : 'cursor-pointer text-[#6b6b6b] hover:text-[#534AB7]'
+                  ? 'text-[#1a1a1a] dark:text-zinc-100'
+                  : 'cursor-pointer text-[#6b6b6b] hover:text-[#534AB7] dark:text-zinc-400 dark:hover:text-[#a5a0e8]'
           }`}
         >
           {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
@@ -116,7 +116,7 @@ export function ExamTimer() {
         disabled={isFinished}
         className={`rounded-lg px-2.5 py-0.5 text-xs font-semibold transition disabled:cursor-not-allowed disabled:opacity-40 ${
           running
-            ? 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+            ? 'bg-amber-100 text-amber-700 hover:bg-amber-200 dark:bg-amber-900/50 dark:text-amber-400'
             : 'bg-[#534AB7] text-white hover:bg-[#3C3489]'
         }`}
       >
@@ -125,7 +125,7 @@ export function ExamTimer() {
       <button
         type="button"
         onClick={reset}
-        className="rounded-lg px-2.5 py-0.5 text-xs font-semibold text-[#6b6b6b] transition hover:bg-[#f5f5f5] hover:text-[#1a1a1a]"
+        className="rounded-lg px-2.5 py-0.5 text-xs font-semibold text-[#6b6b6b] transition hover:bg-[#f5f5f5] hover:text-[#1a1a1a] dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100"
       >
         Reset
       </button>

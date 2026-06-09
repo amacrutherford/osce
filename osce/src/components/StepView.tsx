@@ -60,15 +60,15 @@ export function StepView({
 
   return (
     <section className="space-y-4">
-      <header className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-r from-[#EEEDFE] to-white p-5">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[#3C3489]">Step {step.stepNumber}</p>
-        <h2 className="mt-1 text-2xl font-bold text-[#1a1a1a]">{step.title}</h2>
-        <p className="mt-1 text-sm text-[#6b6b6b]">{step.subtitle}</p>
-        <p className="mt-2 text-sm font-medium text-[#3C3489]">Progress: {stepProgressText} revealed</p>
+      <header className="rounded-2xl border border-[#AFA9EC] bg-gradient-to-r from-[#EEEDFE] to-white p-5 dark:border-zinc-700 dark:from-[#1e1b4b] dark:to-zinc-900">
+        <p className="text-sm font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">Step {step.stepNumber}</p>
+        <h2 className="mt-1 text-2xl font-bold text-[#1a1a1a] dark:text-zinc-100">{step.title}</h2>
+        <p className="mt-1 text-sm text-[#6b6b6b] dark:text-zinc-400">{step.subtitle}</p>
+        <p className="mt-2 text-sm font-medium text-[#3C3489] dark:text-[#a5a0e8]">Progress: {stepProgressText} revealed</p>
       </header>
 
       {mode === 'study' && step.description && (
-        <div className="rounded-xl border border-[#e5e5e4] bg-[#fafafa] px-4 py-3 text-sm text-[#4a4a4a]">
+        <div className="rounded-xl border border-[#e5e5e4] bg-[#fafafa] px-4 py-3 text-sm text-[#4a4a4a] dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
           {step.description}
         </div>
       )}
@@ -77,24 +77,24 @@ export function StepView({
         const state = getChecklistState(step.id, step.checklist.length);
         const checked = state.filter(Boolean).length;
         return (
-          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5">
+          <div className="rounded-2xl border border-[#e5e5e4] bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
             <div className="mb-3 flex items-center justify-between">
-              <p className="text-sm font-semibold uppercase tracking-wide text-[#3C3489]">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#3C3489] dark:text-[#a5a0e8]">
                 Examination checklist
               </p>
-              <span className="text-xs font-semibold text-[#6b6b6b]">{checked} / {step.checklist.length}</span>
+              <span className="text-xs font-semibold text-[#6b6b6b] dark:text-zinc-400">{checked} / {step.checklist.length}</span>
             </div>
             <ul className="space-y-1">
               {step.checklist.map((item, i) => (
                 <li key={i}>
-                  <label className="flex cursor-pointer items-start gap-3 rounded-lg px-2 py-1.5 hover:bg-[#f5f5f5]">
+                  <label className="flex cursor-pointer items-start gap-3 rounded-lg px-2 py-1.5 hover:bg-[#f5f5f5] dark:hover:bg-zinc-800">
                     <input
                       type="checkbox"
                       checked={state[i] ?? false}
                       onChange={() => onToggleChecklistItem(step.id, i, step.checklist!.length)}
                       className="mt-0.5 h-4 w-4 shrink-0 accent-[#534AB7]"
                     />
-                    <span className={`text-sm ${state[i] ? 'text-[#aaaaaa] line-through' : 'text-[#1a1a1a]'}`}>
+                    <span className={`text-sm ${state[i] ? 'text-[#aaaaaa] line-through dark:text-zinc-600' : 'text-[#1a1a1a] dark:text-zinc-100'}`}>
                       {item}
                     </span>
                   </label>
@@ -106,7 +106,7 @@ export function StepView({
       })()}
 
       {visibleGroups.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-[#AFA9EC] bg-white p-6 text-sm text-[#6b6b6b]">
+        <div className="rounded-2xl border border-dashed border-[#AFA9EC] bg-white p-6 text-sm text-[#6b6b6b] dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
           No questions in this step match your search.
         </div>
       )}
@@ -123,7 +123,7 @@ export function StepView({
             className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
               mode === 'exam'
                 ? 'bg-[#534AB7] text-white hover:bg-[#3C3489]'
-                : 'border border-[#AFA9EC] bg-white text-[#3C3489] hover:border-[#534AB7] hover:bg-[#EEEDFE]'
+                : 'border border-[#AFA9EC] bg-white text-[#3C3489] hover:border-[#534AB7] hover:bg-[#EEEDFE] dark:border-zinc-600 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-[#1e1b4b]'
             }`}
           >
             {allRevealed ? 'Hide all answers' : 'Reveal all answers'}
@@ -159,7 +159,7 @@ export function StepView({
           type="button"
           onClick={onPrevious}
           disabled={!hasPrevious}
-          className="rounded-lg border border-[#AFA9EC] bg-white px-4 py-2 text-sm font-semibold text-[#3C3489] disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg border border-[#AFA9EC] bg-white px-4 py-2 text-sm font-semibold text-[#3C3489] disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8]"
         >
           Prev step
         </button>
@@ -167,7 +167,7 @@ export function StepView({
           type="button"
           onClick={onNext}
           disabled={!hasNext}
-          className="rounded-lg border border-[#AFA9EC] bg-white px-4 py-2 text-sm font-semibold text-[#3C3489] disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg border border-[#AFA9EC] bg-white px-4 py-2 text-sm font-semibold text-[#3C3489] disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8]"
         >
           Next step
         </button>

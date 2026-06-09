@@ -22,3 +22,10 @@ body {
     radial-gradient(circle at 90% 10%, #f4f0ff 0%, rgba(244, 240, 255, 0) 35%),
     #f9f9f8;
 }
+
+html.dark body {
+  background:
+    radial-gradient(circle at 0% 0%, #1a1840 0%, rgba(26, 24, 64, 0) 40%),
+    radial-gradient(circle at 90% 10%, #1a1840 0%, rgba(26, 24, 64, 0) 35%),
+    #0f0f11;
+}

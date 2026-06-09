@@ -7,11 +7,11 @@ interface ModeToggleProps {
 
 export function ModeToggle({ mode, onChange }: ModeToggleProps) {
   return (
-    <div className="inline-flex rounded-full border border-[#AFA9EC] bg-[#EEEDFE] p-1">
+    <div className="inline-flex rounded-full border border-[#AFA9EC] bg-[#EEEDFE] p-1 dark:border-zinc-600 dark:bg-zinc-800">
       <button
         type="button"
         className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-          mode === 'study' ? 'bg-[#534AB7] text-white' : 'text-[#3C3489]'
+          mode === 'study' ? 'bg-[#534AB7] text-white' : 'text-[#3C3489] dark:text-[#a5a0e8]'
         }`}
         onClick={() => onChange('study')}
       >
@@ -20,7 +20,7 @@ export function ModeToggle({ mode, onChange }: ModeToggleProps) {
       <button
         type="button"
         className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-          mode === 'exam' ? 'bg-[#534AB7] text-white' : 'text-[#3C3489]'
+          mode === 'exam' ? 'bg-[#534AB7] text-white' : 'text-[#3C3489] dark:text-[#a5a0e8]'
         }`}
         onClick={() => onChange('exam')}
       >
