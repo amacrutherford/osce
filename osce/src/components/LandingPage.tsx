@@ -28,7 +28,9 @@ export function LandingPage({
     <div className="mx-auto w-full max-w-2xl px-4 py-10 md:py-14">
       <div className="mb-8">
         <p className="mb-4 text-sm italic text-[#6b6b6b] dark:text-zinc-400">
-          Built to help my girlfriend through OSCEs, hopefully it can help you too!
+          Built to help my girlfriend through OSCEs, hopefully it can help you too! Work through examination steps, see the questions an examiner might ask, and practice with full mock stations.
+
+          Don't have a pal to practice with? Export the mock stations as a prompt so you can use your favourite AI Chatbot to fill in as the patient/examiner.
         </p>
         <h2 className="text-xl font-bold text-[#1a1a1a] dark:text-zinc-100">Choose an exam</h2>
         <p className="mt-1 text-sm text-[#6b6b6b] dark:text-zinc-400">
