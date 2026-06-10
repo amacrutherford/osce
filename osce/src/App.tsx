@@ -297,7 +297,7 @@ function App() {
   const tabs: { id: AppTab; label: string }[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'guide', label: 'Step Guide' },
-    { id: 'summary', label: 'High-Yield Summary' },
+    { id: 'summary', label: 'Key Facts' },
     { id: 'results', label: 'Finish & Score' },
   ];
 
@@ -383,10 +383,17 @@ function App() {
                 </svg>
               </button>
               {!activeMockExam && <ModeToggle mode={mode} onChange={setMode} />}
-              {!activeMockExam && mode === 'exam' && <ExamTimer />}
-              <div className="flex-1 min-w-0">
-                <SearchBar value={searchTerm} onChange={setSearchTerm} />
-              </div>
+              {!activeMockExam && (
+                <div className="flex-1 min-w-0">
+                  <SearchBar
+                    value={searchTerm}
+                    onChange={(v) => {
+                      setSearchTerm(v);
+                      if (v) setActiveTab('guide');
+                    }}
+                  />
+                </div>
+              )}
             </>
           )}
           </div>
@@ -412,30 +419,33 @@ function App() {
           />
         ) : (
           <>
-            <div className="mb-4 flex flex-wrap gap-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                    activeTab === tab.id
-                      ? 'bg-[#534AB7] text-white'
-                      : 'border border-[#AFA9EC] bg-white text-[#3C3489] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8]'
-                  }`}
-                >
-                  {tab.label}
-                  {tab.id === 'results' && totalMarked > 0 && (
-                    <span
-                      className={`ml-2 rounded-full px-1.5 py-0.5 text-xs font-bold ${
-                        activeTab === 'results' ? 'bg-white/25 text-white' : 'bg-[#534AB7] text-white'
-                      }`}
-                    >
-                      {totalCorrect}/{totalMarked}
-                    </span>
-                  )}
-                </button>
-              ))}
+            <div className="mb-4 flex items-center gap-2">
+              <div className="flex flex-1 flex-wrap gap-2">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                      activeTab === tab.id
+                        ? 'bg-[#534AB7] text-white'
+                        : 'border border-[#AFA9EC] bg-white text-[#3C3489] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8]'
+                    }`}
+                  >
+                    {tab.label}
+                    {tab.id === 'results' && totalMarked > 0 && (
+                      <span
+                        className={`ml-2 rounded-full px-1.5 py-0.5 text-xs font-bold ${
+                          activeTab === 'results' ? 'bg-white/25 text-white' : 'bg-[#534AB7] text-white'
+                        }`}
+                      >
+                        {totalCorrect}/{totalMarked}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+              {mode === 'exam' && <ExamTimer />}
             </div>
 
             <ProgressBar value={totalRevealed} max={totalExaminerQuestions} />
@@ -464,7 +474,7 @@ function App() {
                       onClick={() => setActiveTab('summary')}
                       className="rounded-xl border border-[#AFA9EC] bg-white px-5 py-2.5 text-sm font-semibold text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
                     >
-                      High-Yield Summary
+                      Key Facts
                     </button>
                   </div>
                 </div>

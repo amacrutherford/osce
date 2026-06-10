@@ -185,16 +185,14 @@ export function MockExamView({ exam, onBack, isCompleted, onToggleCompleted }: M
             </button>
           ))}
         </div>
-        {activeTab === 'viva' && (
-          <button
-            type="button"
-            onClick={() => setShowFeedback(true)}
-            className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#AFA9EC] bg-white text-sm font-bold text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
-            aria-label="Send feedback"
-          >
-            ?
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => setShowFeedback(true)}
+          className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#AFA9EC] bg-white text-sm font-bold text-[#3C3489] transition hover:bg-[#EEEDFE] dark:border-zinc-700 dark:bg-zinc-800 dark:text-[#a5a0e8] dark:hover:bg-zinc-700"
+          aria-label="Send feedback"
+        >
+          ?
+        </button>
       </div>
 
       {showFeedback && (
